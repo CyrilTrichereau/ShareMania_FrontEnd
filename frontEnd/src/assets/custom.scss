@@ -1,20 +1,31 @@
 // Define variable defaults
-$body-bg: #000;
-$body-color: #111;
+$body-bg: rgb(235, 217, 217);
+
+// ----------
+// COLORS
+// ----------
+$primary: #4d7c8a;
+$secondary: #938f60;
+// $Success: ;
+$danger: #c02200;
+// $Warning: ;
+// $Info: ;
+$light: #fdfeff;
+$dark: #3c464e;
+
+// ----------
+// TITLE
+// ----------
 
 
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
-
-
-
-
-
-
-
-
-
+html, body {
+  font-family: "Roboto", Georgia, 'Times New Roman', Times, serif,sans-serif;
+}
 
 
 // Then import Bootstrap an BootstrapVue SCSS files (order is important)
-@import 'node_modules/bootstrap/scss/bootstrap.scss';
-@import 'node_modules/bootstrap-vue/src/index.scss';
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/bootstrap-vue/src/index.scss";
+
