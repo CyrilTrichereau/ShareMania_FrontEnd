@@ -1,0 +1,54 @@
+<template>
+  <div class="postOriginal bg-info">
+    <div class="postOriginalProfil">
+      <img
+        src="../../../public/images/testStatic/maleProfile1.jpg"
+        alt=""
+        class="postOriginalProfilPicture"
+      />
+      <p class="postOriginalProfilName text-primary">FunnyAccount</p>
+    </div>
+    <p class="postOriginalComment">Et paf la patate !!!</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "PostOriginal",
+};
+</script>
+
+<style scoped lang="scss">
+.postOriginal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 15px 15px;
+
+  &Profil {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    &Picture {
+      width: 40px;
+      height: 40px;
+      border-radius: 50px;
+      margin: 0 0.5rem;
+      object-fit: cover;
+      object-position: center;
+    }
+    &Name {
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+  &Comment {
+    margin: 0.5rem 0;
+  }
+}
+</style>

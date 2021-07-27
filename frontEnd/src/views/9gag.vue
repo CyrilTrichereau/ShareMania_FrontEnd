@@ -1,20 +1,20 @@
 <template>
-  <div class="home">
+  <div class="9gag">
     <HeaderMobile />
-    <DisplayPosts class="displayPosts" />
+    <DisplayPosts9gag class="displayPosts9gag" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HeaderMobile from "@/components/header/headerMobile.vue";
-import DisplayPosts from "@/components/displayPosts.vue";
+import DisplayPosts9gag from "@/components/displayPosts9gag.vue";
 
 export default {
-  name: "Home",
+  name: "9gag",
   components: {
     HeaderMobile,
-    DisplayPosts,
+    DisplayPosts9gag,
   },
 };
 </script>

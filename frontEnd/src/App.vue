@@ -2,7 +2,10 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/new-post">Nouveau post</router-link> |
+      <router-link to="/9gag">9gag</router-link> |
+      <router-link to="/my-profile">Mon profil</router-link> |
+      <router-link to="/login">Page de connexion</router-link> |
     </div>
     <router-view/>
   </div>
@@ -18,6 +21,9 @@
 }
 
 #nav {
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
   padding: 30px;
 
   a {

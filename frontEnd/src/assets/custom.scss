@@ -1,6 +1,3 @@
-// Define variable defaults
-$body-bg: rgb(235, 217, 217);
-
 // ----------
 // COLORS
 // ----------
@@ -9,23 +6,36 @@ $secondary: #938f60;
 // $Success: ;
 $danger: #c02200;
 // $Warning: ;
-// $Info: ;
+$info:rgba(77, 124, 138, .05);
 $light: #fdfeff;
 $dark: #3c464e;
 
 // ----------
-// TITLE
+// FONT FAMILY
 // ----------
 
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+  body, h1, h2, h3, h4, h5, h6, p, a {
+    font-family: "Source Sans Pro", 'Trebuchet MS', sans-serif, 'Times New Roman';
+    color: $dark;
+  }
 
-html, body {
-  font-family: "Roboto", Georgia, 'Times New Roman', Times, serif,sans-serif;
-}
 
+// ----------
+// CONATINERS
+// ----------
+  $container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
+  );
 
 // Then import Bootstrap an BootstrapVue SCSS files (order is important)
 @import "node_modules/bootstrap/scss/bootstrap.scss";
 @import "node_modules/bootstrap-vue/src/index.scss";
+
+
 
