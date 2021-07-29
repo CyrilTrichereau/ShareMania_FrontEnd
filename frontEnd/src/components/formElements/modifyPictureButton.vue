@@ -13,6 +13,6 @@ export default {
 <style scoped lang="scss">
 .modifyButton {
   border: white solid 2px;
-
+  padding: 0.5rem 2rem;
 }
 </style>

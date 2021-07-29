@@ -39,6 +39,7 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   width: 90%;
+  max-width: 600px;
   &Title {
       font-size: 1.8rem;
   }

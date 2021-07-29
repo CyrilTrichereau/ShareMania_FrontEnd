@@ -1,12 +1,11 @@
 <template>
-  <div class="profileModify">
+  <div class="profileModify card container">
     <img
       src="../../../public/images/testStatic/femaleProfile4.jpg"
       alt="Nom du profil"
       class="profileModifyPicture"
     />
-
-    <div class="profileModifyContent card container">
+    <div class="profileModifyContent">
       <ModifyPictureButton class="profileModifyContentModifyPictureButton" />
       <div class="profileModifyContentStatus">
         <font-awesome-icon
@@ -17,33 +16,18 @@
           Modérateur
         </p>
       </div>
-
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <div class="bg-info profileModifyContentOldPassword">
-        <PasswordBlock class="profileModifyContentOldPasswordComponent" />
+      <div class="bg-info profileModifyContentInputBlock">
+        <PasswordBlock class="profileModifyContentInputBlockComponent" />
       </div>
-
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <div class="bg-info profileModifyContentNewPassword">
-        <PasswordBlock class="profileModifyContentNewPasswordComponent" />
+      <div class="bg-info profileModifyContentInputBlock">
+        <PasswordBlock class="profileModifyContentInputBlockComponent" />
       </div>
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <div class="bg-info profileModifyContentAlias">
-        <AliasBlock class="profileModifyContentAliasComponent" />
+      <div class="bg-info profileModifyContentInputBlock">
+        <AliasBlock class="profileModifyContentInputBlockComponent" />
       </div>
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <div class="bg-info profileModifyContentService">
-        <ServiceBlock class="profileModifyContentServiceComponent" />
+      <div class="bg-info profileModifyContentInputBlock">
+        <ServiceBlock class="profileModifyContentInputBlockComponent" />
       </div>
-
       <ValidateButton class="profileModifyContentValidateButton" />
     </div>
   </div>
@@ -53,7 +37,7 @@
 import ModifyPictureButton from "@/components/formElements/modifyPictureButton.vue";
 import PasswordBlock from "@/components/formElements/passwordBlock.vue";
 import AliasBlock from "@/components/formElements/aliasBlock.vue";
-import ServiceBlock from "@/components/formElements/passwordBlock.vue";
+import ServiceBlock from "@/components/formElements/serviceBlock.vue";
 import ValidateButton from "@/components/formElements/validateButton.vue";
 
 export default {
@@ -70,27 +54,34 @@ export default {
 
 <style scoped lang="scss">
 .profileModify {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 160px;
+  padding: 0;
+  width: 92%;
+  max-width: 600px;
   &Picture {
+    position: relative;
+    top: -140px;
     width: 280px;
     height: 280px;
     border-radius: 500px;
     object-fit: cover;
     object-position: center;
-    z-index: 99;
   }
   &Content {
-    z-index: -1;
-    top: -140px;
-    padding: 160px 0 2rem 0;
-
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    width: 100%;
+    top: -140px;
 
-    width: 92%;
     &ModifyPictureButton {
-        
     }
     &Status {
       display: flex;
@@ -106,7 +97,7 @@ export default {
         margin: 0;
       }
     }
-    &OldPassword {
+    &InputBlock {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -115,39 +106,7 @@ export default {
       margin: 1rem 0;
       &Component {
         width: 90%;
-      }
-    }
-    &NewPassword {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      margin: 1rem 0;
-      &Component {
-        width: 90%;
-      }
-    }
-    &Alias {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      margin: 1rem 0;
-      &Component {
-        width: 90%;
-      }
-    }
-    &Service {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      margin: 1rem 0;
-      &Component {
-        width: 90%;
+        max-width: 350px;
       }
     }
     &ValidateButton {

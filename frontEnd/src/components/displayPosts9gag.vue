@@ -31,17 +31,18 @@ export default {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-    &Header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 90%;
-  &Title {
+  width: 92%;
+  &Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 900px;
+    &Title {
       font-size: 1.8rem;
-  }
-
     }
+  }
 }
 </style>

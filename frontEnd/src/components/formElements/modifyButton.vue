@@ -13,5 +13,6 @@ export default {
 <style scoped lang="scss">
 .modifyPictureButton {
   border: white solid 2px;
+  padding: 0.5rem 2rem;
 }
 </style>

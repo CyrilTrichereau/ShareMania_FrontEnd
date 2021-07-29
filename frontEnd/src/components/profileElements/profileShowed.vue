@@ -1,12 +1,12 @@
 <template>
-  <div class="profileShowed">
+  <div class="profileShowed card container">
     <img
       src="../../../public/images/testStatic/femaleProfile4.jpg"
       alt="Nom du profil"
       class="profileShowedPicture"
     />
 
-    <div class="profileShowedContent card container">
+    <div class="profileShowedContent">
       <div class="profileShowedContentStatus">
         <font-awesome-icon
           icon="shield-alt"
@@ -16,10 +16,6 @@
           Modérateur
         </p>
       </div>
-
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
       <div class="bg-info profileShowedContentEmail">
         <p class="text-primary h4 profileShowedContentEmailTitle">
           Adresse email
@@ -28,10 +24,6 @@
           sophia.popoulos@gmail.com
         </p>
       </div>
-
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
       <div class="bg-info profileShowedContentPassword">
         <p class="text-primary h4 profileShowedContentPasswordTitle">
           Mot de passe
@@ -39,22 +31,14 @@
         <p class="profileShowedContentPasswordText">
           **********
         </p>
-      </div>
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <div class="bg-info profileShowedContentAlias">
+      </div>      <div class="bg-info profileShowedContentAlias">
         <p class="text-primary h4 profileShowedContentAliasTitle">
           Pseudo
         </p>
         <p class="profileShowedContentAliasText">
           SophiaPopoulos64
         </p>
-      </div>
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <!-- ------------------------- -->
-      <div class="bg-info profileShowedContentService">
+      </div>      <div class="bg-info profileShowedContentService">
         <p class="text-primary h4 profileShowedContentServiceTitle">
           Service
         </p>
@@ -85,25 +69,33 @@ export default {
 
 <style scoped lang="scss">
 .profileShowed {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 160px;
+  padding: 0;
+  width: 92%;
+  max-width: 600px;
   &Picture {
+    position: relative;
+    top: -140px;
     width: 280px;
     height: 280px;
     border-radius: 500px;
     object-fit: cover;
     object-position: center;
-    z-index: 99;
   }
   &Content {
-    z-index: -1;
-    top: -140px;
-    padding: 160px 0 2rem 0;
-
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    top: -140px;
+    width: 100%;
 
-    width: 92%;
     &Status {
       display: flex;
       flex-direction: row;

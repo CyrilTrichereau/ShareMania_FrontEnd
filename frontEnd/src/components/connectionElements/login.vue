@@ -1,8 +1,8 @@
 <template>
   <div class="bg-primary login">
     <p class="loginTitle text-light h2">Connexion</p>
-    <EmailBlock class="loginEmail" />
-    <PasswordBlock class="loginPassword" />
+    <EmailBlock class="loginBlock" />
+    <PasswordBlock class="loginBlock" />
     <ValidateButton class="loginValidateButton" />
     <p class="loginForgottenPassword text-light">
       Mot de passe oublié ? <br />
@@ -36,11 +36,9 @@ export default {
   &Title {
     margin: 1rem 0;
   }
-  &Email {
+  &Block {
     color: white;
-  }
-  &Password {
-    color: white;
+    width: 80%;
   }
   &ValidateButton {
     width: 100%;

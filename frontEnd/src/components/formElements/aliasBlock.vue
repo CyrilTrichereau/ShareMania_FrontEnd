@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group my-2">
+  <div class="form-group my-2 inputBlock">
     <label for="aliasBlock">Pseudo</label>
     <input
       type="text"
@@ -16,4 +16,11 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.inputBlock {
+  width: 100%;
+  max-width: 600px;
+}
+  
+  
+  </style>

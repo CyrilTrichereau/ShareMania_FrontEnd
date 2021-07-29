@@ -52,6 +52,7 @@ export default {
   justify-content: flex-start;
   align-items: flex-start;
   margin: 1rem 0;
+  width: 92%;
   &PictureProfile {
     width: 50px;
     height: 50px;
@@ -65,6 +66,7 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    width: 80%;
     border-radius: 15px;
     margin-right: 2%;
     &Header {
@@ -98,6 +100,7 @@ export default {
       justify-content: space-around;
       align-items: center;
       width: 90%;
+      max-width: 260px;
       margin: 0.5rem 10%;
       &Fire {
         font-size: 1.4rem;

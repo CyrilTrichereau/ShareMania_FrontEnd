@@ -1,6 +1,8 @@
 <template>
-  <div class="form-group my-2">
-    <select class="form-select" aria-label="Sélectionnez votre service" required>
+  <div class="form-group my-2 inputBlock">
+        <label for="selectServiceSelection">Sélectionnez votre service</label>
+
+    <select class="form-select selectService" id="selectServiceSelection" aria-label="Sélectionnez votre service" required>
       <option selected class="text-wrap">Sélectionnez votre service</option>
       <option value="Achats">Achats</option>
       <option value="Commercial">Commercial</option>
@@ -17,4 +19,17 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.selectService {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  padding: 0.5rem;
+  width: 100%;
+}
+.inputBlock {
+  width: 100%;
+  max-width: 600px;
+}
+</style>

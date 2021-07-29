@@ -48,10 +48,10 @@ export default {
     padding: 1rem 0;
     &Profile {
       display: flex;
-      width: 100%;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
+      width: 100%;
       &Picture {
         width: 60px;
         height: 60px;
@@ -71,9 +71,6 @@ export default {
       margin: 0.5rem 0;
     }
     &ValidateButton {
-      width: 14rem;
-      margin-bottom: -1.2rem;
-      margin-top: -1.2rem;
     }
   }
 }

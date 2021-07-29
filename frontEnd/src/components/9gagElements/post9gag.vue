@@ -1,5 +1,5 @@
 <template>
-  <div class="container card col-11 bg-dark col-lg-8 p-0 my-1 post9gag">
+  <div class="container card bg-dark post9gag">
     <HeaderPost9gag />
     <img
       src="../../../public/images/testStatic/funFrogs.jpg"
@@ -27,6 +27,10 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding: 0;
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 900px;
   &Picture {
     width: 100%;
     object-fit: cover;

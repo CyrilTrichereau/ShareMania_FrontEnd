@@ -1,5 +1,5 @@
 <template>
-  <div class="container card col-11 bg-light col-lg-8 p-0 my-4">
+  <div class="container card bg-light postCard">
     <PostHeader/>
     <PostContent/>
     <PostOriginal/>
@@ -29,5 +29,9 @@ export default {
 
 
 <style scoped lang="scss">
-
+.postCard {
+  width: 92%;
+  max-width: 900px;
+  margin: 1rem 0;
+}
 </style>

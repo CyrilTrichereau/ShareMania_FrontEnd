@@ -23,6 +23,7 @@
 #nav {
   position: fixed;
   bottom: 0;
+  right: 0;
   z-index: 99;
   padding: 30px;
 

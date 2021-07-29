@@ -22,6 +22,7 @@ export default {
   align-items: center;
   position: relative;
   margin: 0.2rem 0;
+  padding: 0.5rem 0;
   width: 100%;
   &Logo9gag {
       width: 4rem;

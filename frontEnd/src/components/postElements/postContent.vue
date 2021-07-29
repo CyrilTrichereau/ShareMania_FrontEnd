@@ -1,6 +1,6 @@
 <template>
   <div class="postContent bg-info">
-    <p class="postContentComment">
+    <p class="postContentComment h5">
       Trop rigolo l'histoire de la patate qui meurt !
     </p>
     <img
@@ -21,7 +21,8 @@ export default {
 .postContent {
   border-radius: 15px 15px 0 0;
   &Comment {
-    margin: 0.3rem;
+    margin: 1.5rem 1.5rem;
+    text-align: left;
   }
   &Picture {
     width: 100%;
