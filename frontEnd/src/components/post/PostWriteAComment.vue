@@ -17,11 +17,11 @@
 </template>
 
 <script>
-import TextBlock from "@/components/formElements/textBlock.vue";
-import ValidateButton from "@/components/formElements/validateButton.vue";
+import TextBlock from "@/components/form/TextBlock.vue";
+import ValidateButton from "@/components/form/ValidateButton.vue";
 
 export default {
-  name: "WriteAComment",
+  name: "PostWriteAComment",
   components: {
     TextBlock, ValidateButton
   },

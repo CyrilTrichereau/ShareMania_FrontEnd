@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import EmailBlock from "@/components/formElements/emailBlock.vue";
-import PasswordBlock from "@/components/formElements/passwordBlock.vue";
-import ValidateButton from "@/components/formElements/validateButton.vue";
+import EmailBlock from "@/components/form/EmailBlock.vue";
+import PasswordBlock from "@/components/form/PasswordBlock.vue";
+import ValidateButton from "@/components/form/ValidateButton.vue";
 
 export default {
   name: "Login",

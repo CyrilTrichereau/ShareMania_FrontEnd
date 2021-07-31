@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <button class="btn btn-primary my-2 modifyPictureButton">Modifier la photo de profil</button>
-  </div>
+  <a href="/my-profile/modify">
+    <button class="btn btn-primary my-2 modifyPictureButton">Modifier mon profil</button>
+  </a>
 </template>
 
 <script>

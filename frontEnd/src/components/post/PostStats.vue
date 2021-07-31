@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import DoubleFire from "@/components/icons/doubleFire.vue";
+import DoubleFire from "@/components/icons/DoubleFire.vue";
 
 export default {
   name: "PostStats",
@@ -36,7 +36,7 @@ export default {
 .postStats {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin: 1rem 0.5rem;
   &Temperature {

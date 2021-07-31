@@ -1,33 +1,42 @@
 <template>
   <div class="bg-primary text-light d-none d-lg-flex sideBar">
-    <div class="sideBarTrademark">
+    <a href="/" class="sideBarTrademark">
       <img
         src="../../../public/images/groupomaniaLogoWhite100pxTinyfied.png"
         alt="ShareMania Logo"
         class="sideBarTrademarkLogo"
       />
       <p class="h2 text-light sideBarTrademarkText">ShareMania</p>
-    </div>
+    </a>
     <div class="sideBarProfile">
-      <font-awesome-icon
-        icon="user"
-        class="d-none text-light sideBarProfileUserIcon"
-      />
-      <img
-        src="../../../public/images/testStatic/femaleProfile3.jpg"
-        alt="Nom du profil"
-        class="sideBarProfilePicture"
-      />
+      <a href="/login">
+        <font-awesome-icon
+          icon="user"
+          class="d-none text-light sideBarProfileUserIcon"
+        />
+      </a>
+      <a href="/my-profile">
+        <img
+          src="../../../public/images/testStatic/femaleProfile3.jpg"
+          alt="Nom du profil"
+          class="sideBarProfilePicture"
+        />
+      </a>
       <div class="sideBarProfileContent">
-        <p class="text-light h4 sideBarProfileContentName">Becassine62</p>
-        <p class="text-light sideBarProfileContentModify">
+        <a href="/my-profile" class="text-light h4 sideBarProfileContentName">
+          Becassine62
+        </a>
+        <a
+          href="/my-profile/modify"
+          class="text-light sideBarProfileContentModify"
+        >
           Modifier mon profil
-        </p>
+        </a>
         <p class="text-light sideBarProfileContentLogOut">Déconnexion</p>
       </div>
     </div>
 
-    <div class="sideBarMenu">
+    <a href="/new-post" class="sideBarMenu">
       <font-awesome-icon
         icon="plus-circle"
         class="sideBarMenuIcon text-light "
@@ -35,16 +44,16 @@
       <p class="text-light h4 sideBarMenuText">
         Nouveau post
       </p>
-    </div>
+    </a>
 
-    <div class="sideBarMenu">
+    <a href="/" class="sideBarMenu">
       <font-awesome-icon icon="newspaper" class="sideBarMenuIcon text-light " />
       <p class="text-light h4 sideBarMenuText">
         Fil d'actualités
       </p>
-    </div>
+    </a>
 
-    <div class="sideBarMenu">
+    <a href="/9gag" class="sideBarMenu">
       <img
         src="../../../public/images/logo9gagWhite.png"
         alt="Redirection vers les posts 9GAG"
@@ -53,9 +62,9 @@
       <p class="text-light h4 sideBarMenuText">
         9GAG
       </p>
-    </div>
+    </a>
 
-    <div class="sideBarMenu">
+    <a class="sideBarMenu">
       <img
         src="../../../public/images/logoRedditTinified300px.png"
         alt="Redirection vers les posts Reddit"
@@ -64,7 +73,7 @@
       <p class="text-light h4 sideBarMenuText">
         Reddit
       </p>
-    </div>
+    </a>
   </div>
 </template>
 
@@ -105,8 +114,9 @@ export default {
   &Profile {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+    gap: 0.5rem;
     width: 100%;
     margin: 2rem 0;
     padding: 1rem 0;
@@ -146,10 +156,10 @@ export default {
     margin: 1rem 0;
     &Icon {
       font-size: 3rem;
-  width: 54px;
+      width: 54px;
     }
     &Text {
-
+      margin: 0;
     }
   }
 }

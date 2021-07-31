@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import SortingByButton from "@/components/formElements/sortingByButton.vue";
-import Post9gag from "@/components/9gagElements/post9gag.vue";
+import SortingByButton from "@/components/form/SortingByButton.vue";
+import Post9gag from "@/components/post/Post9gag.vue";
 
 export default {
-  name: "DisplayPosts",
+  name: "Posts9gagList",
   components: {
     SortingByButton,
     Post9gag,
@@ -30,8 +30,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
-  width: 92%;
+  width: 100%;
   &Header {
     display: flex;
     flex-direction: row;
@@ -39,7 +38,7 @@ export default {
     align-items: center;
     flex-wrap: wrap;
     width: 90%;
-    max-width: 900px;
+    max-width: 600px;
     &Title {
       font-size: 1.8rem;
     }

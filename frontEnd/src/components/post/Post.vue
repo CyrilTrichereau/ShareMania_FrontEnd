@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import PostHeader from '@/components/postElements/postHeader.vue'
-import PostContent from '@/components/postElements/postContent.vue'
-import PostOriginal from '@/components/postElements/postOriginal.vue'
-import PostStats from '@/components/postElements/postStats.vue'
-import PostIntercation from '@/components/postElements/postIntercation.vue'
-import WriteAComment from '@/components/postElements/writeAComment.vue'
-import DisplayComments from '@/components/postElements/displayComments.vue'
+import PostHeader from '@/components/post/PostHeader.vue'
+import PostContent from '@/components/post/PostContent.vue'
+import PostOriginal from '@/components/post/PostOriginal.vue'
+import PostStats from '@/components/post/PostStats.vue'
+import PostIntercation from '@/components/post/PostIntercation.vue'
+import WriteAComment from '@/components/post/PostWriteAComment.vue'
+import DisplayComments from '@/components/post/PostCommentsList.vue'
 
 export default {
   name: "Post",
@@ -33,5 +33,6 @@ export default {
   width: 92%;
   max-width: 900px;
   margin: 1rem 0;
+  padding: 0;
 }
 </style>

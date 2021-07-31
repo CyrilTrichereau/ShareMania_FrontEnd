@@ -34,11 +34,11 @@
 </template>
 
 <script>
-import ModifyPictureButton from "@/components/formElements/modifyPictureButton.vue";
-import PasswordBlock from "@/components/formElements/passwordBlock.vue";
-import AliasBlock from "@/components/formElements/aliasBlock.vue";
-import ServiceBlock from "@/components/formElements/serviceBlock.vue";
-import ValidateButton from "@/components/formElements/validateButton.vue";
+import ModifyPictureButton from "@/components/form/ModifyPictureButton.vue";
+import PasswordBlock from "@/components/form/PasswordBlock.vue";
+import AliasBlock from "@/components/form/AliasBlock.vue";
+import ServiceBlock from "@/components/form/ServiceBlock.vue";
+import ValidateButton from "@/components/form/ValidateButton.vue";
 
 export default {
   name: "ProfileModify",

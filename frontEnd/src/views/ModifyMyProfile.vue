@@ -1,17 +1,17 @@
 <template>
   <div class="mx-auto my-lg-4 myProfile">
-    <ProfileShowed />
+    <ProfileModify />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import ProfileShowed from "@/components/profile/ProfileShowed.vue";
+import ProfileModify from "@/components/profile/ProfileModify.vue";
 
 export default {
   name: "MyProfile",
   components: {
-    ProfileShowed,
+    ProfileModify,
   },
 };
 </script>
@@ -22,6 +22,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
   width: 100%;
   margin-top: 4rem;
 }

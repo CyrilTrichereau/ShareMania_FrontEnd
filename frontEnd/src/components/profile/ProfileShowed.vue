@@ -31,14 +31,16 @@
         <p class="profileShowedContentPasswordText">
           **********
         </p>
-      </div>      <div class="bg-info profileShowedContentAlias">
+      </div>
+      <div class="bg-info profileShowedContentAlias">
         <p class="text-primary h4 profileShowedContentAliasTitle">
           Pseudo
         </p>
         <p class="profileShowedContentAliasText">
           SophiaPopoulos64
         </p>
-      </div>      <div class="bg-info profileShowedContentService">
+      </div>
+      <div class="bg-info profileShowedContentService">
         <p class="text-primary h4 profileShowedContentServiceTitle">
           Service
         </p>
@@ -55,8 +57,8 @@
 </template>
 
 <script>
-import ModifyButton from "@/components/formElements/modifyButton.vue";
-import EraseProfileButton from "@/components/formElements/eraseProfileButton.vue";
+import ModifyButton from "@/components/form/ModifyButton.vue";
+import EraseProfileButton from "@/components/form/EraseProfileButton.vue";
 
 export default {
   name: "ProfileShowed",

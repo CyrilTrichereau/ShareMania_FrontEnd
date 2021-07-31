@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import SortingByButton from "@/components/formElements/sortingByButton.vue";
-import Comment from "@/components/postElements/comment.vue";
+import SortingByButton from "@/components/form/SortingByButton.vue";
+import Comment from "@/components/post/PostComment.vue";
 
 export default {
-  name: "DisplayComments",
+  name: "PostCommentsList",
   components: {
     SortingByButton,
     Comment,

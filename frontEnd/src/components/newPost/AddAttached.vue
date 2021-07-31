@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import DisplayPosts9gag from "@/components/displayPosts9gag.vue";
+import DisplayPosts9gag from "@/components/Posts9gagList.vue";
 
 export default {
   name: "AddAttached",
@@ -34,6 +34,7 @@ export default {
   justify-content: space-around;
   align-items: center;
   margin: 2rem 0;
+  width: 100%;
   &Filter {
     display: flex;
     flex-direction: row;

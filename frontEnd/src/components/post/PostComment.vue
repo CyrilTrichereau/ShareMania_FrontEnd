@@ -41,7 +41,7 @@
 
 <script>
 export default {
-  name: "Comment",
+  name: "PostComment",
 };
 </script>
 

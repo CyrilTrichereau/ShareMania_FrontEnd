@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import EmailBlock from "@/components/formElements/emailBlock.vue";
-import ValidateButton from "@/components/formElements/validateButton.vue";
+import EmailBlock from "@/components/form/EmailBlock.vue";
+import ValidateButton from "@/components/form/ValidateButton.vue";
 
 export default {
   name: "ForgottenPassword",

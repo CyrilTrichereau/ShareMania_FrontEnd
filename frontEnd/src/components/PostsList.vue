@@ -13,11 +13,11 @@
 
 <script>
 // @ is an alias to /src
-import SortingByButton from "@/components/formElements/sortingByButton.vue";
-import Post from "@/components/postElements/post.vue";
+import SortingByButton from "@/components/form/SortingByButton.vue";
+import Post from "@/components/post/Post.vue";
 
 export default {
-  name: "DisplayPosts",
+  name: "PostsList",
   components: {
     SortingByButton,
     Post,
@@ -32,18 +32,16 @@ export default {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-    &Header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 90%;
-  max-width: 600px;
-  &Title {
+  &Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    &Title {
       font-size: 1.8rem;
-  }
-
     }
+  }
 }
 </style>

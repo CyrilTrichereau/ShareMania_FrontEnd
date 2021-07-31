@@ -1,27 +1,18 @@
 <template>
-  <div class="newPost">
-    <HeaderMobile />
-    <SideBarDesktop />
-    <div class="d-none d-lg-flex newPostSideBarResponsive"></div>
-    <div class="mx-auto my-lg-4 newPostContent">
-      <NewContentText class="newPostContentNewContentText" />
-      <AddAttached class="newPostContentAddAttached" />
-    </div>
+  <div class="mx-auto my-lg-4 newPost">
+    <NewContentText class="newPostNewContentText" />
+    <AddAttached class="newPostAddAttached" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HeaderMobile from "@/components/header/headerMobile.vue";
-import SideBarDesktop from "@/components/header/sideBarDesktop.vue";
-import NewContentText from "@/components/newPostElements/newContentText.vue";
-import AddAttached from "@/components/newPostElements/addAttached.vue";
+import NewContentText from "@/components/newPost/NewContentText.vue";
+import AddAttached from "@/components/newPost/AddAttached.vue";
 
 export default {
   name: "NewPost",
   components: {
-    HeaderMobile,
-    SideBarDesktop,
     NewContentText,
     AddAttached,
   },
@@ -31,21 +22,11 @@ export default {
 <style scoped lang="scss">
 .newPost {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   width: 100%;
-
-  &SideBarResponsive {
-    width: 400px;
-    height: 100%;
-    position: relative;
-    left: 0;
-  }
-  &Content {
-    margin-top: 4rem;
-    width: 100%;
-  }
+  margin-top: 4rem;
 }
 </style>
