@@ -1,7 +1,7 @@
 <template>
   <div class="postHeader">
     <img
-      src="../../../public/images/testStatic/femaleProfile1.jpg"
+      src="@/../public/images/testStatic/femaleProfile1.jpg"
       alt="Image de profil de ..."
       class="pictureProfile"
     />

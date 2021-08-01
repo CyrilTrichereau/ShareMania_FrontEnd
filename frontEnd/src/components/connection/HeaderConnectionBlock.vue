@@ -2,7 +2,7 @@
   <div class="headerConnectionBlock">
     <div class="headerConnectionBlockShareMania bg-primary">
       <img
-        src="../../../public/images/groupomaniaLogoWhite100pxTinyfied.png"
+        src="@/../public/images/groupomaniaLogoWhite100pxTinyfied.png"
         alt="ShareMania Logo"
         class="headerConnectionBlockShareManiaLogo"
       />

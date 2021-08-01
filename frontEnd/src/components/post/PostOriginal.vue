@@ -2,7 +2,7 @@
   <div class="postOriginal bg-info">
     <div class="postOriginalProfil">
       <img
-        src="../../../public/images/testStatic/maleProfile1.jpg"
+        src="@/../public/images/testStatic/maleProfile1.jpg"
         alt=""
         class="postOriginalProfilPicture"
       />

@@ -4,7 +4,7 @@
           Une marque du groupe
         </p>
         <img
-          src="../../../public/images/groupomaniaLogo320pxTinyfied.png"
+          src="@/../public/images/groupomaniaLogo320pxTinyfied.png"
           alt="Groupomania Logo"
           class="fromGroupomaniaLogo"
         />

@@ -1,53 +1,49 @@
 <template>
   <div class="profileModify card container">
     <img
-      src="../../../public/images/testStatic/femaleProfile4.jpg"
+      src="@/../public/images/testStatic/femaleProfile4.jpg"
       alt="Nom du profil"
       class="profileModifyPicture"
     />
     <div class="profileModifyContent">
-      <ModifyPictureButton class="profileModifyContentModifyPictureButton" />
+      <Button text="Changer ma photo de profil" />
       <div class="profileModifyContentStatus">
         <font-awesome-icon
           icon="shield-alt"
           class="text-success profileModifyContentStatusIcon"
         />
         <p class="text-success h4 profileModifyContentStatusText">
-          Modérateur
+          Modérateur 
         </p>
       </div>
       <div class="bg-info profileModifyContentInputBlock">
-        <PasswordBlock class="profileModifyContentInputBlockComponent" />
+        <InputBlock inputName="Ancien mot de passe" inputPlaceHolder="Ancien mot de passe"/>
       </div>
       <div class="bg-info profileModifyContentInputBlock">
-        <PasswordBlock class="profileModifyContentInputBlockComponent" />
+        <InputBlock  inputName="Nouveau mot de passe" inputPlaceHolder="Nouveau mot de passe"/>
       </div>
       <div class="bg-info profileModifyContentInputBlock">
-        <AliasBlock class="profileModifyContentInputBlockComponent" />
+        <InputBlock  inputName="Pseudo" inputPlaceHolder="Ecrivez ici votre pseudo"/>
       </div>
       <div class="bg-info profileModifyContentInputBlock">
         <ServiceBlock class="profileModifyContentInputBlockComponent" />
       </div>
-      <ValidateButton class="profileModifyContentValidateButton" />
+    <Button text="Sauvegarder mes changements"/>
     </div>
   </div>
 </template>
 
 <script>
-import ModifyPictureButton from "@/components/form/ModifyPictureButton.vue";
-import PasswordBlock from "@/components/form/PasswordBlock.vue";
-import AliasBlock from "@/components/form/AliasBlock.vue";
+import Button from "@/components/form/Button.vue";
+import InputBlock from "@/components/form/InputBlock.vue";
 import ServiceBlock from "@/components/form/ServiceBlock.vue";
-import ValidateButton from "@/components/form/ValidateButton.vue";
 
 export default {
   name: "ProfileModify",
   components: {
-    ModifyPictureButton,
-    PasswordBlock,
-    AliasBlock,
+    Button,
+    InputBlock,
     ServiceBlock,
-    ValidateButton,
   },
 };
 </script>
@@ -80,9 +76,6 @@ export default {
     position: relative;
     width: 100%;
     top: -140px;
-
-    &ModifyPictureButton {
-    }
     &Status {
       display: flex;
       flex-direction: row;
@@ -104,13 +97,7 @@ export default {
       align-items: center;
       width: 100%;
       margin: 1rem 0;
-      &Component {
-        width: 90%;
-        max-width: 350px;
-      }
-    }
-    &ValidateButton {
-      width: 100%;
+      padding: 1rem 0;
     }
   }
 }

@@ -2,7 +2,7 @@
   <div class="container card bg-dark post9gag">
     <div class="post9gagHeader">
       <img
-        src="../../../public/images/9gagLogoAndText250pxTinified.png"
+        src="@/../public/images/9gagLogoAndText250pxTinified.png"
         alt="9gag logo"
         class="post9gagHeaderLogo9gag"
       />
@@ -12,7 +12,7 @@
       />
     </div>
     <img
-      src="../../../public/images/testStatic/funFrogs.jpg"
+      src="@/../public/images/testStatic/funFrogs.jpg"
       alt="Mettre le commentaire"
       class="post9gagPicture"
     />

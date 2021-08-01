@@ -1,7 +1,7 @@
 <template>
   <div class="profileShowed card container">
     <img
-      src="../../../public/images/testStatic/femaleProfile4.jpg"
+      src="@/../public/images/testStatic/femaleProfile4.jpg"
       alt="Nom du profil"
       class="profileShowedPicture"
     />
@@ -16,55 +16,53 @@
           Modérateur
         </p>
       </div>
-      <div class="bg-info profileShowedContentEmail">
-        <p class="text-primary h4 profileShowedContentEmailTitle">
+      <div class="bg-info profileShowedContentBlock">
+        <p class="text-primary h4 profileShowedContentBlockTitle">
           Adresse email
         </p>
-        <p class="profileShowedContentEmailText">
+        <p class="profileShowedContentBlockText">
           sophia.popoulos@gmail.com
         </p>
       </div>
-      <div class="bg-info profileShowedContentPassword">
-        <p class="text-primary h4 profileShowedContentPasswordTitle">
+      <div class="bg-info profileShowedContentBlock">
+        <p class="text-primary h4 profileShowedContentBlockTitle">
           Mot de passe
         </p>
-        <p class="profileShowedContentPasswordText">
+        <p class="profileShowedContentBlockText">
           **********
         </p>
       </div>
-      <div class="bg-info profileShowedContentAlias">
-        <p class="text-primary h4 profileShowedContentAliasTitle">
+      <div class="bg-info profileShowedContentBlock">
+        <p class="text-primary h4 profileShowedContentBlockTitle">
           Pseudo
         </p>
-        <p class="profileShowedContentAliasText">
+        <p class="profileShowedContentBlockText">
           SophiaPopoulos64
         </p>
       </div>
-      <div class="bg-info profileShowedContentService">
-        <p class="text-primary h4 profileShowedContentServiceTitle">
+      <div class="bg-info profileShowedContentBlock">
+        <p class="text-primary h4 profileShowedContentBlockTitle">
           Service
         </p>
-        <p class="profileShowedContentServiceText">
+        <p class="profileShowedContentBlockText">
           Ressources Humaines
         </p>
       </div>
-
-      <ModifyButton class="profileShowedContentModifyButton" />
-
-      <EraseProfileButton class="profileShowedContentEraseProfileButton" />
+      <a href="/my-profile/modify">
+        <Button text="Modifier" />
+      </a>
+      <Button text="Supprimer mon compte" :danger="true" />
     </div>
   </div>
 </template>
 
 <script>
-import ModifyButton from "@/components/form/ModifyButton.vue";
-import EraseProfileButton from "@/components/form/EraseProfileButton.vue";
+import Button from "@/components/form/Button.vue";
 
 export default {
   name: "ProfileShowed",
   components: {
-    ModifyButton,
-    EraseProfileButton,
+    Button,
   },
 };
 </script>
@@ -112,43 +110,14 @@ export default {
         margin: 0;
       }
     }
-    &Email {
+    &Block {
+      padding-top: 1rem;
       margin: 1rem 0;
       width: 100%;
       &Title {
       }
       &Text {
       }
-    }
-    &Password {
-      margin: 1rem 0;
-      width: 100%;
-      &Title {
-      }
-      &Text {
-      }
-    }
-    &Alias {
-      margin: 1rem 0;
-      width: 100%;
-      &Title {
-      }
-      &Text {
-      }
-    }
-    &Service {
-      margin: 1rem 0;
-      width: 100%;
-      &Title {
-      }
-      &Text {
-      }
-    }
-    &ModifyButton {
-      width: 100%;
-    }
-    &EraseProfileButton {
-      width: 100%;
     }
   }
 }

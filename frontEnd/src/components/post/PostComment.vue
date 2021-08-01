@@ -1,7 +1,7 @@
 <template>
   <div class="comment">
     <img
-      src="../../../public/images/testStatic/femaleProfile3.jpg"
+      src="@/../public/images/testStatic/femaleProfile3.jpg"
       alt="Nom du profil"
       class="commentPictureProfile"
     />
@@ -66,9 +66,8 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 80%;
+    width: 100%;
     border-radius: 15px;
-    margin-right: 2%;
     &Header {
       display: flex;
       flex-direction: row;

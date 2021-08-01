@@ -1,42 +1,47 @@
 <template>
   <div class="bg-primary text-light d-none d-lg-flex sideBar">
-    <a href="/" class="sideBarTrademark">
+    <!-- SHAREMANIA -->
+    <router-link to="/" class="btn btn-primary sideBarTrademark">
       <img
-        src="../../../public/images/groupomaniaLogoWhite100pxTinyfied.png"
+        src="@/../public/images/groupomaniaLogoWhite100pxTinyfied.png"
         alt="ShareMania Logo"
         class="sideBarTrademarkLogo"
       />
       <p class="h2 text-light sideBarTrademarkText">ShareMania</p>
-    </a>
+    </router-link>
+
+    <!-- PROFILE BLOCK -->
     <div class="sideBarProfile">
-      <a href="/login">
+      <router-link to="/login">
         <font-awesome-icon
           icon="user"
           class="d-none text-light sideBarProfileUserIcon"
         />
-      </a>
-      <a href="/my-profile">
+      </router-link>
+
+      <router-link to="/my-profile" class="sideBarProfilePictureBackground">
         <img
-          src="../../../public/images/testStatic/femaleProfile3.jpg"
+          src="@/../public/images/testStatic/femaleProfile3.jpg"
           alt="Nom du profil"
           class="sideBarProfilePicture"
         />
-      </a>
+      </router-link>
+
       <div class="sideBarProfileContent">
-        <a href="/my-profile" class="text-light h4 sideBarProfileContentName">
+        <router-link to="/my-profile" class="text-light h4 sideBarProfileContentName">
           Becassine62
-        </a>
-        <a
-          href="/my-profile/modify"
+        </router-link>
+        <router-link
+          to="/my-profile/modify"
           class="text-light sideBarProfileContentModify"
         >
           Modifier mon profil
-        </a>
+        </router-link>
         <p class="text-light sideBarProfileContentLogOut">Déconnexion</p>
       </div>
     </div>
 
-    <a href="/new-post" class="sideBarMenu">
+    <router-link to="/new-post" class="btn btn-primary sideBarMenu">
       <font-awesome-icon
         icon="plus-circle"
         class="sideBarMenuIcon text-light "
@@ -44,36 +49,36 @@
       <p class="text-light h4 sideBarMenuText">
         Nouveau post
       </p>
-    </a>
+    </router-link>
 
-    <a href="/" class="sideBarMenu">
+    <router-link to="/" class="btn btn-primary sideBarMenu">
       <font-awesome-icon icon="newspaper" class="sideBarMenuIcon text-light " />
       <p class="text-light h4 sideBarMenuText">
         Fil d'actualités
       </p>
-    </a>
+    </router-link>
 
-    <a href="/9gag" class="sideBarMenu">
+    <router-link to="/9gag" class="btn btn-primary sideBarMenu">
       <img
-        src="../../../public/images/logo9gagWhite.png"
+        src="@/../public/images/logo9gagWhite.png"
         alt="Redirection vers les posts 9GAG"
         class="sideBarMenuIcon"
       />
       <p class="text-light h4 sideBarMenuText">
         9GAG
       </p>
-    </a>
+    </router-link>
 
-    <a class="sideBarMenu">
+    <router-link to="/" class="btn btn-primary sideBarMenu">
       <img
-        src="../../../public/images/logoRedditTinified300px.png"
+        src="@/../public/images/logoRedditTinified300px.png"
         alt="Redirection vers les posts Reddit"
         class="sideBarMenuIcon"
       />
       <p class="text-light h4 sideBarMenuText">
         Reddit
       </p>
-    </a>
+    </router-link>
   </div>
 </template>
 

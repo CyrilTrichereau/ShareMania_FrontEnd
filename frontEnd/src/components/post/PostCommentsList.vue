@@ -34,8 +34,9 @@ export default {
   &Header {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    width: 80%;
     margin-bottom: -0.5rem;
     &Title {
       font-size: 1.3rem;

@@ -4,7 +4,7 @@
       Trop rigolo l'histoire de la patate qui meurt !
     </p>
     <img
-      src="../../../public/images/testStatic/funPotatoes.jpg"
+      src="@/../public/images/testStatic/funPotatoes.jpg"
       alt="Mettre le commentaire posté"
       class="postContentPicture"
     />

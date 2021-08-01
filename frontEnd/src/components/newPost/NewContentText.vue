@@ -12,19 +12,19 @@
       </div>
     </div>
     <TextBlock class="newContentTextBlock" />
-    <ValidateButton class="newContentTextValidateButton" />
+    <Button text="Valider"/>
   </div>
 </template>
 
 <script>
 import TextBlock from "@/components/form/TextBlock.vue";
-import ValidateButton from "@/components/form/ValidateButton.vue";
+import Button from "@/components/form/Button.vue";
 
 export default {
   name: "NewContentText",
   components: {
     TextBlock,
-    ValidateButton,
+    Button,
   },
 };
 </script>
@@ -57,8 +57,6 @@ export default {
     width: 92%;
     max-width: 800px;
     margin-top: 1.5rem;
-  }
-  &ValidateButton {
   }
 }
 </style>

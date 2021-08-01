@@ -1,29 +1,25 @@
 <template>
   <div class="inscription">
     <p class="inscriptionTitle text-primary h2">Inscription</p>
-    <EmailBlock class="inscriptionBlock" />
-    <PasswordBlock class="inscriptionBlock" />
-    <AliasBlock class="inscriptionBlock" />
+        <InputBlock  inputName="Adresse email" inputPlaceHolder="Ecrivez ici votre email" inputType="email"/>
+        <InputBlock  inputName="Mot de passe" inputPlaceHolder="Ecrivez ici votre mot de passe"/>
+        <InputBlock  inputName="Pseudo" inputPlaceHolder="Ecrivez ici votre pseudo"/>
     <ServiceBlock class="inscriptionBlock" />
-    <ValidateButton class="inscriptionValidateButton" />
+    <Button text="Valider"/>
   </div>
 </template>
 
 <script>
-import EmailBlock from "@/components/form/EmailBlock.vue";
-import PasswordBlock from "@/components/form/PasswordBlock.vue";
-import AliasBlock from "@/components/form/AliasBlock.vue";
+import InputBlock from "@/components/form/InputBlock.vue";
 import ServiceBlock from "@/components/form/ServiceBlock.vue";
-import ValidateButton from "@/components/form/ValidateButton.vue";
+import Button from "@/components/form/Button.vue";
 
 export default {
   name: "Inscription",
   components: {
-    EmailBlock,
-    PasswordBlock,
-    AliasBlock,
+    InputBlock,
     ServiceBlock,
-    ValidateButton,
+    Button,
   },
 };
 </script>
@@ -41,9 +37,6 @@ export default {
   }
   &Block {
     width: 80%;
-  }
-  &ValidateButton {
-    width: 100%;
   }
 }
 </style>

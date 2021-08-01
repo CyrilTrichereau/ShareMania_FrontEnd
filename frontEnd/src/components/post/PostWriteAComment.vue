@@ -4,26 +4,27 @@
     <div class="myCommentContent bg-info">
       <div class="myCommentContentProfile">
         <img
-          src="../../../public/images/testStatic/femaleProfile2.jpg"
+          src="@/../public/images/testStatic/femaleProfile2.jpg"
           alt="Nom du profil"
           class="myCommentContentProfilePicture"
         />
         <p class="myCommentContentProfileName text-primary">Becassine32</p>
       </div>
       <TextBlock class="myCommentContentText"/>
-      <ValidateButton class="myCommentContentValidateButton"/>
+    <Button text="Valider"/>
     </div>
   </div>
 </template>
 
 <script>
 import TextBlock from "@/components/form/TextBlock.vue";
-import ValidateButton from "@/components/form/ValidateButton.vue";
+import Button from "@/components/form/Button.vue";
 
 export default {
   name: "PostWriteAComment",
   components: {
-    TextBlock, ValidateButton
+    TextBlock, 
+    Button
   },
 };
 </script>
@@ -69,8 +70,6 @@ export default {
     &Text {
       width: 90%;
       margin: 0.5rem 0;
-    }
-    &ValidateButton {
     }
   }
 }

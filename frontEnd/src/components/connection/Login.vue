@@ -1,9 +1,9 @@
 <template>
   <div class="bg-primary login">
     <p class="loginTitle text-light h2">Connexion</p>
-    <EmailBlock class="loginBlock" />
-    <PasswordBlock class="loginBlock" />
-    <ValidateButton class="loginValidateButton" />
+        <InputBlock  inputName="Adresse email" inputPlaceHolder="Ecrivez ici votre email" inputType="email" :titleLight=true />
+        <InputBlock  inputName="Mot de passe" inputPlaceHolder="Ecrivez ici votre mot de passe" :titleLight=true />
+    <Button text="Valider"/>
     <p class="loginForgottenPassword text-light">
       Mot de passe oublié ? <br />
       C'est par ici !
@@ -12,16 +12,14 @@
 </template>
 
 <script>
-import EmailBlock from "@/components/form/EmailBlock.vue";
-import PasswordBlock from "@/components/form/PasswordBlock.vue";
-import ValidateButton from "@/components/form/ValidateButton.vue";
+import InputBlock from "@/components/form/InputBlock.vue";
+import Button from "@/components/form/Button.vue";
 
 export default {
   name: "Login",
   components: {
-    EmailBlock,
-    PasswordBlock,
-    ValidateButton,
+    InputBlock,
+    Button,
   },
 };
 </script>
@@ -39,9 +37,6 @@ export default {
   &Block {
     color: white;
     width: 80%;
-  }
-  &ValidateButton {
-    width: 100%;
   }
   &ForgottenPassword {
     padding: 1rem 0;

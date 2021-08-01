@@ -8,8 +8,12 @@
         votre mot de passe.
       </p>
     </div>
-    <EmailBlock class="forgottenPasswordBlock" />
-    <ValidateButton class="forgottenPasswordValidateButton" />
+    <InputBlock
+      inputName="Adresse email"
+      inputPlaceHolder="Ecrivez ici votre email"
+      inputType="email"
+    />
+    <Button text="Valider" />
     <p class="text-success forgottenPasswordMessageSuccess">
       Un email de réinitialisation vient de partir. Suivez la procédure pour
       enregistrer un nouveau mot de passe.
@@ -18,14 +22,14 @@
 </template>
 
 <script>
-import EmailBlock from "@/components/form/EmailBlock.vue";
-import ValidateButton from "@/components/form/ValidateButton.vue";
+import InputBlock from "@/components/form/InputBlock.vue";
+import Button from "@/components/form/Button.vue";
 
 export default {
   name: "ForgottenPassword",
   components: {
-    EmailBlock,
-    ValidateButton,
+    InputBlock,
+    Button,
   },
 };
 </script>
@@ -42,11 +46,11 @@ export default {
     margin: 2rem 0;
   }
   &Informations {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     &Text {
       margin: 0.5rem 0;
       width: 80%;
@@ -55,10 +59,8 @@ export default {
   &Block {
     width: 80%;
   }
-  &ValidateButton {
-  }
   &MessageSuccess {
-      width: 80%;
+    width: 80%;
   }
 }
 </style>

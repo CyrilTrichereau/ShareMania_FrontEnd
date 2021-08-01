@@ -1,39 +1,39 @@
 <template>
   <div class="bg-primary text-light fixed-top d-lg-none headerMobile">
     <div class="headerMobileBlock">
-      <a href="/" class="headerMobileBlockTrademark">
+      <router-link to="/" class="btn btn-primary headerMobileBlockTrademark">
         <img
-          src="../../../public/images/groupomaniaLogoWhite100pxTinyfied.png"
+          src="@/../public/images/groupomaniaLogoWhite100pxTinyfied.png"
           alt="ShareMania Logo"
           class="headerMobileBlockTrademarkLogo"
         />
         <p class="h5 text-light headerMobileBlockTrademarkText">ShareMania</p>
-      </a>
+      </router-link>
       <div class="headerMobileBlockMenuBar">
-        <a href="/new-post" class="headerMobileBlockMenuBarWrapper">
+        <router-link to="/new-post" class="btn btn-primary headerMobileBlockMenuBarWrapper">
           <font-awesome-icon
             icon="plus-circle"
             class="text-light headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconAddPost"
           />
-        </a>
-        <div class="headerMobileBlockMenuBarWrapper">
+        </router-link>
+        <div class="btn btn-primary headerMobileBlockMenuBarWrapper">
           <MenuBurger
             class="text-light headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconMenu"
           />
         </div>
-        <a href="/login" class="headerMobileBlockMenuBarWrapper d-none">
+        <router-link to="/login" class="btn btn-primary headerMobileBlockMenuBarWrapper d-none">
           <font-awesome-icon
             icon="user"
             class="text-light headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconUser"
           />
-        </a>
-        <a href="/my-profile" class="headerMobileBlockMenuBarWrapper">
+        </router-link>
+        <router-link to="/my-profile" class="btn btn-primary headerMobileBlockMenuBarWrapper">
           <img
-            src="../../../public/images/testStatic/femaleProfile3.jpg"
+            src="@/../public/images/testStatic/femaleProfile3.jpg"
             alt="Nom du profil"
             class="headerMobileBlockMenuBarWrapperProfilePicture"
           />
-        </a>
+        </router-link>
       </div>
     </div>
   </div>
