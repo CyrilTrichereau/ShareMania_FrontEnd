@@ -16,9 +16,9 @@
             class="text-light headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconAddPost"
           />
         </router-link>
-        <div class="btn btn-primary headerMobileBlockMenuBarWrapper">
+        <div class="headerMobileBlockMenuBarWrapper">
           <MenuBurger
-            class="text-light headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconMenu"
+            class="headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconMenu"
           />
         </div>
         <router-link to="/login" class="btn btn-primary headerMobileBlockMenuBarWrapper d-none">

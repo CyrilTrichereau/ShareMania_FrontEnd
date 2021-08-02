@@ -1,21 +1,19 @@
 <template>
   <div class="postInteraction bg-info">
-    <font-awesome-icon
-      icon="fire-alt"
-      class="text-danger postInteractionIcon postInteractionIconFire"
-    />
-    <font-awesome-icon
-      icon="snowflake"
-      class="postInteractionIcon postInteractionIconSnow"
-    />
-    <font-awesome-icon
-      icon="comment-alt"
-      class="text-primary postInteractionIcon postInteractionIconComment"
-    />
-    <font-awesome-icon
-      icon="share"
-      class="text-primary postInteractionIcon postInteractionIconShare"
-    />
+    <div class="postInteractionBar">
+      <font-awesome-icon
+        icon="fire-alt"
+        class="text-danger postInteractionBarIcon postInteractionBarIconFire"
+      />
+      <font-awesome-icon
+        icon="snowflake"
+        class="postInteractionBarIcon postInteractionBarIconSnow"
+      />
+      <font-awesome-icon
+        icon="comment-alt"
+        class="text-primary postInteractionBarIcon postInteractionBarIconComment"
+      />
+    </div>
   </div>
 </template>
 
@@ -27,18 +25,29 @@ export default {
 
 <style scoped lang="scss">
 .postInteraction {
-  margin: 1rem 0;
-  &Icon {
-    font-size: 2rem;
-    margin: 1rem 4%;
-    &Fire {
-    }
-    &Snow {
-      color: rgb(107, 159, 255);
-    }
-    &Comment {
-    }
-    &Share {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  &Bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 2rem;
+    width: 100%;
+    max-width: 400px;
+    &Icon {
+      font-size: 2rem;
+      margin: 1rem 4%;
+      &Fire {
+      }
+      &Snow {
+        color: rgb(107, 159, 255);
+      }
+      &Comment {
+      }
     }
   }
 }

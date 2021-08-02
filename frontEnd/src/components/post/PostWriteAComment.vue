@@ -53,6 +53,7 @@ export default {
       justify-content: flex-start;
       align-items: center;
       width: 100%;
+      margin-left: 10%;
       &Picture {
         width: 60px;
         height: 60px;

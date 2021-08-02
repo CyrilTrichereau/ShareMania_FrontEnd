@@ -36,7 +36,7 @@ export default {
   align-items: center;
   padding: 0;
   margin: 1rem 0;
-  width: 92%;
+  width: 100%;
   max-width: 900px;
   &Header {
     display: flex;

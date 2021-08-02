@@ -30,7 +30,7 @@ export default {
 
 <style scoped lang="scss">
 .postCard {
-  width: 92%;
+  width:100%;
   max-width: 900px;
   margin: 1rem 0;
   padding: 0;

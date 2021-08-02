@@ -2,7 +2,9 @@
   <div class="displayComments">
     <div class="displayCommentsHeader">
       <p class="displayCommentsHeaderTitle text-primary">Commentaires</p>
-      <SortingByButton class="displayCommentsHeaderSorting" />
+      <div class="displayCommentsHeaderSorting">
+        <SortingByButton />
+      </div>
     </div>
     <Comment />
     <Comment />
@@ -31,20 +33,22 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  width: 100%;
   &Header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     width: 80%;
-    margin-bottom: -0.5rem;
+
     &Title {
       font-size: 1.3rem;
       margin: 0;
     }
     &Sorting {
-      width: 10rem;
       margin: 0;
+      padding: 0;
     }
   }
 }

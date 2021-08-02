@@ -1,5 +1,6 @@
 <template>
-  <div class="mx-auto my-lg-4 myProfile">
+  <div class="myProfile">
+    <h1 class="text-primary myProfileTitle">Mon profil</h1>
     <ProfileShowed />
   </div>
 </template>
@@ -23,6 +24,15 @@ export default {
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  margin-top: 4rem;
+  margin: 4rem auto 0 auto;
+  &Title {
+    margin: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .myProfile {
+    margin: 2rem auto 0 auto;
+  }
 }
 </style>

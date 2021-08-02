@@ -48,10 +48,12 @@
           Ressources Humaines
         </p>
       </div>
-      <a href="/my-profile/modify">
+      <router-link to="/my-profile/modify">
         <Button text="Modifier" />
-      </a>
-      <Button text="Supprimer mon compte" :danger="true" />
+      </router-link>
+      <router-link to="/login">
+        <Button text="Supprimer mon compte" :danger="true" />
+      </router-link>
     </div>
   </div>
 </template>

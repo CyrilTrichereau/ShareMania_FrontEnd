@@ -1,16 +1,16 @@
 <template>
   <div class="home">
-    <DisplayPosts class="mx-auto my-lg-4 homeDisplayPosts" />
+    <PostsList title="Fil d'actualités" :posts9gag="false"/>
   </div>
 </template>
 
 <script>
-import DisplayPosts from "@/components/PostsList.vue";
+import PostsList from "@/components/PostsList.vue";
 
 export default {
   name: "Home",
   components: {
-    DisplayPosts,
+    PostsList,
   },
 };
 </script>
@@ -19,13 +19,15 @@ export default {
 .home {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  position: relative;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  &DisplayPosts {
-    margin-top: 4rem;
-    width: 100%;
+  margin: 4rem auto 0 auto;
+}
+
+@media (min-width: 992px) {
+  .home {
+    margin: 2rem auto 0 auto;
   }
 }
 </style>

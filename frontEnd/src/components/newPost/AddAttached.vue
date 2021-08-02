@@ -1,28 +1,26 @@
 <template>
   <div class="addAttached">
-    <p class="h5">Ajoutez du contenu à votre publication !</p>
+    <p class="h4 addAttachedText">Ajoutez du contenu à votre publication !</p>
     <div class="addAttachedFilter">
-      <button class="btn btn-primary addAttachedFilter9gag">
-        9GAG
-      </button>
-      <button class="btn btn-primary addAttachedFilterImage">
-        Image
-      </button>
-      <button class="btn btn-primary addAttachedFilterVideo">
-        Vidéo
-      </button>
+    <Button text="9GAG"/>
+    <Button text="Image"/>
+    <Button text="Vidéo"/>
     </div>
-    <DisplayPosts9gag class="addAttachedDisplay9gag" />
+    <div class="addAttachedDisplay9gag">
+        <PostsList title="Posts 9GAG !" :posts9gag="true" :smallTitle="true" />
+</div>
   </div>
 </template>
 
 <script>
-import DisplayPosts9gag from "@/components/Posts9gagList.vue";
+import Button from "@/components/form/Button.vue";
+import PostsList from "@/components/PostsList.vue";
 
 export default {
   name: "AddAttached",
   components: {
-    DisplayPosts9gag,
+    PostsList,
+    Button,
   },
 };
 </script>
@@ -33,8 +31,11 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin: 2rem 0;
+  margin: 1rem 0;
   width: 100%;
+  &Text {
+    margin: 1rem;
+  }
   &Filter {
     display: flex;
     flex-direction: row;

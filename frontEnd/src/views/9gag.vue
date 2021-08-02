@@ -1,32 +1,33 @@
 <template>
-  <div class="displayer9gag">
-    <Posts9gagList class="mx-auto my-lg-4 displayer9gagPosts" />
+  <div class="home">
+    <PostsList title="En arrivage de 9GAG !" :posts9gag="true"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Posts9gagList from "@/components/Posts9gagList.vue";
+import PostsList from "@/components/PostsList.vue";
 
 export default {
-  name: "9gag",
+  name: "Home",
   components: {
-    Posts9gagList,
+    PostsList,
   },
 };
 </script>
 
 <style scoped lang="scss">
-.displayer9gag {
+.home {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  position: relative;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  &Posts {
-    margin-top: 4rem;
-    width: 100%;
+  margin: 4rem auto 0 auto;
+}
+
+@media (min-width: 992px) {
+  .home {
+    margin: 2rem auto 0 auto;
   }
 }
 </style>

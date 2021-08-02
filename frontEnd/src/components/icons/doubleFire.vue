@@ -10,6 +10,7 @@ export default {
   name: "DoubleFire",
 };
 </script>
+
 <style scoped lang="scss">
 .DoubleFire {
   position: relative;
@@ -19,7 +20,6 @@ export default {
   align-items: center;
   background: rgb(180, 252, 202);
   width: 2.5rem;
-  
 
   &Red {
     position: absolute;

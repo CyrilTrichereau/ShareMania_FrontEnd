@@ -1,19 +1,11 @@
 <template>
   <div id="app">
     <!-- LINK BAR FOR PRODUCTION -- ERASE BEFORE PRODUCTION -->
-    <div id="navBarDev">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/new-post">Nouveau post</router-link> |
-      <router-link to="/9gag">9gag</router-link> |
-      <router-link to="/my-profile">Mon profil</router-link> |
-      <router-link to="/my-profile/modify">Modifier profil</router-link> |
-      <router-link to="/login">Page de connexion</router-link> |
-    </div>
+    <NavBarDev />
     <!-- HEADER MOBILE AND SIDE BAR MENU FOR DESKTOP -->
     <HeaderMobile />
     <SideBarDesktop />
     <main class="main">
-      <div class="d-none d-lg-flex mainSideBarResponsive"></div>
       <!-- ADDING VIEWS PAGES -->
       <router-view />
     </main>
@@ -21,12 +13,14 @@
 </template>
 
 <script>
+import NavBarDev from "@/components/NavBarDev.vue";
 import HeaderMobile from "@/components/header/HeaderMobile.vue";
 import SideBarDesktop from "@/components/header/SideBarDesktop.vue";
 
 export default {
   name: "App",
   components: {
+    NavBarDev,
     HeaderMobile,
     SideBarDesktop,
   },
@@ -37,35 +31,15 @@ export default {
 .main {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  &SideBarResponsive {
-    width: 400px;
-    height: 100%;
-    position: relative;
-    left: 0;
-  }
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
 }
 
-#navBarDev {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  z-index: 99;
-  padding: 30px;
-
-  & a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@media (min-width: 992px) {
+  .main {
+    margin-left: 300px;
   }
 }
 </style>

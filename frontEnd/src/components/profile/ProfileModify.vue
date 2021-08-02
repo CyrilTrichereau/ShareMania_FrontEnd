@@ -13,22 +13,33 @@
           class="text-success profileModifyContentStatusIcon"
         />
         <p class="text-success h4 profileModifyContentStatusText">
-          Modérateur 
+          Modérateur
         </p>
       </div>
       <div class="bg-info profileModifyContentInputBlock">
-        <InputBlock inputName="Ancien mot de passe" inputPlaceHolder="Ancien mot de passe"/>
+        <InputBlock
+          inputName="Ancien mot de passe"
+          inputPlaceHolder="Ancien mot de passe"
+        />
       </div>
       <div class="bg-info profileModifyContentInputBlock">
-        <InputBlock  inputName="Nouveau mot de passe" inputPlaceHolder="Nouveau mot de passe"/>
+        <InputBlock
+          inputName="Nouveau mot de passe"
+          inputPlaceHolder="Nouveau mot de passe"
+        />
       </div>
       <div class="bg-info profileModifyContentInputBlock">
-        <InputBlock  inputName="Pseudo" inputPlaceHolder="Ecrivez ici votre pseudo"/>
+        <InputBlock
+          inputName="Pseudo"
+          inputPlaceHolder="Ecrivez ici votre pseudo"
+        />
       </div>
       <div class="bg-info profileModifyContentInputBlock">
         <ServiceBlock class="profileModifyContentInputBlockComponent" />
       </div>
-    <Button text="Sauvegarder mes changements"/>
+      <router-link to="/my-profile">
+        <Button text="Sauvegarder mes changements" />
+      </router-link>
     </div>
   </div>
 </template>
