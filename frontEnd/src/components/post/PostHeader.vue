@@ -3,22 +3,33 @@
     <img
       src="@/../public/images/testStatic/femaleProfile1.jpg"
       alt="Image de profil de ..."
-      class="pictureProfile"
+      class="postHeaderPictureProfile"
     />
-    <div class="postText">
-      <p class="postTextTitle text-primary">Jenny Wilson</p>
-      <div class="postTextSubtitleBlock">
-        <p class="postTextSubtitleBlockTime">9h</p>
-        <p class="postTextSubtitleBlockService">- Product Manager</p>
+    <div class="postHeaderText">
+      <p class="postHeaderTextTitle text-primary">Jenny Wilson</p>
+      <div class="postHeaderTextSubtitleBlock">
+        <p class="postHeaderTextSubtitleBlockTime">9h</p>
+        <p class="postHeaderTextSubtitleBlockService">- Product Manager</p>
       </div>
     </div>
-    <font-awesome-icon icon="ellipsis-h" class="text-primary ellipsisButton" />
+    <div class="postHeaderEllipsisButton">
+      <EllipsisMenu 
+          FirstLineText="Signaler la publication"
+          SecondLineText="Supprimer la publication"
+          typeToErase="post"
+          />
+    </div>
   </div>
 </template>
 
 <script>
+import EllipsisMenu from "@/components/post/PostEllipsisMenu.vue";
+
 export default {
   name: "PostHeader",
+  components: {
+    EllipsisMenu,
+  },
 };
 </script>
 
@@ -32,47 +43,44 @@ export default {
   width: 100%;
   margin: 0.5rem 0;
   margin-bottom: 1.5rem;
-}
-
-.pictureProfile {
-  width: 70px;
-  height: 70px;
-  border-radius: 50px;
-  margin: 0 0.5rem;
-  object-fit: cover;
-  object-position: center;
-}
-
-.postText {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  &Title {
-    margin: 0.5rem 0;
-    font-size: 1.4rem;
-    font-weight: 600;
+  &PictureProfile {
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    margin: 0 0.5rem;
+    object-fit: cover;
+    object-position: center;
   }
-  &SubtitleBlock {
+  &Text {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    font-size: 0.9rem;
-
-    &Time {
-      margin: 0;
+    align-items: flex-start;
+    &Title {
+      margin: 0.5rem 0;
+      font-size: 1.4rem;
       font-weight: 600;
     }
-    &Service {
-      margin: 0;
+    &SubtitleBlock {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 0.9rem;
+
+      &Time {
+        margin: 0;
+        font-weight: 600;
+      }
+      &Service {
+        margin: 0;
+      }
     }
   }
-}
-
-.ellipsisButton {
-  position: absolute;
-  right: 0.5rem;
-  font-size: 1.6rem;
+  &EllipsisButton {
+    position: absolute;
+    right: 0.5rem;
+    font-size: 1.6rem;
+  }
 }
 </style>

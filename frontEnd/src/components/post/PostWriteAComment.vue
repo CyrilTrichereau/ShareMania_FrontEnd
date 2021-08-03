@@ -1,6 +1,6 @@
 <template>
   <div class="myComment">
-    <p class="myCommentTitle text-primary">Ajouter un commentaire</p>
+    <p class="myCommentTitle text-light bg-secondary">Ajouter un commentaire</p>
     <div class="myCommentContent bg-info">
       <div class="myCommentContentProfile">
         <img
@@ -10,8 +10,8 @@
         />
         <p class="myCommentContentProfileName text-primary">Becassine32</p>
       </div>
-      <TextBlock class="myCommentContentText"/>
-    <Button text="Valider"/>
+      <TextBlock class="myCommentContentText" />
+      <Button text="Valider" />
     </div>
   </div>
 </template>
@@ -23,8 +23,8 @@ import Button from "@/components/form/Button.vue";
 export default {
   name: "PostWriteAComment",
   components: {
-    TextBlock, 
-    Button
+    TextBlock,
+    Button,
   },
 };
 </script>
@@ -35,10 +35,13 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 1rem 0;
+  margin: 0;
   &Title {
+    width: 100%;
     font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 15px;
   }
   &Content {
     display: flex;

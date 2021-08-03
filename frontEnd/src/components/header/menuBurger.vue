@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
     <div
-      class="btn btn-secondary menuBurgerIconWrapper"
+      class="btn btn-primary menuBurgerIconWrapper"
       @click="changingStateIsOpen"
     >
       <MenuBurgerIcon />

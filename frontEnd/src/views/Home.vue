@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <PostsList title="Fil d'actualités" :posts9gag="false"/>
+    <PostsList title="Fil d'actualités" :posts9gag="false" />
   </div>
 </template>
 

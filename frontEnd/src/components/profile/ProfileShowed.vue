@@ -51,20 +51,42 @@
       <router-link to="/my-profile/modify">
         <Button text="Modifier" />
       </router-link>
-      <router-link to="/login">
-        <Button text="Supprimer mon compte" :danger="true" />
-      </router-link>
+      <div @click="openCloseEraseConfirmation">
+        <Button text="Supprimer mon compte" :danger="true"/>
+      </div>
+      <EraseConfirm
+        typeToErase="profile"
+        v-if="eraseConfirmationIsOpen"
+        @close-erase-confirmation-window="openCloseEraseConfirmation"
+      />
+      
     </div>
   </div>
 </template>
 
 <script>
 import Button from "@/components/form/Button.vue";
+import EraseConfirm from "@/components/EraseConfirm.vue";
 
 export default {
   name: "ProfileShowed",
   components: {
     Button,
+    EraseConfirm,
+  },
+  data() {
+    return {
+      eraseConfirmationIsOpen: false,
+    };
+  },
+  methods: {
+    openCloseEraseConfirmation() {
+      if (this.eraseConfirmationIsOpen === false) {
+        this.eraseConfirmationIsOpen = true;
+      } else {
+        this.eraseConfirmationIsOpen = false;
+      }
+    },
   },
 };
 </script>

@@ -1,8 +1,10 @@
 <template>
   <div class="forgottenPassword">
     <div class="container card bg-light forgottenPasswordCard">
-      <button class="btn btn-primary forgottenPasswordCardCrossIcon"
-        @click="closeWindowForgottenPassword">
+      <button
+        class="btn btn-primary forgottenPasswordCardCrossIcon"
+        @click="closeWindowForgottenPassword"
+      >
         <CrossIcon />
       </button>
       <h1 class="text-primary forgottenPasswordCardTitle">
@@ -61,8 +63,8 @@ export default {
       }
     },
     closeWindowForgottenPassword() {
-      this.$emit("close-window-forgotten-password")
-    }
+      this.$emit("close-window-forgotten-password");
+    },
   },
 };
 </script>

@@ -12,9 +12,9 @@
     </div>
 
     <div class="headerConnectionBlockPresentation">
-      <p class="h5 text-primary headerConnectionBlockPresentationTitle">
+      <h1 class="h5 text-primary headerConnectionBlockPresentationTitle">
         Bienvenue sur le réseau social interne de Groupomania.
-      </p>
+      </h1>
       <p class="headerConnectionBlockPresentationText">
         Une connexion est requise pour pouvoir accéder au contenu. <br />
         ShareMania est réservé aux salariés du groupe.

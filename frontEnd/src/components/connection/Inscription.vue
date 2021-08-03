@@ -1,6 +1,8 @@
 <template>
   <div class="inscription">
-    <p class="inscriptionTitle text-primary h2">Inscription</p>
+    <h2 class="inscriptionTitle text-primary">
+      Inscription
+      </h2>
         <InputBlock  inputName="Adresse email" inputPlaceHolder="Ecrivez ici votre email" inputType="email"/>
         <InputBlock  inputName="Mot de passe" inputPlaceHolder="Ecrivez ici votre mot de passe"/>
         <InputBlock  inputName="Pseudo" inputPlaceHolder="Ecrivez ici votre pseudo"/>

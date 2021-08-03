@@ -1,12 +1,14 @@
 <template>
   <div class="bg-primary login">
-    <p class="loginTitle text-light h2">Connexion</p>
+    <h2 class="loginTitle text-light h2">
+      Connexion
+    </h2>
     <InputBlock
       inputName="Adresse email"
       inputPlaceHolder="Ecrivez ici votre email"
       inputType="email"
       :titleLight="true"
-    />
+    />n
     <InputBlock
       inputName="Mot de passe"
       inputPlaceHolder="Ecrivez ici votre mot de passe"
@@ -20,7 +22,10 @@
       Mot de passe oublié ? <br />
       C'est par ici !
     </a>
-    <ForgottenPassword v-if="ForgottenPasswordIsOpen" @close-window-forgotten-password="changingStateForgottenPasswordIsOpen"/>
+    <ForgottenPassword
+      v-if="ForgottenPasswordIsOpen"
+      @close-window-forgotten-password="changingStateForgottenPasswordIsOpen"
+    />
   </div>
 </template>
 

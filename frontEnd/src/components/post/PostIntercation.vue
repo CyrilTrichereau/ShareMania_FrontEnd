@@ -1,25 +1,30 @@
 <template>
   <div class="postInteraction bg-info">
     <div class="postInteractionBar">
-      <font-awesome-icon
-        icon="fire-alt"
-        class="text-danger postInteractionBarIcon postInteractionBarIconFire"
-      />
-      <font-awesome-icon
-        icon="snowflake"
-        class="postInteractionBarIcon postInteractionBarIconSnow"
-      />
-      <font-awesome-icon
-        icon="comment-alt"
-        class="text-primary postInteractionBarIcon postInteractionBarIconComment"
-      />
+      <OnFire />
+      <Cold />
+      <Comment @open-close-comment-block="openCloseComments" />
     </div>
   </div>
 </template>
 
 <script>
+import OnFire from "@/components/icons/OnFire.vue";
+import Cold from "@/components/icons/Cold.vue";
+import Comment from "@/components/icons/Comment.vue";
+
 export default {
   name: "PostIntercation",
+  components: {
+    OnFire,
+    Cold,
+    Comment,
+  },
+  methods: {
+    openCloseComments() {
+      this.$emit("open-close-comment-block");
+    },
+  },
 };
 </script>
 
@@ -35,20 +40,8 @@ export default {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding: 0 2rem;
     width: 100%;
     max-width: 400px;
-    &Icon {
-      font-size: 2rem;
-      margin: 1rem 4%;
-      &Fire {
-      }
-      &Snow {
-        color: rgb(107, 159, 255);
-      }
-      &Comment {
-      }
-    }
   }
 }
 </style>

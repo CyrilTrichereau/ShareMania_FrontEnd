@@ -13,35 +13,46 @@
         <p class="commentContentHeaderTimePost text-secondary">
           Il y a 9h
         </p>
-        <font-awesome-icon
-          icon="ellipsis-h"
-          class="text-primary commentContentHeaderEllipsisMenu"
-        />
+        <div class="commentContentHeaderEllipsisMenu">
+          <EllipsisMenu 
+          :small="true"
+          FirstLineText="Signaler le commentaire"
+          SecondLineText="Supprimer le commentaire"
+          typeToErase="comment"
+          />
+        </div>
       </div>
       <p class="commentContentComment">
         Perspiciatis minus quaerat ut aut fugiat non eos qui et.
       </p>
       <div class="commentContentWhiteLine bg-light"></div>
       <div class="commentContentInteractions">
-        <font-awesome-icon
-          icon="fire-alt"
-          class="text-danger commentContentInteractionsFire"
-        />
+        <div class="commentContentInteractionsFire">
+          <OnFire :small="true"/>
+        </div>
         <p class="commentContentInteractionsPercentage text-secondary">
           50 %
         </p>
-        <font-awesome-icon
-          icon="snowflake"
-          class="commentContentInteractionsSnow"
-        />
+        <div class="commentContentInteractionsSnow">
+          <Cold :small="true"/>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import EllipsisMenu from "@/components/post/PostEllipsisMenu.vue";
+import OnFire from "@/components/icons/OnFire.vue";
+import Cold from "@/components/icons/Cold.vue";
+
 export default {
   name: "PostComment",
+  components: {
+    EllipsisMenu,
+    OnFire,
+    Cold,
+  },
 };
 </script>
 
@@ -81,8 +92,6 @@ export default {
       }
       &TimePost {
         margin: 0;
-      }
-      &EllipsisMenu {
       }
     }
     &Comment {
