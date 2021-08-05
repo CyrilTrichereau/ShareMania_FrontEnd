@@ -10,7 +10,10 @@
         <p class="h5 text-light headerMobileBlockTrademarkText">ShareMania</p>
       </router-link>
       <div class="headerMobileBlockMenuBar">
-        <router-link to="/new-post" class="btn btn-primary headerMobileBlockMenuBarWrapper">
+        <router-link
+          to="/new-post"
+          class="btn btn-primary headerMobileBlockMenuBarWrapper"
+        >
           <font-awesome-icon
             icon="plus-circle"
             class="text-light headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconAddPost"
@@ -21,18 +24,20 @@
             class="headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconMenu"
           />
         </div>
-        <router-link to="/login" class="btn btn-primary headerMobileBlockMenuBarWrapper d-none">
+        <router-link
+          to="/login"
+          class="btn btn-primary headerMobileBlockMenuBarWrapper d-none"
+        >
           <font-awesome-icon
             icon="user"
             class="text-light headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconUser"
           />
         </router-link>
-        <router-link to="/my-profile" class="btn btn-primary headerMobileBlockMenuBarWrapper">
-          <img
-            src="@/../public/images/testStatic/femaleProfile3.jpg"
-            alt="Nom du profil"
-            class="headerMobileBlockMenuBarWrapperProfilePicture"
-          />
+        <router-link
+          to="/my-profile"
+          class="btn btn-primary headerMobileBlockMenuBarWrapper"
+        >
+          <MenuProfile />
         </router-link>
       </div>
     </div>
@@ -41,11 +46,13 @@
 
 <script>
 import MenuBurger from "@/components/header/MenuBurger.vue";
+import MenuProfile from "@/components/header/MenuProfile.vue";
 
 export default {
   name: "HeaderMobile",
   components: {
     MenuBurger,
+    MenuProfile,
   },
 };
 </script>
@@ -108,12 +115,9 @@ export default {
           &Menu {
           }
         }
-        &ProfilePicture {
+        &ProfileWrapper {
           width: 100%;
           height: 100%;
-          border-radius: 500px;
-          object-fit: cover;
-          object-position: center;
           margin: 0;
           padding: 0;
         }

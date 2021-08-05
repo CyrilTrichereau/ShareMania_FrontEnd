@@ -4,9 +4,9 @@
     <PostContent />
     <PostOriginal />
     <PostStats />
-    <PostIntercation @open-close-comment-block="openCloseComments" />
-    <WriteAComment v-if="this.commentsIsOpen" />
-    <DisplayComments v-if="this.commentsIsOpen" />
+    <PostIntercation @open-close-comment-block="commentsIsOpen = !commentsIsOpen" />
+    <WriteAComment v-show="this.commentsIsOpen" />
+    <DisplayComments v-show="this.commentsIsOpen" />
   </div>
 </template>
 
@@ -34,15 +34,6 @@ export default {
     return {
       commentsIsOpen: false,
     };
-  },
-  methods: {
-    openCloseComments() {
-      if (this.commentsIsOpen === false) {
-        this.commentsIsOpen = true;
-      } else {
-        this.commentsIsOpen = false;
-      }
-    },
   },
 };
 </script>

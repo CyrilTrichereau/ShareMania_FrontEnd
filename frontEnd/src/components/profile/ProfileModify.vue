@@ -37,9 +37,16 @@
       <div class="bg-info profileModifyContentInputBlock">
         <ServiceBlock class="profileModifyContentInputBlockComponent" />
       </div>
-      <router-link to="/my-profile">
+      <div
+        class="profileModifyContentValidateWrapper"
+        @click="confirmationPopInIsOpen = !confirmationPopInIsOpen"
+      >
         <Button text="Sauvegarder mes changements" />
-      </router-link>
+      </div>
+      <ConfirmationPopIn
+        v-if="confirmationPopInIsOpen"
+        redirectUrl="/my-profile" confirmationType="modify"
+      />
     </div>
   </div>
 </template>
@@ -48,6 +55,7 @@
 import Button from "@/components/form/Button.vue";
 import InputBlock from "@/components/form/InputBlock.vue";
 import ServiceBlock from "@/components/form/ServiceBlock.vue";
+import ConfirmationPopIn from "@/components/ConfirmationPopIn.vue";
 
 export default {
   name: "ProfileModify",
@@ -55,6 +63,12 @@ export default {
     Button,
     InputBlock,
     ServiceBlock,
+    ConfirmationPopIn,
+  },
+  data() {
+    return {
+      confirmationPopInIsOpen: false,
+    };
   },
 };
 </script>

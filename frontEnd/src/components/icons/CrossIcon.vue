@@ -1,17 +1,37 @@
 <template>
-    <button class="crossIcon">
-      <span class="bar barTop"></span>
-      <span class="bar barBottom"></span>
+<div class="wrapper">
+    <button class="btn btn-primary bg-primary crossIcon" v-if="colorThemePrimary">
+      <span class="bg-light bar barTop"></span>
+      <span class="bg-light bar barBottom"></span>
     </button>
+    
+    <button class="btn btn-white bg-light crossIcon" v-else>
+      <span class="bg-primary bar barTop"></span>
+      <span class="bg-primary bar barBottom"></span>
+    </button>
+    </div>
 </template>
 
 <script>
 export default {
   name: "CrossIcon",
+  props: {
+    colorThemePrimary: {
+      type: Boolean,
+      default: true,
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
+.wrapper {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 $barRotation: 50deg;
 $barScaling: 1.2;
 $primaryColor: #4d7c8a;
@@ -21,7 +41,6 @@ $lightColor: #fdfeff;
 .crossIcon {
   height: 100%;
   width: 100%;
-  background: $primaryColor;
 
   position: relative;
   display: flex;
@@ -33,16 +52,13 @@ $lightColor: #fdfeff;
   border-radius: 5px;
   &:hover {
       transform: scale($barScaling);
-  }
-  &:active {
-    background: $secondaryColor;
+      box-shadow: 0px 0px 10px $primaryColor;;
   }
 }
 
 .bar {
   height: 9%;
   width: 80%;
-  background: $lightColor;
   border-radius: 500px;
   position: absolute;
   &Top {
@@ -52,4 +68,5 @@ $lightColor: #fdfeff;
     transform: rotate(-$barRotation);
   }
 }
+
 </style>

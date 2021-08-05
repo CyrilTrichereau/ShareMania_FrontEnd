@@ -56,8 +56,8 @@
       </div>
       <EraseConfirm
         typeToErase="profile"
-        v-if="eraseConfirmationIsOpen"
-        @close-erase-confirmation-window="openCloseEraseConfirmation"
+        v-show="eraseConfirmationIsOpen"
+        @close-erase-confirmation-window="eraseConfirmationIsOpen = !eraseConfirmationIsOpen"
       />
       
     </div>
@@ -78,15 +78,6 @@ export default {
     return {
       eraseConfirmationIsOpen: false,
     };
-  },
-  methods: {
-    openCloseEraseConfirmation() {
-      if (this.eraseConfirmationIsOpen === false) {
-        this.eraseConfirmationIsOpen = true;
-      } else {
-        this.eraseConfirmationIsOpen = false;
-      }
-    },
   },
 };
 </script>

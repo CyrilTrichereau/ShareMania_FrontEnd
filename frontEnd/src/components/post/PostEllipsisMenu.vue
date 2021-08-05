@@ -1,10 +1,10 @@
 <template>
   <div class="ellipsis">
-    <div class="ellipsisButton" @click="openClosePostMenu">
+    <div class="ellipsisButton" @click="postMenuIsOpen = !postMenuIsOpen">
       <Ellipsis v-if="small" :small="true" />
       <Ellipsis v-if="small === false" />
     </div>
-    <nav class="card container bg-light ellipsisMenu" v-if="postMenuIsOpen">
+    <nav class="card container bg-light ellipsisMenu" v-show="postMenuIsOpen">
       <button class="btn btn-white ellipsisMenuButton">
         <li class="h6 text-primary ellipsisMenuButtonText">
           {{ this.FirstLineText }}
@@ -12,7 +12,7 @@
       </button>
       <button
         class="btn btn-white ellipsisMenuButton"
-        @click="openCloseEraseConfirmation"
+        @click="eraseConfirmationIsOpen = !eraseConfirmationIsOpen"
       >
         <li class="h6 text-danger ellipsisMenuButtonText">
           {{ this.SecondLineText }}
@@ -22,8 +22,8 @@
     <div class="ellipsisEraseConfirmation">
       <EraseConfirm
         :typeToErase="typeToErase"
-        v-if="eraseConfirmationIsOpen"
-        @close-erase-confirmation-window="openCloseEraseConfirmation"
+        v-show="eraseConfirmationIsOpen"
+        @close-erase-confirmation-window="eraseConfirmationIsOpen = !eraseConfirmationIsOpen"
       />
     </div>
   </div>
@@ -61,23 +61,6 @@ export default {
     typeToErase: {
       type: String,
       required: true,
-    },
-  },
-
-  methods: {
-    openClosePostMenu() {
-      if (this.postMenuIsOpen === false) {
-        this.postMenuIsOpen = true;
-      } else {
-        this.postMenuIsOpen = false;
-      }
-    },
-    openCloseEraseConfirmation() {
-      if (this.eraseConfirmationIsOpen === false) {
-        this.eraseConfirmationIsOpen = true;
-      } else {
-        this.eraseConfirmationIsOpen = false;
-      }
     },
   },
 };

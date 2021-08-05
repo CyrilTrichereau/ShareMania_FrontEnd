@@ -8,7 +8,7 @@
       inputPlaceHolder="Ecrivez ici votre email"
       inputType="email"
       :titleLight="true"
-    />n
+    />
     <InputBlock
       inputName="Mot de passe"
       inputPlaceHolder="Ecrivez ici votre mot de passe"
@@ -17,14 +17,14 @@
     <Button text="Valider" />
     <a
       class="loginForgottenPassword text-light"
-      @click="changingStateForgottenPasswordIsOpen"
+      @click="ForgottenPasswordIsOpen = !ForgottenPasswordIsOpen"
     >
       Mot de passe oublié ? <br />
       C'est par ici !
     </a>
     <ForgottenPassword
-      v-if="ForgottenPasswordIsOpen"
-      @close-window-forgotten-password="changingStateForgottenPasswordIsOpen"
+      v-show="ForgottenPasswordIsOpen"
+      @close-window-forgotten-password="ForgottenPasswordIsOpen = !ForgottenPasswordIsOpen"
     />
   </div>
 </template>
@@ -44,16 +44,8 @@ export default {
   data() {
     return {
       ForgottenPasswordIsOpen: false,
+      confirmationPopIn: false,
     };
-  },
-  methods: {
-    changingStateForgottenPasswordIsOpen() {
-      if (this.ForgottenPasswordIsOpen === false) {
-        this.ForgottenPasswordIsOpen = true;
-      } else {
-        this.ForgottenPasswordIsOpen = false;
-      }
-    },
   },
 };
 </script>
@@ -75,6 +67,7 @@ export default {
   }
   &ForgottenPassword {
     padding: 1rem 0;
+    cursor: pointer;
   }
 }
 </style>

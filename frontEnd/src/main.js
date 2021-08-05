@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlusCircle, faNewspaper, faBars, faUser, faCommentAlt, faShare, faSnowflake, faFire, faFireAlt, faBurn, faEllipsisH, faShieldAlt, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faPlusCircle, faNewspaper, faBars, faUser, faCommentAlt, faShare, faSnowflake, faFire, faFireAlt, faBurn, faEllipsisH, faShieldAlt, faHome, faAddressCard, faSignOutAlt, } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import './assets/custom.scss';
@@ -14,7 +14,7 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 
 // Set up fontawesome library
-library.add(faPlusCircle, faNewspaper, faBars, faUser, faCommentAlt, faShare, faSnowflake, faFire, faFireAlt, faBurn, faEllipsisH, faShieldAlt, faHome)
+library.add(faPlusCircle, faNewspaper, faBars, faUser, faCommentAlt, faShare, faSnowflake, faFire, faFireAlt, faBurn, faEllipsisH, faShieldAlt, faHome, faAddressCard, faSignOutAlt, )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 
