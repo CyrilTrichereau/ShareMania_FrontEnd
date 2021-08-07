@@ -1,25 +1,22 @@
 <template>
   <div class="menuProfile">
-    <button
-      class="btn btn-primary menuProfileWrapper"
-      @click="isOpen = !isOpen"
+    <div
+      class="menuProfileWrapper"
+      @click="openOrCloseMenuHeader('menuProfile')"
     >
       <img
         src="@/../public/images/testStatic/femaleProfile3.jpg"
         alt="Nom du profil"
         class="menuProfileWrapperPicture"
       />
-    </button>
-    <div class="menuProfileBackground" v-show="isOpen">
+    </div>
+    <div class="menuProfileBackground" v-show="header.isOpenMenu === 'menuProfile'">
       <nav class="card container bg-light menuProfileList">
-        <div
-        class="menuProfileListCrossIcon"
-        @click="isOpen = !isOpen"
-      >
-        <CrossIcon :colorThemePrimary="false" />
-      </div>
+        <div class="menuProfileListCrossIcon" @click="openOrCloseMenuHeader('none')">
+          <CrossIcon :colorThemePrimary="false" />
+        </div>
         <!-- Profile Block -->
-        <div class="menuProfileListProfileBlock" @click="isOpen = !isOpen">
+        <div class="menuProfileListProfileBlock" @click="openOrCloseMenuHeader('none')">
           <router-link
             to="/my-profile"
             class="text-primary btn btn-light menuProfileListProfileBlockLink"
@@ -38,9 +35,12 @@
         <!-- Profile link -->
         <ul
           class="text-dark btn btn-light menuProfileListItem"
-          @click="isOpen = !isOpen"
+          @click="openOrCloseMenuHeader('none')"
         >
-          <router-link to="/my-profile" class="text-primary menuProfileListItemLinks">
+          <router-link
+            to="/my-profile"
+            class="text-primary menuProfileListItemLinks"
+          >
             <font-awesome-icon
               icon="user"
               class="menuProfileListItemLinksIcon"
@@ -54,9 +54,12 @@
         <!-- Modify profile link -->
         <ul
           class="text-dark btn btn-light menuProfileListItem"
-          @click="isOpen = !isOpen"
+          @click="openOrCloseMenuHeader('none')"
         >
-          <router-link to="/my-profile/modify" class="text-primary menuProfileListItemLinks">
+          <router-link
+            to="/my-profile/modify"
+            class="text-primary menuProfileListItemLinks"
+          >
             <font-awesome-icon
               icon="address-card"
               class="menuProfileListItemLinksIcon"
@@ -70,7 +73,7 @@
         <!-- log Out link -->
         <ul
           class="btn btn-light menuProfileListItem"
-          @click="isOpen = !isOpen"
+          @click="openOrCloseMenuHeader('none')"
         >
           <router-link to="/login" class="menuProfileListItemLinks">
             <font-awesome-icon
@@ -88,6 +91,7 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 import CrossIcon from "@/components/icons/CrossIcon.vue";
 
 export default {
@@ -95,16 +99,21 @@ export default {
   components: {
     CrossIcon,
   },
-  data() {
-    return {
-      isOpen: false,
-    };
+  computed: {
+    ...mapState(['header', ['isOpenMenu'], ]),
+  },
+  methods: {
+    ...mapActions(['openOrCloseMenuHeader']),
   },
 };
 </script>
 
 <style scoped lang="scss">
 .menuProfile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   padding: 0;
@@ -122,8 +131,11 @@ export default {
   &Wrapper {
     padding: 0;
     margin: 0;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+
     &Picture {
       width: 100%;
       height: 100%;

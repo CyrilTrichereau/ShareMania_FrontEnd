@@ -16,8 +16,8 @@
         <div class="commentContentHeaderEllipsisMenu">
           <EllipsisMenu 
           :small="true"
-          FirstLineText="Signaler le commentaire"
-          SecondLineText="Supprimer le commentaire"
+          firstLineText="Signaler le commentaire"
+          secondLineText="Supprimer le commentaire"
           typeToErase="comment"
           />
         </div>
@@ -109,7 +109,7 @@ export default {
       align-items: center;
       width: 90%;
       max-width: 260px;
-      margin: 0.5rem 10%;
+      margin: 0 10%;
       &Fire {
         font-size: 1.4rem;
       }

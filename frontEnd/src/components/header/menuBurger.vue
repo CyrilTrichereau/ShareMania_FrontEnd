@@ -1,15 +1,12 @@
 <template>
   <div class="menu">
-    <div
-      class="btn btn-primary menuBurgerIconWrapper"
-      @click="isOpen = !isOpen"
-    >
+    <div class="menuBurgerIconWrapper" @click="openOrCloseMenuHeader('menuBurger')">
       <MenuBurgerIcon />
     </div>
-    <div class="menuBackground" v-show="isOpen">
+    <div class="menuBackground" v-show="header.isOpenMenu === 'menuBurger'">
       <nav class="card container bg-light menuList">
         <!-- SHAREMANIA LOGO -->
-        <div class="menuListSharemaniaBackground" @click="isOpen = !isOpen">
+        <div class="menuListSharemaniaBackground" @click="openOrCloseMenuHeader('none')">
           <router-link
             to="/"
             class="text-primary btn btn-light menuListSharemania"
@@ -26,7 +23,7 @@
         <!-- HOME LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="isOpen = !isOpen"
+          @click="openOrCloseMenuHeader('none')"
         >
           <router-link to="/" class="text-primary menuListItemLinks">
             <font-awesome-icon icon="home" class="menuListItemLinksIcon" />
@@ -39,7 +36,7 @@
         <!-- NEW POST LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="isOpen = !isOpen"
+          @click="openOrCloseMenuHeader('newPost')"
         >
           <router-link to="/new-post" class="text-primary menuListItemLinks">
             <font-awesome-icon
@@ -55,7 +52,7 @@
         <!-- HOME-FEED LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="isOpen = !isOpen"
+          @click="openOrCloseMenuHeader('none')"
         >
           <router-link to="/" class="text-primary menuListItemLinks">
             <font-awesome-icon icon="newspaper" class="menuListItemLinksIcon" />
@@ -68,7 +65,7 @@
         <!-- 9GAG LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="isOpen = !isOpen"
+          @click="openOrCloseMenuHeader('none')"
         >
           <router-link to="/9gag" class="text-primary menuListItemLinks">
             <img
@@ -85,7 +82,7 @@
         <!-- REDDIT LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="isOpen = !isOpen"
+          @click="openOrCloseMenuHeader('none')"
         >
           <router-link to="/" class="text-primary menuListItemLinks">
             <img
@@ -102,7 +99,7 @@
         <!-- My PROFILE LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="isOpen = !isOpen"
+          @click="openOrCloseMenuHeader('none')"
         >
           <router-link to="/my-profile" class="text-primary menuListItemLinks">
             <font-awesome-icon icon="user" class="menuListItemLinksIcon" />
@@ -117,6 +114,7 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 import MenuBurgerIcon from "@/components/icons/MenuBurgerIcon.vue";
 
 export default {
@@ -124,10 +122,11 @@ export default {
   components: {
     MenuBurgerIcon,
   },
-  data() {
-    return {
-      isOpen: false,
-    };
+  computed: {
+    ...mapState(['header', ['isOpenMenu'], ]),
+  },
+  methods: {
+    ...mapActions(['openOrCloseMenuHeader']),
   },
 };
 </script>
@@ -136,6 +135,10 @@ export default {
 .menu {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   &Background {
     z-index: 2;
     width: 92%;
@@ -147,7 +150,6 @@ export default {
     background: rgba(255, 255, 255, 0.9);
   }
   &BurgerIconWrapper {
-    padding: 0.1rem;
   }
   &List {
     display: flex;

@@ -1,7 +1,7 @@
 <template>
   <div class="DoubleFire">
-    <font-awesome-icon icon="fire-alt" class="text-danger DoubleFireRed" />
     <font-awesome-icon icon="fire-alt" class="text-primary DoubleFirePrimary" />
+    <font-awesome-icon icon="fire-alt" class="text-danger DoubleFireRed" />
   </div>
 </template>
 
@@ -15,19 +15,20 @@ export default {
 .DoubleFire {
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgb(180, 252, 202);
-  width: 2.5rem;
+  width: 2.6rem;
+  height: 3rem;
 
+  &Primary {
+    position: absolute;
+    font-size: 1.6rem;
+  }
   &Red {
     position: absolute;
     font-size: 2.5rem;
-  }
-  &Primary {
-    position: absolute;
-    font-size: 1.8rem;
+    bottom: 12%;
   }
 }
 </style>

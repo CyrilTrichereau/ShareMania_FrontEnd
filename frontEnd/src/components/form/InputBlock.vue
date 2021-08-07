@@ -1,11 +1,11 @@
 <template>
   <div class="form-group my-2 inputBlock">
-    <label for="inputBlock" :class="styleInput"> {{ inputName }} </label>
+    <label :class="{ 'text-dark': !titleLight, 'text-light': titleLight}"> {{ inputName }} </label>
     <input
       :type="inputType"
       class="form-control"
       :placeholder="inputPlaceHolder"
-      id="inputBlock" required
+       required
     />
   </div>
 </template>
@@ -30,21 +30,6 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  data() {
-    return {
-      styleLight: "text-light",
-      styleDark: "text-dark",
-    }
-  },
-  computed: {
-    styleInput() {
-      if (this.titleLight == true) {
-        return this.styleLight
-      } else {
-        return this.styleDark
-      }
-    }
   },
 };
 </script>

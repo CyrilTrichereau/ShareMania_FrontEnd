@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button :class="styleButton">
+    <button class="btn my-2 validateButton" :class="{'btn-danger': danger, 'btn-primary': !danger}">
       {{ text }}
     </button>
   </div>
@@ -18,21 +18,6 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  data() {
-    return {
-      styleRegular: "btn btn-primary my-2 validateButton",
-      styleDanger: "btn btn-danger my-2 validateButton",
-    }
-  },
-  computed: {
-    styleButton() {
-      if (this.danger == true) {
-        return this.styleDanger
-      } else {
-        return this.styleRegular
-      } 
-    }
   },
 };
 </script>

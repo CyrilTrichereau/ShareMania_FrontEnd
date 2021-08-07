@@ -7,7 +7,7 @@
     <nav class="card container bg-light ellipsisMenu" v-show="postMenuIsOpen">
       <button class="btn btn-white ellipsisMenuButton">
         <li class="h6 text-primary ellipsisMenuButtonText">
-          {{ this.FirstLineText }}
+          {{ firstLineText }}
         </li>
       </button>
       <button
@@ -15,7 +15,7 @@
         @click="eraseConfirmationIsOpen = !eraseConfirmationIsOpen"
       >
         <li class="h6 text-danger ellipsisMenuButtonText">
-          {{ this.SecondLineText }}
+          {{ secondLineText }}
         </li>
       </button>
     </nav>
@@ -50,11 +50,11 @@ export default {
       type: Boolean,
       default: false,
     },
-    FirstLineText: {
+    firstLineText: {
       type: String,
       required: true,
     },
-    SecondLineText: {
+    secondLineText: {
       type: String,
       required: true,
     },
@@ -68,6 +68,7 @@ export default {
 
 <style scoped lang="scss">
 .ellipsis {
+  z-index: 21;
   display: flex;
   flex-direction: column;
   justify-content: center;

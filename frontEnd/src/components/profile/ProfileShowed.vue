@@ -51,7 +51,7 @@
       <router-link to="/my-profile/modify">
         <Button text="Modifier" />
       </router-link>
-      <div @click="openCloseEraseConfirmation">
+      <div @click="eraseConfirmationIsOpen = !eraseConfirmationIsOpen">
         <Button text="Supprimer mon compte" :danger="true"/>
       </div>
       <EraseConfirm
@@ -59,7 +59,6 @@
         v-show="eraseConfirmationIsOpen"
         @close-erase-confirmation-window="eraseConfirmationIsOpen = !eraseConfirmationIsOpen"
       />
-      
     </div>
   </div>
 </template>

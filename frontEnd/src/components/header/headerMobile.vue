@@ -1,7 +1,11 @@
 <template>
   <div class="bg-primary text-light fixed-top d-lg-none headerMobile">
     <div class="headerMobileBlock">
-      <router-link to="/" class="btn btn-primary headerMobileBlockTrademark">
+      <router-link
+        to="/"
+        class="btn btn-primary headerMobileBlockTrademark"
+        @click.native="openOrCloseMenuHeader('none')"
+      >
         <img
           src="@/../public/images/groupomaniaLogoWhite100pxTinyfied.png"
           alt="ShareMania Logo"
@@ -12,17 +16,32 @@
       <div class="headerMobileBlockMenuBar">
         <router-link
           to="/new-post"
-          class="btn btn-primary headerMobileBlockMenuBarWrapper"
+          :class="{
+            headerMobileBlockMenuBarWrapperOpen:
+              header.isOpenMenu === 'newPost',
+            headerMobileBlockMenuBarWrapperOpenNewPost:
+              header.isOpenMenu === 'newPost',
+            headerMobileBlockMenuBarWrapper: header.isOpenMenu === !'newPost',
+          }"
+          @click.native="openOrCloseMenuHeaderForce('newPost')"
         >
           <font-awesome-icon
             icon="plus-circle"
             class="text-light headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconAddPost"
           />
         </router-link>
-        <div class="headerMobileBlockMenuBarWrapper">
-          <MenuBurger
-            class="headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconMenu"
-          />
+        <div
+          :class="{
+            headerMobileBlockMenuBarWrapperOpen:
+              header.isOpenMenu === 'menuBurger',
+            headerMobileBlockMenuBarWrapperOpenMenuBurger:
+              header.isOpenMenu === 'menuBurger',
+            headerMobileBlockMenuBarWrapper:
+              header.isOpenMenu === !'menuBurger',
+          }"
+          @click="openOrCloseMenuHeader('menuBurger')"
+        >
+          <MenuBurger />
         </div>
         <router-link
           to="/login"
@@ -33,18 +52,26 @@
             class="text-light headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconUser"
           />
         </router-link>
-        <router-link
-          to="/my-profile"
-          class="btn btn-primary headerMobileBlockMenuBarWrapper"
+        <div
+          :class="{
+            headerMobileBlockMenuBarWrapperOpen:
+              header.isOpenMenu === 'menuProfile',
+            headerMobileBlockMenuBarWrapperOpenMenuProfile:
+              header.isOpenMenu === 'menuProfile',
+            headerMobileBlockMenuBarWrapper:
+              header.isOpenMenu === !'menuProfile',
+          }"
+          @click.native="openOrCloseMenuHeader('menuProfile')"
         >
           <MenuProfile />
-        </router-link>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 import MenuBurger from "@/components/header/MenuBurger.vue";
 import MenuProfile from "@/components/header/MenuProfile.vue";
 
@@ -54,16 +81,24 @@ export default {
     MenuBurger,
     MenuProfile,
   },
+  computed: {
+    ...mapState(["header", ["isOpenMenu"]]),
+  },
+  methods: {
+    ...mapActions(["openOrCloseMenuHeader", "openOrCloseMenuHeaderForce"]),
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .headerMobile {
+  z-index: 99;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 62px;
   &Block {
     display: flex;
     flex-direction: row;
@@ -71,7 +106,7 @@ export default {
     align-items: center;
     max-width: 600px;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0 2.5%;
     gap: 1rem;
     &Trademark {
       display: flex;
@@ -80,6 +115,7 @@ export default {
       align-items: center;
       gap: 0.5rem;
       width: 45%;
+      padding: 0;
       &Logo {
         width: 2rem;
       }
@@ -93,36 +129,54 @@ export default {
       justify-content: space-around;
       align-items: center;
       width: 55%;
+      margin: 0;
+      padding: 0;
       &Wrapper {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        border: none;
         width: 40px;
-        height: 40px;
+        height: 100%;
         margin: 0;
-        padding: 0;
+        padding: 0 0 8px 0;
+        &Open {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          height: 54px;
+          margin-top: 8px;
+          padding: 0;
+          border-radius: 15px 15px 0 0;
+          background: #938f60;
+          &MenuBurger {
+            width: 50px;
+          }
+          &MenuProfile {
+            width: 50px;
+          }
+          &NewPost {
+            width: 50px;
+          }
+        }
         &Icon {
           display: flex;
           flex-direction: row;
           justify-content: center;
           align-items: center;
           font-size: 1.8rem;
-          &User {
-          }
-          &AddPost {
-          }
-          &Menu {
-          }
-        }
-        &ProfileWrapper {
-          width: 100%;
-          height: 100%;
-          margin: 0;
-          padding: 0;
         }
       }
     }
+  }
+  &BottomDecoration {
+    height: 0.5rem;
+    width: 100%;
+    border-radius: 25px 25px 0 0;
+    margin: 0;
+    padding: 0;
   }
 }
 </style>

@@ -14,8 +14,8 @@
     </div>
     <div class="postHeaderEllipsisButton">
       <EllipsisMenu 
-          FirstLineText="Signaler la publication"
-          SecondLineText="Supprimer la publication"
+          firstLineText="Signaler la publication"
+          secondLineText="Supprimer la publication"
           typeToErase="post"
           />
     </div>

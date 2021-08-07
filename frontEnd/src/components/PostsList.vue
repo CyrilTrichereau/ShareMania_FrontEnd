@@ -1,18 +1,18 @@
 <template>
   <div class="postsList">
     <div class="postsListHeader">
-      <h1 class="text-primary postsListHeaderTitle" v-if="this.smallTitle === false">
-        {{ this.title }}
+      <h1 class="text-primary postsListHeaderTitle" v-if="!smallTitle">
+        {{ title }}
       </h1>
-      <h4 class="text-primary postsListHeaderTitle" v-if="this.smallTitle">
-        {{ this.title }}
+      <h4 class="text-primary postsListHeaderTitle" v-else>
+        {{ title }}
       </h4>
       <div class="postsListHeaderSortingBy">
         <SortingByButton />
       </div>
     </div>
 
-    <div class="postsListMain postsInternal" v-if="posts9gag === false">
+    <div class="postsListMain postsInternal" v-if="!posts9gag">
       <Post />
       <Post />
       <Post />
@@ -23,7 +23,7 @@
       <Post />
     </div>
 
-    <div class="postsListMain posts9Gag" v-if="posts9gag">
+    <div class="postsListMain posts9Gag" v-else>
       <Post9gag />
       <Post9gag />
       <Post9gag />

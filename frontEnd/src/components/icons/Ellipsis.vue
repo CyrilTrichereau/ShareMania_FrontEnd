@@ -1,5 +1,9 @@
 <template>
-  <button :class="styleToApply" @click="changeStateMenuEllipsis">
+  <button
+    class="btn btn-white ellipsisIcon"
+    :class="{ small: small, big: !small, ellipsisIsOpen: menuEllipsisOpen }"
+    @click="menuEllipsisOpen = !menuEllipsisOpen"
+  >
     <span class="dot dotLeft"></span>
     <span class="dot dotMiddle"></span>
     <span class="dot dotRight"></span>
@@ -11,8 +15,6 @@ export default {
   name: "Ellipsis",
   data() {
     return {
-      smallStyle: "btn btn-white ellipsisIcon small",
-      bigStyle: "btn btn-white ellipsisIcon big",
       menuEllipsisOpen: false,
     };
   },
@@ -20,30 +22,6 @@ export default {
     small: {
       type: Boolean,
       default: false,
-    },
-  },
-  computed: {
-    styleToApply() {
-      if (this.small === true && this.menuEllipsisOpen === true) {
-        return this.smallStyle + " ellipsisIsOpen";
-      }
-      if (this.small === false && this.menuEllipsisOpen === true) {
-        return this.bigStyle + " ellipsisIsOpen";
-      }
-      if (this.small === true && this.menuEllipsisOpen === false) {
-        return this.smallStyle;
-      } else {
-        return this.bigStyle;
-      }
-    },
-  },
-  methods: {
-    changeStateMenuEllipsis() {
-      if (this.menuEllipsisOpen === false) {
-        this.menuEllipsisOpen = true;
-      } else {
-        this.menuEllipsisOpen = false;
-      }
     },
   },
 };

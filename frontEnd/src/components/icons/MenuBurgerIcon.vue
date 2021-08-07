@@ -1,5 +1,9 @@
 <template>
-  <button class="burgerIcon" @click="menuBurgerIsOpen">
+  <button
+    class="burgerIcon"
+    :class="{ burgerIconIsOpen: header.isOpenMenu === 'menuBurger'}"
+    @click="openOrCloseMenuHeader('menuBurger')"
+  >
     <span class="bar barTop"></span>
     <span class="bar barMiddle"></span>
     <span class="bar barBottom"></span>
@@ -7,13 +11,15 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
   name: "MenuBurgerIcon",
-  methods: {
-    menuBurgerIsOpen() {
-      document.querySelector(".burgerIcon").classList.toggle("isOpen");
-    },
+  computed: {
+    ...mapState(['header', ['isOpenMenu'], ]),
   },
+  methods: {
+    ...mapActions(['openOrCloseMenuHeader'])
+  }
 };
 </script>
 
@@ -21,18 +27,16 @@ export default {
 $barRotation: 42deg;
 $barSpacing: 20%;
 $barSpacingAfter: 10%;
-$barScaling: 1.3;
+$barScaling: 1.25;
 $animationTime: 200ms;
-$primaryColor: #4d7c8a;
-$secondaryColor: #938f60;
 $lightColor: #fdfeff;
 
 .burgerIcon {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 42px;
   border: none;
   border-radius: 5px;
-  background: $primaryColor;
+  background: none;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -58,10 +62,8 @@ $lightColor: #fdfeff;
   }
 }
 
-.isOpen {
-  transition: all $animationTime ease-in-out;
-  transform: scale(1.2);
-  background: $secondaryColor;
+.burgerIconIsOpen {
+  background: none;
   & > .barTop {
     transform: rotate($barRotation) scaleX($barScaling);
     top: $barSpacingAfter;

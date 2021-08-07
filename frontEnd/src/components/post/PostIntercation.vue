@@ -2,8 +2,8 @@
   <div class="postInteraction bg-info">
     <div class="postInteractionBar">
       <OnFire />
-      <Cold />
       <Comment @open-close-comment-block="openCloseComments" />
+      <Cold />
     </div>
   </div>
 </template>

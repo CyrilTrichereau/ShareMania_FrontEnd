@@ -58,13 +58,6 @@ export default {
     },
   },
   methods: {
-    changingStateIsOpen() {
-      if (this.isOpen === false) {
-        this.isOpen = true;
-      } else {
-        this.isOpen = false;
-      }
-    },
     closeEraseConfirmationWindow() {
       this.$emit("close-erase-confirmation-window");
     },

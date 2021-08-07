@@ -5,8 +5,8 @@
     <PostOriginal />
     <PostStats />
     <PostIntercation @open-close-comment-block="commentsIsOpen = !commentsIsOpen" />
-    <WriteAComment v-show="this.commentsIsOpen" />
-    <DisplayComments v-show="this.commentsIsOpen" />
+    <WriteAComment v-show="commentsIsOpen" />
+    <DisplayComments v-show="commentsIsOpen" />
   </div>
 </template>
 
