@@ -1,7 +1,7 @@
 <template>
   <div class="profileModify card container">
     <img
-      src="@/../public/images/testStatic/femaleProfile4.jpg"
+      src="@/../public/images/testStatic/femaleProfile04.jpg"
       alt="Nom du profil"
       class="profileModifyPicture"
     />

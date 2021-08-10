@@ -1,40 +1,36 @@
 <template>
   <div class="comment">
-    <img
-      src="@/../public/images/testStatic/femaleProfile3.jpg"
-      alt="Nom du profil"
-      class="commentPictureProfile"
-    />
+    <img :src="urlPicture" :alt="'Profil de ' + alias" class="commentPictureProfile" />
     <div class="commentContent bg-info">
       <div class="commentContentHeader">
         <p class="commentContentHeaderNameProfile text-primary">
-          Bluebear234
+          {{ alias }}
         </p>
         <p class="commentContentHeaderTimePost text-secondary">
-          Il y a 9h
+          Il y a {{ time }}
         </p>
         <div class="commentContentHeaderEllipsisMenu">
-          <EllipsisMenu 
-          :small="true"
-          firstLineText="Signaler le commentaire"
-          secondLineText="Supprimer le commentaire"
-          typeToErase="comment"
+          <EllipsisMenu
+            :small="true"
+            firstLineText="Signaler le commentaire"
+            secondLineText="Supprimer le commentaire"
+            typeToErase="comment"
           />
         </div>
       </div>
       <p class="commentContentComment">
-        Perspiciatis minus quaerat ut aut fugiat non eos qui et.
+        {{ text }}
       </p>
       <div class="commentContentWhiteLine bg-light"></div>
       <div class="commentContentInteractions">
         <div class="commentContentInteractionsFire">
-          <OnFire :small="true"/>
+          <OnFire :small="true" />
         </div>
         <p class="commentContentInteractionsPercentage text-secondary">
-          50 %
+          {{ onFirePercentage }} %
         </p>
         <div class="commentContentInteractionsSnow">
-          <Cold :small="true"/>
+          <Cold :small="true" />
         </div>
       </div>
     </div>
@@ -52,6 +48,40 @@ export default {
     EllipsisMenu,
     OnFire,
     Cold,
+  },
+  props: {
+    alias: {
+      type: String,
+      require: true,
+    },
+    urlPicture: {
+      type: String,
+      require: true,
+    },
+    time: {
+      type: Number,
+      require: true,
+    },
+    text: {
+      type: String,
+      require: true,
+    },
+    onFireId: {
+      type: Array,
+      require: true,
+    },
+    coldId: {
+      type: Array,
+      require: true,
+    },
+  },
+  methods: {
+    onFirePercentage() {
+      const onFireNumber = this.onFireId.lenght;
+      const coldNumber = this.coldId.lenght;
+      const percentage = onFireNumber / ((onFireNumber + coldNumber) / 100);
+      return percentage;
+    },
   },
 };
 </script>

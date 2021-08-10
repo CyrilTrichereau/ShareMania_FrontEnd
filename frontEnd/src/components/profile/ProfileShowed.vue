@@ -1,13 +1,14 @@
 <template>
   <div class="profileShowed card container">
+    <h6>{{$store.state.myProfile.urlPicture}} </h6>
     <img
-      src="@/../public/images/testStatic/femaleProfile4.jpg"
-      alt="Nom du profil"
+      :src="myProfile.urlPicture"
+      :alt="'Photo de profil de ' + myProfile.alias"
       class="profileShowedPicture"
     />
 
-    <div class="profileShowedContent">
-      <div class="profileShowedContentStatus">
+    <div class="profileShowedContent" @click="saveMyProfile">
+      <div class="profileShowedContentStatus" v-if="myProfile.moderator">
         <font-awesome-icon
           icon="shield-alt"
           class="text-success profileShowedContentStatusIcon"
@@ -21,7 +22,7 @@
           Adresse email
         </p>
         <p class="profileShowedContentBlockText">
-          sophia.popoulos@gmail.com
+          {{ myProfile.email}}
         </p>
       </div>
       <div class="bg-info profileShowedContentBlock">
@@ -37,7 +38,7 @@
           Pseudo
         </p>
         <p class="profileShowedContentBlockText">
-          SophiaPopoulos64
+          {{ myProfile.alias}}
         </p>
       </div>
       <div class="bg-info profileShowedContentBlock">
@@ -45,7 +46,7 @@
           Service
         </p>
         <p class="profileShowedContentBlockText">
-          Ressources Humaines
+          {{ myProfile.service}}
         </p>
       </div>
       <router-link to="/my-profile/modify">
@@ -66,12 +67,19 @@
 <script>
 import Button from "@/components/form/Button.vue";
 import EraseConfirm from "@/components/EraseConfirm.vue";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "ProfileShowed",
   components: {
     Button,
     EraseConfirm,
+  },
+  computed: {
+    ...mapState(['myProfile']),
+  },
+  methods: {
+    ...mapActions(['saveMyProfile']),
   },
   data() {
     return {

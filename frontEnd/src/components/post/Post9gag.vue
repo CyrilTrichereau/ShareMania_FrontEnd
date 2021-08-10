@@ -12,7 +12,7 @@
       />
     </div>
     <img
-      src="@/../public/images/testStatic/funFrogs.jpg"
+      src="@/../public/images/testStatic/fun01.jpg"
       alt="Mettre le commentaire"
       class="post9gagPicture"
     />

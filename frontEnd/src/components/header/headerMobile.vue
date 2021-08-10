@@ -61,7 +61,6 @@
             headerMobileBlockMenuBarWrapper:
               header.isOpenMenu === !'menuProfile',
           }"
-          @click.native="openOrCloseMenuHeader('menuProfile')"
         >
           <MenuProfile />
         </div>

@@ -1,11 +1,11 @@
 <template>
   <div class="postContent bg-info">
     <p class="postContentComment h5">
-      Trop rigolo l'histoire de la patate qui meurt !
+      {{ text }}
     </p>
     <img
-      src="@/../public/images/testStatic/funPotatoes.jpg"
-      alt="Mettre le commentaire posté"
+      :src="urlPicture"
+      :alt="text"
       class="postContentPicture"
     />
   </div>
@@ -14,6 +14,16 @@
 <script>
 export default {
   name: "PostContent",
+  props: {
+    text: {
+      type: String,
+      require: true,
+    },
+    urlPicture: {
+      type: String,
+      require: true,
+    },
+  },
 };
 </script>
 

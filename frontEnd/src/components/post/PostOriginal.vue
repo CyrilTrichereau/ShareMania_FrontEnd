@@ -2,19 +2,33 @@
   <div class="postOriginal bg-info">
     <div class="postOriginalProfil">
       <img
-        src="@/../public/images/testStatic/maleProfile1.jpg"
-        alt=""
+        :src="urlPicture"
+        :alt="'Photo de profil de ' + alias"
         class="postOriginalProfilPicture"
       />
-      <p class="postOriginalProfilName text-primary">FunnyAccount</p>
+      <p class="postOriginalProfilName text-primary">{{ alias }}</p>
     </div>
-    <p class="postOriginalComment">Et paf la patate !!!</p>
+    <p class="postOriginalComment">{{ text }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: "PostOriginal",
+  props: {
+    alias: {
+      type: String,
+      require: true,
+    },
+    urlPicture: {
+      type: String,
+      require: true,
+    },
+    text: {
+      type: String,
+      require: true,
+    },
+  },
 };
 </script>
 

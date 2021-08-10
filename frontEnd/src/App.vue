@@ -16,6 +16,7 @@
 import NavBarDev from "@/components/NavBarDev.vue";
 import HeaderMobile from "@/components/header/HeaderMobile.vue";
 import SideBarDesktop from "@/components/header/SideBarDesktop.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
@@ -23,6 +24,13 @@ export default {
     NavBarDev,
     HeaderMobile,
     SideBarDesktop,
+  },
+  methods: {
+    ...mapActions(["savePostsList", "saveMyProfile"]),
+  },
+  created() {
+    this.savePostsList();
+    this.saveMyProfile();
   },
 };
 </script>

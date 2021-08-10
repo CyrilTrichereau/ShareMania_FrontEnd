@@ -1,14 +1,14 @@
 <template>
-  <div class="myComment">
+  <div class="myComment" @click="saveMyProfile">
     <p class="myCommentTitle text-light bg-secondary">Ajouter un commentaire</p>
     <div class="myCommentContent bg-info">
       <div class="myCommentContentProfile">
         <img
-          src="@/../public/images/testStatic/femaleProfile2.jpg"
-          alt="Nom du profil"
+          :src="myProfile.urlPicture"
+          :alt="'Photo de profil de '+ myProfile.alias"
           class="myCommentContentProfilePicture"
         />
-        <p class="myCommentContentProfileName text-primary">Becassine32</p>
+        <p class="myCommentContentProfileName text-primary"> {{ myProfile.alias }} </p>
       </div>
       <TextBlock class="myCommentContentText" />
       <Button text="Valider" />
@@ -19,12 +19,19 @@
 <script>
 import TextBlock from "@/components/form/TextBlock.vue";
 import Button from "@/components/form/Button.vue";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "PostWriteAComment",
   components: {
     TextBlock,
     Button,
+  },
+  computed: {
+    ...mapState(["myProfile"]),
+  },
+  methods: {
+    ...mapActions(["saveMyProfile"]),
   },
 };
 </script>

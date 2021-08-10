@@ -21,7 +21,7 @@
 
       <router-link to="/my-profile" class="sideBarProfilePictureBackground">
         <img
-          src="@/../public/images/testStatic/femaleProfile3.jpg"
+          src="@/../public/images/testStatic/femaleProfile03.jpg"
           alt="Nom du profil"
           class="sideBarProfilePicture"
         />

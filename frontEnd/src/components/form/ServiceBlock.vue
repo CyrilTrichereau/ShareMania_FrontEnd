@@ -11,8 +11,9 @@
       <option selected class="text-wrap">Sélectionnez votre service</option>
       <option value="Achats">Achats</option>
       <option value="Commercial">Commercial</option>
-      <option value="Marketing">Marketing</option>
       <option value="Comptabilité">Comptabilité</option>
+      <option value="Informatique">Informatique</option>
+      <option value="Marketing">Marketing</option>
       <option value="Ressources Humaines">Ressources Humaines</option>
     </select>
   </div>

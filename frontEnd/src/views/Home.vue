@@ -1,16 +1,19 @@
 <template>
   <div class="home">
+    <!-- <CreateDataBase /> -->
     <PostsList title="Fil d'actualités" :posts9gag="false" />
   </div>
 </template>
 
 <script>
+// import CreateDataBase from "@/store/createDataBase/CreateDataBase.vue";
 import PostsList from "@/components/PostsList.vue";
 
 export default {
   name: "Home",
   components: {
     PostsList,
+    // CreateDataBase
   },
 };
 </script>

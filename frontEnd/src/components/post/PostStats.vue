@@ -1,22 +1,22 @@
 <template>
   <div class="postStats">
     <div class="postStatsTemperature">
-      <DoubleFire class="postStatsTemperatureDoubleFire"/>
+      <DoubleFire class="postStatsTemperatureDoubleFire" />
       <div class="postStatsTemperatureStats">
         <p class="postStatsTemperatureStatsPercentage">
-          <span class="stronger">50 %</span> sur
+          <span class="stronger">{{onFirePercentage(onFireId, coldId)}} %</span> sur
         </p>
         <p class="postStatsTemperatureStatsNumberPersons">
-          <span class="stronger">1200</span> personnes
+          <span class="stronger"> {{ onFireId.length + coldId.length }} </span> personnes
         </p>
       </div>
     </div>
     <div class="postStatsNumber">
       <p class="postStatsNumberComments">
-        <span class="stronger">65</span> commentaires
+        <span class="stronger"> {{ commentsNumber }} </span> commentaires
       </p>
       <p class="postStatsNumberShare">
-        <span class="stronger">23</span> partages
+        <span class="stronger"> {{ shareNumber }} </span> partages
       </p>
     </div>
   </div>
@@ -24,11 +24,36 @@
 
 <script>
 import DoubleFire from "@/components/icons/DoubleFire.vue";
+// import { mapActions } from 'vuex';
 
 export default {
   name: "PostStats",
   components: {
-    DoubleFire
+    DoubleFire,
+  },
+  props: {
+    onFireId: {
+      type: Array,
+      require: true,
+    },
+    coldId: {
+      type: Array,
+      require: true,
+    },
+    shareNumber: {
+      require: true,
+    },
+    commentsNumber: {
+      type: Number,
+      require: true,
+    },
+  },
+  computed: {
+  },
+  methods: {
+    onFirePercentage(onFireArray, coldArray) {
+      return Math.round(onFireArray.length / ((onFireArray.length + coldArray.length) / 100));
+    },
   },
 };
 </script>
@@ -44,9 +69,9 @@ export default {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-      &DoubleFire {
-margin: 0 0.4rem;
-      }
+    &DoubleFire {
+      margin: 0 0.4rem;
+    }
     &Stats {
       &Percentage {
         margin: 0;

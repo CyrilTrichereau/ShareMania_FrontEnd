@@ -4,7 +4,7 @@
     <div class="bg-info newContentText">
       <div class="newContentTextHeader">
         <img
-          src="@/../public/images/testStatic/femaleProfile4.jpg"
+          src="@/../public/images/testStatic/femaleProfile04.jpg"
           alt="Nom du profil"
           class="newContentTextHeaderPicture"
         />

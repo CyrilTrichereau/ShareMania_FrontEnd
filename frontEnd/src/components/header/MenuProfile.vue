@@ -5,24 +5,36 @@
       @click="openOrCloseMenuHeader('menuProfile')"
     >
       <img
-        src="@/../public/images/testStatic/femaleProfile3.jpg"
+        src="@/../public/images/testStatic/femaleProfile03.jpg"
         alt="Nom du profil"
         class="menuProfileWrapperPicture"
       />
     </div>
-    <div class="menuProfileBackground" v-show="header.isOpenMenu === 'menuProfile'">
+    <div
+      class="menuProfileBackground"
+      v-show="header.isOpenMenu === 'menuProfile'"
+    >
       <nav class="card container bg-light menuProfileList">
-        <div class="menuProfileListCrossIcon" @click="openOrCloseMenuHeader('none')">
-          <CrossIcon :colorThemePrimary="false" />
+        <div
+          class="menuProfileListCrossIcon"
+          @click="openOrCloseMenuHeader('none')"
+        >
+          <CrossIcon
+            :colorThemePrimary="false"
+            @click="openOrCloseMenuHeader('none')"
+          />
         </div>
         <!-- Profile Block -->
-        <div class="menuProfileListProfileBlock" @click="openOrCloseMenuHeader('none')">
+        <div
+          class="menuProfileListProfileBlock"
+          @click="openOrCloseMenuHeader('none')"
+        >
           <router-link
             to="/my-profile"
             class="text-primary btn btn-light menuProfileListProfileBlockLink"
           >
             <img
-              src="@/../public/images/testStatic/femaleProfile3.jpg"
+              src="@/../public/images/testStatic/femaleProfile03.jpg"
               alt="Nom du profil"
               class="menuProfileListProfileBlockLinkPicture"
             />
@@ -100,10 +112,10 @@ export default {
     CrossIcon,
   },
   computed: {
-    ...mapState(['header', ['isOpenMenu'], ]),
+    ...mapState(["header", ["isOpenMenu"]]),
   },
   methods: {
-    ...mapActions(['openOrCloseMenuHeader']),
+    ...mapActions(["openOrCloseMenuHeader"]),
   },
 };
 </script>
@@ -135,6 +147,7 @@ export default {
     height: 40px;
     border: none;
     background: none;
+    cursor: pointer;
 
     &Picture {
       width: 100%;

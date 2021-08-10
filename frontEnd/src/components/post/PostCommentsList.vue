@@ -6,11 +6,16 @@
         <SortingByButton />
       </div>
     </div>
-    <Comment />
-    <Comment />
-    <Comment />
-    <Comment />
-    <Comment />
+    <div v-for="(comment, index) in commentsList" :key="index">
+      <Comment 
+            :alias="comment.profile.alias"
+            :urlPicture="comment.profile.urlPicture"
+            :time="comment.time"
+            :text="comment.text"
+            :onFireId="comment.onFire_id"
+            :coldId="comment.cold_id"
+      />
+    </div>
   </div>
 </template>
 
@@ -23,6 +28,12 @@ export default {
   components: {
     SortingByButton,
     Comment,
+  },
+  props: {
+    commentsList: {
+      type: Array,
+      require: true,
+    },
   },
 };
 </script>

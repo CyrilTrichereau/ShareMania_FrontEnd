@@ -1,23 +1,23 @@
 <template>
   <div class="postHeader">
     <img
-      src="@/../public/images/testStatic/femaleProfile1.jpg"
-      alt="Image de profil de ..."
+      :src="urlPicture"
+      :alt="'Image de profil de ' + alias "
       class="postHeaderPictureProfile"
     />
     <div class="postHeaderText">
-      <p class="postHeaderTextTitle text-primary">Jenny Wilson</p>
+      <p class="postHeaderTextTitle text-primary"> {{ alias }} </p>
       <div class="postHeaderTextSubtitleBlock">
-        <p class="postHeaderTextSubtitleBlockTime">9h</p>
-        <p class="postHeaderTextSubtitleBlockService">- Product Manager</p>
+        <p class="postHeaderTextSubtitleBlockTime"> {{ time }} </p>
+        <p class="postHeaderTextSubtitleBlockService">-  {{ service }} </p>
       </div>
     </div>
     <div class="postHeaderEllipsisButton">
-      <EllipsisMenu 
-          firstLineText="Signaler la publication"
-          secondLineText="Supprimer la publication"
-          typeToErase="post"
-          />
+      <EllipsisMenu
+        firstLineText="Signaler la publication"
+        secondLineText="Supprimer la publication"
+        typeToErase="post"
+      />
     </div>
   </div>
 </template>
@@ -29,6 +29,24 @@ export default {
   name: "PostHeader",
   components: {
     EllipsisMenu,
+  },
+  props: {
+    alias: {
+      type: String,
+      require: true,
+    },
+    urlPicture: {
+      type: String,
+      require: true,
+    },
+    time: {
+      type: Number,
+      require: true,
+    },
+    service: {
+      type: String,
+      require: true,
+    },
   },
 };
 </script>

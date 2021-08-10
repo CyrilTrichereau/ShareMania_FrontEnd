@@ -3,12 +3,13 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+import * as dataStatic from "./dataStatic.js"
+
 export default new Vuex.Store({
   // -----------------------------------
   // ----------- STATE -----------------
   // -----------------------------------
   state: {
-
     header: {
       isOpenMenu: "none",
     },
@@ -16,8 +17,9 @@ export default new Vuex.Store({
     // -----------------
     // MY PROFILE OBJECT
     myProfile: {
-      urlPicture: "",
-      alias: "",
+      _id: "",
+      urlPicture: "a",
+      alias: "dede",
       moderator: false,
       service: "",
       email: "",
@@ -94,22 +96,26 @@ export default new Vuex.Store({
   mutations: {
     CHANGE_IS_OPEN_MENU(state, menu) {
       if (state.header.isOpenMenu === menu) {
-        state.header.isOpenMenu = "none";
+        state.header.isOpenMenu = 'none';
       } else {
         state.header.isOpenMenu = menu;
       }
     },
     CHANGE_IS_OPEN_MENU_FORCE(state, menu) {
-        state.header.isOpenMenu = menu;
+      state.header.isOpenMenu = menu;
+    },
+    SAVE_LIST_POSTS(state, listPosts) {
+      state.listPost = listPosts;
+    },
+    SAVE_MY_PROFILE(state, profile) {
+      state.myProfile = profile;
     },
   },
 
   // -----------------------------------
   // ----------- GETTERS -----------------
   // -----------------------------------
-  getters: {
-
-  },
+  getters: {},
 
   // -----------------------------------
   // ----------- ACTIONS -----------------
@@ -121,14 +127,23 @@ export default new Vuex.Store({
     openOrCloseMenuHeaderForce(context, menu) {
       context.commit("CHANGE_IS_OPEN_MENU_FORCE", menu);
     },
+    saveMyProfile(context) {
+      const myProfile = dataStatic.profilesList[0]
+      context.commit("SAVE_MY_PROFILE", myProfile);
+    },
+    savePostsList(context) {
+      const list = dataStatic.postsList
+      context.commit("SAVE_LIST_POSTS", list);
+    },
+    onFirePercentage(onFireArray, coldArray) {
+      return Math.round(onFireArray.length / ((onFireArray.length + coldArray.length) / 100));
+    },
   },
 
   // -----------------------------------
   // ----------- MODULES -----------------
   // -----------------------------------
-  modules: {
-
-  },
+  modules: {},
 });
 
 //
