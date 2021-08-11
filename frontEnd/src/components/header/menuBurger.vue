@@ -62,40 +62,6 @@
           </router-link>
         </ul>
 
-        <!-- 9GAG LINK -->
-        <ul
-          class="text-dark btn btn-light menuListItem"
-          @click="openOrCloseMenuHeader('none')"
-        >
-          <router-link to="/9gag" class="text-primary menuListItemLinks">
-            <img
-              src="@/../public/images/logo9gagTinified.png"
-              alt="Redirection vers les posts 9GAG"
-              class="menuListItemLinksLogo"
-            />
-            <p class="menuListItemLinksText">
-              9GAG
-            </p>
-          </router-link>
-        </ul>
-
-        <!-- REDDIT LINK -->
-        <ul
-          class="text-dark btn btn-light menuListItem"
-          @click="openOrCloseMenuHeader('none')"
-        >
-          <router-link to="/" class="text-primary menuListItemLinks">
-            <img
-              src="@/../public/images/logoRedditTinified300px.png"
-              alt="Redirection vers les posts Reddit"
-              class="menuListItemLinksLogo"
-            />
-            <p class="menuListItemLinksText">
-              Reddit
-            </p>
-          </router-link>
-        </ul>
-
         <!-- My PROFILE LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"

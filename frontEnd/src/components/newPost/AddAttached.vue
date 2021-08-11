@@ -2,24 +2,17 @@
   <div class="addAttached">
     <p class="h4 addAttachedText">Ajoutez du contenu à votre publication !</p>
     <div class="addAttachedFilter">
-    <Button text="9GAG"/>
-    <Button text="Image"/>
-    <Button text="Vidéo"/>
+    <Button text="Choisir un fichier"/>
     </div>
-    <div class="addAttachedDisplay9gag">
-        <PostsList title="Posts 9GAG !" :posts9gag="true" :smallTitle="true" />
-</div>
   </div>
 </template>
 
 <script>
 import Button from "@/components/form/Button.vue";
-import PostsList from "@/components/PostsList.vue";
 
 export default {
   name: "AddAttached",
   components: {
-    PostsList,
     Button,
   },
 };

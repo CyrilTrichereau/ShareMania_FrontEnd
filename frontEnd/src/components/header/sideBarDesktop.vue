@@ -40,46 +40,36 @@
         >
           Modifier mon profil
         </router-link>
-        <p class="text-light sideBarProfileContentLogOut">Déconnexion</p>
+        <router-link to="/login" class="text-light sideBarProfileContentLogOut">
+          Déconnexion
+        </router-link>
       </div>
     </div>
 
+    <!-- HOME LINK -->
+    <router-link to="/" class="btn btn-primary sideBarMenu">
+      <font-awesome-icon icon="home" class="sideBarMenuIcon text-light" />
+      <p class="text-light h4 sideBarMenuText">
+        Accueil
+      </p>
+    </router-link>
+
+    <!-- NEW POST -->
     <router-link to="/new-post" class="btn btn-primary sideBarMenu">
       <font-awesome-icon
         icon="plus-circle"
-        class="sideBarMenuIcon text-light "
+        class="sideBarMenuIcon text-light"
       />
       <p class="text-light h4 sideBarMenuText">
         Nouveau post
       </p>
     </router-link>
 
+    <!-- FEED -->
     <router-link to="/" class="btn btn-primary sideBarMenu">
       <font-awesome-icon icon="newspaper" class="sideBarMenuIcon text-light " />
       <p class="text-light h4 sideBarMenuText">
         Fil d'actualités
-      </p>
-    </router-link>
-
-    <router-link to="/9gag" class="btn btn-primary sideBarMenu">
-      <img
-        src="@/../public/images/logo9gagWhite.png"
-        alt="Redirection vers les posts 9GAG"
-        class="sideBarMenuIcon"
-      />
-      <p class="text-light h4 sideBarMenuText">
-        9GAG
-      </p>
-    </router-link>
-
-    <router-link to="/" class="btn btn-primary sideBarMenu">
-      <img
-        src="@/../public/images/logoRedditTinified300px.png"
-        alt="Redirection vers les posts Reddit"
-        class="sideBarMenuIcon"
-      />
-      <p class="text-light h4 sideBarMenuText">
-        Reddit
       </p>
     </router-link>
   </div>
@@ -125,8 +115,8 @@ export default {
   }
   &Profile {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 0.5rem;
     width: 100%;
@@ -135,8 +125,8 @@ export default {
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.185);
     &Picture {
-      width: 100px;
-      height: 100px;
+      width: 200px;
+      height: 200px;
       border-radius: 500px;
       object-fit: cover;
       object-position: center;
@@ -144,8 +134,9 @@ export default {
     &Content {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
+      gap: 0.5rem;
       height: 100%;
       &Name {
         margin: 0;

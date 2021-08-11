@@ -4,8 +4,6 @@
     <HeaderMobile />
     <SideBarDesktop />
     <main class="main">
-      <h6 class="mt-5"> .    .</h6>
-      <h6 class="mt-5"> {{listPost9gag}} </h6>
       <!-- ADDING VIEWS PAGES -->
       <router-view />
     </main>
@@ -15,7 +13,7 @@
 <script>
 import HeaderMobile from "@/components/header/HeaderMobile.vue";
 import SideBarDesktop from "@/components/header/SideBarDesktop.vue";
-import { mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
@@ -24,15 +22,13 @@ export default {
     SideBarDesktop,
   },
   computed: {
-    ...mapState(["listPost9gag"])
   },
   methods: {
-    ...mapActions(["fetchPostsList", "fetchMyProfile", "fetchPosts9Gaga"]),
+    ...mapActions(["fetchPostsList", "fetchMyProfile"]),
   },
   created() {
     this.fetchPostsList();
     this.fetchMyProfile();
-    this.fetchPosts9Gaga();
   },
 };
 </script>

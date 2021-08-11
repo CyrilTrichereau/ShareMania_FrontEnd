@@ -110,9 +110,6 @@ export default new Vuex.Store({
     STORE_MY_PROFILE(state, profile) {
       state.myProfile = profile;
     },
-    STORE_POSTS_NINEGAG(state, posts9gag) {
-      state.listPost9gag = posts9gag;
-    },
   },
 
   // -----------------------------------

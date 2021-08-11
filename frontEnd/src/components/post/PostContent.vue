@@ -41,7 +41,7 @@ export default {
       return typeMime;
     },
     isVideo() {
-      const videoTypesArray = ["mp4", "MP4", "avi", "AVI", "mkv", "MKV"];
+      const videoTypesArray = ["mp4", "MP4", "avi", "AVI", "mkv", "MKV", "webm", "WEBM"];
       let isVideoType = false;
       videoTypesArray.forEach((type) => {
         if (this.fileType == type) {
