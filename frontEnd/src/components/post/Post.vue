@@ -1,12 +1,34 @@
 <template>
   <div class="container card bg-light postCard">
-    <PostHeader />
-    <PostContent />
-    <PostOriginal />
-    <PostStats />
-    <PostIntercation @open-close-comment-block="commentsIsOpen = !commentsIsOpen" />
-    <WriteAComment v-show="commentsIsOpen" />
-    <DisplayComments v-show="commentsIsOpen" />
+    <PostHeader
+      :alias="post.posterProfile.alias"
+      :urlPicture="post.posterProfile.urlPicture"
+      :time="post.time"
+      :service="post.posterProfile.service"
+    />
+    <PostContent
+      :text="post.content.text"
+      :urlPicture="post.content.urlPicture"
+    />
+    <PostOriginal
+      :alias="post.content.originalPosterProfile.alias"
+      :urlPicture="post.content.originalPosterProfile.urlPicture"
+      :text="post.content.originalPosterProfile.text"
+    />
+    <PostStats
+      :onFireId="post.onFire_id"
+      :coldId="post.cold_id"
+      :shareNumber="post.shareNumber"
+      :commentsNumber="post.commentsList.length"
+    />
+    <PostIntercation
+      @open-close-comment-block="commentsIsOpen = !commentsIsOpen"
+    />
+    <PostWriteAComment v-show="commentsIsOpen" />
+    <PostCommentsList
+      v-show="commentsIsOpen"
+      :commentsList="post.commentsList"
+    />
   </div>
 </template>
 
@@ -16,8 +38,8 @@ import PostContent from "@/components/post/PostContent.vue";
 import PostOriginal from "@/components/post/PostOriginal.vue";
 import PostStats from "@/components/post/PostStats.vue";
 import PostIntercation from "@/components/post/PostIntercation.vue";
-import WriteAComment from "@/components/post/PostWriteAComment.vue";
-import DisplayComments from "@/components/post/PostCommentsList.vue";
+import PostWriteAComment from "@/components/post/PostWriteAComment.vue";
+import PostCommentsList from "@/components/post/PostCommentsList.vue";
 
 export default {
   name: "Post",
@@ -27,8 +49,14 @@ export default {
     PostOriginal,
     PostStats,
     PostIntercation,
-    WriteAComment,
-    DisplayComments,
+    PostWriteAComment,
+    PostCommentsList,
+  },
+  props: {
+    post: {
+      type: Object,
+      require: true,
+    },
   },
   data() {
     return {

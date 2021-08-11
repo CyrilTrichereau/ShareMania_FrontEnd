@@ -2,7 +2,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "NathalieChartier76",
-      urlPicture: "@/../public/images/testStatic/femaleProfile19.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile19.jpg"),
       service: "Commercial",
       _id: "IDProf3945771922",
     },
@@ -13,7 +13,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aeAzeOq_700bwp.webp",
       originalPosterProfile: {
         alias: "SuzanneGuichard74",
-        urlPicture: "@/../public/images/testStatic/femaleProfile14.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile14.jpg"),
         text: "Donec ac odio maximus, venenatis est ac, eleifend ex.",
         _id: "IDProf4413555047",
       },
@@ -30,7 +30,7 @@ export const postsList = [
       {
         profile: {
           alias: "MarcelKlein63",
-          urlPicture: "@/../public/images/testStatic/maleProfile06.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile06.jpg"),
         },
         time: 1607676701,
         text:
@@ -42,7 +42,7 @@ export const postsList = [
       {
         profile: {
           alias: "NathalieChartier76",
-          urlPicture: "@/../public/images/testStatic/femaleProfile19.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile19.jpg"),
         },
         time: 1608585256,
         text: "Quisque a nisi ac est tempus facilisis sed a nibh.",
@@ -75,7 +75,7 @@ export const postsList = [
       {
         profile: {
           alias: "OcéaneRoux74",
-          urlPicture: "@/../public/images/testStatic/femaleProfile13.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile13.jpg"),
         },
         time: 1606867673,
         text:
@@ -95,7 +95,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "HenriFoucher96",
-      urlPicture: "@/../public/images/testStatic/maleProfile08.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile08.jpg"),
       service: "Commercial",
       _id: "IDProf2476170829",
     },
@@ -106,7 +106,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/ad8AK92_700bwp.webp",
       originalPosterProfile: {
         alias: "LucHardy58",
-        urlPicture: "@/../public/images/testStatic/maleProfile03.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile03.jpg"),
         text: "Nullam laoreet dolor vel consectetur accumsan.",
         _id: "IDProf7981503056",
       },
@@ -124,7 +124,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉliseParis79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
         },
         time: 1599927008,
         text: "Sed accumsan massa nec congue aliquet.",
@@ -158,7 +158,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉmilieValentin75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile16.jpg"),
         },
         time: 1625065019,
         text: "Praesent varius ligula ut interdum placerat.",
@@ -191,7 +191,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "AugustinLefevre76",
-      urlPicture: "@/../public/images/testStatic/maleProfile20.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile20.jpg"),
       service: "Informatique",
       _id: "IDProf5618804485",
     },
@@ -199,10 +199,10 @@ export const postsList = [
     time: 1591026064,
     content: {
       text: "Est ce qu'il y a un plombier dans l'immeuble ?",
-      urlPicture: "@/../public/images/testStatic/fun06.jpg",
+      urlPicture: require("@/../public/images/testStatic/fun06.jpg"),
       originalPosterProfile: {
         alias: "AnoukWeiss51",
-        urlPicture: "@/../public/images/testStatic/femaleProfile01.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile01.jpg"),
         text: "Integer elementum lacus eget condimentum vestibulum.",
         _id: "IDProf3222574693",
       },
@@ -230,7 +230,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnaïsBodin79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile04.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile04.jpg"),
         },
         time: 1621632036,
         text: "In facilisis libero a tortor convallis ornare.",
@@ -267,7 +267,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnoukWeiss51",
-          urlPicture: "@/../public/images/testStatic/femaleProfile01.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile01.jpg"),
         },
         time: 1613470331,
         text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -290,7 +290,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "AlphonseLabbe42",
-      urlPicture: "@/../public/images/testStatic/maleProfile07.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile07.jpg"),
       service: "Achats",
       _id: "IDProf7869358299",
     },
@@ -298,10 +298,10 @@ export const postsList = [
     time: 1602271019,
     content: {
       text: "C'est élastique jusqu'à quel point ?",
-      urlPicture: "@/../public/images/testStatic/fun03.jpg",
+      urlPicture: require("@/../public/images/testStatic/fun03.jpg"),
       originalPosterProfile: {
         alias: "LaurentRoche89",
-        urlPicture: "@/../public/images/testStatic/maleProfile01.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile01.jpg"),
         text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
         _id: "IDProf8700010269",
       },
@@ -324,7 +324,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉliseParis79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
         },
         time: 1599927008,
         text: "Sed accumsan massa nec congue aliquet.",
@@ -358,7 +358,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉmilieValentin75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile16.jpg"),
         },
         time: 1625065019,
         text: "Praesent varius ligula ut interdum placerat.",
@@ -389,7 +389,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉtienneChartier75",
-          urlPicture: "@/../public/images/testStatic/maleProfile17.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile17.jpg"),
         },
         time: 1628107122,
         text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
@@ -428,7 +428,7 @@ export const postsList = [
       {
         profile: {
           alias: "EugèneDenis12",
-          urlPicture: "@/../public/images/testStatic/maleProfile04.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile04.jpg"),
         },
         time: 1617007738,
         text: "Etiam at purus eget diam vehicula sollicitudin non in diam.",
@@ -453,7 +453,7 @@ export const postsList = [
       {
         profile: {
           alias: "GenevièveNormand75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile17.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile17.jpg"),
         },
         time: 1619507539,
         text:
@@ -482,7 +482,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "ÉliseParis79",
-      urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
       service: "Achats",
       _id: "IDProf2058666500",
     },
@@ -493,7 +493,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/a4EgY86_460svav1.mp4",
       originalPosterProfile: {
         alias: "LouisRey96",
-        urlPicture: "@/../public/images/testStatic/maleProfile16.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile16.jpg"),
         text: "Quisque a nisi ac est tempus facilisis sed a nibh.",
         _id: "IDProf1850824428",
       },
@@ -530,7 +530,7 @@ export const postsList = [
       {
         profile: {
           alias: "ColetteDuhamel78",
-          urlPicture: "@/../public/images/testStatic/femaleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile11.jpg"),
         },
         time: 1608971208,
         text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -562,7 +562,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉliseParis79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
         },
         time: 1599927008,
         text: "Sed accumsan massa nec congue aliquet.",
@@ -596,7 +596,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉmilieValentin75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile16.jpg"),
         },
         time: 1625065019,
         text: "Praesent varius ligula ut interdum placerat.",
@@ -627,7 +627,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉtienneChartier75",
-          urlPicture: "@/../public/images/testStatic/maleProfile17.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile17.jpg"),
         },
         time: 1628107122,
         text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
@@ -668,7 +668,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "LaurentRoche89",
-      urlPicture: "@/../public/images/testStatic/maleProfile01.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile01.jpg"),
       service: "Ressources Humaines",
       _id: "IDProf8700010269",
     },
@@ -679,7 +679,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aGpv1p5_700bwp.webp",
       originalPosterProfile: {
         alias: "ÉtienneChartier75",
-        urlPicture: "@/../public/images/testStatic/maleProfile17.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile17.jpg"),
         text: "In facilisis libero a tortor convallis ornare.",
         _id: "IDProf7552555914",
       },
@@ -705,7 +705,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnaïsBodin79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile04.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile04.jpg"),
         },
         time: 1621632036,
         text: "In facilisis libero a tortor convallis ornare.",
@@ -742,7 +742,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnoukWeiss51",
-          urlPicture: "@/../public/images/testStatic/femaleProfile01.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile01.jpg"),
         },
         time: 1613470331,
         text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -763,7 +763,7 @@ export const postsList = [
       {
         profile: {
           alias: "AugustinLefevre76",
-          urlPicture: "@/../public/images/testStatic/maleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile20.jpg"),
         },
         time: 1626652997,
         text: "Donec vehicula nulla ac feugiat pulvinar.",
@@ -803,7 +803,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "ÉmilieValentin75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile16.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile16.jpg"),
       service: "Comptabilité",
       _id: "IDProf9259168803",
     },
@@ -814,7 +814,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/a8ENMeZ_460swp.webp",
       originalPosterProfile: {
         alias: "AiméeFerreira96",
-        urlPicture: "@/../public/images/testStatic/maleProfile10.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile10.jpg"),
         text: "Sed accumsan massa nec congue aliquet.",
         _id: "IDProf3460528375",
       },
@@ -849,7 +849,7 @@ export const postsList = [
       {
         profile: {
           alias: "GenevièveNormand75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile17.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile17.jpg"),
         },
         time: 1619507539,
         text:
@@ -876,7 +876,7 @@ export const postsList = [
       {
         profile: {
           alias: "HenriFoucher96",
-          urlPicture: "@/../public/images/testStatic/maleProfile08.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile08.jpg"),
         },
         time: 1599204889,
         text: "Donec ac odio maximus, venenatis est ac, eleifend ex.",
@@ -902,7 +902,7 @@ export const postsList = [
       {
         profile: {
           alias: "InèsDavid13",
-          urlPicture: "@/../public/images/testStatic/femaleProfile02.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile02.jpg"),
         },
         time: 1590692422,
         text:
@@ -938,7 +938,7 @@ export const postsList = [
       {
         profile: {
           alias: "JeanneColin96",
-          urlPicture: "@/../public/images/testStatic/femaleProfile12.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile12.jpg"),
         },
         time: 1601914552,
         text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -961,7 +961,7 @@ export const postsList = [
       {
         profile: {
           alias: "JosephDuhamel46",
-          urlPicture: "@/../public/images/testStatic/maleProfile02.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile02.jpg"),
         },
         time: 1621287078,
         text: "Integer elementum lacus eget condimentum vestibulum.",
@@ -992,7 +992,7 @@ export const postsList = [
       {
         profile: {
           alias: "JoséphinePerrin96",
-          urlPicture: "@/../public/images/testStatic/femaleProfile06.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile06.jpg"),
         },
         time: 1608095100,
         text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -1029,7 +1029,7 @@ export const postsList = [
       {
         profile: {
           alias: "LaetitiaDumont75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile10.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile10.jpg"),
         },
         time: 1613623028,
         text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -1056,7 +1056,7 @@ export const postsList = [
       {
         profile: {
           alias: "LaurentRoche89",
-          urlPicture: "@/../public/images/testStatic/maleProfile01.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile01.jpg"),
         },
         time: 1617953585,
         text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -1074,7 +1074,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouiseLeclerc45",
-          urlPicture: "@/../public/images/testStatic/femaleProfile08.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile08.jpg"),
         },
         time: 1617284223,
         text:
@@ -1096,7 +1096,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "JosephDuhamel46",
-      urlPicture: "@/../public/images/testStatic/maleProfile02.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile02.jpg"),
       service: "Commercial",
       _id: "IDProf6895606931",
     },
@@ -1107,7 +1107,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/a1rgoK2_460swp.webp",
       originalPosterProfile: {
         alias: "BrigitteBoucher76",
-        urlPicture: "@/../public/images/testStatic/femaleProfile18.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile18.jpg"),
         text:
           "Vestibulum sed eros tempus, porttitor nulla facilisis, tempus massa.",
         _id: "IDProf481729807",
@@ -1146,7 +1146,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉliseParis79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
         },
         time: 1599927008,
         text: "Sed accumsan massa nec congue aliquet.",
@@ -1180,7 +1180,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉmilieValentin75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile16.jpg"),
         },
         time: 1625065019,
         text: "Praesent varius ligula ut interdum placerat.",
@@ -1211,7 +1211,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉtienneChartier75",
-          urlPicture: "@/../public/images/testStatic/maleProfile17.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile17.jpg"),
         },
         time: 1628107122,
         text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
@@ -1250,7 +1250,7 @@ export const postsList = [
       {
         profile: {
           alias: "EugèneDenis12",
-          urlPicture: "@/../public/images/testStatic/maleProfile04.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile04.jpg"),
         },
         time: 1617007738,
         text: "Etiam at purus eget diam vehicula sollicitudin non in diam.",
@@ -1277,7 +1277,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "JoséphinePerrin96",
-      urlPicture: "@/../public/images/testStatic/femaleProfile06.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile06.jpg"),
       service: "Comptabilité",
       _id: "IDProf6700667335",
     },
@@ -1288,7 +1288,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aLpo8z6_700bwp.webp",
       originalPosterProfile: {
         alias: "RichardRaymond75",
-        urlPicture: "@/../public/images/testStatic/maleProfile09.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile09.jpg"),
         text: "Morbi placerat eros fermentum tellus elementum eleifend.",
         _id: "IDProf5339527400",
       },
@@ -1327,7 +1327,7 @@ export const postsList = [
       {
         profile: {
           alias: "ColetteDuhamel78",
-          urlPicture: "@/../public/images/testStatic/femaleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile11.jpg"),
         },
         time: 1608971208,
         text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -1359,7 +1359,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉliseParis79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
         },
         time: 1599927008,
         text: "Sed accumsan massa nec congue aliquet.",
@@ -1395,7 +1395,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "ValentineDelmas75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile07.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile07.jpg"),
       service: "Ressources Humaines",
       _id: "IDProf6533477894",
     },
@@ -1406,7 +1406,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/ayMrXLy_700bwp.webp",
       originalPosterProfile: {
         alias: "VincentDeOliveira96",
-        urlPicture: "@/../public/images/testStatic/maleProfile05.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile05.jpg"),
         text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
         _id: "IDProf3600469520",
       },
@@ -1438,7 +1438,7 @@ export const postsList = [
       {
         profile: {
           alias: "AlphonseLabbe42",
-          urlPicture: "@/../public/images/testStatic/maleProfile07.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile07.jpg"),
         },
         time: 1601480903,
         text: "Mauris sed est ac justo iaculis volutpat.",
@@ -1462,7 +1462,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnaïsBodin79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile04.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile04.jpg"),
         },
         time: 1621632036,
         text: "In facilisis libero a tortor convallis ornare.",
@@ -1499,7 +1499,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnoukWeiss51",
-          urlPicture: "@/../public/images/testStatic/femaleProfile01.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile01.jpg"),
         },
         time: 1613470331,
         text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -1520,7 +1520,7 @@ export const postsList = [
       {
         profile: {
           alias: "AugustinLefevre76",
-          urlPicture: "@/../public/images/testStatic/maleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile20.jpg"),
         },
         time: 1626652997,
         text: "Donec vehicula nulla ac feugiat pulvinar.",
@@ -1558,7 +1558,7 @@ export const postsList = [
       {
         profile: {
           alias: "BenjaminPicard12",
-          urlPicture: "@/../public/images/testStatic/femaleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile20.jpg"),
         },
         time: 1589555075,
         text:
@@ -1598,7 +1598,7 @@ export const postsList = [
       {
         profile: {
           alias: "BrigitteBoucher76",
-          urlPicture: "@/../public/images/testStatic/femaleProfile18.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile18.jpg"),
         },
         time: 1627705959,
         text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -1615,7 +1615,7 @@ export const postsList = [
       {
         profile: {
           alias: "CélinaPoirier46",
-          urlPicture: "@/../public/images/testStatic/femaleProfile03.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile03.jpg"),
         },
         time: 1593211416,
         text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -1638,7 +1638,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "LouisLeconte94",
-      urlPicture: "@/../public/images/testStatic/maleProfile11.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile11.jpg"),
       service: "Achats",
       _id: "IDProf9028704158",
     },
@@ -1649,7 +1649,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/av5qGgX_700bwp.webp",
       originalPosterProfile: {
         alias: "GenevièveNormand75",
-        urlPicture: "@/../public/images/testStatic/femaleProfile17.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile17.jpg"),
         text: "Maecenas a eros eu urna mollis aliquet.",
         _id: "IDProf492582742",
       },
@@ -1675,7 +1675,7 @@ export const postsList = [
       {
         profile: {
           alias: "JosephDuhamel46",
-          urlPicture: "@/../public/images/testStatic/maleProfile02.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile02.jpg"),
         },
         time: 1621287078,
         text: "Integer elementum lacus eget condimentum vestibulum.",
@@ -1706,7 +1706,7 @@ export const postsList = [
       {
         profile: {
           alias: "JoséphinePerrin96",
-          urlPicture: "@/../public/images/testStatic/femaleProfile06.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile06.jpg"),
         },
         time: 1608095100,
         text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -1743,7 +1743,7 @@ export const postsList = [
       {
         profile: {
           alias: "LaetitiaDumont75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile10.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile10.jpg"),
         },
         time: 1613623028,
         text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -1770,7 +1770,7 @@ export const postsList = [
       {
         profile: {
           alias: "LaurentRoche89",
-          urlPicture: "@/../public/images/testStatic/maleProfile01.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile01.jpg"),
         },
         time: 1617953585,
         text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -1788,7 +1788,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouiseLeclerc45",
-          urlPicture: "@/../public/images/testStatic/femaleProfile08.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile08.jpg"),
         },
         time: 1617284223,
         text:
@@ -1808,7 +1808,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisLeconte94",
-          urlPicture: "@/../public/images/testStatic/maleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile11.jpg"),
         },
         time: 1601170567,
         text: "Sed dapibus nulla eget sapien euismod bibendum.",
@@ -1825,7 +1825,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisRey96",
-          urlPicture: "@/../public/images/testStatic/maleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile16.jpg"),
         },
         time: 1627788100,
         text: "Morbi porttitor nunc in ligula feugiat iaculis.",
@@ -1862,7 +1862,7 @@ export const postsList = [
       {
         profile: {
           alias: "LucDiaz74",
-          urlPicture: "@/../public/images/testStatic/maleProfile19.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile19.jpg"),
         },
         time: 1595825776,
         text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -1905,7 +1905,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "LouisRey96",
-      urlPicture: "@/../public/images/testStatic/maleProfile16.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile16.jpg"),
       service: "Informatique",
       _id: "IDProf1850824428",
     },
@@ -1916,7 +1916,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aQob3o7_700bwp.webp",
       originalPosterProfile: {
         alias: "LouisLeconte94",
-        urlPicture: "@/../public/images/testStatic/maleProfile11.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile11.jpg"),
         text: "Cras porttitor ex eu vehicula cursus.",
         _id: "IDProf9028704158",
       },
@@ -1943,7 +1943,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouiseLeclerc45",
-          urlPicture: "@/../public/images/testStatic/femaleProfile08.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile08.jpg"),
         },
         time: 1617284223,
         text:
@@ -1963,7 +1963,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisLeconte94",
-          urlPicture: "@/../public/images/testStatic/maleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile11.jpg"),
         },
         time: 1601170567,
         text: "Sed dapibus nulla eget sapien euismod bibendum.",
@@ -1980,7 +1980,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisRey96",
-          urlPicture: "@/../public/images/testStatic/maleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile16.jpg"),
         },
         time: 1627788100,
         text: "Morbi porttitor nunc in ligula feugiat iaculis.",
@@ -2017,7 +2017,7 @@ export const postsList = [
       {
         profile: {
           alias: "LucDiaz74",
-          urlPicture: "@/../public/images/testStatic/maleProfile19.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile19.jpg"),
         },
         time: 1595825776,
         text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -2058,7 +2058,7 @@ export const postsList = [
       {
         profile: {
           alias: "LucHardy58",
-          urlPicture: "@/../public/images/testStatic/maleProfile03.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile03.jpg"),
         },
         time: 1590998054,
         text: "Aenean porta lorem sit amet luctus ultrices.",
@@ -2076,7 +2076,7 @@ export const postsList = [
       {
         profile: {
           alias: "MarcelKlein63",
-          urlPicture: "@/../public/images/testStatic/maleProfile06.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile06.jpg"),
         },
         time: 1607676701,
         text:
@@ -2088,7 +2088,7 @@ export const postsList = [
       {
         profile: {
           alias: "NathalieChartier76",
-          urlPicture: "@/../public/images/testStatic/femaleProfile19.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile19.jpg"),
         },
         time: 1608585256,
         text: "Quisque a nisi ac est tempus facilisis sed a nibh.",
@@ -2121,7 +2121,7 @@ export const postsList = [
       {
         profile: {
           alias: "OcéaneRoux74",
-          urlPicture: "@/../public/images/testStatic/femaleProfile13.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile13.jpg"),
         },
         time: 1606867673,
         text:
@@ -2141,7 +2141,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "SébastienGauthier75",
-      urlPicture: "@/../public/images/testStatic/maleProfile15.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile15.jpg"),
       service: "Informatique",
       _id: "IDProf6609836410",
     },
@@ -2152,7 +2152,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/azMyXxZ_460sv.mp4",
       originalPosterProfile: {
         alias: "YvesAllard85",
-        urlPicture: "@/../public/images/testStatic/maleProfile12.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile12.jpg"),
         text:
           "Donec bibendum ligula et dolor vestibulum, eu eleifend tellus aliquam.",
         _id: "IDProf3960632444",
@@ -2190,7 +2190,7 @@ export const postsList = [
       {
         profile: {
           alias: "YvesAllard85",
-          urlPicture: "@/../public/images/testStatic/maleProfile12.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile12.jpg"),
         },
         time: 1604043020,
         text: "Maecenas a eros eu urna mollis aliquet.",
@@ -2218,7 +2218,7 @@ export const postsList = [
       {
         profile: {
           alias: "AiméeFerreira96",
-          urlPicture: "@/../public/images/testStatic/maleProfile10.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile10.jpg"),
         },
         time: 1592855255,
         text:
@@ -2230,7 +2230,7 @@ export const postsList = [
       {
         profile: {
           alias: "AlexandriaGuillot75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile05.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile05.jpg"),
         },
         time: 1593002804,
         text: "Donec at urna non lacus interdum dictum.",
@@ -2253,7 +2253,7 @@ export const postsList = [
       {
         profile: {
           alias: "AlphonseLabbe42",
-          urlPicture: "@/../public/images/testStatic/maleProfile07.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile07.jpg"),
         },
         time: 1601480903,
         text: "Mauris sed est ac justo iaculis volutpat.",
@@ -2277,7 +2277,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnaïsBodin79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile04.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile04.jpg"),
         },
         time: 1621632036,
         text: "In facilisis libero a tortor convallis ornare.",
@@ -2314,7 +2314,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnoukWeiss51",
-          urlPicture: "@/../public/images/testStatic/femaleProfile01.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile01.jpg"),
         },
         time: 1613470331,
         text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -2335,7 +2335,7 @@ export const postsList = [
       {
         profile: {
           alias: "AugustinLefevre76",
-          urlPicture: "@/../public/images/testStatic/maleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile20.jpg"),
         },
         time: 1626652997,
         text: "Donec vehicula nulla ac feugiat pulvinar.",
@@ -2375,7 +2375,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "OcéaneRoux74",
-      urlPicture: "@/../public/images/testStatic/femaleProfile13.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile13.jpg"),
       service: "Informatique",
       _id: "IDProf5490560701",
     },
@@ -2386,7 +2386,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aRXWmO5_460svav1.mp4",
       originalPosterProfile: {
         alias: "NathalieChartier76",
-        urlPicture: "@/../public/images/testStatic/femaleProfile19.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile19.jpg"),
         text:
           "Quisque et ante sit amet metus sagittis sollicitudin sed vitae sem.",
         _id: "IDProf3945771922",
@@ -2420,7 +2420,7 @@ export const postsList = [
       {
         profile: {
           alias: "BrigitteBoucher76",
-          urlPicture: "@/../public/images/testStatic/femaleProfile18.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile18.jpg"),
         },
         time: 1627705959,
         text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -2437,7 +2437,7 @@ export const postsList = [
       {
         profile: {
           alias: "CélinaPoirier46",
-          urlPicture: "@/../public/images/testStatic/femaleProfile03.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile03.jpg"),
         },
         time: 1593211416,
         text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -2458,7 +2458,7 @@ export const postsList = [
       {
         profile: {
           alias: "ColetteDuhamel78",
-          urlPicture: "@/../public/images/testStatic/femaleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile11.jpg"),
         },
         time: 1608971208,
         text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -2490,7 +2490,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉliseParis79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
         },
         time: 1599927008,
         text: "Sed accumsan massa nec congue aliquet.",
@@ -2524,7 +2524,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉmilieValentin75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile16.jpg"),
         },
         time: 1625065019,
         text: "Praesent varius ligula ut interdum placerat.",
@@ -2555,7 +2555,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉtienneChartier75",
-          urlPicture: "@/../public/images/testStatic/maleProfile17.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile17.jpg"),
         },
         time: 1628107122,
         text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
@@ -2594,7 +2594,7 @@ export const postsList = [
       {
         profile: {
           alias: "EugèneDenis12",
-          urlPicture: "@/../public/images/testStatic/maleProfile04.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile04.jpg"),
         },
         time: 1617007738,
         text: "Etiam at purus eget diam vehicula sollicitudin non in diam.",
@@ -2621,7 +2621,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "LucHardy58",
-      urlPicture: "@/../public/images/testStatic/maleProfile03.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile03.jpg"),
       service: "Ressources Humaines",
       _id: "IDProf7981503056",
     },
@@ -2632,7 +2632,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aXo3vPD_700bwp.webp",
       originalPosterProfile: {
         alias: "SébastienGauthier75",
-        urlPicture: "@/../public/images/testStatic/maleProfile15.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile15.jpg"),
         text:
           "Nunc varius justo molestie quam rhoncus, sed dignissim ex fringilla.",
         _id: "IDProf6609836410",
@@ -2659,7 +2659,7 @@ export const postsList = [
       {
         profile: {
           alias: "ColetteDuhamel78",
-          urlPicture: "@/../public/images/testStatic/femaleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile11.jpg"),
         },
         time: 1608971208,
         text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -2691,7 +2691,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉliseParis79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
         },
         time: 1599927008,
         text: "Sed accumsan massa nec congue aliquet.",
@@ -2727,7 +2727,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "VictorFabre76",
-      urlPicture: "@/../public/images/testStatic/maleProfile13.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile13.jpg"),
       service: "Achats",
       _id: "IDProf5873380013",
     },
@@ -2738,7 +2738,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/anQZMbV_460sv.mp4",
       originalPosterProfile: {
         alias: "ColetteDuhamel78",
-        urlPicture: "@/../public/images/testStatic/femaleProfile11.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile11.jpg"),
         text: "Integer lacinia urna at sapien rhoncus dignissim.",
         _id: "IDProf996763223",
       },
@@ -2760,7 +2760,7 @@ export const postsList = [
       {
         profile: {
           alias: "AugustinLefevre76",
-          urlPicture: "@/../public/images/testStatic/maleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile20.jpg"),
         },
         time: 1626652997,
         text: "Donec vehicula nulla ac feugiat pulvinar.",
@@ -2798,7 +2798,7 @@ export const postsList = [
       {
         profile: {
           alias: "BenjaminPicard12",
-          urlPicture: "@/../public/images/testStatic/femaleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile20.jpg"),
         },
         time: 1589555075,
         text:
@@ -2840,7 +2840,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "LouiseLeclerc45",
-      urlPicture: "@/../public/images/testStatic/femaleProfile08.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile08.jpg"),
       service: "Achats",
       _id: "IDProf7810648675",
     },
@@ -2851,7 +2851,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aB2zWdD_700bwp.webp",
       originalPosterProfile: {
         alias: "ÉliseParis79",
-        urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
         text: "Sed in ipsum feugiat, convallis nisl a, mollis lectus.",
         _id: "IDProf2058666500",
       },
@@ -2882,7 +2882,7 @@ export const postsList = [
       {
         profile: {
           alias: "YvesAllard85",
-          urlPicture: "@/../public/images/testStatic/maleProfile12.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile12.jpg"),
         },
         time: 1604043020,
         text: "Maecenas a eros eu urna mollis aliquet.",
@@ -2912,7 +2912,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "VictorFerreira76",
-      urlPicture: "@/../public/images/testStatic/maleProfile18.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile18.jpg"),
       service: "Commercial",
       _id: "IDProf4547943199",
     },
@@ -2923,7 +2923,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aLpo87M_460svav1.mp4",
       originalPosterProfile: {
         alias: "JosephDuhamel46",
-        urlPicture: "@/../public/images/testStatic/maleProfile02.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile02.jpg"),
         text: "Etiam at purus eget diam vehicula sollicitudin non in diam.",
         _id: "IDProf6895606931",
       },
@@ -2943,7 +2943,7 @@ export const postsList = [
       {
         profile: {
           alias: "HenriFoucher96",
-          urlPicture: "@/../public/images/testStatic/maleProfile08.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile08.jpg"),
         },
         time: 1599204889,
         text: "Donec ac odio maximus, venenatis est ac, eleifend ex.",
@@ -2971,7 +2971,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "PaulineChauveau75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile15.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile15.jpg"),
       service: "Commercial",
       _id: "IDProf2340765978",
     },
@@ -2982,7 +2982,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aoMoNMx_460svvp9.webm",
       originalPosterProfile: {
         alias: "AlexandriaGuillot75",
-        urlPicture: "@/../public/images/testStatic/femaleProfile05.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile05.jpg"),
         text:
           "Vestibulum nec eros sed tellus tincidunt imperdiet vel ac ligula.",
         _id: "IDProf6369228315",
@@ -3012,7 +3012,7 @@ export const postsList = [
       {
         profile: {
           alias: "SuzanneGuichard74",
-          urlPicture: "@/../public/images/testStatic/femaleProfile14.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile14.jpg"),
         },
         time: 1591082849,
         text: "Cras porttitor ex eu vehicula cursus.",
@@ -3033,7 +3033,7 @@ export const postsList = [
       {
         profile: {
           alias: "ValentineDelmas75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile07.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile07.jpg"),
         },
         time: 1597132677,
         text: "Sed in ipsum feugiat, convallis nisl a, mollis lectus.",
@@ -3059,7 +3059,7 @@ export const postsList = [
       {
         profile: {
           alias: "VictorFabre76",
-          urlPicture: "@/../public/images/testStatic/maleProfile13.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile13.jpg"),
         },
         time: 1602814291,
         text: "Morbi placerat eros fermentum tellus elementum eleifend.",
@@ -3107,7 +3107,7 @@ export const postsList = [
       {
         profile: {
           alias: "VictorFerreira76",
-          urlPicture: "@/../public/images/testStatic/maleProfile18.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile18.jpg"),
         },
         time: 1604792427,
         text:
@@ -3125,7 +3125,7 @@ export const postsList = [
       {
         profile: {
           alias: "VincentDeOliveira96",
-          urlPicture: "@/../public/images/testStatic/maleProfile05.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile05.jpg"),
         },
         time: 1597643543,
         text: "Praesent consectetur risus at ultrices lobortis.",
@@ -3159,7 +3159,7 @@ export const postsList = [
       {
         profile: {
           alias: "YvesAllard85",
-          urlPicture: "@/../public/images/testStatic/maleProfile12.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile12.jpg"),
         },
         time: 1604043020,
         text: "Maecenas a eros eu urna mollis aliquet.",
@@ -3187,7 +3187,7 @@ export const postsList = [
       {
         profile: {
           alias: "AiméeFerreira96",
-          urlPicture: "@/../public/images/testStatic/maleProfile10.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile10.jpg"),
         },
         time: 1592855255,
         text:
@@ -3201,7 +3201,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "LucDiaz74",
-      urlPicture: "@/../public/images/testStatic/maleProfile19.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile19.jpg"),
       service: "Comptabilité",
       _id: "IDProf9101996575",
     },
@@ -3212,7 +3212,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/agB9Xqq_700bwp.webp",
       originalPosterProfile: {
         alias: "InèsDavid13",
-        urlPicture: "@/../public/images/testStatic/femaleProfile02.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile02.jpg"),
         text: "Morbi porttitor nunc in ligula feugiat iaculis.",
         _id: "IDProf2081160576",
       },
@@ -3259,7 +3259,7 @@ export const postsList = [
       {
         profile: {
           alias: "JeanneColin96",
-          urlPicture: "@/../public/images/testStatic/femaleProfile12.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile12.jpg"),
         },
         time: 1601914552,
         text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -3282,7 +3282,7 @@ export const postsList = [
       {
         profile: {
           alias: "JosephDuhamel46",
-          urlPicture: "@/../public/images/testStatic/maleProfile02.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile02.jpg"),
         },
         time: 1621287078,
         text: "Integer elementum lacus eget condimentum vestibulum.",
@@ -3313,7 +3313,7 @@ export const postsList = [
       {
         profile: {
           alias: "JoséphinePerrin96",
-          urlPicture: "@/../public/images/testStatic/femaleProfile06.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile06.jpg"),
         },
         time: 1608095100,
         text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -3350,7 +3350,7 @@ export const postsList = [
       {
         profile: {
           alias: "LaetitiaDumont75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile10.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile10.jpg"),
         },
         time: 1613623028,
         text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -3377,7 +3377,7 @@ export const postsList = [
       {
         profile: {
           alias: "LaurentRoche89",
-          urlPicture: "@/../public/images/testStatic/maleProfile01.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile01.jpg"),
         },
         time: 1617953585,
         text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -3395,7 +3395,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouiseLeclerc45",
-          urlPicture: "@/../public/images/testStatic/femaleProfile08.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile08.jpg"),
         },
         time: 1617284223,
         text:
@@ -3415,7 +3415,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisLeconte94",
-          urlPicture: "@/../public/images/testStatic/maleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile11.jpg"),
         },
         time: 1601170567,
         text: "Sed dapibus nulla eget sapien euismod bibendum.",
@@ -3432,7 +3432,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisRey96",
-          urlPicture: "@/../public/images/testStatic/maleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile16.jpg"),
         },
         time: 1627788100,
         text: "Morbi porttitor nunc in ligula feugiat iaculis.",
@@ -3471,7 +3471,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "AnoukWeiss51",
-      urlPicture: "@/../public/images/testStatic/femaleProfile01.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile01.jpg"),
       service: "Comptabilité",
       _id: "IDProf3222574693",
     },
@@ -3479,10 +3479,10 @@ export const postsList = [
     time: 1604775300,
     content: {
       text: "Touche pas à ma carotte !",
-      urlPicture: "@/../public/images/testStatic/fun05.jpg",
+      urlPicture: require("@/../public/images/testStatic/fun05.jpg"),
       originalPosterProfile: {
         alias: "BenjaminPicard12",
-        urlPicture: "@/../public/images/testStatic/femaleProfile20.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile20.jpg"),
         text: "Praesent varius ligula ut interdum placerat.",
         _id: "IDProf7656215569",
       },
@@ -3523,7 +3523,7 @@ export const postsList = [
       {
         profile: {
           alias: "BrigitteBoucher76",
-          urlPicture: "@/../public/images/testStatic/femaleProfile18.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile18.jpg"),
         },
         time: 1627705959,
         text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -3540,7 +3540,7 @@ export const postsList = [
       {
         profile: {
           alias: "CélinaPoirier46",
-          urlPicture: "@/../public/images/testStatic/femaleProfile03.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile03.jpg"),
         },
         time: 1593211416,
         text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -3561,7 +3561,7 @@ export const postsList = [
       {
         profile: {
           alias: "ColetteDuhamel78",
-          urlPicture: "@/../public/images/testStatic/femaleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile11.jpg"),
         },
         time: 1608971208,
         text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -3593,7 +3593,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉliseParis79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
         },
         time: 1599927008,
         text: "Sed accumsan massa nec congue aliquet.",
@@ -3627,7 +3627,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉmilieValentin75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile16.jpg"),
         },
         time: 1625065019,
         text: "Praesent varius ligula ut interdum placerat.",
@@ -3658,7 +3658,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉtienneChartier75",
-          urlPicture: "@/../public/images/testStatic/maleProfile17.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile17.jpg"),
         },
         time: 1628107122,
         text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
@@ -3697,7 +3697,7 @@ export const postsList = [
       {
         profile: {
           alias: "EugèneDenis12",
-          urlPicture: "@/../public/images/testStatic/maleProfile04.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile04.jpg"),
         },
         time: 1617007738,
         text: "Etiam at purus eget diam vehicula sollicitudin non in diam.",
@@ -3722,7 +3722,7 @@ export const postsList = [
       {
         profile: {
           alias: "GenevièveNormand75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile17.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile17.jpg"),
         },
         time: 1619507539,
         text:
@@ -3749,7 +3749,7 @@ export const postsList = [
       {
         profile: {
           alias: "HenriFoucher96",
-          urlPicture: "@/../public/images/testStatic/maleProfile08.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile08.jpg"),
         },
         time: 1599204889,
         text: "Donec ac odio maximus, venenatis est ac, eleifend ex.",
@@ -3777,7 +3777,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "PierreRaymond76",
-      urlPicture: "@/../public/images/testStatic/maleProfile14.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile14.jpg"),
       service: "Comptabilité",
       _id: "IDProf5368403484",
     },
@@ -3788,7 +3788,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aB2zxgQ_460svav1.mp4",
       originalPosterProfile: {
         alias: "CélinaPoirier46",
-        urlPicture: "@/../public/images/testStatic/femaleProfile03.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile03.jpg"),
         text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
         _id: "IDProf5528129646",
       },
@@ -3814,7 +3814,7 @@ export const postsList = [
       {
         profile: {
           alias: "RichardRaymond75",
-          urlPicture: "@/../public/images/testStatic/maleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile09.jpg"),
         },
         time: 1620828574,
         text: "Nunc a nulla sed libero commodo vestibulum.",
@@ -3839,7 +3839,7 @@ export const postsList = [
       {
         profile: {
           alias: "SébastienGauthier75",
-          urlPicture: "@/../public/images/testStatic/maleProfile15.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile15.jpg"),
         },
         time: 1615620891,
         text:
@@ -3877,7 +3877,7 @@ export const postsList = [
       {
         profile: {
           alias: "SuzanneGuichard74",
-          urlPicture: "@/../public/images/testStatic/femaleProfile14.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile14.jpg"),
         },
         time: 1591082849,
         text: "Cras porttitor ex eu vehicula cursus.",
@@ -3898,7 +3898,7 @@ export const postsList = [
       {
         profile: {
           alias: "ValentineDelmas75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile07.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile07.jpg"),
         },
         time: 1597132677,
         text: "Sed in ipsum feugiat, convallis nisl a, mollis lectus.",
@@ -3924,7 +3924,7 @@ export const postsList = [
       {
         profile: {
           alias: "VictorFabre76",
-          urlPicture: "@/../public/images/testStatic/maleProfile13.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile13.jpg"),
         },
         time: 1602814291,
         text: "Morbi placerat eros fermentum tellus elementum eleifend.",
@@ -3972,7 +3972,7 @@ export const postsList = [
       {
         profile: {
           alias: "VictorFerreira76",
-          urlPicture: "@/../public/images/testStatic/maleProfile18.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile18.jpg"),
         },
         time: 1604792427,
         text:
@@ -3990,7 +3990,7 @@ export const postsList = [
       {
         profile: {
           alias: "VincentDeOliveira96",
-          urlPicture: "@/../public/images/testStatic/maleProfile05.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile05.jpg"),
         },
         time: 1597643543,
         text: "Praesent consectetur risus at ultrices lobortis.",
@@ -4026,7 +4026,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "AlexandriaGuillot75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile05.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile05.jpg"),
       service: "Achats",
       _id: "IDProf6369228315",
     },
@@ -4034,10 +4034,10 @@ export const postsList = [
     time: 1602074927,
     content: {
       text: "Encore une victime de la canicule !...",
-      urlPicture: "@/../public/images/testStatic/fun02.jpg",
+      urlPicture: require("@/../public/images/testStatic/fun02.jpg"),
       originalPosterProfile: {
         alias: "AnaïsBodin79",
-        urlPicture: "@/../public/images/testStatic/femaleProfile04.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile04.jpg"),
         text:
           "Curabitur aliquam libero vel ante interdum, in euismod ipsum condimentum.",
         _id: "IDProf579264632",
@@ -4067,7 +4067,7 @@ export const postsList = [
       {
         profile: {
           alias: "VincentDeOliveira96",
-          urlPicture: "@/../public/images/testStatic/maleProfile05.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile05.jpg"),
         },
         time: 1597643543,
         text: "Praesent consectetur risus at ultrices lobortis.",
@@ -4101,7 +4101,7 @@ export const postsList = [
       {
         profile: {
           alias: "YvesAllard85",
-          urlPicture: "@/../public/images/testStatic/maleProfile12.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile12.jpg"),
         },
         time: 1604043020,
         text: "Maecenas a eros eu urna mollis aliquet.",
@@ -4129,7 +4129,7 @@ export const postsList = [
       {
         profile: {
           alias: "AiméeFerreira96",
-          urlPicture: "@/../public/images/testStatic/maleProfile10.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile10.jpg"),
         },
         time: 1592855255,
         text:
@@ -4141,7 +4141,7 @@ export const postsList = [
       {
         profile: {
           alias: "AlexandriaGuillot75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile05.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile05.jpg"),
         },
         time: 1593002804,
         text: "Donec at urna non lacus interdum dictum.",
@@ -4164,7 +4164,7 @@ export const postsList = [
       {
         profile: {
           alias: "AlphonseLabbe42",
-          urlPicture: "@/../public/images/testStatic/maleProfile07.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile07.jpg"),
         },
         time: 1601480903,
         text: "Mauris sed est ac justo iaculis volutpat.",
@@ -4188,7 +4188,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnaïsBodin79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile04.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile04.jpg"),
         },
         time: 1621632036,
         text: "In facilisis libero a tortor convallis ornare.",
@@ -4225,7 +4225,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnoukWeiss51",
-          urlPicture: "@/../public/images/testStatic/femaleProfile01.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile01.jpg"),
         },
         time: 1613470331,
         text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -4246,7 +4246,7 @@ export const postsList = [
       {
         profile: {
           alias: "AugustinLefevre76",
-          urlPicture: "@/../public/images/testStatic/maleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile20.jpg"),
         },
         time: 1626652997,
         text: "Donec vehicula nulla ac feugiat pulvinar.",
@@ -4284,7 +4284,7 @@ export const postsList = [
       {
         profile: {
           alias: "BenjaminPicard12",
-          urlPicture: "@/../public/images/testStatic/femaleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile20.jpg"),
         },
         time: 1589555075,
         text:
@@ -4326,7 +4326,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "BenjaminPicard12",
-      urlPicture: "@/../public/images/testStatic/femaleProfile20.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile20.jpg"),
       service: "Commercial",
       _id: "IDProf7656215569",
     },
@@ -4337,7 +4337,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/a07gpBX_460svvp9.webm",
       originalPosterProfile: {
         alias: "JeanneColin96",
-        urlPicture: "@/../public/images/testStatic/femaleProfile12.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile12.jpg"),
         text:
           "Curabitur sit amet mauris non turpis varius aliquet et quis est.",
         _id: "IDProf4500729408",
@@ -4370,7 +4370,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouiseLeclerc45",
-          urlPicture: "@/../public/images/testStatic/femaleProfile08.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile08.jpg"),
         },
         time: 1617284223,
         text:
@@ -4390,7 +4390,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisLeconte94",
-          urlPicture: "@/../public/images/testStatic/maleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile11.jpg"),
         },
         time: 1601170567,
         text: "Sed dapibus nulla eget sapien euismod bibendum.",
@@ -4407,7 +4407,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisRey96",
-          urlPicture: "@/../public/images/testStatic/maleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile16.jpg"),
         },
         time: 1627788100,
         text: "Morbi porttitor nunc in ligula feugiat iaculis.",
@@ -4444,7 +4444,7 @@ export const postsList = [
       {
         profile: {
           alias: "LucDiaz74",
-          urlPicture: "@/../public/images/testStatic/maleProfile19.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile19.jpg"),
         },
         time: 1595825776,
         text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -4485,7 +4485,7 @@ export const postsList = [
       {
         profile: {
           alias: "LucHardy58",
-          urlPicture: "@/../public/images/testStatic/maleProfile03.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile03.jpg"),
         },
         time: 1590998054,
         text: "Aenean porta lorem sit amet luctus ultrices.",
@@ -4503,7 +4503,7 @@ export const postsList = [
       {
         profile: {
           alias: "MarcelKlein63",
-          urlPicture: "@/../public/images/testStatic/maleProfile06.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile06.jpg"),
         },
         time: 1607676701,
         text:
@@ -4515,7 +4515,7 @@ export const postsList = [
       {
         profile: {
           alias: "NathalieChartier76",
-          urlPicture: "@/../public/images/testStatic/femaleProfile19.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile19.jpg"),
         },
         time: 1608585256,
         text: "Quisque a nisi ac est tempus facilisis sed a nibh.",
@@ -4548,7 +4548,7 @@ export const postsList = [
       {
         profile: {
           alias: "OcéaneRoux74",
-          urlPicture: "@/../public/images/testStatic/femaleProfile13.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile13.jpg"),
         },
         time: 1606867673,
         text:
@@ -4566,7 +4566,7 @@ export const postsList = [
       {
         profile: {
           alias: "PaulineChauveau75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile15.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile15.jpg"),
         },
         time: 1627167479,
         text: "Integer lacinia urna at sapien rhoncus dignissim.",
@@ -4606,7 +4606,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "ÉtienneChartier75",
-      urlPicture: "@/../public/images/testStatic/maleProfile17.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile17.jpg"),
       service: "Commercial",
       _id: "IDProf7552555914",
     },
@@ -4618,7 +4618,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aLpo8wM_700bwp.webp",
       originalPosterProfile: {
         alias: "AugustinLefevre76",
-        urlPicture: "@/../public/images/testStatic/maleProfile20.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile20.jpg"),
         text:
           "Phasellus et justo ultricies eros dapibus dapibus imperdiet ultricies diam.",
         _id: "IDProf5618804485",
@@ -4639,7 +4639,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouiseLeclerc45",
-          urlPicture: "@/../public/images/testStatic/femaleProfile08.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile08.jpg"),
         },
         time: 1617284223,
         text:
@@ -4659,7 +4659,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisLeconte94",
-          urlPicture: "@/../public/images/testStatic/maleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile11.jpg"),
         },
         time: 1601170567,
         text: "Sed dapibus nulla eget sapien euismod bibendum.",
@@ -4676,7 +4676,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisRey96",
-          urlPicture: "@/../public/images/testStatic/maleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile16.jpg"),
         },
         time: 1627788100,
         text: "Morbi porttitor nunc in ligula feugiat iaculis.",
@@ -4713,7 +4713,7 @@ export const postsList = [
       {
         profile: {
           alias: "LucDiaz74",
-          urlPicture: "@/../public/images/testStatic/maleProfile19.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile19.jpg"),
         },
         time: 1595825776,
         text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -4756,7 +4756,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "AnaïsBodin79",
-      urlPicture: "@/../public/images/testStatic/femaleProfile04.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile04.jpg"),
       service: "Informatique",
       _id: "IDProf579264632",
     },
@@ -4764,10 +4764,10 @@ export const postsList = [
     time: 1620753568,
     content: {
       text: "Trop rigolo la patate qui meurt !",
-      urlPicture: "@/../public/images/testStatic/fun04.jpg",
+      urlPicture: require("@/../public/images/testStatic/fun04.jpg"),
       originalPosterProfile: {
         alias: "ÉmilieValentin75",
-        urlPicture: "@/../public/images/testStatic/femaleProfile16.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile16.jpg"),
         text:
           "Sed sollicitudin nibh sed odio luctus, vel iaculis erat tristique.",
         _id: "IDProf9259168803",
@@ -4801,7 +4801,7 @@ export const postsList = [
       {
         profile: {
           alias: "VictorFerreira76",
-          urlPicture: "@/../public/images/testStatic/maleProfile18.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile18.jpg"),
         },
         time: 1604792427,
         text:
@@ -4819,7 +4819,7 @@ export const postsList = [
       {
         profile: {
           alias: "VincentDeOliveira96",
-          urlPicture: "@/../public/images/testStatic/maleProfile05.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile05.jpg"),
         },
         time: 1597643543,
         text: "Praesent consectetur risus at ultrices lobortis.",
@@ -4855,7 +4855,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "VincentDeOliveira96",
-      urlPicture: "@/../public/images/testStatic/maleProfile05.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile05.jpg"),
       service: "Achats",
       _id: "IDProf3600469520",
     },
@@ -4866,7 +4866,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aB2zxwP_700bwp.webp",
       originalPosterProfile: {
         alias: "VictorFerreira76",
-        urlPicture: "@/../public/images/testStatic/maleProfile18.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile18.jpg"),
         text: "Sed dapibus nulla eget sapien euismod bibendum.",
         _id: "IDProf4547943199",
       },
@@ -4904,7 +4904,7 @@ export const postsList = [
       {
         profile: {
           alias: "RichardRaymond75",
-          urlPicture: "@/../public/images/testStatic/maleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile09.jpg"),
         },
         time: 1620828574,
         text: "Nunc a nulla sed libero commodo vestibulum.",
@@ -4929,7 +4929,7 @@ export const postsList = [
       {
         profile: {
           alias: "SébastienGauthier75",
-          urlPicture: "@/../public/images/testStatic/maleProfile15.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile15.jpg"),
         },
         time: 1615620891,
         text:
@@ -4967,7 +4967,7 @@ export const postsList = [
       {
         profile: {
           alias: "SuzanneGuichard74",
-          urlPicture: "@/../public/images/testStatic/femaleProfile14.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile14.jpg"),
         },
         time: 1591082849,
         text: "Cras porttitor ex eu vehicula cursus.",
@@ -4988,7 +4988,7 @@ export const postsList = [
       {
         profile: {
           alias: "ValentineDelmas75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile07.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile07.jpg"),
         },
         time: 1597132677,
         text: "Sed in ipsum feugiat, convallis nisl a, mollis lectus.",
@@ -5014,7 +5014,7 @@ export const postsList = [
       {
         profile: {
           alias: "VictorFabre76",
-          urlPicture: "@/../public/images/testStatic/maleProfile13.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile13.jpg"),
         },
         time: 1602814291,
         text: "Morbi placerat eros fermentum tellus elementum eleifend.",
@@ -5062,7 +5062,7 @@ export const postsList = [
       {
         profile: {
           alias: "VictorFerreira76",
-          urlPicture: "@/../public/images/testStatic/maleProfile18.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile18.jpg"),
         },
         time: 1604792427,
         text:
@@ -5080,7 +5080,7 @@ export const postsList = [
       {
         profile: {
           alias: "VincentDeOliveira96",
-          urlPicture: "@/../public/images/testStatic/maleProfile05.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile05.jpg"),
         },
         time: 1597643543,
         text: "Praesent consectetur risus at ultrices lobortis.",
@@ -5116,7 +5116,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "YvesAllard85",
-      urlPicture: "@/../public/images/testStatic/maleProfile12.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile12.jpg"),
       service: "Informatique",
       _id: "IDProf3960632444",
     },
@@ -5127,7 +5127,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aNpM1zv_460svav1.mp4",
       originalPosterProfile: {
         alias: "OcéaneRoux74",
-        urlPicture: "@/../public/images/testStatic/femaleProfile13.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile13.jpg"),
         text: "Praesent at nisi nec dui luctus scelerisque.",
         _id: "IDProf5490560701",
       },
@@ -5163,7 +5163,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouiseLeclerc45",
-          urlPicture: "@/../public/images/testStatic/femaleProfile08.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile08.jpg"),
         },
         time: 1617284223,
         text:
@@ -5183,7 +5183,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisLeconte94",
-          urlPicture: "@/../public/images/testStatic/maleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile11.jpg"),
         },
         time: 1601170567,
         text: "Sed dapibus nulla eget sapien euismod bibendum.",
@@ -5200,7 +5200,7 @@ export const postsList = [
       {
         profile: {
           alias: "LouisRey96",
-          urlPicture: "@/../public/images/testStatic/maleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile16.jpg"),
         },
         time: 1627788100,
         text: "Morbi porttitor nunc in ligula feugiat iaculis.",
@@ -5237,7 +5237,7 @@ export const postsList = [
       {
         profile: {
           alias: "LucDiaz74",
-          urlPicture: "@/../public/images/testStatic/maleProfile19.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile19.jpg"),
         },
         time: 1595825776,
         text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -5278,7 +5278,7 @@ export const postsList = [
       {
         profile: {
           alias: "LucHardy58",
-          urlPicture: "@/../public/images/testStatic/maleProfile03.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile03.jpg"),
         },
         time: 1590998054,
         text: "Aenean porta lorem sit amet luctus ultrices.",
@@ -5296,7 +5296,7 @@ export const postsList = [
       {
         profile: {
           alias: "MarcelKlein63",
-          urlPicture: "@/../public/images/testStatic/maleProfile06.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile06.jpg"),
         },
         time: 1607676701,
         text:
@@ -5310,7 +5310,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "MarcelKlein63",
-      urlPicture: "@/../public/images/testStatic/maleProfile06.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile06.jpg"),
       service: "Informatique",
       _id: "IDProf8009805568",
     },
@@ -5321,7 +5321,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aB2z8eA_460svav1.mp4",
       originalPosterProfile: {
         alias: "VictorFabre76",
-        urlPicture: "@/../public/images/testStatic/maleProfile13.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile13.jpg"),
         text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
         _id: "IDProf5873380013",
       },
@@ -5367,7 +5367,7 @@ export const postsList = [
       {
         profile: {
           alias: "PaulineChauveau75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile15.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile15.jpg"),
         },
         time: 1627167479,
         text: "Integer lacinia urna at sapien rhoncus dignissim.",
@@ -5405,7 +5405,7 @@ export const postsList = [
       {
         profile: {
           alias: "PierreRaymond76",
-          urlPicture: "@/../public/images/testStatic/maleProfile14.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile14.jpg"),
         },
         time: 1609524442,
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -5434,7 +5434,7 @@ export const postsList = [
       {
         profile: {
           alias: "RichardRaymond75",
-          urlPicture: "@/../public/images/testStatic/maleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile09.jpg"),
         },
         time: 1620828574,
         text: "Nunc a nulla sed libero commodo vestibulum.",
@@ -5459,7 +5459,7 @@ export const postsList = [
       {
         profile: {
           alias: "SébastienGauthier75",
-          urlPicture: "@/../public/images/testStatic/maleProfile15.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile15.jpg"),
         },
         time: 1615620891,
         text:
@@ -5497,7 +5497,7 @@ export const postsList = [
       {
         profile: {
           alias: "SuzanneGuichard74",
-          urlPicture: "@/../public/images/testStatic/femaleProfile14.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile14.jpg"),
         },
         time: 1591082849,
         text: "Cras porttitor ex eu vehicula cursus.",
@@ -5520,7 +5520,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "GenevièveNormand75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile17.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile17.jpg"),
       service: "Achats",
       _id: "IDProf492582742",
     },
@@ -5531,7 +5531,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aeAzMKO_460swp.webp",
       originalPosterProfile: {
         alias: "JoséphinePerrin96",
-        urlPicture: "@/../public/images/testStatic/femaleProfile06.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile06.jpg"),
         text: "Donec vehicula nulla ac feugiat pulvinar.",
         _id: "IDProf6700667335",
       },
@@ -5543,7 +5543,7 @@ export const postsList = [
       {
         profile: {
           alias: "NathalieChartier76",
-          urlPicture: "@/../public/images/testStatic/femaleProfile19.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile19.jpg"),
         },
         time: 1608585256,
         text: "Quisque a nisi ac est tempus facilisis sed a nibh.",
@@ -5576,7 +5576,7 @@ export const postsList = [
       {
         profile: {
           alias: "OcéaneRoux74",
-          urlPicture: "@/../public/images/testStatic/femaleProfile13.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile13.jpg"),
         },
         time: 1606867673,
         text:
@@ -5594,7 +5594,7 @@ export const postsList = [
       {
         profile: {
           alias: "PaulineChauveau75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile15.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile15.jpg"),
         },
         time: 1627167479,
         text: "Integer lacinia urna at sapien rhoncus dignissim.",
@@ -5632,7 +5632,7 @@ export const postsList = [
       {
         profile: {
           alias: "PierreRaymond76",
-          urlPicture: "@/../public/images/testStatic/maleProfile14.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile14.jpg"),
         },
         time: 1609524442,
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -5663,7 +5663,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "LaetitiaDumont75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile10.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile10.jpg"),
       service: "Commercial",
       _id: "IDProf9001547085",
     },
@@ -5674,7 +5674,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/av5qG5q_460svav1.mp4",
       originalPosterProfile: {
         alias: "MarcelKlein63",
-        urlPicture: "@/../public/images/testStatic/maleProfile06.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile06.jpg"),
         text: "Aenean porta lorem sit amet luctus ultrices.",
         _id: "IDProf8009805568",
       },
@@ -5702,7 +5702,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnaïsBodin79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile04.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile04.jpg"),
         },
         time: 1621632036,
         text: "In facilisis libero a tortor convallis ornare.",
@@ -5739,7 +5739,7 @@ export const postsList = [
       {
         profile: {
           alias: "AnoukWeiss51",
-          urlPicture: "@/../public/images/testStatic/femaleProfile01.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile01.jpg"),
         },
         time: 1613470331,
         text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -5760,7 +5760,7 @@ export const postsList = [
       {
         profile: {
           alias: "AugustinLefevre76",
-          urlPicture: "@/../public/images/testStatic/maleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile20.jpg"),
         },
         time: 1626652997,
         text: "Donec vehicula nulla ac feugiat pulvinar.",
@@ -5798,7 +5798,7 @@ export const postsList = [
       {
         profile: {
           alias: "BenjaminPicard12",
-          urlPicture: "@/../public/images/testStatic/femaleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile20.jpg"),
         },
         time: 1589555075,
         text:
@@ -5838,7 +5838,7 @@ export const postsList = [
       {
         profile: {
           alias: "BrigitteBoucher76",
-          urlPicture: "@/../public/images/testStatic/femaleProfile18.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile18.jpg"),
         },
         time: 1627705959,
         text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -5855,7 +5855,7 @@ export const postsList = [
       {
         profile: {
           alias: "CélinaPoirier46",
-          urlPicture: "@/../public/images/testStatic/femaleProfile03.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile03.jpg"),
         },
         time: 1593211416,
         text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -5876,7 +5876,7 @@ export const postsList = [
       {
         profile: {
           alias: "ColetteDuhamel78",
-          urlPicture: "@/../public/images/testStatic/femaleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile11.jpg"),
         },
         time: 1608971208,
         text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -5908,7 +5908,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉliseParis79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
         },
         time: 1599927008,
         text: "Sed accumsan massa nec congue aliquet.",
@@ -5944,7 +5944,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "SuzanneGuichard74",
-      urlPicture: "@/../public/images/testStatic/femaleProfile14.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile14.jpg"),
       service: "Comptabilité",
       _id: "IDProf4413555047",
     },
@@ -5955,7 +5955,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/ayMrDgq_460svav1.mp4",
       originalPosterProfile: {
         alias: "LouiseLeclerc45",
-        urlPicture: "@/../public/images/testStatic/femaleProfile08.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile08.jpg"),
         text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
         _id: "IDProf7810648675",
       },
@@ -5967,7 +5967,7 @@ export const postsList = [
       {
         profile: {
           alias: "BenjaminPicard12",
-          urlPicture: "@/../public/images/testStatic/femaleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile20.jpg"),
         },
         time: 1589555075,
         text:
@@ -6009,7 +6009,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "EugèneDenis12",
-      urlPicture: "@/../public/images/testStatic/maleProfile04.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile04.jpg"),
       service: "Achats",
       _id: "IDProf5909392512",
     },
@@ -6020,7 +6020,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aZ0Xg3X_700bwp.webp",
       originalPosterProfile: {
         alias: "LucDiaz74",
-        urlPicture: "@/../public/images/testStatic/maleProfile19.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile19.jpg"),
         text: "Praesent consectetur risus at ultrices lobortis.",
         _id: "IDProf9101996575",
       },
@@ -6063,7 +6063,7 @@ export const postsList = [
       {
         profile: {
           alias: "BrigitteBoucher76",
-          urlPicture: "@/../public/images/testStatic/femaleProfile18.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile18.jpg"),
         },
         time: 1627705959,
         text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -6080,7 +6080,7 @@ export const postsList = [
       {
         profile: {
           alias: "CélinaPoirier46",
-          urlPicture: "@/../public/images/testStatic/femaleProfile03.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile03.jpg"),
         },
         time: 1593211416,
         text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -6101,7 +6101,7 @@ export const postsList = [
       {
         profile: {
           alias: "ColetteDuhamel78",
-          urlPicture: "@/../public/images/testStatic/femaleProfile11.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile11.jpg"),
         },
         time: 1608971208,
         text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -6133,7 +6133,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉliseParis79",
-          urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
         },
         time: 1599927008,
         text: "Sed accumsan massa nec congue aliquet.",
@@ -6167,7 +6167,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉmilieValentin75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile16.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile16.jpg"),
         },
         time: 1625065019,
         text: "Praesent varius ligula ut interdum placerat.",
@@ -6198,7 +6198,7 @@ export const postsList = [
       {
         profile: {
           alias: "ÉtienneChartier75",
-          urlPicture: "@/../public/images/testStatic/maleProfile17.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile17.jpg"),
         },
         time: 1628107122,
         text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
@@ -6237,7 +6237,7 @@ export const postsList = [
       {
         profile: {
           alias: "EugèneDenis12",
-          urlPicture: "@/../public/images/testStatic/maleProfile04.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile04.jpg"),
         },
         time: 1617007738,
         text: "Etiam at purus eget diam vehicula sollicitudin non in diam.",
@@ -6264,7 +6264,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "JeanneColin96",
-      urlPicture: "@/../public/images/testStatic/femaleProfile12.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile12.jpg"),
       service: "Comptabilité",
       _id: "IDProf4500729408",
     },
@@ -6275,7 +6275,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/ad8AKYM_700bwp.webp",
       originalPosterProfile: {
         alias: "PierreRaymond76",
-        urlPicture: "@/../public/images/testStatic/maleProfile14.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile14.jpg"),
         text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
         _id: "IDProf5368403484",
       },
@@ -6316,7 +6316,7 @@ export const postsList = [
       {
         profile: {
           alias: "JeanneColin96",
-          urlPicture: "@/../public/images/testStatic/femaleProfile12.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile12.jpg"),
         },
         time: 1601914552,
         text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -6339,7 +6339,7 @@ export const postsList = [
       {
         profile: {
           alias: "JosephDuhamel46",
-          urlPicture: "@/../public/images/testStatic/maleProfile02.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile02.jpg"),
         },
         time: 1621287078,
         text: "Integer elementum lacus eget condimentum vestibulum.",
@@ -6370,7 +6370,7 @@ export const postsList = [
       {
         profile: {
           alias: "JoséphinePerrin96",
-          urlPicture: "@/../public/images/testStatic/femaleProfile06.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile06.jpg"),
         },
         time: 1608095100,
         text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -6407,7 +6407,7 @@ export const postsList = [
       {
         profile: {
           alias: "LaetitiaDumont75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile10.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile10.jpg"),
         },
         time: 1613623028,
         text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -6436,7 +6436,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "InèsDavid13",
-      urlPicture: "@/../public/images/testStatic/femaleProfile02.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile02.jpg"),
       service: "Informatique",
       _id: "IDProf2081160576",
     },
@@ -6447,7 +6447,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/av5qOL5_460svav1.mp4",
       originalPosterProfile: {
         alias: "ValentineDelmas75",
-        urlPicture: "@/../public/images/testStatic/femaleProfile07.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile07.jpg"),
         text: "Mauris sed est ac justo iaculis volutpat.",
         _id: "IDProf6533477894",
       },
@@ -6471,7 +6471,7 @@ export const postsList = [
       {
         profile: {
           alias: "BenjaminPicard12",
-          urlPicture: "@/../public/images/testStatic/femaleProfile20.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile20.jpg"),
         },
         time: 1589555075,
         text:
@@ -6511,7 +6511,7 @@ export const postsList = [
       {
         profile: {
           alias: "BrigitteBoucher76",
-          urlPicture: "@/../public/images/testStatic/femaleProfile18.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile18.jpg"),
         },
         time: 1627705959,
         text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -6530,7 +6530,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "CélinaPoirier46",
-      urlPicture: "@/../public/images/testStatic/femaleProfile03.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile03.jpg"),
       service: "Achats",
       _id: "IDProf5528129646",
     },
@@ -6541,7 +6541,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aqjML5Y_460swp.webp",
       originalPosterProfile: {
         alias: "PaulineChauveau75",
-        urlPicture: "@/../public/images/testStatic/femaleProfile15.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile15.jpg"),
         text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
         _id: "IDProf2340765978",
       },
@@ -6578,7 +6578,7 @@ export const postsList = [
       {
         profile: {
           alias: "PierreRaymond76",
-          urlPicture: "@/../public/images/testStatic/maleProfile14.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile14.jpg"),
         },
         time: 1609524442,
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -6607,7 +6607,7 @@ export const postsList = [
       {
         profile: {
           alias: "RichardRaymond75",
-          urlPicture: "@/../public/images/testStatic/maleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile09.jpg"),
         },
         time: 1620828574,
         text: "Nunc a nulla sed libero commodo vestibulum.",
@@ -6632,7 +6632,7 @@ export const postsList = [
       {
         profile: {
           alias: "SébastienGauthier75",
-          urlPicture: "@/../public/images/testStatic/maleProfile15.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile15.jpg"),
         },
         time: 1615620891,
         text:
@@ -6670,7 +6670,7 @@ export const postsList = [
       {
         profile: {
           alias: "SuzanneGuichard74",
-          urlPicture: "@/../public/images/testStatic/femaleProfile14.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile14.jpg"),
         },
         time: 1591082849,
         text: "Cras porttitor ex eu vehicula cursus.",
@@ -6691,7 +6691,7 @@ export const postsList = [
       {
         profile: {
           alias: "ValentineDelmas75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile07.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile07.jpg"),
         },
         time: 1597132677,
         text: "Sed in ipsum feugiat, convallis nisl a, mollis lectus.",
@@ -6717,7 +6717,7 @@ export const postsList = [
       {
         profile: {
           alias: "VictorFabre76",
-          urlPicture: "@/../public/images/testStatic/maleProfile13.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile13.jpg"),
         },
         time: 1602814291,
         text: "Morbi placerat eros fermentum tellus elementum eleifend.",
@@ -6765,7 +6765,7 @@ export const postsList = [
       {
         profile: {
           alias: "VictorFerreira76",
-          urlPicture: "@/../public/images/testStatic/maleProfile18.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile18.jpg"),
         },
         time: 1604792427,
         text:
@@ -6783,7 +6783,7 @@ export const postsList = [
       {
         profile: {
           alias: "VincentDeOliveira96",
-          urlPicture: "@/../public/images/testStatic/maleProfile05.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile05.jpg"),
         },
         time: 1597643543,
         text: "Praesent consectetur risus at ultrices lobortis.",
@@ -6817,7 +6817,7 @@ export const postsList = [
       {
         profile: {
           alias: "YvesAllard85",
-          urlPicture: "@/../public/images/testStatic/maleProfile12.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile12.jpg"),
         },
         time: 1604043020,
         text: "Maecenas a eros eu urna mollis aliquet.",
@@ -6847,7 +6847,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "BrigitteBoucher76",
-      urlPicture: "@/../public/images/testStatic/femaleProfile18.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile18.jpg"),
       service: "Comptabilité",
       _id: "IDProf481729807",
     },
@@ -6858,7 +6858,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/apN7LKM_700bwp.webp",
       originalPosterProfile: {
         alias: "LaetitiaDumont75",
-        urlPicture: "@/../public/images/testStatic/femaleProfile10.jpg",
+        urlPicture: require("@/../public/images/testStatic/femaleProfile10.jpg"),
         text: "Nunc a nulla sed libero commodo vestibulum.",
         _id: "IDProf9001547085",
       },
@@ -6897,7 +6897,7 @@ export const postsList = [
       {
         profile: {
           alias: "JeanneColin96",
-          urlPicture: "@/../public/images/testStatic/femaleProfile12.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile12.jpg"),
         },
         time: 1601914552,
         text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -6920,7 +6920,7 @@ export const postsList = [
       {
         profile: {
           alias: "JosephDuhamel46",
-          urlPicture: "@/../public/images/testStatic/maleProfile02.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile02.jpg"),
         },
         time: 1621287078,
         text: "Integer elementum lacus eget condimentum vestibulum.",
@@ -6951,7 +6951,7 @@ export const postsList = [
       {
         profile: {
           alias: "JoséphinePerrin96",
-          urlPicture: "@/../public/images/testStatic/femaleProfile06.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile06.jpg"),
         },
         time: 1608095100,
         text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -6988,7 +6988,7 @@ export const postsList = [
       {
         profile: {
           alias: "LaetitiaDumont75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile10.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile10.jpg"),
         },
         time: 1613623028,
         text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -7015,7 +7015,7 @@ export const postsList = [
       {
         profile: {
           alias: "LaurentRoche89",
-          urlPicture: "@/../public/images/testStatic/maleProfile01.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile01.jpg"),
         },
         time: 1617953585,
         text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -7035,7 +7035,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "AiméeFerreira96",
-      urlPicture: "@/../public/images/testStatic/maleProfile10.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile10.jpg"),
       service: "Commercial",
       _id: "IDProf3460528375",
     },
@@ -7043,10 +7043,10 @@ export const postsList = [
     time: 1617262709,
     content: {
       text: "Trop mignon le chat !",
-      urlPicture: "@/../public/images/testStatic/fun01.jpg",
+      urlPicture: require("@/../public/images/testStatic/fun01.jpg"),
       originalPosterProfile: {
         alias: "HenriFoucher96",
-        urlPicture: "@/../public/images/testStatic/maleProfile08.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile08.jpg"),
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         _id: "IDProf2476170829",
       },
@@ -7084,7 +7084,7 @@ export const postsList = [
       {
         profile: {
           alias: "LucHardy58",
-          urlPicture: "@/../public/images/testStatic/maleProfile03.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile03.jpg"),
         },
         time: 1590998054,
         text: "Aenean porta lorem sit amet luctus ultrices.",
@@ -7102,7 +7102,7 @@ export const postsList = [
       {
         profile: {
           alias: "MarcelKlein63",
-          urlPicture: "@/../public/images/testStatic/maleProfile06.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile06.jpg"),
         },
         time: 1607676701,
         text:
@@ -7114,7 +7114,7 @@ export const postsList = [
       {
         profile: {
           alias: "NathalieChartier76",
-          urlPicture: "@/../public/images/testStatic/femaleProfile19.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile19.jpg"),
         },
         time: 1608585256,
         text: "Quisque a nisi ac est tempus facilisis sed a nibh.",
@@ -7147,7 +7147,7 @@ export const postsList = [
       {
         profile: {
           alias: "OcéaneRoux74",
-          urlPicture: "@/../public/images/testStatic/femaleProfile13.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile13.jpg"),
         },
         time: 1606867673,
         text:
@@ -7165,7 +7165,7 @@ export const postsList = [
       {
         profile: {
           alias: "PaulineChauveau75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile15.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile15.jpg"),
         },
         time: 1627167479,
         text: "Integer lacinia urna at sapien rhoncus dignissim.",
@@ -7203,7 +7203,7 @@ export const postsList = [
       {
         profile: {
           alias: "PierreRaymond76",
-          urlPicture: "@/../public/images/testStatic/maleProfile14.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile14.jpg"),
         },
         time: 1609524442,
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -7232,7 +7232,7 @@ export const postsList = [
       {
         profile: {
           alias: "RichardRaymond75",
-          urlPicture: "@/../public/images/testStatic/maleProfile09.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile09.jpg"),
         },
         time: 1620828574,
         text: "Nunc a nulla sed libero commodo vestibulum.",
@@ -7259,7 +7259,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "RichardRaymond75",
-      urlPicture: "@/../public/images/testStatic/maleProfile09.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile09.jpg"),
       service: "Ressources Humaines",
       _id: "IDProf5339527400",
     },
@@ -7270,7 +7270,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/a4Eg7bv_460svav1.mp4",
       originalPosterProfile: {
         alias: "EugèneDenis12",
-        urlPicture: "@/../public/images/testStatic/maleProfile04.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile04.jpg"),
         text: "Donec at urna non lacus interdum dictum.",
         _id: "IDProf5909392512",
       },
@@ -7310,7 +7310,7 @@ export const postsList = [
       {
         profile: {
           alias: "JeanneColin96",
-          urlPicture: "@/../public/images/testStatic/femaleProfile12.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile12.jpg"),
         },
         time: 1601914552,
         text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -7333,7 +7333,7 @@ export const postsList = [
       {
         profile: {
           alias: "JosephDuhamel46",
-          urlPicture: "@/../public/images/testStatic/maleProfile02.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile02.jpg"),
         },
         time: 1621287078,
         text: "Integer elementum lacus eget condimentum vestibulum.",
@@ -7364,7 +7364,7 @@ export const postsList = [
       {
         profile: {
           alias: "JoséphinePerrin96",
-          urlPicture: "@/../public/images/testStatic/femaleProfile06.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile06.jpg"),
         },
         time: 1608095100,
         text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -7401,7 +7401,7 @@ export const postsList = [
       {
         profile: {
           alias: "LaetitiaDumont75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile10.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile10.jpg"),
         },
         time: 1613623028,
         text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -7428,7 +7428,7 @@ export const postsList = [
       {
         profile: {
           alias: "LaurentRoche89",
-          urlPicture: "@/../public/images/testStatic/maleProfile01.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile01.jpg"),
         },
         time: 1617953585,
         text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -7448,7 +7448,7 @@ export const postsList = [
   {
     posterProfile: {
       alias: "ColetteDuhamel78",
-      urlPicture: "@/../public/images/testStatic/femaleProfile11.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile11.jpg"),
       service: "Commercial",
       _id: "IDProf996763223",
     },
@@ -7459,7 +7459,7 @@ export const postsList = [
       urlPicture: "https://img-9gag-fun.9cache.com/photo/aNpMnGG_460svav1.mp4",
       originalPosterProfile: {
         alias: "AlphonseLabbe42",
-        urlPicture: "@/../public/images/testStatic/maleProfile07.jpg",
+        urlPicture: require("@/../public/images/testStatic/maleProfile07.jpg"),
         text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
         _id: "IDProf7869358299",
       },
@@ -7494,7 +7494,7 @@ export const postsList = [
       {
         profile: {
           alias: "OcéaneRoux74",
-          urlPicture: "@/../public/images/testStatic/femaleProfile13.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile13.jpg"),
         },
         time: 1606867673,
         text:
@@ -7512,7 +7512,7 @@ export const postsList = [
       {
         profile: {
           alias: "PaulineChauveau75",
-          urlPicture: "@/../public/images/testStatic/femaleProfile15.jpg",
+          urlPicture: require("@/../public/images/testStatic/femaleProfile15.jpg"),
         },
         time: 1627167479,
         text: "Integer lacinia urna at sapien rhoncus dignissim.",
@@ -7550,7 +7550,7 @@ export const postsList = [
       {
         profile: {
           alias: "PierreRaymond76",
-          urlPicture: "@/../public/images/testStatic/maleProfile14.jpg",
+          urlPicture: require("@/../public/images/testStatic/maleProfile14.jpg"),
         },
         time: 1609524442,
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -7583,7 +7583,7 @@ export const postsList = [
 export const profilesList = [
   {
     _id: "IDProf3460528375",
-    urlPicture: "@/../public/images/testStatic/maleProfile10.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile10.jpg"),
     alias: "AiméeFerreira96",
     moderator: false,
     service: "Commercial",
@@ -7591,7 +7591,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf6369228315",
-    urlPicture: "@/../public/images/testStatic/femaleProfile05.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile05.jpg"),
     alias: "AlexandriaGuillot75",
     moderator: false,
     service: "Achats",
@@ -7599,7 +7599,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf7869358299",
-    urlPicture: "@/../public/images/testStatic/maleProfile07.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile07.jpg"),
     alias: "AlphonseLabbe42",
     moderator: false,
     service: "Achats",
@@ -7607,7 +7607,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf579264632",
-    urlPicture: "@/../public/images/testStatic/femaleProfile04.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile04.jpg"),
     alias: "AnaïsBodin79",
     moderator: false,
     service: "Informatique",
@@ -7615,7 +7615,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf3222574693",
-    urlPicture: "@/../public/images/testStatic/femaleProfile01.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile01.jpg"),
     alias: "AnoukWeiss51",
     moderator: false,
     service: "Comptabilité",
@@ -7623,7 +7623,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf5618804485",
-    urlPicture: "@/../public/images/testStatic/maleProfile20.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile20.jpg"),
     alias: "AugustinLefevre76",
     moderator: false,
     service: "Informatique",
@@ -7631,7 +7631,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf7656215569",
-    urlPicture: "@/../public/images/testStatic/femaleProfile20.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile20.jpg"),
     alias: "BenjaminPicard12",
     moderator: false,
     service: "Commercial",
@@ -7639,7 +7639,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf481729807",
-    urlPicture: "@/../public/images/testStatic/femaleProfile18.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile18.jpg"),
     alias: "BrigitteBoucher76",
     moderator: false,
     service: "Comptabilité",
@@ -7647,7 +7647,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf5528129646",
-    urlPicture: "@/../public/images/testStatic/femaleProfile03.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile03.jpg"),
     alias: "CélinaPoirier46",
     moderator: false,
     service: "Achats",
@@ -7655,7 +7655,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf996763223",
-    urlPicture: "@/../public/images/testStatic/femaleProfile11.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile11.jpg"),
     alias: "ColetteDuhamel78",
     moderator: false,
     service: "Commercial",
@@ -7663,7 +7663,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf2058666500",
-    urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
     alias: "ÉliseParis79",
     moderator: false,
     service: "Achats",
@@ -7671,7 +7671,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf9259168803",
-    urlPicture: "@/../public/images/testStatic/femaleProfile16.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile16.jpg"),
     alias: "ÉmilieValentin75",
     moderator: false,
     service: "Comptabilité",
@@ -7679,7 +7679,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf7552555914",
-    urlPicture: "@/../public/images/testStatic/maleProfile17.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile17.jpg"),
     alias: "ÉtienneChartier75",
     moderator: false,
     service: "Commercial",
@@ -7687,7 +7687,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf5909392512",
-    urlPicture: "@/../public/images/testStatic/maleProfile04.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile04.jpg"),
     alias: "EugèneDenis12",
     moderator: false,
     service: "Achats",
@@ -7695,7 +7695,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf492582742",
-    urlPicture: "@/../public/images/testStatic/femaleProfile17.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile17.jpg"),
     alias: "GenevièveNormand75",
     moderator: false,
     service: "Achats",
@@ -7703,7 +7703,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf2476170829",
-    urlPicture: "@/../public/images/testStatic/maleProfile08.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile08.jpg"),
     alias: "HenriFoucher96",
     moderator: false,
     service: "Commercial",
@@ -7711,7 +7711,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf2081160576",
-    urlPicture: "@/../public/images/testStatic/femaleProfile02.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile02.jpg"),
     alias: "InèsDavid13",
     moderator: false,
     service: "Informatique",
@@ -7719,7 +7719,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf4500729408",
-    urlPicture: "@/../public/images/testStatic/femaleProfile12.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile12.jpg"),
     alias: "JeanneColin96",
     moderator: false,
     service: "Comptabilité",
@@ -7727,7 +7727,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf6895606931",
-    urlPicture: "@/../public/images/testStatic/maleProfile02.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile02.jpg"),
     alias: "JosephDuhamel46",
     moderator: false,
     service: "Commercial",
@@ -7735,7 +7735,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf6700667335",
-    urlPicture: "@/../public/images/testStatic/femaleProfile06.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile06.jpg"),
     alias: "JoséphinePerrin96",
     moderator: false,
     service: "Comptabilité",
@@ -7743,7 +7743,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf9001547085",
-    urlPicture: "@/../public/images/testStatic/femaleProfile10.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile10.jpg"),
     alias: "LaetitiaDumont75",
     moderator: false,
     service: "Commercial",
@@ -7751,7 +7751,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf8700010269",
-    urlPicture: "@/../public/images/testStatic/maleProfile01.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile01.jpg"),
     alias: "LaurentRoche89",
     moderator: true,
     service: "Ressources Humaines",
@@ -7759,7 +7759,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf7810648675",
-    urlPicture: "@/../public/images/testStatic/femaleProfile08.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile08.jpg"),
     alias: "LouiseLeclerc45",
     moderator: false,
     service: "Achats",
@@ -7767,7 +7767,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf9028704158",
-    urlPicture: "@/../public/images/testStatic/maleProfile11.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile11.jpg"),
     alias: "LouisLeconte94",
     moderator: false,
     service: "Achats",
@@ -7775,7 +7775,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf1850824428",
-    urlPicture: "@/../public/images/testStatic/maleProfile16.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile16.jpg"),
     alias: "LouisRey96",
     moderator: false,
     service: "Informatique",
@@ -7783,7 +7783,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf9101996575",
-    urlPicture: "@/../public/images/testStatic/maleProfile19.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile19.jpg"),
     alias: "LucDiaz74",
     moderator: false,
     service: "Comptabilité",
@@ -7791,7 +7791,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf7981503056",
-    urlPicture: "@/../public/images/testStatic/maleProfile03.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile03.jpg"),
     alias: "LucHardy58",
     moderator: true,
     service: "Ressources Humaines",
@@ -7799,7 +7799,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf8009805568",
-    urlPicture: "@/../public/images/testStatic/maleProfile06.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile06.jpg"),
     alias: "MarcelKlein63",
     moderator: false,
     service: "Informatique",
@@ -7807,7 +7807,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf3945771922",
-    urlPicture: "@/../public/images/testStatic/femaleProfile19.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile19.jpg"),
     alias: "NathalieChartier76",
     moderator: false,
     service: "Commercial",
@@ -7815,7 +7815,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf5490560701",
-    urlPicture: "@/../public/images/testStatic/femaleProfile13.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile13.jpg"),
     alias: "OcéaneRoux74",
     moderator: false,
     service: "Informatique",
@@ -7823,7 +7823,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf2340765978",
-    urlPicture: "@/../public/images/testStatic/femaleProfile15.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile15.jpg"),
     alias: "PaulineChauveau75",
     moderator: false,
     service: "Commercial",
@@ -7831,7 +7831,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf5368403484",
-    urlPicture: "@/../public/images/testStatic/maleProfile14.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile14.jpg"),
     alias: "PierreRaymond76",
     moderator: false,
     service: "Comptabilité",
@@ -7839,7 +7839,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf5339527400",
-    urlPicture: "@/../public/images/testStatic/maleProfile09.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile09.jpg"),
     alias: "RichardRaymond75",
     moderator: true,
     service: "Ressources Humaines",
@@ -7847,7 +7847,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf6609836410",
-    urlPicture: "@/../public/images/testStatic/maleProfile15.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile15.jpg"),
     alias: "SébastienGauthier75",
     moderator: false,
     service: "Informatique",
@@ -7855,7 +7855,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf4413555047",
-    urlPicture: "@/../public/images/testStatic/femaleProfile14.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile14.jpg"),
     alias: "SuzanneGuichard74",
     moderator: false,
     service: "Comptabilité",
@@ -7863,7 +7863,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf6533477894",
-    urlPicture: "@/../public/images/testStatic/femaleProfile07.jpg",
+    urlPicture: require("@/../public/images/testStatic/femaleProfile07.jpg"),
     alias: "ValentineDelmas75",
     moderator: true,
     service: "Ressources Humaines",
@@ -7871,7 +7871,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf5873380013",
-    urlPicture: "@/../public/images/testStatic/maleProfile13.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile13.jpg"),
     alias: "VictorFabre76",
     moderator: false,
     service: "Achats",
@@ -7879,7 +7879,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf4547943199",
-    urlPicture: "@/../public/images/testStatic/maleProfile18.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile18.jpg"),
     alias: "VictorFerreira76",
     moderator: false,
     service: "Commercial",
@@ -7887,7 +7887,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf3600469520",
-    urlPicture: "@/../public/images/testStatic/maleProfile05.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile05.jpg"),
     alias: "VincentDeOliveira96",
     moderator: false,
     service: "Achats",
@@ -7895,7 +7895,7 @@ export const profilesList = [
   },
   {
     _id: "IDProf3960632444",
-    urlPicture: "@/../public/images/testStatic/maleProfile12.jpg",
+    urlPicture: require("@/../public/images/testStatic/maleProfile12.jpg"),
     alias: "YvesAllard85",
     moderator: false,
     service: "Informatique",
@@ -7906,7 +7906,7 @@ export const commentsList = [
   {
     profile: {
       alias: "AiméeFerreira96",
-      urlPicture: "@/../public/images/testStatic/maleProfile10.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile10.jpg"),
     },
     time: 1592855255,
     text: "Vestibulum nec eros sed tellus tincidunt imperdiet vel ac ligula.",
@@ -7917,7 +7917,7 @@ export const commentsList = [
   {
     profile: {
       alias: "AlexandriaGuillot75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile05.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile05.jpg"),
     },
     time: 1593002804,
     text: "Donec at urna non lacus interdum dictum.",
@@ -7940,7 +7940,7 @@ export const commentsList = [
   {
     profile: {
       alias: "AlphonseLabbe42",
-      urlPicture: "@/../public/images/testStatic/maleProfile07.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile07.jpg"),
     },
     time: 1601480903,
     text: "Mauris sed est ac justo iaculis volutpat.",
@@ -7964,7 +7964,7 @@ export const commentsList = [
   {
     profile: {
       alias: "AnaïsBodin79",
-      urlPicture: "@/../public/images/testStatic/femaleProfile04.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile04.jpg"),
     },
     time: 1621632036,
     text: "In facilisis libero a tortor convallis ornare.",
@@ -8001,7 +8001,7 @@ export const commentsList = [
   {
     profile: {
       alias: "AnoukWeiss51",
-      urlPicture: "@/../public/images/testStatic/femaleProfile01.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile01.jpg"),
     },
     time: 1613470331,
     text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -8022,7 +8022,7 @@ export const commentsList = [
   {
     profile: {
       alias: "AugustinLefevre76",
-      urlPicture: "@/../public/images/testStatic/maleProfile20.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile20.jpg"),
     },
     time: 1626652997,
     text: "Donec vehicula nulla ac feugiat pulvinar.",
@@ -8060,7 +8060,7 @@ export const commentsList = [
   {
     profile: {
       alias: "BenjaminPicard12",
-      urlPicture: "@/../public/images/testStatic/femaleProfile20.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile20.jpg"),
     },
     time: 1589555075,
     text:
@@ -8100,7 +8100,7 @@ export const commentsList = [
   {
     profile: {
       alias: "BrigitteBoucher76",
-      urlPicture: "@/../public/images/testStatic/femaleProfile18.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile18.jpg"),
     },
     time: 1627705959,
     text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -8117,7 +8117,7 @@ export const commentsList = [
   {
     profile: {
       alias: "CélinaPoirier46",
-      urlPicture: "@/../public/images/testStatic/femaleProfile03.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile03.jpg"),
     },
     time: 1593211416,
     text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -8138,7 +8138,7 @@ export const commentsList = [
   {
     profile: {
       alias: "ColetteDuhamel78",
-      urlPicture: "@/../public/images/testStatic/femaleProfile11.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile11.jpg"),
     },
     time: 1608971208,
     text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -8170,7 +8170,7 @@ export const commentsList = [
   {
     profile: {
       alias: "ÉliseParis79",
-      urlPicture: "@/../public/images/testStatic/femaleProfile09.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile09.jpg"),
     },
     time: 1599927008,
     text: "Sed accumsan massa nec congue aliquet.",
@@ -8204,7 +8204,7 @@ export const commentsList = [
   {
     profile: {
       alias: "ÉmilieValentin75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile16.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile16.jpg"),
     },
     time: 1625065019,
     text: "Praesent varius ligula ut interdum placerat.",
@@ -8235,7 +8235,7 @@ export const commentsList = [
   {
     profile: {
       alias: "ÉtienneChartier75",
-      urlPicture: "@/../public/images/testStatic/maleProfile17.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile17.jpg"),
     },
     time: 1628107122,
     text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
@@ -8274,7 +8274,7 @@ export const commentsList = [
   {
     profile: {
       alias: "EugèneDenis12",
-      urlPicture: "@/../public/images/testStatic/maleProfile04.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile04.jpg"),
     },
     time: 1617007738,
     text: "Etiam at purus eget diam vehicula sollicitudin non in diam.",
@@ -8299,7 +8299,7 @@ export const commentsList = [
   {
     profile: {
       alias: "GenevièveNormand75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile17.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile17.jpg"),
     },
     time: 1619507539,
     text: "Sed sollicitudin nibh sed odio luctus, vel iaculis erat tristique.",
@@ -8325,7 +8325,7 @@ export const commentsList = [
   {
     profile: {
       alias: "HenriFoucher96",
-      urlPicture: "@/../public/images/testStatic/maleProfile08.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile08.jpg"),
     },
     time: 1599204889,
     text: "Donec ac odio maximus, venenatis est ac, eleifend ex.",
@@ -8351,7 +8351,7 @@ export const commentsList = [
   {
     profile: {
       alias: "InèsDavid13",
-      urlPicture: "@/../public/images/testStatic/femaleProfile02.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile02.jpg"),
     },
     time: 1590692422,
     text:
@@ -8387,7 +8387,7 @@ export const commentsList = [
   {
     profile: {
       alias: "JeanneColin96",
-      urlPicture: "@/../public/images/testStatic/femaleProfile12.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile12.jpg"),
     },
     time: 1601914552,
     text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -8410,7 +8410,7 @@ export const commentsList = [
   {
     profile: {
       alias: "JosephDuhamel46",
-      urlPicture: "@/../public/images/testStatic/maleProfile02.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile02.jpg"),
     },
     time: 1621287078,
     text: "Integer elementum lacus eget condimentum vestibulum.",
@@ -8441,7 +8441,7 @@ export const commentsList = [
   {
     profile: {
       alias: "JoséphinePerrin96",
-      urlPicture: "@/../public/images/testStatic/femaleProfile06.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile06.jpg"),
     },
     time: 1608095100,
     text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -8478,7 +8478,7 @@ export const commentsList = [
   {
     profile: {
       alias: "LaetitiaDumont75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile10.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile10.jpg"),
     },
     time: 1613623028,
     text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -8505,7 +8505,7 @@ export const commentsList = [
   {
     profile: {
       alias: "LaurentRoche89",
-      urlPicture: "@/../public/images/testStatic/maleProfile01.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile01.jpg"),
     },
     time: 1617953585,
     text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -8523,7 +8523,7 @@ export const commentsList = [
   {
     profile: {
       alias: "LouiseLeclerc45",
-      urlPicture: "@/../public/images/testStatic/femaleProfile08.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile08.jpg"),
     },
     time: 1617284223,
     text: "Quisque et ante sit amet metus sagittis sollicitudin sed vitae sem.",
@@ -8542,7 +8542,7 @@ export const commentsList = [
   {
     profile: {
       alias: "LouisLeconte94",
-      urlPicture: "@/../public/images/testStatic/maleProfile11.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile11.jpg"),
     },
     time: 1601170567,
     text: "Sed dapibus nulla eget sapien euismod bibendum.",
@@ -8559,7 +8559,7 @@ export const commentsList = [
   {
     profile: {
       alias: "LouisRey96",
-      urlPicture: "@/../public/images/testStatic/maleProfile16.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile16.jpg"),
     },
     time: 1627788100,
     text: "Morbi porttitor nunc in ligula feugiat iaculis.",
@@ -8596,7 +8596,7 @@ export const commentsList = [
   {
     profile: {
       alias: "LucDiaz74",
-      urlPicture: "@/../public/images/testStatic/maleProfile19.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile19.jpg"),
     },
     time: 1595825776,
     text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -8637,7 +8637,7 @@ export const commentsList = [
   {
     profile: {
       alias: "LucHardy58",
-      urlPicture: "@/../public/images/testStatic/maleProfile03.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile03.jpg"),
     },
     time: 1590998054,
     text: "Aenean porta lorem sit amet luctus ultrices.",
@@ -8655,7 +8655,7 @@ export const commentsList = [
   {
     profile: {
       alias: "MarcelKlein63",
-      urlPicture: "@/../public/images/testStatic/maleProfile06.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile06.jpg"),
     },
     time: 1607676701,
     text:
@@ -8667,7 +8667,7 @@ export const commentsList = [
   {
     profile: {
       alias: "NathalieChartier76",
-      urlPicture: "@/../public/images/testStatic/femaleProfile19.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile19.jpg"),
     },
     time: 1608585256,
     text: "Quisque a nisi ac est tempus facilisis sed a nibh.",
@@ -8700,7 +8700,7 @@ export const commentsList = [
   {
     profile: {
       alias: "OcéaneRoux74",
-      urlPicture: "@/../public/images/testStatic/femaleProfile13.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile13.jpg"),
     },
     time: 1606867673,
     text:
@@ -8718,7 +8718,7 @@ export const commentsList = [
   {
     profile: {
       alias: "PaulineChauveau75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile15.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile15.jpg"),
     },
     time: 1627167479,
     text: "Integer lacinia urna at sapien rhoncus dignissim.",
@@ -8756,7 +8756,7 @@ export const commentsList = [
   {
     profile: {
       alias: "PierreRaymond76",
-      urlPicture: "@/../public/images/testStatic/maleProfile14.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile14.jpg"),
     },
     time: 1609524442,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -8785,7 +8785,7 @@ export const commentsList = [
   {
     profile: {
       alias: "RichardRaymond75",
-      urlPicture: "@/../public/images/testStatic/maleProfile09.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile09.jpg"),
     },
     time: 1620828574,
     text: "Nunc a nulla sed libero commodo vestibulum.",
@@ -8810,7 +8810,7 @@ export const commentsList = [
   {
     profile: {
       alias: "SébastienGauthier75",
-      urlPicture: "@/../public/images/testStatic/maleProfile15.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile15.jpg"),
     },
     time: 1615620891,
     text:
@@ -8848,7 +8848,7 @@ export const commentsList = [
   {
     profile: {
       alias: "SuzanneGuichard74",
-      urlPicture: "@/../public/images/testStatic/femaleProfile14.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile14.jpg"),
     },
     time: 1591082849,
     text: "Cras porttitor ex eu vehicula cursus.",
@@ -8869,7 +8869,7 @@ export const commentsList = [
   {
     profile: {
       alias: "ValentineDelmas75",
-      urlPicture: "@/../public/images/testStatic/femaleProfile07.jpg",
+      urlPicture: require("@/../public/images/testStatic/femaleProfile07.jpg"),
     },
     time: 1597132677,
     text: "Sed in ipsum feugiat, convallis nisl a, mollis lectus.",
@@ -8895,7 +8895,7 @@ export const commentsList = [
   {
     profile: {
       alias: "VictorFabre76",
-      urlPicture: "@/../public/images/testStatic/maleProfile13.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile13.jpg"),
     },
     time: 1602814291,
     text: "Morbi placerat eros fermentum tellus elementum eleifend.",
@@ -8943,7 +8943,7 @@ export const commentsList = [
   {
     profile: {
       alias: "VictorFerreira76",
-      urlPicture: "@/../public/images/testStatic/maleProfile18.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile18.jpg"),
     },
     time: 1604792427,
     text: "Curabitur sit amet mauris non turpis varius aliquet et quis est.",
@@ -8960,7 +8960,7 @@ export const commentsList = [
   {
     profile: {
       alias: "VincentDeOliveira96",
-      urlPicture: "@/../public/images/testStatic/maleProfile05.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile05.jpg"),
     },
     time: 1597643543,
     text: "Praesent consectetur risus at ultrices lobortis.",
@@ -8994,7 +8994,7 @@ export const commentsList = [
   {
     profile: {
       alias: "YvesAllard85",
-      urlPicture: "@/../public/images/testStatic/maleProfile12.jpg",
+      urlPicture: require("@/../public/images/testStatic/maleProfile12.jpg"),
     },
     time: 1604043020,
     text: "Maecenas a eros eu urna mollis aliquet.",

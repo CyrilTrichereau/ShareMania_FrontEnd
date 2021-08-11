@@ -21,15 +21,18 @@
 
       <router-link to="/my-profile" class="sideBarProfilePictureBackground">
         <img
-          src="@/../public/images/testStatic/femaleProfile03.jpg"
-          alt="Nom du profil"
+          :src="myProfile.urlPicture"
+          :alt="'Photo de profil de ' + myProfile.alias"
           class="sideBarProfilePicture"
         />
       </router-link>
 
       <div class="sideBarProfileContent">
-        <router-link to="/my-profile" class="text-light h4 sideBarProfileContentName">
-          Becassine62
+        <router-link
+          to="/my-profile"
+          class="text-light h4 sideBarProfileContentName"
+        >
+          {{ myProfile.alias }}
         </router-link>
         <router-link
           to="/my-profile/modify"
@@ -83,9 +86,13 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "SideBarDesktop",
-  components: {},
+  computed: {
+    ...mapState(["myProfile"]),
+  },
 };
 </script>
 

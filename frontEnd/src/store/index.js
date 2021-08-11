@@ -3,7 +3,7 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-import * as dataStatic from "./dataStatic.js"
+import * as dataStatic from "./dataStatic.js";
 
 export default new Vuex.Store({
   // -----------------------------------
@@ -96,7 +96,7 @@ export default new Vuex.Store({
   mutations: {
     CHANGE_IS_OPEN_MENU(state, menu) {
       if (state.header.isOpenMenu === menu) {
-        state.header.isOpenMenu = 'none';
+        state.header.isOpenMenu = "none";
       } else {
         state.header.isOpenMenu = menu;
       }
@@ -104,17 +104,22 @@ export default new Vuex.Store({
     CHANGE_IS_OPEN_MENU_FORCE(state, menu) {
       state.header.isOpenMenu = menu;
     },
-    SAVE_LIST_POSTS(state, listPosts) {
+    STORE_LIST_POSTS(state, listPosts) {
       state.listPost = listPosts;
     },
-    SAVE_MY_PROFILE(state, profile) {
+    STORE_MY_PROFILE(state, profile) {
       state.myProfile = profile;
+    },
+    STORE_POSTS_NINEGAG(state, posts9gag) {
+      state.listPost9gag = posts9gag;
     },
   },
 
   // -----------------------------------
   // ----------- GETTERS -----------------
   // -----------------------------------
+
+  // A UTILISER POUR TRIER LES POSTS
   getters: {},
 
   // -----------------------------------
@@ -127,16 +132,80 @@ export default new Vuex.Store({
     openOrCloseMenuHeaderForce(context, menu) {
       context.commit("CHANGE_IS_OPEN_MENU_FORCE", menu);
     },
-    saveMyProfile(context) {
-      const myProfile = dataStatic.profilesList[0]
-      context.commit("SAVE_MY_PROFILE", myProfile);
+    fetchMyProfile(context) {
+      const myProfile = dataStatic.profilesList[0];
+      context.commit("STORE_MY_PROFILE", myProfile);
     },
-    savePostsList(context) {
-      const list = dataStatic.postsList
-      context.commit("SAVE_LIST_POSTS", list);
+    fetchPostsList(context) {
+      const list = dataStatic.postsList;
+      context.commit("STORE_LIST_POSTS", list);
     },
     onFirePercentage(onFireArray, coldArray) {
-      return Math.round(onFireArray.length / ((onFireArray.length + coldArray.length) / 100));
+      return Math.round(
+        onFireArray.length / ((onFireArray.length + coldArray.length) / 100)
+      );
+    },
+    elapsedTime(time) {
+      // calculate time elapsed in minutes
+      let calcTime = Math.round((Date.now() / 1000 - time) / 60);
+      let timeValue = "min";
+      // if inferior at 60 min
+      if (calcTime <= 60) {
+        return calcTime.toString() + " " + timeValue;
+      } else {
+        // if inferior at 24 hours
+        calcTime = Math.round(calcTime / 60);
+        if (calcTime <= 24) {
+          if (calcTime === 1) {
+            timeValue = "heure";
+          } else {
+            timeValue = "heures";
+          }
+          return calcTime.toString() + " " + timeValue;
+        } else {
+          // if inferior at 30 days
+          calcTime = Math.round(calcTime / 24);
+          if (calcTime <= 30) {
+            if (calcTime === 1) {
+              timeValue = "jour";
+            } else {
+              timeValue = "jours";
+            }
+            return calcTime.toString() + " " + timeValue;
+          } else {
+            // if inferior at 12 months
+            calcTime = Math.round(calcTime / 30);
+            if (calcTime <= 12) {
+              timeValue = "mois";
+
+              return calcTime.toString() + " " + timeValue;
+            } else {
+              // else in years
+              calcTime = Math.round(calcTime / 12);
+              if (calcTime === 1) {
+                timeValue = "an";
+              } else {
+                timeValue = "ans";
+              }
+              return calcTime.toString() + " " + timeValue;
+            }
+          }
+        }
+      }
+    },
+    fetchPosts9Gaga({ commit }) {
+      fetch("https://9gag.com/v1/featured-posts", {
+        method: "GET",
+        headers: {
+          cookie: "____lo=FR; ____ri=1635; ts1=a98b7934bf7740ecc7a3f8569be1ac64099e78aa",
+        },
+      })
+        .then((response) => {
+          commit("STORE_POSTS_NINEGAG", response.body.dataStatic.items);
+        })
+        .catch((error) => {
+          console.log(error.statusText);
+        });
     },
   },
 

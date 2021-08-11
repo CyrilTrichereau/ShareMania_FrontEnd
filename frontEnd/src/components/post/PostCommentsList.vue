@@ -6,7 +6,7 @@
         <SortingByButton />
       </div>
     </div>
-    <div v-for="(comment, index) in commentsList" :key="index">
+    <div v-for="(comment, index) in commentsList" :key="index" class="displayCommentsList">
       <Comment 
             :alias="comment.profile.alias"
             :urlPicture="comment.profile.urlPicture"
@@ -61,6 +61,9 @@ export default {
       margin: 0;
       padding: 0;
     }
+  }
+  &List {
+    width: 100%;
   }
 }
 </style>

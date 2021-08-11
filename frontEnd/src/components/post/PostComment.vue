@@ -1,13 +1,17 @@
 <template>
   <div class="comment">
-    <img :src="urlPicture" :alt="'Profil de ' + alias" class="commentPictureProfile" />
+    <img
+      :src="urlPicture"
+      :alt="'Profil de ' + alias"
+      class="commentPictureProfile"
+    />
     <div class="commentContent bg-info">
       <div class="commentContentHeader">
         <p class="commentContentHeaderNameProfile text-primary">
           {{ alias }}
         </p>
         <p class="commentContentHeaderTimePost text-secondary">
-          Il y a {{ time }}
+          Il y a {{ elapsedTime(time) }}
         </p>
         <div class="commentContentHeaderEllipsisMenu">
           <EllipsisMenu
@@ -27,7 +31,7 @@
           <OnFire :small="true" />
         </div>
         <p class="commentContentInteractionsPercentage text-secondary">
-          {{ onFirePercentage }} %
+          {{ onFirePercentage(onFireId, coldId) }} %
         </p>
         <div class="commentContentInteractionsSnow">
           <Cold :small="true" />
@@ -76,11 +80,58 @@ export default {
     },
   },
   methods: {
-    onFirePercentage() {
-      const onFireNumber = this.onFireId.lenght;
-      const coldNumber = this.coldId.lenght;
-      const percentage = onFireNumber / ((onFireNumber + coldNumber) / 100);
-      return percentage;
+    onFirePercentage(onFireArray, coldArray) {
+      return Math.round(
+        onFireArray.length / ((onFireArray.length + coldArray.length) / 100)
+      );
+    },
+    elapsedTime(time) {
+      // calculate time elapsed in minutes
+      let calcTime = Math.round((Date.now() / 1000 - time) / 60);
+      let timeValue = "min";
+      // if inferior at 60 min
+      if (calcTime <= 60) {
+        return calcTime.toString() + " " + timeValue;
+      } else {
+        // if inferior at 24 hours
+        calcTime = Math.round(calcTime / 60);
+        if (calcTime <= 24) {
+          if (calcTime === 1) {
+            timeValue = "heure";
+          } else {
+            timeValue = "heures";
+          }
+          return calcTime.toString() + " " + timeValue;
+        } else {
+          // if inferior at 30 days
+          calcTime = Math.round(calcTime / 24);
+          if (calcTime <= 30) {
+            if (calcTime === 1) {
+              timeValue = "jour";
+            } else {
+              timeValue = "jours";
+            }
+            return calcTime.toString() + " " + timeValue;
+          } else {
+            // if inferior at 12 months
+            calcTime = Math.round(calcTime / 30);
+            if (calcTime <= 12) {
+              timeValue = "mois";
+
+              return calcTime.toString() + " " + timeValue;
+            } else {
+              // else in years
+              calcTime = Math.round(calcTime / 12);
+              if (calcTime === 1) {
+                timeValue = "an";
+              } else {
+                timeValue = "ans";
+              }
+              return calcTime.toString() + " " + timeValue;
+            }
+          }
+        }
+      }
     },
   },
 };
@@ -90,7 +141,7 @@ export default {
 .comment {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   margin: 1rem 0;
   width: 92%;
@@ -107,7 +158,7 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: 83%;
     border-radius: 15px;
     &Header {
       display: flex;
@@ -151,6 +202,19 @@ export default {
         font-size: 1.4rem;
         color: rgb(107, 159, 255);
       }
+    }
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .commentContentHeader {
+    flex-wrap: wrap;
+    &NameProfile {
+      width: 80%;
+    }
+    &TimePost {
+      order: 3;
+      width: 80%;
     }
   }
 }

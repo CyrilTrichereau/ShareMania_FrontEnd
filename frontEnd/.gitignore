@@ -27,4 +27,5 @@ toDo.md
 models.xlsx
 ~$models.xlsx
 src/store/createDataBase/
+src/components/NavBarDev.vue
 public/images/testStatic/

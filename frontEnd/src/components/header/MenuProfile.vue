@@ -5,8 +5,8 @@
       @click="openOrCloseMenuHeader('menuProfile')"
     >
       <img
-        src="@/../public/images/testStatic/femaleProfile03.jpg"
-        alt="Nom du profil"
+        :src="myProfile.urlPicture"
+        :alt="'Photo de profil de ' + myProfile.alias"
         class="menuProfileWrapperPicture"
       />
     </div>
@@ -34,12 +34,12 @@
             class="text-primary btn btn-light menuProfileListProfileBlockLink"
           >
             <img
-              src="@/../public/images/testStatic/femaleProfile03.jpg"
-              alt="Nom du profil"
+              :src="myProfile.urlPicture"
+              :alt="'Photo de profil de ' + myProfile.alias"
               class="menuProfileListProfileBlockLinkPicture"
             />
             <p class="h2 text-dark menuProfileListProfileBlockLinkName">
-              Becassine62
+              {{ myProfile.alias }}
             </p>
           </router-link>
         </div>
@@ -112,7 +112,7 @@ export default {
     CrossIcon,
   },
   computed: {
-    ...mapState(["header", ["isOpenMenu"]]),
+    ...mapState(["header", ["isOpenMenu"], "myProfile"]),
   },
   methods: {
     ...mapActions(["openOrCloseMenuHeader"]),

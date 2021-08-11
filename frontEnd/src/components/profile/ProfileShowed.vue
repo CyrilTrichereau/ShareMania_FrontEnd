@@ -1,6 +1,6 @@
 <template>
   <div class="profileShowed card container">
-    <h6>{{$store.state.myProfile.urlPicture}} </h6>
+    <h6>{{ myProfile.urlPicture }}</h6>
     <img
       :src="myProfile.urlPicture"
       :alt="'Photo de profil de ' + myProfile.alias"
@@ -22,7 +22,7 @@
           Adresse email
         </p>
         <p class="profileShowedContentBlockText">
-          {{ myProfile.email}}
+          {{ myProfile.email }}
         </p>
       </div>
       <div class="bg-info profileShowedContentBlock">
@@ -38,7 +38,7 @@
           Pseudo
         </p>
         <p class="profileShowedContentBlockText">
-          {{ myProfile.alias}}
+          {{ myProfile.alias }}
         </p>
       </div>
       <div class="bg-info profileShowedContentBlock">
@@ -46,19 +46,21 @@
           Service
         </p>
         <p class="profileShowedContentBlockText">
-          {{ myProfile.service}}
+          {{ myProfile.service }}
         </p>
       </div>
       <router-link to="/my-profile/modify">
         <Button text="Modifier" />
       </router-link>
       <div @click="eraseConfirmationIsOpen = !eraseConfirmationIsOpen">
-        <Button text="Supprimer mon compte" :danger="true"/>
+        <Button text="Supprimer mon compte" :danger="true" />
       </div>
       <EraseConfirm
         typeToErase="profile"
         v-show="eraseConfirmationIsOpen"
-        @close-erase-confirmation-window="eraseConfirmationIsOpen = !eraseConfirmationIsOpen"
+        @close-erase-confirmation-window="
+          eraseConfirmationIsOpen = !eraseConfirmationIsOpen
+        "
       />
     </div>
   </div>
@@ -76,10 +78,13 @@ export default {
     EraseConfirm,
   },
   computed: {
-    ...mapState(['myProfile']),
+    ...mapState(["myProfile"]),
   },
   methods: {
-    ...mapActions(['saveMyProfile']),
+    ...mapActions(["saveMyProfile"]),
+    urlOfPicture(url) {
+      return "require('" + url + "')";
+    },
   },
   data() {
     return {
@@ -136,10 +141,6 @@ export default {
       padding-top: 1rem;
       margin: 1rem 0;
       width: 100%;
-      &Title {
-      }
-      &Text {
-      }
     }
   }
 }

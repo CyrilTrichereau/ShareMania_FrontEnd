@@ -1,17 +1,23 @@
 <template>
-    <div id="navBarDev">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/new-post">Nouveau post</router-link> |
-      <router-link to="/9gag">9gag</router-link> |
-      <router-link to="/my-profile">Mon profil</router-link> |
-      <router-link to="/my-profile/modify">Modifier profil</router-link> |
-      <router-link to="/login">Page de connexion</router-link> |
-    </div>
+  <!-- 
+ADD TO VIEW
+import NavBarDev from "@/components/NavBarDev.vue";
+LINK BAR FOR PRODUCTION -- ERASE BEFORE PRODUCTION
+<NavBarDev />
+ -->
+  <div id="navBarDev">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/new-post">Nouveau post</router-link> |
+    <router-link to="/9gag">9gag</router-link> |
+    <router-link to="/my-profile">Mon profil</router-link> |
+    <router-link to="/my-profile/modify">Modifier profil</router-link> |
+    <router-link to="/login">Page de connexion</router-link> |
+  </div>
 </template>
 
 <script>
 export default {
-  name: "NavBarDev"
+  name: "NavBarDev",
 };
 </script>
 
