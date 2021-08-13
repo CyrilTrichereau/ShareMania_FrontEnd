@@ -1,13 +1,8 @@
 <template>
   <div class="profileModify card container">
-    <img
-      src="@/../public/images/testStatic/femaleProfile04.jpg"
-      alt="Nom du profil"
-      class="profileModifyPicture"
-    />
+    <Button text="Changer ma photo de profil" />
     <div class="profileModifyContent">
-      <Button text="Changer ma photo de profil" />
-      <div class="profileModifyContentStatus">
+      <div class="profileModifyContentStatus" v-if="myProfile.moderator">
         <font-awesome-icon
           icon="shield-alt"
           class="text-success profileModifyContentStatusIcon"
@@ -20,33 +15,51 @@
         <InputBlock
           inputName="Ancien mot de passe"
           inputPlaceHolder="Ancien mot de passe"
+          @input-value="saveOldPassword"
         />
       </div>
       <div class="bg-info profileModifyContentInputBlock">
         <InputBlock
           inputName="Nouveau mot de passe"
           inputPlaceHolder="Nouveau mot de passe"
+          @input-value="saveNewPassword"
         />
       </div>
       <div class="bg-info profileModifyContentInputBlock">
         <InputBlock
           inputName="Pseudo"
-          inputPlaceHolder="Ecrivez ici votre pseudo"
+          :inputPlaceHolder="myProfile.alias"
+          @input-value="saveNewAlias"
         />
       </div>
       <div class="bg-info profileModifyContentInputBlock">
-        <ServiceBlock class="profileModifyContentInputBlockComponent" />
+        <ServiceBlock
+          class="profileModifyContentInputBlockComponent"
+          @select-value="saveService"
+        />
       </div>
       <div
         class="profileModifyContentValidateWrapper"
-        @click="confirmationPopInIsOpen = !confirmationPopInIsOpen"
+        @click="saveProfileChanges"
       >
         <Button text="Sauvegarder mes changements" />
       </div>
-      <ConfirmationPopIn
-        v-if="confirmationPopInIsOpen"
-        redirectUrl="/my-profile" confirmationType="modify"
-      />
+      <div
+        class="profileModifyContentValidateWrapper"
+        @click="changeProfileModifyOrShow"
+      >
+        <Button text="Quitter sans sauvegarder" :danger="true" />
+      </div>
+      <div class="profileModifyContentValidateConfirmationWrapper">
+        <ConfirmationPopIn
+          v-if="confirmationPopInIsOpen"
+          redirectUrl="/my-profile"
+          confirmationType="modify"
+          @close-confirmation-pop-in="
+            confirmationPopInIsOpen = !confirmationPopInIsOpen
+          "
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -56,6 +69,7 @@ import Button from "@/components/form/Button.vue";
 import InputBlock from "@/components/form/InputBlock.vue";
 import ServiceBlock from "@/components/form/ServiceBlock.vue";
 import ConfirmationPopIn from "@/components/ConfirmationPopIn.vue";
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "ProfileModify",
@@ -68,30 +82,52 @@ export default {
   data() {
     return {
       confirmationPopInIsOpen: false,
+      profileToSave: {
+        _id: "",
+        oldPassword: "",
+        newPassword: "",
+        alias: "",
+        service: "",
+      },
     };
+  },
+  computed: {
+    ...mapState(["myProfile", "myProfileModify"]),
+  },
+  methods: {
+    ...mapActions(["changeProfileModifyOrShow", "sendProfileChanges"]),
+    saveOldPassword(payload) {
+      this.profileToSave.oldPassword = payload;
+    },
+    saveNewPassword(payload) {
+      this.profileToSave.newPassword = payload;
+    },
+    saveNewAlias(payload) {
+      this.profileToSave.alias = payload;
+    },
+    saveService(payload) {
+      this.profileToSave.service = payload;
+    },
+    saveProfileChanges() {
+      this.profileToSave._id = this.myProfile._id;
+      // this.sendProfileObject(this.profileToSave, "PUT");
+      this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
 .profileModify {
+  z-index: 1 !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top: 160px;
-  padding: 0;
+  padding: 140px 0 0 0;
+  margin: 140px 0 0 0;
   width: 92%;
   max-width: 600px;
-  &Picture {
-    position: relative;
-    top: -140px;
-    width: 280px;
-    height: 280px;
-    border-radius: 500px;
-    object-fit: cover;
-    object-position: center;
-  }
   &Content {
     position: relative;
     display: flex;
@@ -100,7 +136,6 @@ export default {
     align-items: center;
     position: relative;
     width: 100%;
-    top: -140px;
     &Status {
       display: flex;
       flex-direction: row;
@@ -123,6 +158,10 @@ export default {
       width: 100%;
       margin: 1rem 0;
       padding: 1rem 0;
+    }
+    &ValidateConfirmationWrapper {
+      z-index: 20 !important;
+      position: fixed;
     }
   }
 }

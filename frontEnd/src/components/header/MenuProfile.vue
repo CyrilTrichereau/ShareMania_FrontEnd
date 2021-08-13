@@ -69,8 +69,9 @@
           @click="openOrCloseMenuHeader('none')"
         >
           <router-link
-            to="/my-profile/modify"
+            to="/my-profile"
             class="text-primary menuProfileListItemLinks"
+            @click.native="changeProfileModifyOrShow"
           >
             <font-awesome-icon
               icon="address-card"
@@ -115,7 +116,7 @@ export default {
     ...mapState(["header", ["isOpenMenu"], "myProfile"]),
   },
   methods: {
-    ...mapActions(["openOrCloseMenuHeader"]),
+    ...mapActions(["openOrCloseMenuHeader","changeProfileModifyOrShow"]),
   },
 };
 </script>

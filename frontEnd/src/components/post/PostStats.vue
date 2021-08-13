@@ -4,10 +4,10 @@
       <DoubleFire class="postStatsTemperatureDoubleFire" />
       <div class="postStatsTemperatureStats">
         <p class="postStatsTemperatureStatsPercentage">
-          <span class="stronger">{{onFirePercentage(onFireId, coldId)}} %</span> sur
+          <span class="stronger">{{onFirePercentage(onFireId, coldId)}} %</span>
         </p>
         <p class="postStatsTemperatureStatsNumberPersons">
-          <span class="stronger"> {{ onFireId.length + coldId.length }} </span> personnes
+          <span class=""> {{ onFireId.length + coldId.length }} </span> votes
         </p>
       </div>
     </div>

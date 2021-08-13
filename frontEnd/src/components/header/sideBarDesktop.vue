@@ -37,6 +37,7 @@
         <router-link
           to="/my-profile/modify"
           class="text-light sideBarProfileContentModify"
+          @click.native="changeProfileModifyOrShow"
         >
           Modifier mon profil
         </router-link>
@@ -76,13 +77,16 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "SideBarDesktop",
   computed: {
     ...mapState(["myProfile"]),
   },
+  methods: {
+    ...mapActions(["changeProfileModifyOrShow"])
+  }
 };
 </script>
 

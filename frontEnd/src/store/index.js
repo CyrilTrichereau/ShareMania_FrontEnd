@@ -6,94 +6,39 @@ Vue.use(Vuex);
 import * as dataStatic from "./dataStatic.js";
 
 export default new Vuex.Store({
+  strict: process.env.NODE_ENV !== "production",
   // -----------------------------------
   // ----------- STATE -----------------
   // -----------------------------------
   state: {
+    apiUrl: {
+      logIn: "http://...",
+      forgottenPassword: "http://...",
+      profile: "http://...",
+      posts: "http://...",
+    },
     header: {
       isOpenMenu: "none",
     },
 
+    myProfileModify: false,
+
     // -----------------
     // MY PROFILE OBJECT
-    myProfile: {
-      _id: "",
-      urlPicture: "a",
-      alias: "dede",
-      moderator: false,
-      service: "",
-      email: "",
-    },
+    myProfile: {},
 
     // -----------------
     // LIST POST ARRAY OF OBJECTS
-    listPost: [
-      {
-        posterProfile: {
-          alias: "",
-          urlPicture: "",
-          service: "",
-        },
-        _id: "",
-        time: "",
-        content: {
-          type: "picture, video, 9gag",
-          text: "",
-          urlPicture: "",
-          originalPosterProfile: {
-            alias: "",
-            urlPicture: "",
-            text: "",
-          },
-        },
-        onFire_Id: ["", ""],
-        cold_Id: ["", ""],
-        numberInteraction: "onFireId.lenght + coldId.lenght",
-        percentageOnFire: 50,
-        shareNumber: "share_Id.lenght",
-        commentNumber: "commentsList.lenght",
-        commentsList: [
-          {
-            profile: {
-              alias: "",
-              urlPicture: "",
-            },
-            time: "",
-            text: "",
-            onFire_Id: ["", ""],
-            cold_Id: ["", ""],
-            numberInteraction: "onFireId.lenght + coldId.lenght",
-            percentageOnFire: 50,
-          },
-        ],
-      },
-    ],
-
-    // -----------------
-    // LIST POST ARRAY OF OBJECTS
-    listPost9gag: [
-      {
-        posterProfile: {
-          alias: "",
-          urlPicture: "",
-        },
-        _id: "",
-        time: "",
-        content: {
-          type: "picture, video, 9gag",
-          text: "",
-          urlPicture: "",
-        },
-        percentageLike: 50,
-        commentNumber: 0,
-      },
-    ],
+    listPost: [],
   },
 
   // -----------------------------------
   // ----------- MUTATIONS -----------------
   // -----------------------------------
   mutations: {
+    CHANGE_PROFILE_IS_MODIFY(state) {
+      state.myProfileModify = !state.myProfileModify;
+    },
     CHANGE_IS_OPEN_MENU(state, menu) {
       if (state.header.isOpenMenu === menu) {
         state.header.isOpenMenu = "none";
@@ -128,6 +73,9 @@ export default new Vuex.Store({
     },
     openOrCloseMenuHeaderForce(context, menu) {
       context.commit("CHANGE_IS_OPEN_MENU_FORCE", menu);
+    },
+    changeProfileModifyOrShow(context) {
+      context.commit("CHANGE_PROFILE_IS_MODIFY");
     },
     fetchMyProfile(context) {
       const myProfile = dataStatic.profilesList[0];
@@ -190,19 +138,96 @@ export default new Vuex.Store({
         }
       }
     },
-    fetchPosts9Gaga({ commit }) {
-      fetch("https://9gag.com/v1/featured-posts", {
-        method: "GET",
-        headers: {
-          cookie: "____lo=FR; ____ri=1635; ts1=a98b7934bf7740ecc7a3f8569be1ac64099e78aa",
-        },
-      })
-        .then((response) => {
-          commit("STORE_POSTS_NINEGAG", response.body.dataStatic.items);
-        })
-        .catch((error) => {
-          console.log(error.statusText);
+
+    async sendLogIn(bodyObject) {
+      try {
+        const response = await fetch(this.apiUrl.logIn, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(bodyObject),
         });
+
+        return await response.json();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+  async sendForgottenPassword(bodyObject) {
+    try {
+      const response = await fetch(this.apiUrl.forgottenPassword, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(bodyObject),
+      });
+
+      return await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+
+    async fetchPosts({ commit }) {
+      try {
+        const response = await fetch(this.apiUrl.posts);
+        commit("STORE_LIST_POSTS", await response.body.dataStatic.items);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async sendPostObject(bodyObject, methodToUse) {
+      try {
+        const response = await fetch(this.apiUrl.posts, {
+          method: methodToUse,
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(bodyObject),
+        });
+
+        return await response.json();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async fetchProfile({ commit }) {
+      try {
+        const response = await fetch(this.apiUrl.profile);
+        commit("STORE_MY_PROFILE", await response.body.dataStatic.items);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async sendProfileObject(bodyObject, methodToUse) {
+      try {
+        const response = await fetch(this.apiUrl.profile, {
+          method: methodToUse,
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(bodyObject),
+        });
+
+        return await response.json();
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 

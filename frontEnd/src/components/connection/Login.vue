@@ -8,13 +8,15 @@
       inputPlaceHolder="Ecrivez ici votre email"
       inputType="email"
       :titleLight="true"
+        @input-value="saveEmail"
     />
     <InputBlock
       inputName="Mot de passe"
       inputPlaceHolder="Ecrivez ici votre mot de passe"
       :titleLight="true"
+        @input-value="savePassword"
     />
-    <Button text="Valider" />
+    <Button text="Valider" @click.native="logInToAccount"/>
     <a
       class="loginForgottenPassword text-light"
       @click="ForgottenPasswordIsOpen = !ForgottenPasswordIsOpen"
@@ -33,6 +35,7 @@
 import InputBlock from "@/components/form/InputBlock.vue";
 import Button from "@/components/form/Button.vue";
 import ForgottenPassword from "@/components/connection/ForgottenPassword.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "Login",
@@ -45,7 +48,24 @@ export default {
     return {
       ForgottenPasswordIsOpen: false,
       confirmationPopIn: false,
+      logIn: {
+        email: "",
+        password: "",
+      },
     };
+  },
+  methods: {
+    ...mapActions(["sendLogIn"]),
+    saveEmail(payload) {
+      this.logIn.email = payload;
+    },
+    savePassword(payload) {
+      this.logIn.password = payload;
+    },
+    logInToAccount() {
+      console.log(this.logIn)
+      // this.sendLogIn(this.logIn);
+    },
   },
 };
 </script>

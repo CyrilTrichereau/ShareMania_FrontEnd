@@ -21,12 +21,13 @@
         inputName="Adresse email"
         inputPlaceHolder="Ecrivez ici votre email"
         inputType="email"
+        @input-value="saveEmail"
       />
       <div
         class="forgottenPasswordCardValidateButton"
         @click="changingStateConfirmationIsOpen"
       >
-        <Button text="Valider" />
+        <Button text="Valider" @click.native="sendForgottenPasswordInfos" />
       </div>
       <p
         class="text-success forgottenPasswordCardMessageSuccess"
@@ -43,6 +44,7 @@
 import InputBlock from "@/components/form/InputBlock.vue";
 import Button from "@/components/form/Button.vue";
 import CrossIcon from "@/components/icons/CrossIcon.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "ForgottenPassword",
@@ -54,9 +56,14 @@ export default {
   data() {
     return {
       confirmationIsOpen: false,
+      emailForgotten: "",
     };
   },
   methods: {
+    ...mapActions(["sendForgottenPassword"]),
+    saveEmail(payload) {
+      this.emailForgotten = payload;
+    },
     changingStateConfirmationIsOpen() {
       if (this.confirmationIsOpen === false) {
         this.confirmationIsOpen = true;
@@ -64,6 +71,10 @@ export default {
     },
     closeWindowForgottenPassword() {
       this.$emit("close-window-forgotten-password");
+    },
+    sendForgottenPasswordInfos() {
+      console.log(this.emailForgotten);
+      // this.sendForgottenPassword(this.emailForgotten);
     },
   },
 };

@@ -7,6 +7,8 @@
       id="postCaption"
       rows="5"
       required
+      v-model="inputValue"
+      @change="sendInput"
     />
   </div>
 </template>
@@ -14,6 +16,16 @@
 <script>
 export default {
   name: "EmailBlock",
+  data() {
+    return {
+      inputValue: "",
+    };
+  },
+  methods: {
+    sendInput() {
+      this.$emit("input-value", this.inputValue);
+    },
+  },
 };
 </script>
 

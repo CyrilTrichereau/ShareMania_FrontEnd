@@ -7,21 +7,72 @@
       id="selectServiceSelection"
       aria-label="Sélectionnez votre service"
       required
+      v-model="selectValue"
+      @change="sendSelected"
     >
-      <option selected class="text-wrap">Sélectionnez votre service</option>
-      <option value="Achats">Achats</option>
-      <option value="Commercial">Commercial</option>
-      <option value="Comptabilité">Comptabilité</option>
-      <option value="Informatique">Informatique</option>
-      <option value="Marketing">Marketing</option>
-      <option value="Ressources Humaines">Ressources Humaines</option>
+      <option
+        v-for="(option, index) in options"
+        :key="index"
+        :disabled="option.isDisabled"
+        class="text-wrap"
+      >
+        {{ option.name }}
+      </option>
     </select>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "ServiceBlock",
+  data() {
+    return {
+      selectValue: "",
+      options: [
+        {
+          name: "Sélectionnez votre service",
+          isDisabled: true,
+        },
+        {
+          name: "Achats",
+          isDisabled: false,
+        },
+        {
+          name: "Commercial",
+          isDisabled: false,
+        },
+        {
+          name: "Comptabilité",
+          isDisabled: false,
+        },
+        {
+          name: "Informatique",
+          isDisabled: false,
+        },
+        {
+          name: "Marketing",
+          isDisabled: false,
+        },
+        {
+          name: "Ressources Humaines",
+          isDisabled: false,
+        },
+      ],
+    };
+  },
+  computed: {
+    ...mapState(["myProfile"]),
+  },
+  methods: {
+    sendSelected() {
+      this.$emit("select-value", this.selectValue);
+    },
+  },
+  mounted() {
+    this.selectValue = this.myProfile.service
+  },
 };
 </script>
 
@@ -33,7 +84,7 @@ export default {
   align-items: center;
   padding: 0.5rem;
   width: 100%;
-  border: 1px solid #CED4DA;
+  border: 1px solid #ced4da;
   &:focus {
     background: white;
   }

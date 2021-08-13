@@ -1,75 +1,63 @@
 <template>
-  <div class="profileShowed card container">
-    <h6>{{ myProfile.urlPicture }}</h6>
-    <img
-      :src="myProfile.urlPicture"
-      :alt="'Photo de profil de ' + myProfile.alias"
-      class="profileShowedPicture"
-    />
-
-    <div class="profileShowedContent" @click="saveMyProfile">
-      <div class="profileShowedContentStatus" v-if="myProfile.moderator">
-        <font-awesome-icon
-          icon="shield-alt"
-          class="text-success profileShowedContentStatusIcon"
+    <div class="profileContent card container">
+        <div class="profileContentStatus" v-if="myProfile.moderator">
+          <font-awesome-icon
+            icon="shield-alt"
+            class="text-success profileContentStatusIcon"
+          />
+          <p class="text-success h4 profileContentStatusText">
+            Modérateur
+          </p>
+        </div>
+        <div class="bg-info profileContentBlock">
+          <p class="text-primary h4 profileContentBlockTitle">
+            Adresse email
+          </p>
+          <p class="profileContentBlockText">
+            {{ myProfile.email }}
+          </p>
+        </div>
+        <div class="bg-info profileContentBlock">
+          <p class="text-primary h4 profileContentBlockTitle">
+            Mot de passe
+          </p>
+          <p class="profileContentBlockText">
+            **********
+          </p>
+        </div>
+        <div class="bg-info profileContentBlock">
+          <p class="text-primary h4 profileContentBlockTitle">
+            Pseudo
+          </p>
+          <p class="profileContentBlockText">
+            {{ myProfile.alias }}
+          </p>
+        </div>
+        <div class="bg-info profileContentBlock">
+          <p class="text-primary h4 profileContentBlockTitle">
+            Service
+          </p>
+          <p class="profileContentBlockText">
+            {{ myProfile.service }}
+          </p>
+        </div>
+        <div @click="changeProfileModifyOrShow">
+          <Button text="Modifier" />
+        </div>
+        <div @click="eraseConfirmationIsOpen = !eraseConfirmationIsOpen">
+          <Button text="Supprimer mon compte" :danger="true" />
+        </div>
+        <EraseConfirm
+          typeToErase="profile"
+          v-show="eraseConfirmationIsOpen"
         />
-        <p class="text-success h4 profileShowedContentStatusText">
-          Modérateur
-        </p>
-      </div>
-      <div class="bg-info profileShowedContentBlock">
-        <p class="text-primary h4 profileShowedContentBlockTitle">
-          Adresse email
-        </p>
-        <p class="profileShowedContentBlockText">
-          {{ myProfile.email }}
-        </p>
-      </div>
-      <div class="bg-info profileShowedContentBlock">
-        <p class="text-primary h4 profileShowedContentBlockTitle">
-          Mot de passe
-        </p>
-        <p class="profileShowedContentBlockText">
-          **********
-        </p>
-      </div>
-      <div class="bg-info profileShowedContentBlock">
-        <p class="text-primary h4 profileShowedContentBlockTitle">
-          Pseudo
-        </p>
-        <p class="profileShowedContentBlockText">
-          {{ myProfile.alias }}
-        </p>
-      </div>
-      <div class="bg-info profileShowedContentBlock">
-        <p class="text-primary h4 profileShowedContentBlockTitle">
-          Service
-        </p>
-        <p class="profileShowedContentBlockText">
-          {{ myProfile.service }}
-        </p>
-      </div>
-      <router-link to="/my-profile/modify">
-        <Button text="Modifier" />
-      </router-link>
-      <div @click="eraseConfirmationIsOpen = !eraseConfirmationIsOpen">
-        <Button text="Supprimer mon compte" :danger="true" />
-      </div>
-      <EraseConfirm
-        typeToErase="profile"
-        v-show="eraseConfirmationIsOpen"
-        @close-erase-confirmation-window="
-          eraseConfirmationIsOpen = !eraseConfirmationIsOpen
-        "
-      />
     </div>
-  </div>
 </template>
 
 <script>
 import Button from "@/components/form/Button.vue";
 import EraseConfirm from "@/components/EraseConfirm.vue";
-import { mapState, mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "ProfileShowed",
@@ -77,71 +65,51 @@ export default {
     Button,
     EraseConfirm,
   },
-  computed: {
-    ...mapState(["myProfile"]),
-  },
-  methods: {
-    ...mapActions(["saveMyProfile"]),
-    urlOfPicture(url) {
-      return "require('" + url + "')";
-    },
-  },
   data() {
     return {
       eraseConfirmationIsOpen: false,
     };
   },
+  computed: {
+    ...mapState(["myProfile", "myProfileModify"]),
+  },
+  methods: {
+    ...mapActions(["changeProfileModifyOrShow"])
+  }
 };
 </script>
 
 <style scoped lang="scss">
-.profileShowed {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 160px;
-  padding: 0;
-  width: 92%;
-  max-width: 600px;
-  &Picture {
-    position: relative;
-    top: -140px;
-    width: 280px;
-    height: 280px;
-    border-radius: 500px;
-    object-fit: cover;
-    object-position: center;
-  }
-  &Content {
-    position: relative;
+  .profileContent {
+    z-index: 1 !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    top: -140px;
-    width: 100%;
+    padding: 140px 0 0 0;
+    margin: 140px 0 0 0;
+    width: 92%;
+    max-width: 600px;
 
-    &Status {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin: 1rem 0;
-      &Icon {
-        font-size: 2rem;
+      &Status {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin: 1rem 0;
+        &Icon {
+          font-size: 2rem;
+        }
+        &Text {
+          margin: 0;
+        }
       }
-      &Text {
-        margin: 0;
+      &Block {
+        padding-top: 1rem;
+        margin: 1rem 0;
+        width: 100%;
       }
-    }
-    &Block {
-      padding-top: 1rem;
-      margin: 1rem 0;
-      width: 100%;
-    }
+    
   }
-}
 </style>

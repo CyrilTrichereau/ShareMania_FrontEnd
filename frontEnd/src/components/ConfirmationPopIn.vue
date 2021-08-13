@@ -5,15 +5,27 @@
       <h6 class="text-primary confirmationPopInCardSubtitle">
         Cliquez sur le bouton ci-dessous pour être redirigé.
       </h6>
-      <router-link :to="redirectUrl" class="confirmationPopInCardRedirect">
+      <router-link
+        :to="redirectUrl"
+        class="confirmationPopInCardRedirect"
+        v-if="confirmationType === 'create'"
+      >
         <Button text="Redirection" />
       </router-link>
+      <div
+        class="confirmationPopInCardRedirect"
+        @click="closeWindowAndReloadProfile"
+        v-else-if="confirmationType === 'modify'"
+      >
+        <Button text="Fermer" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import Button from "@/components/form/Button.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "ConfirmationPopIn",
@@ -48,11 +60,19 @@ export default {
       }
     },
   },
+  methods: {
+    ...mapActions(["changeProfileModifyOrShow", "fetchMyProfile"]),
+    closeWindowAndReloadProfile() {
+      this.fetchMyProfile();
+      this.changeProfileModifyOrShow();
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .confirmationPopIn {
+  z-index: 20 !important;
   width: 100%;
   height: 2000px;
   z-index: 20;

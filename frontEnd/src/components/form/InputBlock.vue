@@ -1,15 +1,17 @@
 <template>
   <div class="form-group my-2 inputBlock">
-    <label :class="{ 'text-dark': !titleLight, 'text-light': titleLight}"> {{ inputName }} </label>
+    <label :class="{ 'text-dark': !titleLight, 'text-light': titleLight }">
+      {{ inputName }}
+    </label>
     <input
       :type="inputType"
       class="form-control"
       :placeholder="inputPlaceHolder"
-       required
+      v-model="inputValue"
+      @change="sendInput"
     />
   </div>
 </template>
-
 <script>
 export default {
   name: "InputBlock",
@@ -31,6 +33,16 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      inputValue: "",
+    };
+  },
+  methods: {
+    sendInput() {
+      this.$emit("input-value", this.inputValue);
+    },
+  },
 };
 </script>
 
@@ -39,6 +51,4 @@ export default {
   width: 90%;
   max-width: 350px;
 }
-  
-  
-  </style>
+</style>
