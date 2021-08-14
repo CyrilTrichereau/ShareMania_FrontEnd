@@ -1,5 +1,5 @@
 <template>
-    <div class="profileContent card container">
+    <div class="profileContent">
         <div class="profileContentStatus" v-if="myProfile.moderator">
           <font-awesome-icon
             icon="shield-alt"
@@ -41,16 +41,15 @@
             {{ myProfile.service }}
           </p>
         </div>
-        <div @click="changeProfileModifyOrShow">
-          <Button text="Modifier" />
-        </div>
-        <div @click="eraseConfirmationIsOpen = !eraseConfirmationIsOpen">
-          <Button text="Supprimer mon compte" :danger="true" />
-        </div>
+          <Button text="Modifier" @click.native="changeProfileModifyOrShow"/>
+          <Button text="Supprimer mon compte" :danger="true"  @click.native="eraseConfirmationIsOpen = !eraseConfirmationIsOpen"/>
+          <div class="profileContentValidateConfirmationWrapper">
         <EraseConfirm
           typeToErase="profile"
           v-show="eraseConfirmationIsOpen"
-        />
+          @close-erase-confirmation-window="eraseConfirmationIsOpen = !eraseConfirmationIsOpen"
+          urlToRedirect="/login"
+        /></div>
     </div>
 </template>
 
@@ -81,15 +80,13 @@ export default {
 
 <style scoped lang="scss">
   .profileContent {
-    z-index: 1 !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 140px 0 0 0;
-    margin: 140px 0 0 0;
-    width: 92%;
-    max-width: 600px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 
       &Status {
         display: flex;
@@ -110,6 +107,10 @@ export default {
         margin: 1rem 0;
         width: 100%;
       }
+    &ValidateConfirmationWrapper {
+      z-index: 20;
+      position: fixed;
+    }
     
   }
 </style>

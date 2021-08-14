@@ -21,8 +21,6 @@ export default {
     HeaderMobile,
     SideBarDesktop,
   },
-  computed: {
-  },
   methods: {
     ...mapActions(["fetchPostsList", "fetchMyProfile"]),
   },

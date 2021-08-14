@@ -7,15 +7,44 @@
           Fil d'actualités
         </h1>
         <div class="homePostsListHeaderSortingBy">
-          <SortingByButton />
+          <SortingByButton @select-value="saveOrderPosts" />
         </div>
       </div>
-      <div
-        class="homePostsListMain"
-        v-for="(post, index) in listPost"
-        :key="index"
-      >
-        <Post :post="post" />
+      <div class="homePostsListMain" v-if="postsListOrderBy === 'recent'">
+        <div
+          class="homePostsListMainWrapper"
+          v-for="(post, index) in byOrderRecent"
+          :key="index"
+        >
+          <Post :post="post" />
+        </div>
+      </div>
+      <div class="homePostsListMain" v-if="postsListOrderBy === 'popular'">
+        <div
+          class="homePostsListMainWrapper"
+          v-for="(post, index) in byOrderPopular"
+          :key="index"
+        >
+          <Post :post="post" />
+        </div>
+      </div>
+      <div class="homePostsListMain" v-if="postsListOrderBy === 'shared'">
+        <div
+          class="homePostsListMainWrapper"
+          v-for="(post, index) in byOrderShared"
+          :key="index"
+        >
+          <Post :post="post" />
+        </div>
+      </div>
+      <div class="homePostsListMain" v-else>
+        <div
+          class="homePostsListMainWrapper"
+          v-for="(post, index) in listPost"
+          :key="index"
+        >
+          <Post :post="post" />
+        </div>
       </div>
     </div>
   </div>
@@ -25,7 +54,7 @@
 // import CreateDataBase from "@/store/createDataBase/CreateDataBase.vue";
 import SortingByButton from "@/components/form/SortingByButton.vue";
 import Post from "@/components/post/Post.vue";
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   name: "Home",
@@ -34,8 +63,19 @@ export default {
     SortingByButton,
     Post,
   },
+  data() {
+    return {
+      postsListOrderBy: "recent",
+    };
+  },
   computed: {
-    ...mapState(["listPost"]),
+    ...mapState(["listPost", "listPostsOrdered", ["recent"]]),
+    ...mapGetters(["byOrderRecent", "byOrderPopular", "byOrderShared"]),
+  },
+  methods: {
+    saveOrderPosts(payload) {
+      this.postsListOrderBy = payload;
+    },
   },
 };
 </script>
@@ -65,7 +105,14 @@ export default {
       margin: 1rem 0;
     }
     &Main {
-      width: 92%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      &Wrapper {
+        width: 92%;
+      }
     }
   }
 }

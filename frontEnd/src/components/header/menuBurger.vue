@@ -1,12 +1,18 @@
 <template>
   <div class="menu">
-    <div class="menuBurgerIconWrapper" @click="openOrCloseMenuHeader('menuBurger')">
+    <div
+      class="menuBurgerIconWrapper"
+      @click="openOrCloseMenuHeader('menuBurger')"
+    >
       <MenuBurgerIcon />
     </div>
-    <div class="menuBackground" v-show="header.isOpenMenu === 'menuBurger'">
+    <div class="menuBackground" v-show="isOpen.headerMenu === 'menuBurger'">
       <nav class="card container bg-light menuList">
         <!-- SHAREMANIA LOGO -->
-        <div class="menuListSharemaniaBackground" @click="openOrCloseMenuHeader('none')">
+        <div
+          class="menuListSharemaniaBackground"
+          @click="openOrCloseMenuHeader('none')"
+        >
           <router-link
             to="/"
             class="text-primary btn btn-light menuListSharemania"
@@ -89,10 +95,10 @@ export default {
     MenuBurgerIcon,
   },
   computed: {
-    ...mapState(['header', ['isOpenMenu'], ]),
+    ...mapState(["isOpen", ["headerMenu"]]),
   },
   methods: {
-    ...mapActions(['openOrCloseMenuHeader']),
+    ...mapActions(["openOrCloseMenuHeader"]),
   },
 };
 </script>
@@ -114,8 +120,6 @@ export default {
     width: 100%;
     height: 1000px;
     background: rgba(255, 255, 255, 0.9);
-  }
-  &BurgerIconWrapper {
   }
   &List {
     display: flex;

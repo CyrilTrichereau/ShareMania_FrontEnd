@@ -12,7 +12,7 @@
     </div>
     <div
       class="menuProfileBackground"
-      v-show="header.isOpenMenu === 'menuProfile'"
+      v-show="isOpen.headerMenu === 'menuProfile'"
     >
       <nav class="card container bg-light menuProfileList">
         <div
@@ -47,7 +47,7 @@
         <!-- Profile link -->
         <ul
           class="text-dark btn btn-light menuProfileListItem"
-          @click="openOrCloseMenuHeader('none')"
+          @click="openOrCloseMenusAndModifyProfile(false)"
         >
           <router-link
             to="/my-profile"
@@ -66,12 +66,11 @@
         <!-- Modify profile link -->
         <ul
           class="text-dark btn btn-light menuProfileListItem"
-          @click="openOrCloseMenuHeader('none')"
+          @click="openOrCloseMenusAndModifyProfile(true)"
         >
           <router-link
             to="/my-profile"
             class="text-primary menuProfileListItemLinks"
-            @click.native="changeProfileModifyOrShow"
           >
             <font-awesome-icon
               icon="address-card"
@@ -113,10 +112,14 @@ export default {
     CrossIcon,
   },
   computed: {
-    ...mapState(["header", ["isOpenMenu"], "myProfile"]),
+    ...mapState(["myProfile","isOpen", ["headerMenu"]]),
   },
   methods: {
-    ...mapActions(["openOrCloseMenuHeader","changeProfileModifyOrShow"]),
+    ...mapActions(["openOrCloseMenuHeader","changeProfileModifyOrShowForce"]),
+    openOrCloseMenusAndModifyProfile(boolean) {
+      this.openOrCloseMenuHeader('none')
+      this.changeProfileModifyOrShowForce(boolean)
+    }
   },
 };
 </script>

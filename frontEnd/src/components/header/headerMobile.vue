@@ -18,10 +18,10 @@
           to="/new-post"
           :class="{
             headerMobileBlockMenuBarWrapperOpen:
-              header.isOpenMenu === 'newPost',
+              isOpen.headerMenu === 'newPost',
             headerMobileBlockMenuBarWrapperOpenNewPost:
-              header.isOpenMenu === 'newPost',
-            headerMobileBlockMenuBarWrapper: header.isOpenMenu === !'newPost',
+              isOpen.headerMenu === 'newPost',
+            headerMobileBlockMenuBarWrapper: isOpen.headerMenu === !'newPost',
           }"
           @click.native="openOrCloseMenuHeaderForce('newPost')"
         >
@@ -33,11 +33,11 @@
         <div
           :class="{
             headerMobileBlockMenuBarWrapperOpen:
-              header.isOpenMenu === 'menuBurger',
+              isOpen.headerMenu === 'menuBurger',
             headerMobileBlockMenuBarWrapperOpenMenuBurger:
-              header.isOpenMenu === 'menuBurger',
+              isOpen.headerMenu === 'menuBurger',
             headerMobileBlockMenuBarWrapper:
-              header.isOpenMenu === !'menuBurger',
+              isOpen.headerMenu === !'menuBurger',
           }"
           @click="openOrCloseMenuHeader('menuBurger')"
         >
@@ -55,11 +55,11 @@
         <div
           :class="{
             headerMobileBlockMenuBarWrapperOpen:
-              header.isOpenMenu === 'menuProfile',
+              isOpen.headerMenu === 'menuProfile',
             headerMobileBlockMenuBarWrapperOpenMenuProfile:
-              header.isOpenMenu === 'menuProfile',
+              isOpen.headerMenu === 'menuProfile',
             headerMobileBlockMenuBarWrapper:
-              header.isOpenMenu === !'menuProfile',
+              isOpen.headerMenu === !'menuProfile',
           }"
         >
           <MenuProfile />
@@ -81,7 +81,7 @@ export default {
     MenuProfile,
   },
   computed: {
-    ...mapState(["header", ["isOpenMenu"]]),
+    ...mapState(["isOpen", ["headerMenu"]]),
   },
   methods: {
     ...mapActions(["openOrCloseMenuHeader", "openOrCloseMenuHeaderForce"]),

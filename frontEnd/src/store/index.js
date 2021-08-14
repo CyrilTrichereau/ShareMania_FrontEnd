@@ -3,70 +3,64 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-import * as dataStatic from "./dataStatic.js";
+import posts from "./posts.js";
+import auth from "./auth.js";
+import profile from "./profile.js";
 
 export default new Vuex.Store({
-  strict: process.env.NODE_ENV !== "production",
-  // -----------------------------------
-  // ----------- STATE -----------------
-  // -----------------------------------
+  modules: {
+    posts,
+    auth,
+    profile,
+  },
   state: {
+    isOpen: {
+      headerMenu: "none",
+      modifyMyProfile: false,
+    },
     apiUrl: {
       logIn: "http://...",
       forgottenPassword: "http://...",
-      profile: "http://...",
-      posts: "http://...",
+      profile: "dataStatic.profilesList[0]",
+      posts: "dataStatic.postsList",
     },
-    header: {
-      isOpenMenu: "none",
-    },
-
-    myProfileModify: false,
-
-    // -----------------
-    // MY PROFILE OBJECT
-    myProfile: {},
-
-    // -----------------
-    // LIST POST ARRAY OF OBJECTS
-    listPost: [],
   },
 
-  // -----------------------------------
-  // ----------- MUTATIONS -----------------
-  // -----------------------------------
   mutations: {
-    CHANGE_PROFILE_IS_MODIFY(state) {
-      state.myProfileModify = !state.myProfileModify;
-    },
     CHANGE_IS_OPEN_MENU(state, menu) {
-      if (state.header.isOpenMenu === menu) {
-        state.header.isOpenMenu = "none";
+      if (state.isOpen.headerMenu === menu) {
+        state.isOpen.headerMenu = "none";
       } else {
-        state.header.isOpenMenu = menu;
+        state.isOpen.headerMenu = menu;
       }
     },
     CHANGE_IS_OPEN_MENU_FORCE(state, menu) {
-      state.header.isOpenMenu = menu;
+      state.isOpen.headerMenu = menu;
     },
-    STORE_LIST_POSTS(state, listPosts) {
-      state.listPost = listPosts;
+    CHANGE_IS_OPEN_MODIFY_PROFILE(state) {
+      state.isOpen.modifyMyProfile = !state.isOpen.modifyMyProfile;
     },
-    STORE_MY_PROFILE(state, profile) {
-      state.myProfile = profile;
+    CHANGE_IS_OPEN_MODIFY_PROFILE_FORCE(state, boolean) {
+      state.isOpen.modifyMyProfile = boolean;
     },
   },
 
-  // -----------------------------------
-  // ----------- GETTERS -----------------
-  // -----------------------------------
+  getters: {
+    byOrderRecent: (state) => {
+      return state.listPost.sort((a, b) => (a.time > b.time ? -1 : 1));
+    },
+    byOrderPopular: (state) => {
+      return state.listPost.sort((a, b) =>
+        (a.onFire_id.length / a.cold_id.length) > (b.onFire_id.length / b.cold_id.length) ? -1 : 1
+      );
+    },
+    byOrderShared: (state) => {
+      return state.listPost.sort((a, b) =>
+        a.shareNumber > b.shareNumber ? -1 : 1
+      );
+    },
+  },
 
-  // A UTILISER POUR TRIER LES POSTS
-  getters: {},
-
-  // -----------------------------------
-  // ----------- ACTIONS -----------------
-  // -----------------------------------
   actions: {
     openOrCloseMenuHeader(context, menu) {
       context.commit("CHANGE_IS_OPEN_MENU", menu);
@@ -75,15 +69,10 @@ export default new Vuex.Store({
       context.commit("CHANGE_IS_OPEN_MENU_FORCE", menu);
     },
     changeProfileModifyOrShow(context) {
-      context.commit("CHANGE_PROFILE_IS_MODIFY");
+      context.commit("CHANGE_IS_OPEN_MODIFY_PROFILE");
     },
-    fetchMyProfile(context) {
-      const myProfile = dataStatic.profilesList[0];
-      context.commit("STORE_MY_PROFILE", myProfile);
-    },
-    fetchPostsList(context) {
-      const list = dataStatic.postsList;
-      context.commit("STORE_LIST_POSTS", list);
+    changeProfileModifyOrShowForce(context, boolean) {
+      context.commit("CHANGE_IS_OPEN_MODIFY_PROFILE", boolean);
     },
     onFirePercentage(onFireArray, coldArray) {
       return Math.round(
@@ -138,151 +127,5 @@ export default new Vuex.Store({
         }
       }
     },
-
-    async sendLogIn(bodyObject) {
-      try {
-        const response = await fetch(this.apiUrl.logIn, {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify(bodyObject),
-        });
-
-        return await response.json();
-      } catch (error) {
-        console.log(error);
-      }
-    },
-
-  async sendForgottenPassword(bodyObject) {
-    try {
-      const response = await fetch(this.apiUrl.forgottenPassword, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(bodyObject),
-      });
-
-      return await response.json();
-    } catch (error) {
-      console.log(error);
-    }
   },
-
-
-    async fetchPosts({ commit }) {
-      try {
-        const response = await fetch(this.apiUrl.posts);
-        commit("STORE_LIST_POSTS", await response.body.dataStatic.items);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-
-    async sendPostObject(bodyObject, methodToUse) {
-      try {
-        const response = await fetch(this.apiUrl.posts, {
-          method: methodToUse,
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify(bodyObject),
-        });
-
-        return await response.json();
-      } catch (error) {
-        console.log(error);
-      }
-    },
-
-    async fetchProfile({ commit }) {
-      try {
-        const response = await fetch(this.apiUrl.profile);
-        commit("STORE_MY_PROFILE", await response.body.dataStatic.items);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-
-    async sendProfileObject(bodyObject, methodToUse) {
-      try {
-        const response = await fetch(this.apiUrl.profile, {
-          method: methodToUse,
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify(bodyObject),
-        });
-
-        return await response.json();
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
-
-  // -----------------------------------
-  // ----------- MODULES -----------------
-  // -----------------------------------
-  modules: {},
 });
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-//
-
-// DANS INDEX.JS
-
-// const headerModule = {
-//   namespaced: true,
-//   state: {
-//     testState: true,
-//   },
-// };
-
-// export default new Vuex.Store({
-//   state: {
-//     isOpenMenu: "none",
-//   },
-//   modules: {
-//     header: headerModule,
-//     testHeader: testHeaderModule,
-//   },
-// });
-
-// DANS HOME
-
-// <p class="h1 text-dark">
-// normalement je suis aprés : <br> {{ header.testState }}
-// </p>
-
-// computed: {
-//   ...mapState(['header', ['testState']]),

@@ -72,7 +72,7 @@ export default {
 
 <style scoped lang="scss">
 .confirmationPopIn {
-  z-index: 20 !important;
+  z-index: 20;
   width: 100%;
   height: 2000px;
   z-index: 20;

@@ -1,14 +1,14 @@
 <template>
   <div class="myProfile">
     <h1 class="text-primary myProfileTitle">Mon profil</h1>
-    <div class="myProfileBlock">
+    <div class="myProfileBlock card container">
       <img
         :src="myProfile.urlPicture"
         :alt="'Photo de profil de ' + myProfile.alias"
         class="myProfileBlockPicture"
       />
-      <ProfileShowed v-if="!myProfileModify"/>
-      <ProfileModify v-else/>
+      <ProfileShowed v-if="!isOpen.modifyMyProfile" />
+      <ProfileModify v-else />
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
     ProfileModify,
   },
   computed: {
-    ...mapState(["myProfile", "myProfileModify"]),
+    ...mapState(["myProfile", "isOpen", ["modifyMyProfile"]]),
   },
 };
 </script>
@@ -39,7 +39,7 @@ export default {
   width: 100%;
   margin: 4rem auto 0 auto;
   &Title {
-    margin: 1rem;
+    margin: 2rem;
   }
   &Block {
     display: flex;
@@ -47,14 +47,15 @@ export default {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+    padding: 140px 0 0 0;
+    margin: 140px 0 0 0;
+    width: 92%;
+    max-width: 600px;
     &Picture {
-      z-index: 2 !important;
       position: absolute;
       width: 280px;
       height: 280px;
+      top: -140px;
       border-radius: 500px;
       object-fit: cover;
       object-position: center;

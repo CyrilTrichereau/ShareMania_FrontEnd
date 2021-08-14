@@ -6,9 +6,9 @@
       </h2>
       <h6 class="text-dark eraseConfirmCardSubtitle">Cette opération est irréversible. <br> Merci de confirmer.</h6>
       <div class="eraseConfirmCardButtons">
-        <div class="eraseConfirmCardButtonsWrapper">
+        <router-link :to="urlToRedirect" class="eraseConfirmCardButtonsWrapper">
           <Button text="Supprimer" :danger="true" />
-        </div>
+        </router-link>
         <div
           class="eraseConfirmCardButtonsWrapper"
           @click="closeEraseConfirmationWindow"
@@ -41,6 +41,10 @@ export default {
       type: String,
       required: true,
     },
+    urlToRedirect: {
+      type: String,
+      default: "/"
+    }
   },
   computed: {
     loopForType() {
@@ -82,9 +86,6 @@ export default {
     padding: 0 0 2rem 0;
     &Title {
       padding: 2rem 2rem 1rem 2rem;
-    }
-    &Subtitle {
-        
     }
     &Buttons {
       display: flex;
