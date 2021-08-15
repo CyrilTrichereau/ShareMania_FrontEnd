@@ -6,12 +6,14 @@ Vue.use(Vuex);
 import posts from "./posts.js";
 import auth from "./auth.js";
 import profile from "./profile.js";
+import postsGiphy from "./postsGiphy.js";
 
 export default new Vuex.Store({
   modules: {
     posts,
     auth,
     profile,
+    postsGiphy,
   },
   state: {
     isOpen: {
@@ -23,6 +25,12 @@ export default new Vuex.Store({
       forgottenPassword: "http://...",
       profile: "dataStatic.profilesList[0]",
       posts: "dataStatic.postsList",
+      giphyTrending: "https://api.giphy.com/v1/gifs/trending",
+      apiKey: {
+        forFeed: "Ysa02CTSrAfmSpJoUWeEgEWflZVItJEJ",
+        forSeasonning: "SKYHGhbHI1X29v64M6UMK2XM0oe5xHso",
+      },
+      giphySearch: "https://api.giphy.com/v1/gifs/search",
     },
   },
 

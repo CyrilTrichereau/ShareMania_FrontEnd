@@ -7,7 +7,7 @@
         @click.native="openOrCloseMenuHeader('none')"
       >
         <img
-          src="@/../public/images/groupomaniaLogoWhite100pxTinyfied.png"
+          src="/images/groupomaniaLogoWhite100pxTinyfied.png"
           alt="ShareMania Logo"
           class="headerMobileBlockTrademarkLogo"
         />

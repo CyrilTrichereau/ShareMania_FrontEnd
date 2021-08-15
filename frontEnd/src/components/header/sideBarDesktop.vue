@@ -3,7 +3,7 @@
     <!-- SHAREMANIA -->
     <router-link to="/" class="btn btn-primary sideBarTrademark">
       <img
-        src="@/../public/images/groupomaniaLogoWhite100pxTinyfied.png"
+        src="/images/groupomaniaLogoWhite100pxTinyfied.png"
         alt="ShareMania Logo"
         class="sideBarTrademarkLogo"
       />
@@ -73,6 +73,18 @@
         Fil d'actualités
       </p>
     </router-link>
+
+    <!-- GIPHY -->
+    <router-link to="/giphy" class="btn btn-primary sideBarMenu">
+      <img
+        src="/images/giphyLogo250pxTinyfied.png"
+        alt="Redirection vers les posts Giphy"
+        class="sideBarMenuLogo"
+      />
+      <p class="text-light h4 sideBarMenuText">
+        Giphy
+      </p>
+    </router-link>
   </div>
 </template>
 
@@ -85,8 +97,8 @@ export default {
     ...mapState(["myProfile"]),
   },
   methods: {
-    ...mapActions(["changeProfileModifyOrShow"])
-  }
+    ...mapActions(["changeProfileModifyOrShow"]),
+  },
 };
 </script>
 
@@ -101,7 +113,7 @@ export default {
   z-index: 99;
   position: fixed;
   top: 0;
-  padding: 4rem 1rem;
+  padding: 1rem 1rem;
 
   &Trademark {
     display: flex;
@@ -124,13 +136,13 @@ export default {
     align-items: center;
     gap: 0.5rem;
     width: 100%;
-    margin: 2rem 0;
-    padding: 1rem 0;
+    margin: 1rem 0;
+    padding: 0.5rem 0;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.185);
     &Picture {
-      width: 200px;
-      height: 200px;
+      width: 160px;
+      height: 160px;
       border-radius: 500px;
       object-fit: cover;
       object-position: center;
@@ -140,7 +152,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.2rem;
       height: 100%;
       &Name {
         margin: 0;
@@ -162,8 +174,12 @@ export default {
     width: 100%;
     margin: 1rem 0;
     &Icon {
-      font-size: 3rem;
+      font-size: 2rem;
       width: 54px;
+    }
+    &Logo {
+      width: 54px;
+      border-radius: 10px;
     }
     &Text {
       margin: 0;

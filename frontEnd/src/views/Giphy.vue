@@ -1,19 +1,26 @@
 <template>
   <div class="home">
-    <!-- <CreateDataBase /> -->
-    <PostsList title="Fil d'actualités" :postsGiphy="false" />
+    <PostsList title="Tendance !" :postsGiphy="true" />
   </div>
 </template>
 
 <script>
-// import CreateDataBase from "@/store/createDataBase/CreateDataBase.vue";
 import PostsList from "@/components/PostsList.vue";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "Home",
   components: {
     PostsList,
-    // CreateDataBase
+  },
+  computed: {
+    ...mapState(["listPostGiphy"]),
+  },
+  methods: {
+    ...mapActions(["fetchPostsGiphyTrending"]),
+  },
+ async mounted() {
+  await this.fetchPostsGiphyTrending(20, 0);
   },
 };
 </script>

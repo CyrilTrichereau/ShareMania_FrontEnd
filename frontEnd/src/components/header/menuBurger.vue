@@ -18,7 +18,7 @@
             class="text-primary btn btn-light menuListSharemania"
           >
             <img
-              src="@/../public/images/groupomaniaLogoBlue100pxTinyfied.png"
+              src="/images/groupomaniaLogoBlue100pxTinyfied.png"
               alt="ShareMania Logo"
               class="menuListSharemaniaLogo"
             />
@@ -64,6 +64,23 @@
             <font-awesome-icon icon="newspaper" class="menuListItemLinksIcon" />
             <p class="menuListItemLinksText">
               Fil d'actualités
+            </p>
+          </router-link>
+        </ul>
+
+        <!-- Giphy LINK -->
+        <ul
+          class="text-dark btn btn-light menuListItem"
+          @click="openOrCloseMenuHeader('none')"
+        >
+          <router-link to="/giphy" class="text-primary menuListItemLinks">
+            <img
+              src="/images/giphyLogo250pxTinyfied.png"
+              alt="Redirection vers les posts Giphy"
+              class="menuListItemLinksLogo"
+            />
+            <p class="menuListItemLinksText">
+              Giphy
             </p>
           </router-link>
         </ul>
@@ -167,6 +184,7 @@ export default {
         }
         &Logo {
           width: 35px;
+          border-radius: 5px;
         }
         &Icon {
           width: 35px;
