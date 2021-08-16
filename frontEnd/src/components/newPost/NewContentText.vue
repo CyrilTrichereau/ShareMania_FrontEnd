@@ -8,14 +8,20 @@
           :alt="'Photo de profil de ' + myProfile.alias"
           class="newContentTextHeaderPicture"
         />
-        <p class="h4 text-secondary newContentTextHeaderName"> {{ myProfile.alias }} </p>
+        <p class="h4 text-secondary newContentTextHeaderName">
+          {{ myProfile.alias }}
+        </p>
       </div>
       <div class="newContentTextMain">
         <div class="newContentTextMainBlock">
-          <TextBlock 
-          @input-value="saveContentText"/>
+          <TextBlock @input-value="saveContentText" />
         </div>
-        <Button text="Valider" @click.native="sendPost"/>
+        <ContentCardShared
+          :giphyToDisplay="postData"
+          v-if="postData.content.urlPicture !== ''"
+          @erase-gif-to-display="eraseGifToDisplay"
+        />
+        <Button text="Valider" @click.native="sendPost" />
       </div>
     </div>
   </div>
@@ -24,6 +30,7 @@
 <script>
 import TextBlock from "@/components/form/TextBlock.vue";
 import Button from "@/components/form/Button.vue";
+import ContentCardShared from "@/components/newPost/ContentCardShared.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
@@ -31,10 +38,20 @@ export default {
   components: {
     TextBlock,
     Button,
+    ContentCardShared,
+  },
+  props: {
+    descendGifForSeasonningPost: {
+      required: true,
+    },
+    mediaToAttachToPost: {
+      required: true,
+    },
   },
   data() {
     return {
-      post: {
+      test: {},
+      postData: {
         posterProfile: {
           alias: "",
           urlPicture: "",
@@ -45,6 +62,11 @@ export default {
         content: {
           text: "",
           urlPicture: "",
+          originalPosterProfile: {
+            alias: "",
+            urlPicture: "",
+            text: "",
+          },
         },
         onFire_id: [],
         cold_id: [],
@@ -53,22 +75,64 @@ export default {
     };
   },
   computed: {
-    ...mapState(["myProfile", "myProfileModify"]),
+    ...mapState(["myProfile", "myProfileModify", "gifDataSavedTemporary"]),
+  },
+  watch: {
+    descendGifForSeasonningPost: function(objectGif) {
+      this.updatePostData(objectGif);
+    },
+    mediaToAttachToPost: function(mediaToAttach) {
+      this.eraseGifToDisplay();
+      this.postData.content.mediaAttached = mediaToAttach[0];
+      this.postData.content.urlPicture = mediaToAttach[1];
+    },
   },
   methods: {
     ...mapActions(["sendPostObject"]),
     saveContentText(payload) {
-      this.post.content.text = payload;
+      this.postData.content.text = payload;
+    },
+    updatePostData(objectGiphy) {
+      this.postData.content.originalPosterProfile.alias =
+        objectGiphy.posterProfile.alias;
+      this.postData.content.originalPosterProfile.urlPicture =
+        objectGiphy.posterProfile.urlPicture;
+      this.postData.content.originalPosterProfile.text =
+        objectGiphy.content.text;
+      this.postData.content.urlPicture = objectGiphy.content.urlPicture;
+      this.postData.content.mediaAttached = "";
+    },
+    eraseGifToDisplay() {
+      const postGiphyToReplace = {
+        posterProfile: {
+          alias: "",
+          urlPicture: "",
+        },
+        content: {
+          text: "",
+          urlPicture: "",
+        },
+      };
+      this.updatePostData(postGiphyToReplace);
     },
     sendPost() {
-      this.post.posterProfile.alias = this.myProfile.alias;
-      this.post.posterProfile.urlPicture = this.myProfile.urlPicture;
-      this.post.posterProfile.service = this.myProfile.service;
-      this.post.posterProfile._id = this.myProfile._id;
-      this.post.time = Date.now();
-      console.log(this.post);
-     // this.sendPostObject(this.post, "POST");
+      this.postData.posterProfile.alias = this.myProfile.alias;
+      this.postData.posterProfile.urlPicture = this.myProfile.urlPicture;
+      this.postData.posterProfile.service = this.myProfile.service;
+      this.postData.posterProfile._id = this.myProfile._id;
+      this.postData.time = Date.now();
+
+      console.log(this.postData);
+      // this.sendPostObject(this.postData, "POST");
     },
+  },
+  mounted() {
+    if (
+      this.gifDataSavedTemporary !== { empty: true } &&
+      this.gifDataSavedTemporary !== undefined
+    ) {
+      this.updatePostData(this.gifDataSavedTemporary);
+    }
   },
 };
 </script>

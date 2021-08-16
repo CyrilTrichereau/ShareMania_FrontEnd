@@ -1,20 +1,49 @@
 <template>
   <div class="mx-auto my-lg-4 newPost">
-    <NewContentText class="newPostNewContentText" />
-    <AddAttached class="newPostAddAttached" />
+    <NewContentText
+      class="newPostNewContentText"
+      :descendGifForSeasonningPost="gifForSeasonningPost"
+      :mediaToAttachToPost="mediaToAttach"
+    />
+    <AddAttached
+      class="newPostAddAttached"
+      @ascend-share-a-giphy-post="descendInfoShareAGiphy"
+      @send-media-to-post-object="descendSendMediaToPostObject"
+    />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import NewContentText from "@/components/newPost/NewContentText.vue";
 import AddAttached from "@/components/newPost/AddAttached.vue";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "NewPost",
   components: {
     NewContentText,
     AddAttached,
+  },
+  data() {
+    return {
+      gifForSeasonningPost: { isSeasonning: false },
+      mediaToAttach: "",
+    };
+  },
+  computed: {
+    ...mapState(["listPostGiphy", "gifDataSavedTemporary"]),
+  },
+  methods: {
+    ...mapActions(["fetchPostsGiphyTrending"]),
+    descendInfoShareAGiphy(payloadTest) {
+      this.gifForSeasonningPost = payloadTest;
+    },
+    descendSendMediaToPostObject(payload) {
+this.mediaToAttach = payload
+    }
+  },
+  async mounted() {
+    await this.fetchPostsGiphyTrending(20, 0);
   },
 };
 </script>

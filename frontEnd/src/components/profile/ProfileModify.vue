@@ -1,6 +1,9 @@
 <template>
   <div class="profileModifyContent">
-    <Button text="Changer ma photo de profil" />
+    <InputFile
+      text="Changer ma photo de profil"
+      @ascend-send-media-to-post-object="saveNewPictureProfile"
+    />
     <div class="profileModifyContentStatus" v-if="myProfile.moderator">
       <font-awesome-icon
         icon="shield-alt"
@@ -63,6 +66,7 @@
 </template>
 
 <script>
+import InputFile from "@/components/form/InputFile.vue";
 import Button from "@/components/form/Button.vue";
 import InputBlock from "@/components/form/InputBlock.vue";
 import ServiceBlock from "@/components/form/ServiceBlock.vue";
@@ -72,6 +76,7 @@ import { mapActions, mapState } from "vuex";
 export default {
   name: "ProfileModify",
   components: {
+    InputFile,
     Button,
     InputBlock,
     ServiceBlock,
@@ -86,6 +91,8 @@ export default {
         newPassword: "",
         alias: "",
         service: "",
+        urlPicture: "",
+        mediaPicture: "",
       },
     };
   },
@@ -106,11 +113,22 @@ export default {
     saveService(payload) {
       this.profileToSave.service = payload;
     },
+    saveNewPictureProfile(payload) {
+      this.profileToSave.urlPicture = payload[1];
+      this.profileToSave.mediaPicture = payload[0];
+      this.$emit("new-picture-profile", payload[1]);
+    },
     saveProfileChanges() {
-      this.profileToSave._id = this.myProfile._id;
       // this.sendProfileObject(this.profileToSave, "PUT");
       this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
     },
+  },
+  created() {
+    this.profileToSave._id = this.myProfile._id;
+    this.profileToSave.alias = this.myProfile.alias;
+    this.profileToSave.service = this.myProfile.service;
+    this.profileToSave.urlPicture = this.myProfile.urlPicture;
+    this.profileToSave.mediaPicture = "";
   },
 };
 </script>

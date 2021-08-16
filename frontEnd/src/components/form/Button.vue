@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="btn my-2 validateButton" :class="{'btn-danger': danger, 'btn-primary': !danger}">
+    <button class="btn my-2 validateButton" :class="{'btn-danger': danger, 'btn-primary': !danger & !secondary, 'btn-secondary': secondary}">
       {{ text }}
     </button>
   </div>
@@ -15,6 +15,10 @@ export default {
       required: true,
     },
     danger: {
+      type: Boolean,
+      default: false,
+    },
+    secondary: {
       type: Boolean,
       default: false,
     },

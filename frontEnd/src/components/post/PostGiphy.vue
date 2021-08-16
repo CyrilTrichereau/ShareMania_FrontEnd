@@ -9,7 +9,10 @@
       <p class="postGiphyFooterComment text-light">
         {{ post.title }}
       </p>
-      <div class="postGiphyFooterShareWrapper btn btn-primary" @click="shareGif">
+      <div
+        class="postGiphyFooterShareWrapper btn btn-primary"
+        @click="shareGif"
+      >
         <font-awesome-icon
           icon="share"
           class="text-light postGiphyFooterShareWrapperIcon"
@@ -20,6 +23,8 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
+
 export default {
   name: "PostGiphy",
   data() {
@@ -41,12 +46,43 @@ export default {
       type: Object,
       required: true,
     },
+    descendNewPostSeasonning: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    ...mapState(["gifDataSavedTemporary"]),
   },
   methods: {
+    ...mapActions(["saveTemporaryGifDataForShare"]),
     shareGif() {
-
-    }
-  }
+      if (Object.prototype.hasOwnProperty.call(this.post, "user")) {
+        if (this.post.user.display_name !== "") {
+          this.postGiphyToShare.posterProfile.alias = this.post.user.display_name;
+        } else {
+          this.postGiphyToShare.posterProfile.alias = "Unknown";
+        }
+        this.postGiphyToShare.posterProfile.urlPicture = this.post.user.avatar_url;
+      } else {
+        if (this.post.username !== "") {
+          this.postGiphyToShare.posterProfile.alias = this.post.username;
+        } else {
+          this.postGiphyToShare.posterProfile.alias = "Unknown";
+        }
+        this.postGiphyToShare.posterProfile.urlPicture =
+          "/images/unknow250pxTinyfied";
+      }
+      this.postGiphyToShare.content.text = this.post.title;
+      this.postGiphyToShare.content.urlPicture = this.post.images.original.webp;
+      this.saveTemporaryGifDataForShare(this.postGiphyToShare);
+      if (this.descendNewPostSeasonning) {
+        this.$emit("share-a-giphy-post", this.postGiphyToShare);
+      } else {
+        this.$router.push("/new-post");
+      }
+    },
+  },
 };
 </script>
 

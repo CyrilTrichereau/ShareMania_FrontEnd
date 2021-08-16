@@ -3,12 +3,12 @@
     <h1 class="text-primary myProfileTitle">Mon profil</h1>
     <div class="myProfileBlock card container">
       <img
-        :src="myProfile.urlPicture"
+        :src="pictureProfileToShow"
         :alt="'Photo de profil de ' + myProfile.alias"
         class="myProfileBlockPicture"
       />
       <ProfileShowed v-if="!isOpen.modifyMyProfile" />
-      <ProfileModify v-else />
+      <ProfileModify v-else @new-picture-profile="displayNewPictureProfile" />
     </div>
   </div>
 </template>
@@ -24,8 +24,21 @@ export default {
     ProfileShowed,
     ProfileModify,
   },
+  data() {
+    return {
+      pictureProfileToShow: "",
+    };
+  },
   computed: {
     ...mapState(["myProfile", "isOpen", ["modifyMyProfile"]]),
+  },
+  methods: {
+    displayNewPictureProfile(payload) {
+      this.pictureProfileToShow = payload;
+    },
+  },
+  created() {
+    this.pictureProfileToShow = this.myProfile.urlPicture;
   },
 };
 </script>

@@ -37,7 +37,7 @@
             headerMobileBlockMenuBarWrapperOpenMenuBurger:
               isOpen.headerMenu === 'menuBurger',
             headerMobileBlockMenuBarWrapper:
-              isOpen.headerMenu === !'menuBurger',
+              isOpen.headerMenu !== 'menuBurger',
           }"
           @click="openOrCloseMenuHeader('menuBurger')"
         >

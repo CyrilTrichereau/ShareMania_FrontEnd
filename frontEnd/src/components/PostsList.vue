@@ -6,6 +6,10 @@
           src="/images/poweredByGiphyLogoAndText250pxTinyfied.png"
           alt="Powered by Giphy"
           class="postsListHeaderWrapperLogo"
+          :class="{
+            postsListHeaderWrapperLogoSmall: smallTitle,
+            postsListHeaderWrapperLogoBig: !smallTitle,
+          }"
           v-if="postsGiphy"
         />
       </div>
@@ -66,7 +70,8 @@
         v-for="(post, index) in listPostGiphy"
         :key="index"
       >
-        <PostGiphy :post="post" />
+        <PostGiphy :post="post" @share-a-giphy-post="ascendInfoShareAGiphy"
+      :descendNewPostSeasonning="newPostSeasonning" />
       </div>
     </div>
   </div>
@@ -85,6 +90,7 @@ export default {
     Post,
     PostGiphy,
   },
+
   props: {
     title: {
       type: String,
@@ -98,55 +104,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    newPostSeasonning: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   data() {
     return {
       postsListOrderBy: "recent",
-
-      postTypeTest: {
-        id: "lnsGj3769kj3zPbaQj",
-        username: "mlb",
-        title: "All Star Game Drinking GIF by MLB",
-        images: {
-          original: {
-            height: "288",
-            width: "512",
-            size: "750963",
-            url:
-              "https://media3.giphy.com/media/lnsGj3769kj3zPbaQj/giphy.gif?cid=64072d54h7b4n0vkxjl4rqa1zidzk44ji2xu4gmzo4b8y137&rid=giphy.gif&ct=g",
-
-            mp4_size: "98682",
-            mp4:
-              "https://media3.giphy.com/media/lnsGj3769kj3zPbaQj/giphy.mp4?cid=64072d54h7b4n0vkxjl4rqa1zidzk44ji2xu4gmzo4b8y137&rid=giphy.mp4&ct=g",
-
-            webp_size: "280078",
-            webp:
-              "https://media3.giphy.com/media/lnsGj3769kj3zPbaQj/giphy.webp?cid=64072d54h7b4n0vkxjl4rqa1zidzk44ji2xu4gmzo4b8y137&rid=giphy.webp&ct=g",
-
-            frames: "16",
-            hash: "502e60038d444a76e5af0f98ce61754f",
-          },
-          original_still: {
-            height: "288",
-            width: "512",
-            size: "78156",
-            url:
-              "https://media3.giphy.com/media/lnsGj3769kj3zPbaQj/giphy_s.gif?cid=64072d54h7b4n0vkxjl4rqa1zidzk44ji2xu4gmzo4b8y137&rid=giphy_s.gif&ct=g",
-          },
-          original_mp4: {
-            height: "270",
-            width: "480",
-            mp4_size: "98682",
-            mp4:
-              "https://media3.giphy.com/media/lnsGj3769kj3zPbaQj/giphy.mp4?cid=64072d54h7b4n0vkxjl4rqa1zidzk44ji2xu4gmzo4b8y137&rid=giphy.mp4&ct=g",
-          },
-        },
-        user: {
-          avatar_url: "https://media4.giphy.com/avatars/mlb/UTAk9uV8rZw2.jpg",
-          display_name: "MLB",
-        },
-      },
     };
   },
   computed: {
@@ -156,6 +122,9 @@ export default {
   methods: {
     saveOrderPosts(payload) {
       this.postsListOrderBy = payload;
+    },
+    ascendInfoShareAGiphy(gifObject) {
+      this.$emit("ascend-share-a-giphy-post", gifObject);
     },
   },
 };
@@ -179,10 +148,17 @@ export default {
     margin: 0.5rem 0;
     &Wrapper {
       width: 100%;
-      margin-bottom: 1rem;
       &Logo {
-        width: 150px;
-        border-radius: 15px;
+        &Big {
+          width: 150px;
+          border-radius: 15px;
+          margin-bottom: 1rem;
+        }
+        &Small {
+          width: 75px;
+          border-radius: 5px;
+          margin-bottom: 0.5rem;
+        }
       }
     }
   }
@@ -193,7 +169,7 @@ export default {
     align-items: center;
     width: 100%;
     &Wrapper {
-      width: 100%;      
+      width: 100%;
     }
   }
 }

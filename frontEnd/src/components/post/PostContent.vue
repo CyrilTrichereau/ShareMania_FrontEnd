@@ -36,15 +36,21 @@ export default {
     },
   },
   computed: {
-    fileType() {
-      let typeMime = this.urlPicture.split(".").pop();
-      return typeMime;
-    },
     isVideo() {
-      const videoTypesArray = ["mp4", "MP4", "avi", "AVI", "mkv", "MKV", "webm", "WEBM"];
+      const typeMime = this.urlPicture.split(".").pop();
+      const videoTypesArray = [
+        "mp4",
+        "MP4",
+        "avi",
+        "AVI",
+        "mkv",
+        "MKV",
+        "webm",
+        "WEBM",
+      ];
       let isVideoType = false;
       videoTypesArray.forEach((type) => {
-        if (this.fileType == type) {
+        if (typeMime == type) {
           isVideoType = true;
         }
       });
