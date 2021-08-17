@@ -22,6 +22,8 @@
         inputPlaceHolder="Ecrivez ici votre email"
         inputType="email"
         @input-value="saveEmail"
+        textInvalid="Adresse email invalide"
+        patternType="email"
       />
       <div
         class="forgottenPasswordCardValidateButton"

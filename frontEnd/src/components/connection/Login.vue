@@ -8,15 +8,20 @@
       inputPlaceHolder="Ecrivez ici votre email"
       inputType="email"
       :titleLight="true"
-        @input-value="saveEmail"
+      @input-value="saveEmail"
+      textInvalid="Adresse email invalide"
+      patternType="email"
     />
     <InputBlock
       inputName="Mot de passe"
       inputPlaceHolder="Ecrivez ici votre mot de passe"
+      inputType="password"
       :titleLight="true"
-        @input-value="savePassword"
+      @input-value="savePassword"
+      textInvalid="Adresse email ou mot de passe invalide"
+      patternType=""
     />
-    <Button text="Valider" @click.native="logInToAccount"/>
+    <Button text="Valider" @click.native="logInToAccount" />
     <a
       class="loginForgottenPassword text-light"
       @click="ForgottenPasswordIsOpen = !ForgottenPasswordIsOpen"
@@ -26,7 +31,9 @@
     </a>
     <ForgottenPassword
       v-show="ForgottenPasswordIsOpen"
-      @close-window-forgotten-password="ForgottenPasswordIsOpen = !ForgottenPasswordIsOpen"
+      @close-window-forgotten-password="
+        ForgottenPasswordIsOpen = !ForgottenPasswordIsOpen
+      "
     />
   </div>
 </template>
@@ -57,13 +64,13 @@ export default {
   methods: {
     ...mapActions(["sendLogIn"]),
     saveEmail(payload) {
-      this.logIn.email = payload;
+      this.logIn.email = payload[0];
     },
     savePassword(payload) {
-      this.logIn.password = payload;
+      this.logIn.password = payload[0];
     },
     logInToAccount() {
-      console.log(this.logIn)
+      console.log(this.logIn);
       // this.sendLogIn(this.logIn);
     },
   },

@@ -24,6 +24,8 @@
         :typeToErase="typeToErase"
         v-show="eraseConfirmationIsOpen"
         @close-erase-confirmation-window="eraseConfirmationIsOpen = !eraseConfirmationIsOpen"
+        @confirmation-erase="confirmToErase"
+
       />
     </div>
   </div>
@@ -63,6 +65,11 @@ export default {
       required: true,
     },
   },
+  methods: {
+    confirmToErase() {
+      this.$emit('confirm-erase')
+    }
+  }
 };
 </script>
 

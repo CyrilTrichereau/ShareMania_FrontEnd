@@ -5,6 +5,7 @@
       :urlPicture="post.posterProfile.urlPicture"
       :time="post.time"
       :service="post.posterProfile.service"
+      :dataForPostEraser="dataPostForActions"
     />
     <PostContent
       :text="post.content.text"
@@ -24,7 +25,7 @@
     <PostIntercation
       @open-close-comment-block="commentsIsOpen = !commentsIsOpen"
     />
-    <PostWriteAComment v-show="commentsIsOpen" />
+    <PostWriteAComment v-show="commentsIsOpen" :commentObject="dataPostForActions" />
     <PostCommentsList
       v-show="commentsIsOpen"
       :commentsList="post.commentsList"
@@ -57,6 +58,15 @@ export default {
       type: Object,
       require: true,
     },
+  },
+  computed: {
+    dataPostForActions() {
+      let data = {}
+      data.posterId = this.post.posterProfile._id
+      data.postId =this.post._id
+      data.time =this.post.time
+      return data
+    }
   },
   data() {
     return {

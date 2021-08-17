@@ -17,6 +17,7 @@
         firstLineText="Signaler la publication"
         secondLineText="Supprimer la publication"
         typeToErase="post"
+        @confirm-erase="erasePost"
       />
     </div>
   </div>
@@ -47,8 +48,17 @@ export default {
       type: String,
       require: true,
     },
+    dataForPostEraser: {
+      type: Object,
+      require: true,
+    },
   },
   methods: {
+    erasePost() {
+      console.log(this.dataForPostEraser);
+      // send DELETE
+      this.$router.go();
+    },
     elapsedTime(time) {
       // calculate time elapsed in minutes
       let calcTime = Math.round((Date.now() / 1000 - time) / 60);
@@ -147,8 +157,8 @@ export default {
     }
   }
   &EllipsisButton {
-      position: absolute;
-      right: 6%;
+    position: absolute;
+    right: 6%;
   }
 }
 

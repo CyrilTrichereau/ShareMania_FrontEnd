@@ -1,0 +1,151 @@
+{
+  "NEW PROFILE INSCRIPTION": {
+    "POST /my-profile": {}
+  },
+  "PROFILE MODIFY": {
+    "PUT /my-profile": {}
+  },
+  "PROFILE DELETE": {
+    "DELETE /my-profile": {}
+  },
+
+  "PROFILE LOGIN": {
+    "POST /login": {}
+  },
+
+  "GET POST LIST": {
+    "GET /post": {}
+  },
+  "NEW POST": {
+    "POST /post": {}
+  },
+  "POST DELETE": {
+    "DELETE /post": {}
+  },
+
+  "POST NEW COMMENT": {
+    "POST /post-comment": {}
+  },
+  "POST DELETE COMMENT": {
+    "DELETE /post-comment": {}
+  },
+
+  "END": "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+
+  "EXEMPLES OF OBJECTS": "",
+
+  "-----------": "-------------",
+  "NEW PROFILE INSCRIPTION ": {
+    "POST /my-profile": {
+      "email": "test.test@gmail.com",
+      "password": "gfGH12+-",
+      "alias": "SELEC",
+      "service": "Commercial",
+      "urlPicture": "blob:http://localhost:8080/8eb9d90c-67ab-4c36-ac16-8229d3eaee9b",
+      "mediaPicture": {}
+    }
+  },
+
+  "------------": "-------------",
+  "PROFILE MODIFY ": {
+    "PUT /my-profile": {
+      "_id": "IDProf3849190885",
+      "oldPassword": "dvsdv",
+      "newPassword": "dvdvDF14+-",
+      "alias": "dsvsvs",
+      "service": "Marketing",
+      "urlPicture": "blob:http://localhost:8080/fa2ebcfb-3f68-4073-8d75-303931eba26a",
+      "mediaPicture": {}
+    }
+  },
+
+  "-------------": "--------------",
+  "PROFILE DELETE ": {
+    "DELETE /my-profile": {
+      "_id": "IDProf3849190885",
+      "alias": "MarcelKlein63",
+      "email": "MarcelKlein63@gmail.com"
+    }
+  },
+
+  "--------------": "-------------",
+  "PROFILE LOGIN ": {
+    "POST /login": {
+      "email": "test.test@gmail.com",
+      "password": "vswvd"
+    }
+  },
+
+  "---------------": "-------------",
+  "GET POST LIST ": {
+    "GET /post": {}
+  },
+
+  "-----------------": "-------------",
+  "NEW POST ": {
+    "POST /post": {
+      "posterProfile": {
+        "alias": "MarcelKlein63",
+        "urlPicture": "/images/testStatic/maleProfile06.jpg",
+        "service": "Informatique",
+        "_id": "IDProf3849190885"
+      },
+      "time": 1629235940251,
+      "content": {
+        "text": "C'est bien garçon !",
+        "urlPicture": "https://media0.giphy.com/media/NEvPzZ8bd1V4Y/giphy.webp?cid=64072d546e1tnhv8oglsvgjfjwq2fzht40i92mawl53m5n6i&rid=giphy.webp&ct=g",
+        "originalPosterProfile": {
+          "alias": "EditingAndLayout",
+          "urlPicture": "https://media1.giphy.com/avatars/editingandlayout/brd0LGvcWNnx.gif",
+          "text": "Proud Of You Reaction GIF"
+        },
+        "mediaAttached": ""
+      },
+      "onFire_id": [],
+      "cold_id": [],
+      "commentsList": []
+    }
+  },
+
+  "-------------------": "-------------",
+  "POST DELETE ": {
+    "DELETE /post": {
+      "posterId": "IDProf609051088",
+      "postId": "IDPosts9975128269",
+      "time": 1602490450
+    }
+  },
+
+  "---------------------": "-------------",
+  "POST NEW COMMENT ": {
+    "POST /post-comment": {
+        "post": {
+            "posterId": "IDProf609051088",
+            "postId": "IDPosts9975128269",
+            "time": 1602490450
+        },
+        "newComment": {
+            "profile": {
+                "_id": "IDProf3849190885",
+                "alias": "MarcelKlein63",
+                "urlPicture": "/images/testStatic/maleProfile06.jpg"
+            },
+            "time": 1629243310771,
+            "text": "Ceci est mon nouveau commentaire, youpi !"
+        },
+        "time": "",
+        "text": "",
+        "cold_id": [],
+        "onFire_id": []
+    }
+  },
+
+  "--------------------": "-------------",
+  "POST DELETE COMMENT ": {
+    "DELETE /post-comment": {
+        "posterId": "IDProf7991445364",
+        "commentId": "IDPosts9906613522",
+        "time": 1615599069
+    }
+  }
+}

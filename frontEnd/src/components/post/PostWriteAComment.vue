@@ -1,17 +1,19 @@
 <template>
-  <div class="myComment" @click="saveMyProfile">
+  <div class="myComment">
     <p class="myCommentTitle text-light bg-secondary">Ajouter un commentaire</p>
     <div class="myCommentContent bg-info">
       <div class="myCommentContentProfile">
         <img
           :src="myProfile.urlPicture"
-          :alt="'Photo de profil de '+ myProfile.alias"
+          :alt="'Photo de profil de ' + myProfile.alias"
           class="myCommentContentProfilePicture"
         />
-        <p class="myCommentContentProfileName text-primary"> {{ myProfile.alias }} </p>
+        <p class="myCommentContentProfileName text-primary">
+          {{ myProfile.alias }}
+        </p>
       </div>
-      <TextBlock class="myCommentContentText" />
-      <Button text="Valider" />
+      <TextBlock class="myCommentContentText" @input-value="saveContentText" />
+      <Button text="Valider" @click.native="sendNewComment" />
     </div>
   </div>
 </template>
@@ -19,7 +21,7 @@
 <script>
 import TextBlock from "@/components/form/TextBlock.vue";
 import Button from "@/components/form/Button.vue";
-import { mapState, mapActions } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   name: "PostWriteAComment",
@@ -27,11 +29,51 @@ export default {
     TextBlock,
     Button,
   },
+  props: {
+    commentObject: {
+      type: Object,
+      required: true,
+    },
+    data() {
+      return {
+        contentText: "",
+      };
+    },
+  },
   computed: {
     ...mapState(["myProfile"]),
   },
   methods: {
-    ...mapActions(["saveMyProfile"]),
+    saveContentText(payload) {
+      this.contentText = payload;
+    },
+    sendNewComment() {
+      let dataNewComment = {
+        post: {
+          posterId: "",
+          postId: "",
+          time: "",
+        },
+        newComment: {
+          profile: { _id: "", alias: "", urlPicture: "" },
+        },
+        time: "",
+        text: "",
+        cold_id: [],
+        onFire_id: [],
+      };
+      dataNewComment.post.posterId = this.commentObject.posterId;
+      dataNewComment.post.postId = this.commentObject.postId;
+      dataNewComment.post.time = this.commentObject.time;
+      dataNewComment.newComment.profile._id = this.myProfile._id;
+      dataNewComment.newComment.profile.alias = this.myProfile.alias;
+      dataNewComment.newComment.profile.urlPicture = this.myProfile.urlPicture;
+      dataNewComment.newComment.time = Date.now();
+      dataNewComment.newComment.text = this.contentText;
+      console.log(dataNewComment);
+      //send new comment POST
+      // this.$router.go();
+    },
   },
 };
 </script>

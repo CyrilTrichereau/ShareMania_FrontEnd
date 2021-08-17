@@ -5,26 +5,64 @@
     </h2>
     <div class="inscriptionBlocksWrapper">
       <InputBlock
+        inputName="Pseudo"
+        inputPlaceHolder="Ecrivez ici votre pseudo"
+        @input-value="saveNewAlias"
+        textInvalid="Le pseudo ne peut contenir que des majuscules, minuscules et chiffres"
+        patternType="alias"
+      />
+      <InputBlock
         inputName="Adresse email"
         inputPlaceHolder="Ecrivez ici votre email"
         inputType="email"
         @input-value="saveEmail"
+        textInvalid="Merci d'entrer une adresse email valide"
+        patternType="email"
       />
       <InputBlock
         inputName="Mot de passe"
         inputPlaceHolder="Ecrivez ici votre mot de passe"
+        inputType="password"
         @input-value="savePassword"
+        textInvalid="Le mot de passe doit contenir 8 caractères minimum, avec au moins: 1 majuscule, 1 minuscule, 1 chiffre et 1 caractere spécial ( + - = , ; . )"
+        patternType="password"
       />
-      <InputBlock
-        inputName="Pseudo"
-        inputPlaceHolder="Ecrivez ici votre pseudo"
-        @input-value="saveNewAlias"
+      <ServiceBlock
+        class="inscriptionBlock"
+        @select-value="saveService"
+        :inscription="true"
+        textInvalid="Veuillez sélectionner un service"
+        :noChoiceSelected="serviceChoiceIsValid"
       />
-      <ServiceBlock class="inscriptionBlock" @select-value="saveService" />
+      <InputFile
+        text="Importer une photo de profil"
+        @ascend-send-media-to-post-object="saveNewPictureProfile"
+      />
+    </div>
+    <div
+      class="inscriptionPictureBlock"
+      v-if="profileToSave.urlPicture !== urlPictureForEmpty"
+    >
+      <img
+        :src="profileToSave.urlPicture"
+        :alt="'Photo de profil de ' + profileToSave.alias"
+        class="inscriptionPictureBlockImage"
+      />
+      <Button
+        text="Supprimer la photo de profil"
+        :danger="true"
+        @click.native="erasePictureProfile"
+      />
     </div>
     <div class="inscriptionValidateWrapper" @click="saveProfileChanges">
       <Button text="Valider" />
     </div>
+    <p
+      class="text-danger inscriptionInvalidText"
+      v-show="inscriptionIsNotValid"
+    >
+      Merci de compléter tous les champs pour valider votre inscription
+    </p>
     <ConfirmationPopIn
       v-if="confirmationPopInIsOpen"
       redirectUrl="/"
@@ -36,6 +74,7 @@
 <script>
 import InputBlock from "@/components/form/InputBlock.vue";
 import ServiceBlock from "@/components/form/ServiceBlock.vue";
+import InputFile from "@/components/form/InputFile.vue";
 import Button from "@/components/form/Button.vue";
 import ConfirmationPopIn from "@/components/ConfirmationPopIn.vue";
 import { mapActions } from "vuex";
@@ -45,37 +84,67 @@ export default {
   components: {
     InputBlock,
     ServiceBlock,
+    InputFile,
     Button,
     ConfirmationPopIn,
   },
   data() {
     return {
+      serviceChoiceIsValid: "none",
       confirmationPopInIsOpen: false,
+      arrayIsValid: [false, false, false, false],
+      inscriptionIsNotValid: false,
+      urlPictureForEmpty: "/images/unknowProfile250pxTinyfied.jpg",
       profileToSave: {
         email: "",
         password: "",
         alias: "",
         service: "",
+        urlPicture: "/images/unknowProfile250pxTinyfied.jpg",
+        mediaPicture: "",
       },
     };
   },
   methods: {
     ...mapActions(["sendProfileChanges"]),
     saveEmail(payload) {
-      this.profileToSave.email = payload;
+      this.profileToSave.email = payload[0];
+      this.arrayIsValid[0] = payload[1];
     },
     savePassword(payload) {
-      this.profileToSave.password = payload;
+      this.profileToSave.password = payload[0];
+      this.arrayIsValid[1] = payload[1];
     },
     saveNewAlias(payload) {
-      this.profileToSave.alias = payload;
+      this.profileToSave.alias = payload[0];
+      this.arrayIsValid[2] = payload[1];
     },
     saveService(payload) {
       this.profileToSave.service = payload;
+      this.serviceChoiceIsValid = "success";
+      this.arrayIsValid[3] = "success";
+    },
+    saveNewPictureProfile(payload) {
+      this.profileToSave.urlPicture = payload[1];
+      this.profileToSave.mediaPicture = payload[0];
+    },
+    erasePictureProfile() {
+      this.profileToSave.urlPicture = this.urlPictureForEmpty;
     },
     saveProfileChanges() {
-      // this.sendProfileObject(this.profileToSave, "POST");
-      this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
+      let formCompleted = true;
+      this.arrayIsValid.forEach((element) => {
+        if (element !== "success") {
+          formCompleted = false;
+        }
+      });
+      if (formCompleted) {
+        console.log(this.profileToSave);
+        // this.sendProfileObject(this.profileToSave, "POST");
+        this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
+      } else {
+        this.inscriptionIsNotValid = true;
+      }
     },
   },
 };
@@ -89,7 +158,20 @@ export default {
   align-items: center;
   width: 100%;
   padding-top: 2rem;
-
+  &PictureBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    &Image {
+      width: 140px;
+      height: 140px;
+      border-radius: 500px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
   &Title {
     margin: 1rem 0;
   }
@@ -99,6 +181,14 @@ export default {
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+  }
+  &InvalidText {
+    width: 100%;
+    padding: 0.2rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    $danger: #c02200;
+    text-shadow: 0px 0px 1px $danger;
   }
 }
 </style>

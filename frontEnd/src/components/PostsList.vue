@@ -53,15 +53,6 @@
           <Post :post="post" />
         </div>
       </div>
-      <div class="postsListMain" v-else>
-        <div
-          class="postsListMainWrapper"
-          v-for="(post, index) in listPost"
-          :key="index"
-        >
-          <Post :post="post" />
-        </div>
-      </div>
     </div>
 
     <div class="postsListMain" v-else>

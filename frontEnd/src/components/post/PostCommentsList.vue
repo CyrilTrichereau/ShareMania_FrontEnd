@@ -8,12 +8,7 @@
     </div>
     <div v-for="(comment, index) in commentsList" :key="index" class="displayCommentsList">
       <Comment 
-            :alias="comment.profile.alias"
-            :urlPicture="comment.profile.urlPicture"
-            :time="comment.time"
-            :text="comment.text"
-            :onFireId="comment.onFire_id"
-            :coldId="comment.cold_id"
+            :commentObject="comment"
       />
     </div>
   </div>

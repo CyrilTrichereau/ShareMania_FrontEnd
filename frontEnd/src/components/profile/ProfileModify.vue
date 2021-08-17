@@ -16,6 +16,7 @@
     <div class="bg-info profileModifyContentInputBlock">
       <InputBlock
         inputName="Ancien mot de passe"
+        inputType="password"
         inputPlaceHolder="Ancien mot de passe"
         @input-value="saveOldPassword"
       />
@@ -23,8 +24,11 @@
     <div class="bg-info profileModifyContentInputBlock">
       <InputBlock
         inputName="Nouveau mot de passe"
+        inputType="password"
         inputPlaceHolder="Nouveau mot de passe"
         @input-value="saveNewPassword"
+        textInvalid="Le mot de passe doit contenir 8 caractères minimum, avec au moins: 1 majuscule, 1 minuscule, 1 chiffre et 1 caractere spécial ( + - = , ; . )"
+        patternType="password"
       />
     </div>
     <div class="bg-info profileModifyContentInputBlock">
@@ -32,12 +36,15 @@
         inputName="Pseudo"
         :inputPlaceHolder="myProfile.alias"
         @input-value="saveNewAlias"
+        textInvalid="Le pseudo ne peut contenir que des majuscules, minuscules et chiffres"
+        patternType="alias"
       />
     </div>
     <div class="bg-info profileModifyContentInputBlock">
       <ServiceBlock
         class="profileModifyContentInputBlockComponent"
         @select-value="saveService"
+        textInvalid="Veuillez sélectionner un service"
       />
     </div>
     <div
@@ -52,6 +59,12 @@
     >
       <Button text="Quitter sans sauvegarder" :danger="true" />
     </div>
+    <p
+      class="text-danger profileModifyContentInvalidText"
+      v-show="formIsNotValid"
+    >
+      Pour pouvoir valider les modifications, corrigez les champs indiqués
+    </p>
     <div class="profileModifyContentValidateConfirmationWrapper">
       <ConfirmationPopIn
         v-if="confirmationPopInIsOpen"
@@ -85,6 +98,8 @@ export default {
   data() {
     return {
       confirmationPopInIsOpen: false,
+      arrayIsValid: [true, true, true],
+      formIsNotValid: false,
       profileToSave: {
         _id: "",
         oldPassword: "",
@@ -102,13 +117,16 @@ export default {
   methods: {
     ...mapActions(["changeProfileModifyOrShow", "sendProfileChanges"]),
     saveOldPassword(payload) {
-      this.profileToSave.oldPassword = payload;
+      this.profileToSave.oldPassword = payload[0];
+      this.arrayIsValid[0] = payload[1];
     },
     saveNewPassword(payload) {
-      this.profileToSave.newPassword = payload;
+      this.profileToSave.newPassword = payload[0];
+      this.arrayIsValid[1] = payload[1];
     },
     saveNewAlias(payload) {
-      this.profileToSave.alias = payload;
+      this.profileToSave.alias = payload[0];
+      this.arrayIsValid[2] = payload[1];
     },
     saveService(payload) {
       this.profileToSave.service = payload;
@@ -119,8 +137,19 @@ export default {
       this.$emit("new-picture-profile", payload[1]);
     },
     saveProfileChanges() {
-      // this.sendProfileObject(this.profileToSave, "PUT");
-      this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
+      let formCompleted = true;
+      this.arrayIsValid.forEach((element) => {
+        if (element !== "success") {
+          formCompleted = false;
+        }
+      });
+      if (formCompleted) {
+        console.log(this.profileToSave);
+        // this.sendProfileObject(this.profileToSave, "PUT");
+        this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
+      } else {
+        this.formIsNotValid = true;
+      }
     },
   },
   created() {
@@ -167,6 +196,14 @@ export default {
   &ValidateConfirmationWrapper {
     z-index: 20 !important;
     position: fixed;
+  }
+  &InvalidText {
+    width: 100%;
+    padding: 0.2rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    $danger: #c02200;
+    text-shadow: 0px 0px 1px $danger;
   }
 }
 </style>

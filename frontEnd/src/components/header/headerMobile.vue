@@ -139,7 +139,7 @@ export default {
         width: 40px;
         height: 100%;
         margin: 0;
-        padding: 0 0 8px 0;
+        padding: 0;
         &Open {
           display: flex;
           flex-direction: row;

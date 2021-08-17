@@ -1,17 +1,17 @@
 <template>
   <div class="comment">
     <img
-      :src="urlPicture"
-      :alt="'Profil de ' + alias"
+      :src="commentObject.profile.urlPicture"
+      :alt="'Profil de ' + commentObject.profile.alias"
       class="commentPictureProfile"
     />
     <div class="commentContent bg-info">
       <div class="commentContentHeader">
         <p class="commentContentHeaderNameProfile text-primary">
-          {{ alias }}
+          {{ commentObject.profile.alias }}
         </p>
         <p class="commentContentHeaderTimePost text-secondary">
-          Il y a {{ elapsedTime(time) }}
+          Il y a {{ elapsedTime(commentObject.time) }}
         </p>
         <div class="commentContentHeaderEllipsisMenu">
           <EllipsisMenu
@@ -19,11 +19,12 @@
             firstLineText="Signaler le commentaire"
             secondLineText="Supprimer le commentaire"
             typeToErase="comment"
+            @confirm-erase="eraseComment"
           />
         </div>
       </div>
       <p class="commentContentComment">
-        {{ text }}
+        {{ commentObject.text }}
       </p>
       <div class="commentContentWhiteLine bg-light"></div>
       <div class="commentContentInteractions">
@@ -31,7 +32,10 @@
           <OnFire :small="true" />
         </div>
         <p class="commentContentInteractionsPercentage text-secondary">
-          {{ onFirePercentage(onFireId, coldId) }} %
+          {{
+            onFirePercentage(commentObject.onFire_id, commentObject.cold_id)
+          }}
+          %
         </p>
         <div class="commentContentInteractionsSnow">
           <Cold :small="true" />
@@ -54,32 +58,21 @@ export default {
     Cold,
   },
   props: {
-    alias: {
-      type: String,
-      require: true,
-    },
-    urlPicture: {
-      type: String,
-      require: true,
-    },
-    time: {
-      type: Number,
-      require: true,
-    },
-    text: {
-      type: String,
-      require: true,
-    },
-    onFireId: {
-      type: Array,
-      require: true,
-    },
-    coldId: {
-      type: Array,
+    commentObject: {
+      type: Object,
       require: true,
     },
   },
   methods: {
+    eraseComment() {
+      let dataOfComment = {};
+      dataOfComment.posterId = this.commentObject.profile._id;
+      dataOfComment.commentId = this.commentObject._id;
+      dataOfComment.time = this.commentObject.time;
+      console.log(dataOfComment);
+      // send DELETE
+      this.$router.go();
+    },
     onFirePercentage(onFireArray, coldArray) {
       return Math.round(
         onFireArray.length / ((onFireArray.length + coldArray.length) / 100)

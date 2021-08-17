@@ -32,6 +32,12 @@ export default new Vuex.Store({
       },
       giphySearch: "https://api.giphy.com/v1/gifs/search",
     },
+    pattern: {
+      alias: "^[a-zA-ZÀ-ÿ1-9]{1,18}$",
+      email: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$",
+      password:
+        "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[+=,;.\\-])([a-zA-Z0-9+=,;.\\-]){8,20}$",
+    },
   },
 
   mutations: {

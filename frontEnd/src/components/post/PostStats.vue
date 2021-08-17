@@ -24,7 +24,6 @@
 
 <script>
 import DoubleFire from "@/components/icons/DoubleFire.vue";
-// import { mapActions } from 'vuex';
 
 export default {
   name: "PostStats",
@@ -52,7 +51,9 @@ export default {
   },
   methods: {
     onFirePercentage(onFireArray, coldArray) {
-      return Math.round(onFireArray.length / ((onFireArray.length + coldArray.length) / 100));
+      return Math.round(
+        onFireArray.length / ((onFireArray.length + coldArray.length) / 100)
+      );
     },
   },
 };
