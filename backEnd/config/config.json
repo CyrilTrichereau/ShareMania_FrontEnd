@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "root",
+    "password": "Azerty123",
+    "database": "sharemania_data_base",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
+      
