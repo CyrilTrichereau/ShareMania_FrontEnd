@@ -2,16 +2,16 @@
   <div class="menu">
     <div
       class="menuBurgerIconWrapper"
-      @click="openOrCloseMenuHeader('menuBurger')"
+      @click="$store.dispatch('openOrCloseMenuHeader', 'menuBurger')"
     >
       <MenuBurgerIcon />
     </div>
-    <div class="menuBackground" v-show="isOpen.headerMenu === 'menuBurger'">
+    <div class="menuBackground" v-show="$store.state.isOpen.headerMenu === 'menuBurger'">
       <nav class="card container bg-light menuList">
         <!-- SHAREMANIA LOGO -->
         <div
           class="menuListSharemaniaBackground"
-          @click="openOrCloseMenuHeader('none')"
+          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link
             to="/"
@@ -29,7 +29,7 @@
         <!-- HOME LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="openOrCloseMenuHeader('none')"
+          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link to="/" class="text-primary menuListItemLinks">
             <font-awesome-icon icon="home" class="menuListItemLinksIcon" />
@@ -42,7 +42,7 @@
         <!-- NEW POST LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="openOrCloseMenuHeader('newPost')"
+          @click="$store.dispatch('openOrCloseMenuHeader', 'newPost')"
         >
           <router-link to="/new-post" class="text-primary menuListItemLinks">
             <font-awesome-icon
@@ -58,7 +58,7 @@
         <!-- HOME-FEED LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="openOrCloseMenuHeader('none')"
+          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link to="/" class="text-primary menuListItemLinks">
             <font-awesome-icon icon="newspaper" class="menuListItemLinksIcon" />
@@ -71,7 +71,7 @@
         <!-- Giphy LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="openOrCloseMenuHeader('none')"
+          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link to="/giphy" class="text-primary menuListItemLinks">
             <img
@@ -88,7 +88,7 @@
         <!-- My PROFILE LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="openOrCloseMenuHeader('none')"
+          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link to="/my-profile" class="text-primary menuListItemLinks">
             <font-awesome-icon icon="user" class="menuListItemLinksIcon" />
@@ -103,19 +103,12 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
 import MenuBurgerIcon from "@/components/icons/MenuBurgerIcon.vue";
 
 export default {
   name: "MenuBurger",
   components: {
     MenuBurgerIcon,
-  },
-  computed: {
-    ...mapState(["isOpen", ["headerMenu"]]),
-  },
-  methods: {
-    ...mapActions(["openOrCloseMenuHeader"]),
   },
 };
 </script>

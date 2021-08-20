@@ -1,8 +1,8 @@
 <template>
   <button
     class="burgerIcon"
-    :class="{ burgerIconIsOpen: isOpen.headerMenu === 'menuBurger'}"
-    @click="openOrCloseMenuHeader('menuBurger')"
+    :class="{ burgerIconIsOpen: $store.state.isOpen.headerMenu === 'menuBurger'}"
+    @click="$store.dispatch('openOrCloseMenuHeader', 'menuBurger')"
   >
     <span class="bar barTop"></span>
     <span class="bar barMiddle"></span>
@@ -11,15 +11,8 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
 export default {
   name: "MenuBurgerIcon",
-  computed: {
-    ...mapState(['isOpen', ['headerMenu'], ]),
-  },
-  methods: {
-    ...mapActions(['openOrCloseMenuHeader'])
-  }
 };
 </script>
 

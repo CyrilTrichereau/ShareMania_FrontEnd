@@ -4,12 +4,12 @@
     <div class="myCommentContent bg-info">
       <div class="myCommentContentProfile">
         <img
-          :src="myProfile.urlPicture"
-          :alt="'Photo de profil de ' + myProfile.alias"
+          :src="$store.state.profile.myProfile.urlPicture"
+          :alt="'Photo de profil de ' + $store.state.profile.myProfile.alias"
           class="myCommentContentProfilePicture"
         />
         <p class="myCommentContentProfileName text-primary">
-          {{ myProfile.alias }}
+          {{ $store.state.profile.myProfile.alias }}
         </p>
       </div>
       <TextBlock class="myCommentContentText" @input-value="saveContentText" />
@@ -21,7 +21,6 @@
 <script>
 import TextBlock from "@/components/form/TextBlock.vue";
 import Button from "@/components/form/Button.vue";
-import { mapState } from "vuex";
 
 export default {
   name: "PostWriteAComment",
@@ -39,9 +38,6 @@ export default {
         contentText: "",
       };
     },
-  },
-  computed: {
-    ...mapState(["myProfile"]),
   },
   methods: {
     saveContentText(payload) {
@@ -65,9 +61,9 @@ export default {
       dataNewComment.post.posterId = this.commentObject.posterId;
       dataNewComment.post.postId = this.commentObject.postId;
       dataNewComment.post.time = this.commentObject.time;
-      dataNewComment.newComment.profile._id = this.myProfile._id;
-      dataNewComment.newComment.profile.alias = this.myProfile.alias;
-      dataNewComment.newComment.profile.urlPicture = this.myProfile.urlPicture;
+      dataNewComment.newComment.profile._id = this.$store.state.profile.myProfile._id;
+      dataNewComment.newComment.profile.alias = this.$store.state.profile.myProfile.alias;
+      dataNewComment.newComment.profile.urlPicture = this.$store.state.profile.myProfile.urlPicture;
       dataNewComment.newComment.time = Date.now();
       dataNewComment.newComment.text = this.contentText;
       console.log(dataNewComment);

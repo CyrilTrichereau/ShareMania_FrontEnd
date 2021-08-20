@@ -42,7 +42,6 @@
 import InputBlock from "@/components/form/InputBlock.vue";
 import Button from "@/components/form/Button.vue";
 import ForgottenPassword from "@/components/connection/ForgottenPassword.vue";
-import { mapActions } from "vuex";
 
 export default {
   name: "Login",
@@ -62,7 +61,6 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["sendLogIn"]),
     saveEmail(payload) {
       this.logIn.email = payload[0];
     },

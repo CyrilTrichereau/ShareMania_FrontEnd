@@ -21,8 +21,8 @@
 
       <router-link to="/my-profile" class="sideBarProfilePictureBackground">
         <img
-          :src="myProfile.urlPicture"
-          :alt="'Photo de profil de ' + myProfile.alias"
+          :src="$store.state.profile.myProfile.urlPicture"
+          :alt="'Photo de profil de ' + $store.state.profile.myProfile.alias"
           class="sideBarProfilePicture"
         />
       </router-link>
@@ -32,12 +32,12 @@
           to="/my-profile"
           class="text-light h4 sideBarProfileContentName"
         >
-          {{ myProfile.alias }}
+          {{ $store.state.profile.myProfile.alias }}
         </router-link>
         <router-link
           to="/my-profile/modify"
           class="text-light sideBarProfileContentModify"
-          @click.native="changeProfileModifyOrShow"
+          @click.native="$store.dispatch('changeProfileModifyOrShow')"
         >
           Modifier mon profil
         </router-link>
@@ -89,16 +89,8 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-
 export default {
   name: "SideBarDesktop",
-  computed: {
-    ...mapState(["myProfile"]),
-  },
-  methods: {
-    ...mapActions(["changeProfileModifyOrShow"]),
-  },
 };
 </script>
 

@@ -5,28 +5,28 @@ const state = {
 
 const mutations = {
   STORE_LIST_POSTS_GIPHY(state, listOfPosts) {
-    this.state.listPostGiphy = listOfPosts;
+    state.listPostGiphy = listOfPosts;
   },
   STORE_DATA_GIF_TEMPORARY(state, gifToSave) {
-    this.state.gifDataSavedTemporary = gifToSave;
+    state.gifDataSavedTemporary = gifToSave;
   },
 };
 
 const actions = {
-  async fetchPostsGiphyTrending({ commit }, numberOfPosts, startAtNumber) {
+  async fetchPostsGiphyTrending({ commit }, payload) {
     try {
       const urlBuilded =
         this.state.apiUrl.giphyTrending +
         "?api_key=" +
         this.state.apiUrl.apiKey.forFeed +
         "&limit=" +
-        numberOfPosts +
+        payload.numberOfPosts +
         "&offset=" +
-        startAtNumber +
+        payload.startAtNumber +
         "&rating=r";
       const response = await fetch(urlBuilded);
-      const ResponseConverted = await response.json();
-      await commit("STORE_LIST_POSTS_GIPHY", ResponseConverted.data);
+      const responseConverted = await response.json();
+      commit("STORE_LIST_POSTS_GIPHY", responseConverted.data);
     } catch (error) {
       console.log(error);
     }

@@ -46,7 +46,6 @@
 import InputBlock from "@/components/form/InputBlock.vue";
 import Button from "@/components/form/Button.vue";
 import CrossIcon from "@/components/icons/CrossIcon.vue";
-import { mapActions } from "vuex";
 
 export default {
   name: "ForgottenPassword",
@@ -62,7 +61,6 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["sendForgottenPassword"]),
     saveEmail(payload) {
       this.emailForgotten = payload;
     },
@@ -76,7 +74,7 @@ export default {
     },
     sendForgottenPasswordInfos() {
       console.log(this.emailForgotten);
-      // this.sendForgottenPassword(this.emailForgotten);
+      // this.$store.dispatch("sendForgottenPassword", this.emailForgotten);
     },
   },
 };

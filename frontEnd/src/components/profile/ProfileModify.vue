@@ -4,7 +4,7 @@
       text="Changer ma photo de profil"
       @ascend-send-media-to-post-object="saveNewPictureProfile"
     />
-    <div class="profileModifyContentStatus" v-if="myProfile.moderator">
+    <div class="profileModifyContentStatus" v-if="$store.state.profile.myProfile.moderator">
       <font-awesome-icon
         icon="shield-alt"
         class="text-success profileModifyContentStatusIcon"
@@ -34,7 +34,7 @@
     <div class="bg-info profileModifyContentInputBlock">
       <InputBlock
         inputName="Pseudo"
-        :inputPlaceHolder="myProfile.alias"
+        :inputPlaceHolder="$store.state.profile.myProfile.alias"
         @input-value="saveNewAlias"
         textInvalid="Le pseudo ne peut contenir que des majuscules, minuscules et chiffres"
         patternType="alias"
@@ -55,7 +55,7 @@
     </div>
     <div
       class="profileModifyContentValidateWrapper"
-      @click="changeProfileModifyOrShow"
+      @click="$store.dispatch('changeProfileModifyOrShow')"
     >
       <Button text="Quitter sans sauvegarder" :danger="true" />
     </div>
@@ -84,7 +84,6 @@ import Button from "@/components/form/Button.vue";
 import InputBlock from "@/components/form/InputBlock.vue";
 import ServiceBlock from "@/components/form/ServiceBlock.vue";
 import ConfirmationPopIn from "@/components/ConfirmationPopIn.vue";
-import { mapActions, mapState } from "vuex";
 
 export default {
   name: "ProfileModify",
@@ -111,11 +110,7 @@ export default {
       },
     };
   },
-  computed: {
-    ...mapState(["myProfile"]),
-  },
   methods: {
-    ...mapActions(["changeProfileModifyOrShow", "sendProfileChanges"]),
     saveOldPassword(payload) {
       this.profileToSave.oldPassword = payload[0];
       this.arrayIsValid[0] = payload[1];
@@ -153,10 +148,10 @@ export default {
     },
   },
   created() {
-    this.profileToSave._id = this.myProfile._id;
-    this.profileToSave.alias = this.myProfile.alias;
-    this.profileToSave.service = this.myProfile.service;
-    this.profileToSave.urlPicture = this.myProfile.urlPicture;
+    this.profileToSave._id = this.$store.state.profile.myProfile._id;
+    this.profileToSave.alias = this.$store.state.profile.myProfile.alias;
+    this.profileToSave.service = this.$store.state.profile.myProfile.service;
+    this.profileToSave.urlPicture = this.$store.state.profile.myProfile.urlPicture;
     this.profileToSave.mediaPicture = "";
   },
 };

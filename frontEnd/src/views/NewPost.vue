@@ -16,7 +16,6 @@
 <script>
 import NewContentText from "@/components/newPost/NewContentText.vue";
 import AddAttached from "@/components/newPost/AddAttached.vue";
-import { mapState, mapActions } from "vuex";
 
 export default {
   name: "NewPost",
@@ -30,20 +29,19 @@ export default {
       mediaToAttach: "",
     };
   },
-  computed: {
-    ...mapState(["listPostGiphy", "gifDataSavedTemporary"]),
-  },
   methods: {
-    ...mapActions(["fetchPostsGiphyTrending"]),
     descendInfoShareAGiphy(payloadTest) {
       this.gifForSeasonningPost = payloadTest;
     },
     descendSendMediaToPostObject(payload) {
-this.mediaToAttach = payload
-    }
+      this.mediaToAttach = payload;
+    },
   },
-  async mounted() {
-    await this.fetchPostsGiphyTrending(20, 0);
+  mounted() {
+    this.$store.dispatch("fetchPostsGiphyTrending", {
+      numberOfPosts: 20,
+      startAtNumber: 0,
+    });
   },
 };
 </script>

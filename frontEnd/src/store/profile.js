@@ -1,4 +1,4 @@
-import * as dataStatic from "./dataStatic.js";
+import * as dataStatic from "@/assets/dataStatic.js";
 
 let state = {
   myProfile: {},
@@ -6,7 +6,7 @@ let state = {
 
 const mutations = {
   STORE_MY_PROFILE(state, profileToSave) {
-   this.state.myProfile = profileToSave;
+   state.myProfile = profileToSave;
   },
 };
 

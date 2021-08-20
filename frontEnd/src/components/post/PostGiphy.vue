@@ -23,8 +23,6 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
-
 export default {
   name: "PostGiphy",
   data() {
@@ -51,11 +49,7 @@ export default {
       default: false,
     },
   },
-  computed: {
-    ...mapState(["gifDataSavedTemporary"]),
-  },
   methods: {
-    ...mapActions(["saveTemporaryGifDataForShare"]),
     shareGif() {
       if (Object.prototype.hasOwnProperty.call(this.post, "user")) {
         if (this.post.user.display_name !== "") {
@@ -75,7 +69,7 @@ export default {
       }
       this.postGiphyToShare.content.text = this.post.title;
       this.postGiphyToShare.content.urlPicture = this.post.images.original.webp;
-      this.saveTemporaryGifDataForShare(this.postGiphyToShare);
+      this.$store.dispatch('saveTemporaryGifDataForShare', this.postGiphyToShare);
       if (this.descendNewPostSeasonning) {
         this.$emit("share-a-giphy-post", this.postGiphyToShare);
       } else {

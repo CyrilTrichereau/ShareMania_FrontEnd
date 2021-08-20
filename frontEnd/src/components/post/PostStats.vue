@@ -4,7 +4,7 @@
       <DoubleFire class="postStatsTemperatureDoubleFire" />
       <div class="postStatsTemperatureStats">
         <p class="postStatsTemperatureStatsPercentage">
-          <span class="stronger">{{onFirePercentage(onFireId, coldId)}} %</span>
+          <span class="stronger"> {{ percentageOfOnFire }} %</span>
         </p>
         <p class="postStatsTemperatureStatsNumberPersons">
           <span class=""> {{ onFireId.length + coldId.length }} </span> votes
@@ -24,6 +24,7 @@
 
 <script>
 import DoubleFire from "@/components/icons/DoubleFire.vue";
+import * as utils from "@/assets/utils.js";
 
 export default {
   name: "PostStats",
@@ -48,12 +49,8 @@ export default {
     },
   },
   computed: {
-  },
-  methods: {
-    onFirePercentage(onFireArray, coldArray) {
-      return Math.round(
-        onFireArray.length / ((onFireArray.length + coldArray.length) / 100)
-      );
+    percentageOfOnFire() {
+      return utils.onFirePercentage(this.onFireId, this.coldId);
     },
   },
 };

@@ -34,8 +34,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-
 export default {
   name: "ServiceBlock",
   props: {
@@ -91,9 +89,6 @@ export default {
       ],
     };
   },
-  computed: {
-    ...mapState(["myProfile"]),
-  },
   methods: {
     sendSelected() {
       this.$emit("select-value", this.selectValue);
@@ -101,7 +96,7 @@ export default {
   },
   mounted() {
     if (!this.inscription) {
-      this.selectValue = this.myProfile.service;
+      this.selectValue = this.$store.state.profile.myProfile.service;
     }
   },
 };

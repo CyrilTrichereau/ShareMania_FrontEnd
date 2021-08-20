@@ -1,4 +1,4 @@
-import * as dataStatic from "./dataStatic.js";
+import * as dataStatic from "@/assets/dataStatic.js";
 
 const state = {
   listPost: [],
@@ -11,7 +11,7 @@ const state = {
 
 const mutations = {
   STORE_LIST_POSTS(state, listOfPosts) {
-    this.state.listPost = listOfPosts;
+    state.listPost = listOfPosts;
   },
 };
 
@@ -50,6 +50,19 @@ const actions = {
   },
 };
 const getters = {
+  byOrderRecent: (state) => {
+    return state.listPost.sort((a, b) => (a.time > b.time ? -1 : 1));
+  },
+  byOrderPopular: (state) => {
+    return state.listPost.sort((a, b) =>
+      (a.onFire_id.length / a.cold_id.length) > (b.onFire_id.length / b.cold_id.length) ? -1 : 1
+    );
+  },
+  byOrderShared: (state) => {
+    return state.listPost.sort((a, b) =>
+      a.shareNumber > b.shareNumber ? -1 : 1
+    );
+  },
 };
 
 export default {

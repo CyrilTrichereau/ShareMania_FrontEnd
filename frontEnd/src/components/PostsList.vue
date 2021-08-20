@@ -20,38 +20,21 @@
         {{ title }}
       </h4>
       <div class="postsListHeaderSortingBy">
-        <SortingByButton @select-value="saveOrderPosts" v-if="!postsGiphy" />
+        <SortingByButton
+          @select-value="changeOrderByPostsList"
+          v-if="!postsGiphy"
+        />
       </div>
     </div>
 
     <!-- INTERNAL POSTS -->
     <div class="postsListMain" v-if="!postsGiphy">
-      <div class="postsListMain" v-if="postsListOrderBy === 'recent'">
-        <div
-          class="postsListMainWrapper"
-          v-for="(post, index) in byOrderRecent"
-          :key="index"
-        >
-          <Post :post="post" />
-        </div>
-      </div>
-      <div class="postsListMain" v-if="postsListOrderBy === 'popular'">
-        <div
-          class="postsListMainWrapper"
-          v-for="(post, index) in byOrderPopular"
-          :key="index"
-        >
-          <Post :post="post" />
-        </div>
-      </div>
-      <div class="postsListMain" v-if="postsListOrderBy === 'shared'">
-        <div
-          class="postsListMainWrapper"
-          v-for="(post, index) in byOrderShared"
-          :key="index"
-        >
-          <Post :post="post" />
-        </div>
+      <div
+        class="postsListMainWrapper"
+        v-for="(post, index) in postsListOrdered"
+        :key="index"
+      >
+        <Post :post="post" />
       </div>
     </div>
 
@@ -61,8 +44,11 @@
         v-for="(post, index) in listPostGiphy"
         :key="index"
       >
-        <PostGiphy :post="post" @share-a-giphy-post="ascendInfoShareAGiphy"
-      :descendNewPostSeasonning="newPostSeasonning" />
+        <PostGiphy
+          :post="post"
+          @share-a-giphy-post="ascendInfoShareAGiphy"
+          :descendNewPostSeasonning="newPostSeasonning"
+        />
       </div>
     </div>
   </div>
@@ -72,7 +58,6 @@
 import SortingByButton from "@/components/form/SortingByButton.vue";
 import Post from "@/components/post/Post.vue";
 import PostGiphy from "@/components/post/PostGiphy.vue";
-import { mapState, mapGetters } from "vuex";
 
 export default {
   name: "PostsList",
@@ -103,20 +88,37 @@ export default {
 
   data() {
     return {
-      postsListOrderBy: "recent",
+      postsListOrdered: "",
     };
   },
   computed: {
-    ...mapState(["listPost", "listPostGiphy"]),
-    ...mapGetters(["byOrderRecent", "byOrderPopular", "byOrderShared"]),
+    listPostGiphy() {
+      return this.$store.state.postsGiphy.listPostGiphy;
+    },
   },
   methods: {
-    saveOrderPosts(payload) {
-      this.postsListOrderBy = payload;
+    changeOrderByPostsList(payload) {
+      if (payload == "popular") {
+        this.postsListOrdered = this.$store.getters.byOrderPopular;
+      } else if (payload == "shared") {
+        this.postsListOrdered = this.$store.getters.byOrderShared;
+      } else {
+        this.postsListOrdered = this.$store.getters.byOrderRecent;
+      }
     },
     ascendInfoShareAGiphy(gifObject) {
       this.$emit("ascend-share-a-giphy-post", gifObject);
     },
+  },
+  mounted() {
+    if (!this.postsGiphy) {
+      this.postsListOrdered = this.$store.getters.byOrderRecent;
+    } else {
+      this.$store.dispatch("fetchPostsGiphyTrending", {
+        numberOfPosts: 20,
+        startAtNumber: 0,
+      });
+    }
   },
 };
 </script>

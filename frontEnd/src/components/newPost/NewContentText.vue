@@ -4,12 +4,12 @@
     <div class="bg-info newContentText">
       <div class="newContentTextHeader">
         <img
-          :src="myProfile.urlPicture"
-          :alt="'Photo de profil de ' + myProfile.alias"
+          :src="$store.state.profile.myProfile.urlPicture"
+          :alt="'Photo de profil de ' + $store.state.profile.myProfile.alias"
           class="newContentTextHeaderPicture"
         />
         <p class="h4 text-secondary newContentTextHeaderName">
-          {{ myProfile.alias }}
+          {{ $store.state.profile.myProfile.alias }}
         </p>
       </div>
       <div class="newContentTextMain">
@@ -31,7 +31,6 @@
 import TextBlock from "@/components/form/TextBlock.vue";
 import Button from "@/components/form/Button.vue";
 import ContentCardShared from "@/components/newPost/ContentCardShared.vue";
-import { mapState, mapActions } from "vuex";
 
 export default {
   name: "NewContentText",
@@ -74,9 +73,6 @@ export default {
       },
     };
   },
-  computed: {
-    ...mapState(["myProfile", "myProfileModify", "gifDataSavedTemporary"]),
-  },
   watch: {
     descendGifForSeasonningPost: function(objectGif) {
       this.updatePostData(objectGif);
@@ -88,7 +84,6 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["sendPostObject"]),
     saveContentText(payload) {
       this.postData.content.text = payload;
     },
@@ -116,22 +111,25 @@ export default {
       this.updatePostData(postGiphyToReplace);
     },
     sendPost() {
-      this.postData.posterProfile.alias = this.myProfile.alias;
-      this.postData.posterProfile.urlPicture = this.myProfile.urlPicture;
-      this.postData.posterProfile.service = this.myProfile.service;
-      this.postData.posterProfile._id = this.myProfile._id;
+      this.postData.posterProfile.alias = this.$store.state.profile.myProfile.alias;
+      this.postData.posterProfile.urlPicture = this.$store.state.profile.myProfile.urlPicture;
+      this.postData.posterProfile.service = this.$store.state.profile.myProfile.service;
+      this.postData.posterProfile._id = this.$store.state.profile.myProfile._id;
       this.postData.time = Date.now();
 
       console.log(this.postData);
-      // this.sendPostObject(this.postData, "POST");
+      // this.$store.dispatch('sendPostObject', this.postData, "POST");
+      this.$store.dispatch("openOrCloseMenuHeaderForce", "none")
+      this.$router.push({ name: 'home' })
+
     },
   },
   mounted() {
     if (
-      this.gifDataSavedTemporary !== { empty: true } &&
-      this.gifDataSavedTemporary !== undefined
+      this.$store.state.postsGiphy.gifDataSavedTemporary !== { empty: true } &&
+      this.$store.state.postsGiphy.gifDataSavedTemporary !== undefined
     ) {
-      this.updatePostData(this.gifDataSavedTemporary);
+      this.updatePostData(this.$store.state.postsGiphy.gifDataSavedTemporary);
     }
   },
 };

@@ -3,13 +3,17 @@
     <div class="displayCommentsHeader">
       <p class="displayCommentsHeaderTitle text-primary">Commentaires</p>
       <div class="displayCommentsHeaderSorting">
-        <SortingByButton />
+        <SortingByButton 
+        typeSortingBy="comment"
+        @select-value="changeOrderByCommentsList" />
       </div>
     </div>
-    <div v-for="(comment, index) in commentsList" :key="index" class="displayCommentsList">
-      <Comment 
-            :commentObject="comment"
-      />
+    <div
+      v-for="(comment, index) in commentsListOrdered"
+      :key="index"
+      class="displayCommentsList"
+    >
+      <Comment :commentObject="comment" />
     </div>
   </div>
 </template>
@@ -29,6 +33,30 @@ export default {
       type: Array,
       require: true,
     },
+  },
+  data() {
+    return {
+      commentsListOrdered: "",
+    };
+  },
+  methods: {
+    changeOrderByCommentsList(payload) {
+      if (payload == "popular") {
+        this.commentsListOrdered = this.commentsList.sort((a, b) =>
+          a.onFire_id.length / a.cold_id.length >
+          b.onFire_id.length / b.cold_id.length
+            ? -1
+            : 1
+        );
+      } else {
+        this.commentsListOrdered = this.commentsList.sort((a, b) =>
+          a.time > b.time ? -1 : 1
+        );
+      }
+    },
+  },
+  mounted() {
+    this.changeOrderByCommentsList("recent");
   },
 };
 </script>

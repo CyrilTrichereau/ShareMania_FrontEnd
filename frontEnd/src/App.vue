@@ -13,7 +13,6 @@
 <script>
 import HeaderMobile from "@/components/header/HeaderMobile.vue";
 import SideBarDesktop from "@/components/header/SideBarDesktop.vue";
-import { mapActions } from "vuex";
 
 export default {
   name: "App",
@@ -21,12 +20,9 @@ export default {
     HeaderMobile,
     SideBarDesktop,
   },
-  methods: {
-    ...mapActions(["fetchPostsList", "fetchMyProfile"]),
-  },
   created() {
-    this.fetchPostsList();
-    this.fetchMyProfile();
+    this.$store.dispatch("fetchPostsList");
+    this.$store.dispatch("fetchMyProfile");
   },
 };
 </script>

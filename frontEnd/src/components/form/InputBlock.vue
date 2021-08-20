@@ -42,7 +42,6 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
 export default {
   name: "InputBlock",
   props: {
@@ -79,14 +78,13 @@ export default {
     };
   },
   computed: {
-    ...mapState(["pattern"]),
     whichPattern() {
       if (this.patternType == "alias") {
-        return this.pattern.alias;
+        return this.$store.state.pattern.alias;
       } else if (this.patternType == "email") {
-        return this.pattern.email;
+        return this.$store.state.pattern.email;
       } else if (this.patternType == "password") {
-        return this.pattern.password;
+        return this.$store.state.pattern.password;
       } else {
         return "";
       }

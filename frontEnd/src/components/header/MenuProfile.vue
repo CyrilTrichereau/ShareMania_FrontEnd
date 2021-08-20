@@ -2,44 +2,44 @@
   <div class="menuProfile">
     <div
       class="menuProfileWrapper"
-      @click="openOrCloseMenuHeader('menuProfile')"
+      @click="$store.dispatch('openOrCloseMenuHeader', 'menuProfile')"
     >
       <img
-        :src="myProfile.urlPicture"
-        :alt="'Photo de profil de ' + myProfile.alias"
+        :src="$store.state.profile.myProfile.urlPicture"
+        :alt="'Photo de profil de ' + $store.state.profile.myProfile.alias"
         class="menuProfileWrapperPicture"
       />
     </div>
     <div
       class="menuProfileBackground"
-      v-show="isOpen.headerMenu === 'menuProfile'"
+      v-show="$store.state.isOpen.headerMenu === 'menuProfile'"
     >
       <nav class="card container bg-light menuProfileList">
         <div
           class="menuProfileListCrossIcon"
-          @click="openOrCloseMenuHeader('none')"
+          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <CrossIcon
             :colorThemePrimary="false"
-            @click="openOrCloseMenuHeader('none')"
+            @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
           />
         </div>
         <!-- Profile Block -->
         <div
           class="menuProfileListProfileBlock"
-          @click="openOrCloseMenuHeader('none')"
+          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link
             to="/my-profile"
             class="text-primary btn btn-light menuProfileListProfileBlockLink"
           >
             <img
-              :src="myProfile.urlPicture"
-              :alt="'Photo de profil de ' + myProfile.alias"
+              :src="$store.state.profile.myProfile.urlPicture"
+              :alt="'Photo de profil de ' + $store.state.profile.myProfile.alias"
               class="menuProfileListProfileBlockLinkPicture"
             />
             <p class="h2 text-dark menuProfileListProfileBlockLinkName">
-              {{ myProfile.alias }}
+              {{ $store.state.profile.myProfile.alias }}
             </p>
           </router-link>
         </div>
@@ -85,7 +85,7 @@
         <!-- log Out link -->
         <ul
           class="btn btn-light menuProfileListItem"
-          @click="openOrCloseMenuHeader('none')"
+          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link to="/login" class="menuProfileListItemLinks">
             <font-awesome-icon
@@ -103,7 +103,6 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
 import CrossIcon from "@/components/icons/CrossIcon.vue";
 
 export default {
@@ -111,14 +110,10 @@ export default {
   components: {
     CrossIcon,
   },
-  computed: {
-    ...mapState(["myProfile","isOpen", ["headerMenu"]]),
-  },
   methods: {
-    ...mapActions(["openOrCloseMenuHeader","changeProfileModifyOrShowForce"]),
     openOrCloseMenusAndModifyProfile(boolean) {
-      this.openOrCloseMenuHeader('none')
-      this.changeProfileModifyOrShowForce(boolean)
+      this.$store.dispatch('openOrCloseMenuHeader', 'none')
+      this.$store.dispatch("changeProfileModifyOrShowForce", boolean)
     }
   },
 };

@@ -4,10 +4,10 @@
     <div class="myProfileBlock card container">
       <img
         :src="pictureProfileToShow"
-        :alt="'Photo de profil de ' + myProfile.alias"
+        :alt="'Photo de profil de ' + $store.state.profile.myProfile.alias"
         class="myProfileBlockPicture"
       />
-      <ProfileShowed v-if="!isOpen.modifyMyProfile" />
+      <ProfileShowed v-if="!$store.state.isOpen.modifyMyProfile" />
       <ProfileModify v-else @new-picture-profile="displayNewPictureProfile" />
     </div>
   </div>
@@ -16,7 +16,6 @@
 <script>
 import ProfileShowed from "@/components/profile/ProfileShowed.vue";
 import ProfileModify from "@/components/profile/ProfileModify.vue";
-import { mapState } from "vuex";
 
 export default {
   name: "MyProfile",
@@ -30,7 +29,6 @@ export default {
     };
   },
   computed: {
-    ...mapState(["myProfile", "isOpen", ["modifyMyProfile"]]),
   },
   methods: {
     displayNewPictureProfile(payload) {
@@ -38,7 +36,7 @@ export default {
     },
   },
   created() {
-    this.pictureProfileToShow = this.myProfile.urlPicture;
+    this.pictureProfileToShow = this.$store.state.profile.myProfile.urlPicture;
   },
 };
 </script>

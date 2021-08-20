@@ -1,6 +1,6 @@
 <template>
   <div class="profileContent">
-    <div class="profileContentStatus" v-if="myProfile.moderator">
+    <div class="profileContentStatus" v-if="$store.state.profile.myProfile.moderator">
       <font-awesome-icon
         icon="shield-alt"
         class="text-success profileContentStatusIcon"
@@ -14,7 +14,7 @@
         Adresse email
       </p>
       <p class="profileContentBlockText">
-        {{ myProfile.email }}
+        {{ $store.state.profile.myProfile.email }}
       </p>
     </div>
     <div class="bg-info profileContentBlock">
@@ -30,7 +30,7 @@
         Pseudo
       </p>
       <p class="profileContentBlockText">
-        {{ myProfile.alias }}
+        {{ $store.state.profile.myProfile.alias }}
       </p>
     </div>
     <div class="bg-info profileContentBlock">
@@ -38,10 +38,10 @@
         Service
       </p>
       <p class="profileContentBlockText">
-        {{ myProfile.service }}
+        {{ $store.state.profile.myProfile.service }}
       </p>
     </div>
-    <Button text="Modifier" @click.native="changeProfileModifyOrShow" />
+    <Button text="Modifier" @click.native="$store.dispatch('changeProfileModifyOrShow')" />
     <Button
       text="Supprimer mon compte"
       :danger="true"
@@ -64,7 +64,6 @@
 <script>
 import Button from "@/components/form/Button.vue";
 import EraseConfirm from "@/components/EraseConfirm.vue";
-import { mapActions, mapState } from "vuex";
 
 export default {
   name: "ProfileShowed",
@@ -77,16 +76,12 @@ export default {
       eraseConfirmationIsOpen: false,
     };
   },
-  computed: {
-    ...mapState(["myProfile", "myProfileModify"]),
-  },
   methods: {
-    ...mapActions(["changeProfileModifyOrShow"]),
     eraseProfile() {
       let profileForErasing = {};
-      profileForErasing._id = this.myProfile._id;
-      profileForErasing.alias = this.myProfile.alias;
-      profileForErasing.email = this.myProfile.email;
+      profileForErasing._id = this.$store.state.profile.myProfile._id;
+      profileForErasing.alias = this.$store.state.profile.myProfile.alias;
+      profileForErasing.email = this.$store.state.profile.myProfile.email;
       console.log(profileForErasing);
       this.$router.push({ name: 'login' })
     },

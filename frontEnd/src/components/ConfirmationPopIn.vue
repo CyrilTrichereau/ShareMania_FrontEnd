@@ -25,7 +25,6 @@
 
 <script>
 import Button from "@/components/form/Button.vue";
-import { mapActions } from "vuex";
 
 export default {
   name: "ConfirmationPopIn",
@@ -61,10 +60,9 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["changeProfileModifyOrShow", "fetchMyProfile"]),
     closeWindowAndReloadProfile() {
-      this.fetchMyProfile();
-      this.changeProfileModifyOrShow();
+      this.$store.dispatch("fetchMyProfile");
+      this.$store.dispatch("changeProfileModifyOrShow");
     },
   },
 };

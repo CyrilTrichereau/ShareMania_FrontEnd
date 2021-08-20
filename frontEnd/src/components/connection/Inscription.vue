@@ -77,7 +77,6 @@ import ServiceBlock from "@/components/form/ServiceBlock.vue";
 import InputFile from "@/components/form/InputFile.vue";
 import Button from "@/components/form/Button.vue";
 import ConfirmationPopIn from "@/components/ConfirmationPopIn.vue";
-import { mapActions } from "vuex";
 
 export default {
   name: "Inscription",
@@ -106,7 +105,6 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["sendProfileChanges"]),
     saveEmail(payload) {
       this.profileToSave.email = payload[0];
       this.arrayIsValid[0] = payload[1];

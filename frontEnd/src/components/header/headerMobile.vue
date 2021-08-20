@@ -4,7 +4,7 @@
       <router-link
         to="/"
         class="btn btn-primary headerMobileBlockTrademark"
-        @click.native="openOrCloseMenuHeader('none')"
+        @click.native="$store.dispatch('openOrCloseMenuHeader', 'none')"
       >
         <img
           src="/images/groupomaniaLogoWhite100pxTinyfied.png"
@@ -18,12 +18,12 @@
           to="/new-post"
           :class="{
             headerMobileBlockMenuBarWrapperOpen:
-              isOpen.headerMenu === 'newPost',
+              $store.state.isOpen.headerMenu === 'newPost',
             headerMobileBlockMenuBarWrapperOpenNewPost:
-              isOpen.headerMenu === 'newPost',
-            headerMobileBlockMenuBarWrapper: isOpen.headerMenu === !'newPost',
+              $store.state.isOpen.headerMenu === 'newPost',
+            headerMobileBlockMenuBarWrapper: $store.state.isOpen.headerMenu === !'newPost',
           }"
-          @click.native="openOrCloseMenuHeaderForce('newPost')"
+          @click.native="$store.dispatch('openOrCloseMenuHeaderForce', 'newPost')"
         >
           <font-awesome-icon
             icon="plus-circle"
@@ -33,13 +33,13 @@
         <div
           :class="{
             headerMobileBlockMenuBarWrapperOpen:
-              isOpen.headerMenu === 'menuBurger',
+              $store.state.isOpen.headerMenu === 'menuBurger',
             headerMobileBlockMenuBarWrapperOpenMenuBurger:
-              isOpen.headerMenu === 'menuBurger',
+              $store.state.isOpen.headerMenu === 'menuBurger',
             headerMobileBlockMenuBarWrapper:
-              isOpen.headerMenu !== 'menuBurger',
+              $store.state.isOpen.headerMenu !== 'menuBurger',
           }"
-          @click="openOrCloseMenuHeader('menuBurger')"
+          @click="$store.dispatch('openOrCloseMenuHeader', 'menuBurger')"
         >
           <MenuBurger />
         </div>
@@ -55,11 +55,11 @@
         <div
           :class="{
             headerMobileBlockMenuBarWrapperOpen:
-              isOpen.headerMenu === 'menuProfile',
+              $store.state.isOpen.headerMenu === 'menuProfile',
             headerMobileBlockMenuBarWrapperOpenMenuProfile:
-              isOpen.headerMenu === 'menuProfile',
+              $store.state.isOpen.headerMenu === 'menuProfile',
             headerMobileBlockMenuBarWrapper:
-              isOpen.headerMenu === !'menuProfile',
+              $store.state.isOpen.headerMenu === !'menuProfile',
           }"
         >
           <MenuProfile />
@@ -70,7 +70,6 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
 import MenuBurger from "@/components/header/MenuBurger.vue";
 import MenuProfile from "@/components/header/MenuProfile.vue";
 
@@ -79,12 +78,6 @@ export default {
   components: {
     MenuBurger,
     MenuProfile,
-  },
-  computed: {
-    ...mapState(["isOpen", ["headerMenu"]]),
-  },
-  methods: {
-    ...mapActions(["openOrCloseMenuHeader", "openOrCloseMenuHeaderForce"]),
   },
 };
 </script>

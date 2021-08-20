@@ -31,7 +31,6 @@
 
 <script>
 import Button from "@/components/form/Button.vue";
-import { mapState } from "vuex";
 
 export default {
   name: "ContentCardShared",
@@ -45,7 +44,6 @@ export default {
     },
   },
   computed: {
-    ...mapState(["gifDataSavedTemporary"]),
     isVideo() {
       const typeMime = this.giphyToDisplay.content.urlPicture.split(".").pop();
       const videoTypesArray = [

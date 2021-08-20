@@ -6,21 +6,10 @@
 
 <script>
 import PostsList from "@/components/PostsList.vue";
-import { mapState, mapActions } from "vuex";
-
 export default {
   name: "Home",
   components: {
     PostsList,
-  },
-  computed: {
-    ...mapState(["listPostGiphy"]),
-  },
-  methods: {
-    ...mapActions(["fetchPostsGiphyTrending"]),
-  },
- async mounted() {
-  await this.fetchPostsGiphyTrending(20, 0);
   },
 };
 </script>
