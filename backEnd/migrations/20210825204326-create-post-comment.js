@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Comments', {
+    await queryInterface.createTable('PostComments', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,15 +10,15 @@ module.exports = {
       },
       postUserId: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       postId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Posts',
-          key: 'id'
-        }
+          model: "FeedPosts",
+          key: "id",
+        },
       },
       postTime: {
         allowNull: false,
@@ -41,11 +41,9 @@ module.exports = {
         type: Sequelize.TEXT
       },
       onFireId: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       coldId: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
@@ -59,6 +57,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Comments');
+    await queryInterface.dropTable('PostComments');
   }
 };

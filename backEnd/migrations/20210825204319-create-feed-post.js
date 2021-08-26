@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Posts', {
+    await queryInterface.createTable('FeedPosts', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -23,6 +23,10 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        references: {
+          model: "Users",
+          key: "id",
+        },
       },
       contentText: {
         allowNull: false,
@@ -33,23 +37,18 @@ module.exports = {
         type: Sequelize.STRING
       },
       originalUserAlias: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       originalUserUrlPicture: {
-        allowNull: false,
         type: Sequelize.STRING
       },
-      originalUserService: {
-        allowNull: false,
-        type: Sequelize.STRING
+      originalUserText: {
+        type: Sequelize.TEXT
       },
       onFireId: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       coldId: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
@@ -63,6 +62,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Posts');
+    await queryInterface.dropTable('FeedPosts');
   }
 };

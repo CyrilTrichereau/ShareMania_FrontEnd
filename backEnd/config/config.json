@@ -5,6 +5,19 @@
     "database": "sharemania_data_base",
     "host": "127.0.0.1",
     "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "Azerty123",
+    "database": "sharemania_db_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "Azerty123",
+    "database": "sharemania_db_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }
-      

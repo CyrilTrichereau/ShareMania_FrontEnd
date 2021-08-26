@@ -1,16 +1,19 @@
 {
-  "name": "backend",
+  "name": "backEnd_Sharemania",
   "version": "1.0.0",
-  "description": "",
+  "description": "CyrilTrichereau_7_09022021 : Training OpenClassrooms: Web Developper. Project 7 : Create a corporate social network",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Cyril Trichereau",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.0",
     "sequelize": "^6.6.5"
