@@ -24,9 +24,8 @@ module.exports = {
     const originalUserUrlPicture =
       req.body.content.originalPosterProfile.urlPicture;
     const originalUserText = req.body.content.originalPosterProfile.text;
-    const onFireId = req.body.onFire_id;
-    const coldId = req.body.cold_id;
 
+    // If One information is missing
     if (
       userAlias == null ||
       userUrlPicture == null ||
@@ -38,15 +37,18 @@ module.exports = {
       return res.status(400).json({ error: "missing parameters" });
     }
 
+    // If the content text is too small
     if (contentText.length <= CONTENT_TEXT_LIMIT) {
       return res.status(400).json({ error: "invalid parameters" });
     }
 
+    // Search the user
     models.User.findOne({
       where: { id: userId },
     })
       .then((userFound) => {
         if (userFound) {
+          // If usier isfound, create a new post with comments
           models.FeedPost.create({
             userAlias: userAlias,
             userUrlPicture: userUrlPicture,
@@ -59,6 +61,7 @@ module.exports = {
             originalUserText: originalUserText,
           })
             .then((newPost) => {
+              // if post is well created, send newPost Object or send an error
               if (newPost) {
                 return res.status(201).json(newPost);
               } else {
@@ -91,12 +94,19 @@ module.exports = {
     if (limit > ITEMS_LIMIT) {
       limit = ITEMS_LIMIT;
     }
-
+    // Search for all posts, with get options (fields, order, limit and offset)
     models.FeedPost.findAll({
-      order: [order != null ? order.split(":") : ["createdAt", "ASC"]],
+
+
+      // log for try
+
+      order: [order != null ? order.split(":") : ["createdAt", "DESC"]],
+
       attributes: fields !== "*" && fields != null ? fields.split(",") : null,
+
       limit: !isNaN(limit) ? limit : null,
       offset: !isNaN(offset) ? offset : null,
+
       include: [
         {
           model: models.User,
@@ -115,6 +125,7 @@ module.exports = {
         res.status(500).json({ error: "invalid fields" });
       });
   },
+  deleteFeedPost: (req, res) => {
+    // control userID == user who created the post or isModerator == true
+  }
 };
-
-

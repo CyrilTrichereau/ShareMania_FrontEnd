@@ -119,33 +119,29 @@
   "---------------------": "-------------",
   "POST NEW COMMENT ": {
     "POST /post-comment": {
-        "post": {
-            "posterId": "IDProf609051088",
-            "postId": "IDPosts9975128269",
-            "time": 1602490450
-        },
-        "newComment": {
-            "profile": {
-                "_id": "IDProf3849190885",
-                "alias": "MarcelKlein63",
-                "urlPicture": "/images/testStatic/maleProfile06.jpg"
-            },
-            "time": 1629243310771,
-            "text": "Ceci est mon nouveau commentaire, youpi !"
-        },
-        "time": "",
-        "text": "",
-        "cold_id": [],
-        "onFire_id": []
+      "post": {
+        "posterId": "IDProf609051088",
+        "postId": "IDPosts9975128269",
+        "time": 1602490450
+      },
+      "profile": {
+        "_id": "IDProf3849190885",
+        "alias": "MarcelKlein63",
+        "urlPicture": "/images/testStatic/maleProfile06.jpg"
+      },
+      "time": 1629243310771,
+      "text": "Ceci est mon nouveau commentaire, youpi !",
+      "cold_id": [],
+      "onFire_id": []
     }
   },
 
   "--------------------": "-------------",
   "POST DELETE COMMENT ": {
     "DELETE /post-comment": {
-        "posterId": "IDProf7991445364",
-        "commentId": "IDPosts9906613522",
-        "time": 1615599069
+      "posterId": "IDProf7991445364",
+      "commentId": "IDPosts9906613522",
+      "time": 1615599069
     }
   }
 }

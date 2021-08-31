@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class PostComment extends Model {
     /**
@@ -17,19 +15,22 @@ module.exports = (sequelize, DataTypes) => {
         },
       });
     }
-  };
-  PostComment.init({
-    postUserId: DataTypes.INTEGER,
-    postTime: DataTypes.DATE,
-    userId: DataTypes.INTEGER,
-    userAlias: DataTypes.STRING,
-    userUrlPicture: DataTypes.STRING,
-    commentText: DataTypes.TEXT,
-    onFireId: DataTypes.STRING,
-    coldId: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'PostComment',
-  });
+  }
+  PostComment.init(
+    {
+      postUserId: DataTypes.INTEGER,
+      postTime: DataTypes.DATE,
+      userId: DataTypes.INTEGER,
+      userAlias: DataTypes.STRING,
+      userUrlPicture: DataTypes.STRING,
+      commentText: DataTypes.TEXT,
+      onFireCounter: DataTypes.INTEGER,
+      coldCounter: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "PostComment",
+    }
+  );
   return PostComment;
 };

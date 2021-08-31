@@ -14,7 +14,7 @@ server.use(bodyParser.json());
 //Configures routes
 server.get("/", (req, res) => {
   res.setHeader("Content-Type", "text/html");
-  res.status(200).send("<h1>Bonjour sur mon server</h1>");
+  res.status(200).send("<h1>Welcome to Sharemania API</h1>");
 });
 
 server.use("/api/", apiRouter);

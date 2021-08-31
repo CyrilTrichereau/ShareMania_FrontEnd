@@ -45,11 +45,11 @@ module.exports = {
       originalUserText: {
         type: Sequelize.TEXT
       },
-      onFireId: {
-        type: Sequelize.STRING
+      onFireCounter: {
+        type: Sequelize.INTEGER
       },
-      coldId: {
-        type: Sequelize.STRING
+      coldCounter: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

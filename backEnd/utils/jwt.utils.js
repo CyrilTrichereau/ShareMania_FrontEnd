@@ -8,18 +8,18 @@ module.exports = {
             isAdmin: userData.isAdmin
         }, '(process.env.JWT_KEY)', 
         {
-            expiresIn: '1h'
+            expiresIn: '48h'
         })
     },
     parseAuthorization: (authorization) => {
       return (authorization != null) ? authorization.replace('Bearer ', '') : null;
     },
     getUserId: (authorization) => {
-      var userId = -1;
-      var token = module.exports.parseAuthorization(authorization);
+      let userId = -1;
+      const token = module.exports.parseAuthorization(authorization);
       if(token != null) {
         try {
-          var jwtToken = jwt.verify(token, '(process.env.JWT_KEY)');
+          const jwtToken = jwt.verify(token, '(process.env.JWT_KEY)');
           if(jwtToken != null)
             userId = jwtToken.userId;
         } catch(err) { }

@@ -12,7 +12,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      postId: {
+      feedPostId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
@@ -40,11 +40,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      onFireId: {
-        type: Sequelize.STRING
+      onFireCounter: {
+        type: Sequelize.INTEGER
       },
-      coldId: {
-        type: Sequelize.STRING
+      coldCounter: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

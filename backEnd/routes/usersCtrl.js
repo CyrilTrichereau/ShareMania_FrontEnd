@@ -20,6 +20,7 @@ module.exports = {
     const urlPicture = req.body.urlPicture;
     const isModerator = false;
 
+    // If One information is missing
     if (
       email == null ||
       alias == null ||
@@ -31,6 +32,7 @@ module.exports = {
       return res.status(400).json({ error: "missing parameters" });
     }
 
+    // Control data sent with REGEX
     if (!EMAIL_REGEX.test(email)) {
       return res.status(400).json({ error: "Email is not valid" });
     }
@@ -43,18 +45,21 @@ module.exports = {
       return res.status(400).json({ error: "Alias is not valid" });
     }
 
+    // Search if user already exist with email adress
     models.User.findOne({
       attributes: ["email"],
       where: { email: email },
     })
       .then((emailFound) => {
         if (!emailFound) {
+          // If not exist with email adress, search if alias already exist
           models.User.findOne({
             attributes: ["alias"],
             where: { alias: alias },
           })
             .then((aliasFound) => {
               if (!aliasFound) {
+                // If alias does not exist, crypt password and create user
                 bcrypt.hash(password, 5, (error, bcryptedPassword) => {
                   const newUser = models.User.create({
                     email: email,
@@ -65,6 +70,7 @@ module.exports = {
                     isModerator: isModerator,
                   })
                     .then((newUser) => {
+                      // If user is well create, return new user object
                       return res.status(201).json({
                         userId: newUser.id,
                       });
@@ -97,16 +103,29 @@ module.exports = {
     const email = req.body.email;
     const password = req.body.password;
 
+    // If One information is missing
     if (email == null || password == null) {
       return res.status(400).json({ error: "missing parameters" });
     }
 
+    // Control data sent with REGEX
+    if (!EMAIL_REGEX.test(email)) {
+      return res.status(400).json({ error: "Email is not valid" });
+    }
+
+    if (!PASSWORD_REGEX.test(password)) {
+      return res.status(400).json({ error: "Password is not valid" });
+    }
+
+    // Search if user with email adress
     models.User.findOne({
       where: { email: email },
     }).then((userFound) => {
       if (userFound) {
+        // If user exist, compare password with userfound password
         bcrypt.compare(password, userFound.password, (errBcrypt, resBcrypt) => {
           if (resBcrypt) {
+            //If passwords match, send back a token
             return res.status(200).json({
               userId: userFound.id,
               token: jwtUtils.generateTokenForUser(userFound),
@@ -128,8 +147,10 @@ module.exports = {
     const headerAuth = req.headers["authorization"];
     const userId = jwtUtils.getUserId(headerAuth);
 
+    // Control token
     if (userId < 0) return res.status(400).json({ error: "wrong token" });
 
+    // Search user with id and get this attributes list
     models.User.findOne({
       attributes: [
         "id",
@@ -143,6 +164,7 @@ module.exports = {
     })
       .then((user) => {
         if (user) {
+          // if user found, send back all attributes
           res.status(201).json(user);
         } else {
           res.status(404).json({ error: "user not found" });
@@ -176,11 +198,7 @@ module.exports = {
       .then((userFound) => {
         if (userFound) {
           // Then if user found, check if there is a password to change
-          if (
-            newPassword !== null &&
-            newPassword !== undefined &&
-            newPassword !== ""
-          ) {
+          if (newPassword) {
             // Then if new password is not null, compare old password with password stored
             bcrypt.compare(
               oldPassword,
@@ -252,7 +270,10 @@ module.exports = {
         }
       })
       .catch((err) => {
-        return res.status(500).json({ error: "unable to verify user"});
+        return res.status(500).json({ error: "unable to verify user" });
       });
+  },
+  deleteUserProfile: (req, res) => {
+    // control userID == user to erase or isModerator == true
   },
 };
