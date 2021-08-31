@@ -1,5 +1,6 @@
 // Imports
 const jwtUtils = require("../utils/jwt.utils");
+const utils = require("../utils/utils");
 const models = require("../models");
 
 // Constants
@@ -46,7 +47,7 @@ module.exports = {
       onFireCounter = feedPostFound.onFireCounter;
       coldCounter = feedPostFound.coldCounter;
       try {
-        // Search feed post
+        // Search user
         userFound = await models.User.findOne({
           where: { id: userId },
         });
@@ -143,10 +144,6 @@ module.exports = {
 
         if (feedPostFound) {
           // If everything is alright, prepare response
-
-          // Convert in timestamp
-          const timePostReponse = feedPostFound.createdAt.getTime() / 1000;
-
           const response = {
             posterProfile: {
               alias: feedPostFound.userAlias,
@@ -154,7 +151,7 @@ module.exports = {
               service: feedPostFound.userService,
               _id: feedPostFound.id,
             },
-            time: timePostReponse,
+            time: utils.timestampTranslator(feedPostFound.createdAt),
             content: {
               text: feedPostFound.contentText,
               urlPicture: feedPostFound.contentUrlPicture,
@@ -199,10 +196,6 @@ module.exports = {
 
         if (feedPostFound) {
           // If everything is alright, prepare response
-
-          // Convert in timestamp
-          const timePostReponse = feedPostFound.createdAt.getTime() / 1000;
-
           const response = {
             posterProfile: {
               alias: feedPostFound.userAlias,
@@ -210,7 +203,7 @@ module.exports = {
               service: feedPostFound.userService,
               _id: feedPostFound.id,
             },
-            time: timePostReponse,
+            time: utils.timestampTranslator(feedPostFound.createdAt),
             content: {
               text: feedPostFound.contentText,
               urlPicture: feedPostFound.contentUrlPicture,
@@ -380,10 +373,6 @@ module.exports = {
 
         if (feedPostFound) {
           // If everything is alright, prepare response
-
-          // Convert in timestamp
-          const timePostReponse = feedPostFound.createdAt.getTime() / 1000;
-
           const response = {
             posterProfile: {
               alias: feedPostFound.userAlias,
@@ -391,7 +380,7 @@ module.exports = {
               service: feedPostFound.userService,
               _id: feedPostFound.id,
             },
-            time: timePostReponse,
+            time: utils.timestampTranslator(feedPostFound.createdAt),
             content: {
               text: feedPostFound.contentText,
               urlPicture: feedPostFound.contentUrlPicture,
@@ -436,10 +425,6 @@ module.exports = {
 
         if (feedPostFound) {
           // If everything is alright, prepare response
-
-          // Convert in timestamp
-          const timePostReponse = feedPostFound.createdAt.getTime() / 1000;
-
           const response = {
             posterProfile: {
               alias: feedPostFound.userAlias,
@@ -447,7 +432,7 @@ module.exports = {
               service: feedPostFound.userService,
               _id: feedPostFound.id,
             },
-            time: timePostReponse,
+            time: utils.timestampTranslator(feedPostFound.createdAt),
             content: {
               text: feedPostFound.contentText,
               urlPicture: feedPostFound.contentUrlPicture,

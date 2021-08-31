@@ -1,6 +1,8 @@
 // Imports
+const { response } = require("express");
 const models = require("../models");
 const jwtUtils = require("../utils/jwt.utils");
+const utils = require("../utils/utils");
 
 // Constants
 const CONTENT_TEXT_LIMIT = 12;
@@ -8,7 +10,7 @@ const ITEMS_LIMIT = 50;
 
 // Routes
 module.exports = {
-  createFeedPost: (req, res) => {
+  createFeedPost: async (req, res) => {
     // Getting auth header
     const headerAuth = req.headers["authorization"];
     const userId = jwtUtils.getUserId(headerAuth);
@@ -42,50 +44,76 @@ module.exports = {
       return res.status(400).json({ error: "invalid parameters" });
     }
 
+    let userFound = null;
+    let newPost = null;
+
     // Search the user
-    models.User.findOne({
-      where: { id: userId },
-    })
-      .then((userFound) => {
-        if (userFound) {
-          // If usier isfound, create a new post with comments
-          models.FeedPost.create({
-            userAlias: userAlias,
-            userUrlPicture: userUrlPicture,
-            userService: userService,
-            UserId: userId,
-            contentText: contentText,
-            contentUrlPicture: contentUrlPicture,
-            originalUserAlias: originalUserAlias,
-            originalUserUrlPicture: originalUserUrlPicture,
-            originalUserText: originalUserText,
-          })
-            .then((newPost) => {
-              // if post is well created, send newPost Object or send an error
-              if (newPost) {
-                return res.status(201).json(newPost);
-              } else {
-                return res.status(500).json({ error: "cannot post message" });
-              }
-            })
-            .catch((err) => {
-              return res
-                .status(500)
-                .json({ error: "unable to verify user" + err });
-            });
-        } else {
-          res.status(404).json({ error: "user not found" });
-        }
-      })
-      .catch((err) => {
-        return res.status(500).json({ error: "unable to verify user" });
+    try {
+      userFound = await models.User.findOne({
+        where: { id: userId },
       });
+    } catch (err) {
+      return res.status(500).json({ error: "unable to verify user" });
+    }
+
+    if (userFound) {
+      // If usier isfound, create a new post with comments
+      try {
+        newPost = await models.FeedPost.create({
+          userAlias: userAlias,
+          userUrlPicture: userUrlPicture,
+          userService: userService,
+          UserId: userId,
+          contentText: contentText,
+          contentUrlPicture: contentUrlPicture,
+          originalUserAlias: originalUserAlias,
+          originalUserUrlPicture: originalUserUrlPicture,
+          originalUserText: originalUserText,
+        });
+      } catch (err) {
+        return res.status(500).json({ error: "unable to create feed post" });
+      }
+
+      // if post is well created, send newPost Object or send an error
+      if (newPost) {
+        // Prepare response
+        const response = {
+          _id: newPost.id,
+          posterProfile: {
+            alias: newPost.userAlias,
+            urlPicture: newPost.userUrlPicture,
+            service: newPost.userService,
+            _id: newPost.UserId,
+          },
+          time: utils.timestampTranslator(newPost.createdAt),
+          content: {
+            text: newPost.contentText,
+            urlPicture: newPost.contentUrlPicture,
+            originalPosterProfile: {
+              alias: newPost.originalUserAlias,
+              urlPicture: newPost.originalUserUrlPicture,
+              text: newPost.originalUserText,
+            },
+          },
+          onFireCounter: null,
+          coldCounter: null,
+          commentsList: null,
+        };
+
+        // Return response
+        return res.status(201).json(response);
+      } else {
+        return res.status(500).json({ error: "cannot post message" });
+      }
+    } else {
+      res.status(404).json({ error: "user not found" });
+    }
   },
 
   // ------------------------
   // ------------------------
   // ------------------------
-  listFeedPost: (req, res) => {
+  listFeedPost: async (req, res) => {
     const fields = req.query.fields;
     const limit = parseInt(req.query.limit);
     const offset = parseInt(req.query.offset);
@@ -94,38 +122,57 @@ module.exports = {
     if (limit > ITEMS_LIMIT) {
       limit = ITEMS_LIMIT;
     }
+
+    let listFeedPosts = null;
+
     // Search for all posts, with get options (fields, order, limit and offset)
-    models.FeedPost.findAll({
+    try {
+      listFeedPosts = await models.FeedPost.findAll({
+        order: [order != null ? order.split(":") : ["createdAt", "DESC"]],
 
+        attributes: fields !== "*" && fields != null ? fields.split(",") : null,
 
-      // log for try
-
-      order: [order != null ? order.split(":") : ["createdAt", "DESC"]],
-
-      attributes: fields !== "*" && fields != null ? fields.split(",") : null,
-
-      limit: !isNaN(limit) ? limit : null,
-      offset: !isNaN(offset) ? offset : null,
-
-      include: [
-        {
-          model: models.User,
-          attributes: ["alias"],
-        },
-      ],
-    })
-      .then((messages) => {
-        if (messages) {
-          res.status(200).json(messages);
-        } else {
-          res.status(404).json({ error: "no messages found" });
-        }
-      })
-      .catch((err) => {
-        res.status(500).json({ error: "invalid fields" });
+        limit: !isNaN(limit) ? limit : null,
+        offset: !isNaN(offset) ? offset : null,
       });
+    } catch (err) {
+      return res.status(500).json({ error: "invalid fields" });
+    }
+    // If feed posts found
+    if (listFeedPosts) {
+      // Prepare response
+      let response = [];
+      listFeedPosts.forEach((feedPost) => {
+        const feedPostObject = {
+          _id: feedPost.id,
+          posterProfile: {
+            alias: feedPost.userAlias,
+            urlPicture: feedPost.userUrlPicture,
+            service: feedPost.userService,
+            _id: feedPost.UserId,
+          },
+          time: utils.timestampTranslator(feedPost.createdAt),
+          content: {
+            text: feedPost.contentText,
+            urlPicture: feedPost.contentUrlPicture,
+            originalPosterProfile: {
+              alias: feedPost.originalUserAlias,
+              urlPicture: feedPost.originalUserUrlPicture,
+              text: feedPost.originalUserText,
+            },
+          },
+          onFireCounter: feedPost.onFireCounter,
+          coldCounter: feedPost.coldCounter,
+          commentsList: null,
+        };
+        response.push(feedPostObject);
+      });
+      res.status(200).json(response);
+    } else {
+      res.status(404).json({ error: "no feed Post found" });
+    }
   },
-  deleteFeedPost: (req, res) => {
+  deleteFeedPost: async (req, res) => {
     // control userID == user who created the post or isModerator == true
-  }
+  },
 };

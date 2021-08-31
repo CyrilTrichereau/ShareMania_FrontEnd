@@ -1,6 +1,9 @@
 // Imports
 const express = require("express");
-const helmet = require("helmet");
+
+// Imports Middlewares
+ const multer = require('./middleware/multer-config');
+ const auth = require('./middleware/auth');
 
 // Import controllers
 const usersCtrl = require("./routes/usersCtrl");
@@ -12,39 +15,37 @@ const postCommentOnFireCtrl = require("./routes/postCommentOnFireCtrl");
 // Routes
 exports.router = (() => {
   const apiRouter = express.Router();
-  //Init helmet
-  apiRouter.use(helmet());
 
   // Users routes
   apiRouter.route("/users/register/").post(usersCtrl.register);
   apiRouter.route("/users/login/").post(usersCtrl.login);
-  apiRouter.route("/users/myProfile/").get(usersCtrl.getUserProfile);
-  apiRouter.route("/users/myProfile/").put(usersCtrl.updateUserProfile);
-  apiRouter.route("/users/myProfile/").delete(usersCtrl.deleteUserProfile);
+  apiRouter.route("/users/myProfile/").get(auth, usersCtrl.getUserProfile);
+  apiRouter.route("/users/myProfile/").put(auth, usersCtrl.updateUserProfile);
+  apiRouter.route("/:userId/users/myProfile/").delete(auth, usersCtrl.deleteUserProfile);
 
   // FeedPosts routes
-  apiRouter.route("/feedPosts/new/").post(feedPostCtrl.createFeedPost);
-  apiRouter.route("/feedPosts/").get(feedPostCtrl.listFeedPost);
-  apiRouter.route("/feedPosts/").delete(feedPostCtrl.deleteFeedPost);
+  apiRouter.route("/feedPosts/new/").post(auth, multer,feedPostCtrl.createFeedPost);
+  apiRouter.route("/feedPosts/").get(auth, feedPostCtrl.listFeedPost);
+  apiRouter.route("/:feedPostId/feedPosts/").delete(auth, feedPostCtrl.deleteFeedPost);
 
   // PostComment routes
-  apiRouter.route("/postComment/new/").post(postCommentCtrl.createPostComment);
-  apiRouter.route("/postComment/").get(postCommentCtrl.listPostComment);
-  apiRouter.route("/postComment/").delete(postCommentCtrl.deletePostComment);
+  apiRouter.route("/postComment/new/").post(auth, postCommentCtrl.createPostComment);
+  apiRouter.route("/postComment/").get(auth, postCommentCtrl.listPostComment);
+  apiRouter.route(":postCommentId/postComment/").delete(auth, postCommentCtrl.deletePostComment);
 
   // Likes
   apiRouter
     .route("/postComment/:postCommentId/vote/like")
-    .post(postCommentOnFireCtrl.onFirePostComment);
+    .post(auth, postCommentOnFireCtrl.onFirePostComment);
   apiRouter
     .route("/postComment/:postCommentId/vote/dislike")
-    .post(postCommentOnFireCtrl.coldPostComment);
+    .post(auth, postCommentOnFireCtrl.coldPostComment);
   apiRouter
     .route("/feedPost/:feedPostId/vote/like")
-    .post(feedPostOnFireCtrl.onFireFeedPost);
+    .post(auth, feedPostOnFireCtrl.onFireFeedPost);
   apiRouter
     .route("/feedPost/:feedPostId/vote/dislike")
-    .post(feedPostOnFireCtrl.coldFeedPost);
+    .post(auth, feedPostOnFireCtrl.coldFeedPost);
 
   return apiRouter;
 })();

@@ -1,5 +1,6 @@
 // Imports
 const jwtUtils = require("../utils/jwt.utils");
+const utils = require("../utils/utils");
 const models = require("../models");
 
 // Constants
@@ -143,25 +144,18 @@ module.exports = {
 
         if (postCommentFound) {
           // If everything is alright, return response
-          // If everything is alright, prepare response
-
-          // Convert in timestamp
-          const timePostReponse = postCommentFound.postTime.getTime() / 1000;
-          const timeCommentReponse =
-            postCommentFound.createdAt.getTime() / 1000;
-
           const response = {
             post: {
               posterId: postCommentFound.postUserId,
               postId: postCommentId,
-              time: timePostReponse,
+              time: utils.timestampTranslator(postCommentFound.postTime),
             },
             profile: {
               _id: postCommentFound.userId,
               alias: postCommentFound.userAlias,
               urlPicture: postCommentFound.userUrlPicture,
             },
-            time: timeCommentReponse,
+            time: utils.timestampTranslator(postCommentFound.createdAt),
             text: postCommentFound.commentText,
             coldCounter: postCommentFound.coldCounter,
             onFireCounter: postCommentFound.onFireCounter,
@@ -197,24 +191,18 @@ module.exports = {
 
         if (postCommentFound) {
           // If everything is alright, prepare response
-
-          // Convert in timestamp
-          const timePostReponse = postCommentFound.postTime.getTime() / 1000;
-          const timeCommentReponse =
-            postCommentFound.createdAt.getTime() / 1000;
-
           const response = {
             post: {
               posterId: postCommentFound.postUserId,
               postId: postCommentId,
-              time: timePostReponse,
+              time: utils.timestampTranslator(postCommentFound.postTime),
             },
             profile: {
               _id: postCommentFound.userId,
               alias: postCommentFound.userAlias,
               urlPicture: postCommentFound.userUrlPicture,
             },
-            time: timeCommentReponse,
+            time: utils.timestampTranslator(postCommentFound.createdAt),
             text: postCommentFound.commentText,
             coldCounter: postCommentFound.coldCounter,
             onFireCounter: postCommentFound.onFireCounter,
@@ -376,24 +364,18 @@ module.exports = {
 
         if (postCommentFound) {
           // If everything is alright, prepare response
-
-          // Convert in timestamp
-          const timePostReponse = postCommentFound.postTime.getTime() / 1000;
-          const timeCommentReponse =
-            postCommentFound.createdAt.getTime() / 1000;
-
           const response = {
             post: {
               posterId: postCommentFound.postUserId,
               postId: postCommentId,
-              time: timePostReponse,
+              time: utils.timestampTranslator(postCommentFound.postTime),
             },
             profile: {
               _id: postCommentFound.userId,
               alias: postCommentFound.userAlias,
               urlPicture: postCommentFound.userUrlPicture,
             },
-            time: timeCommentReponse,
+            time: utils.timestampTranslator(postCommentFound.createdAt),
             text: postCommentFound.commentText,
             coldCounter: postCommentFound.coldCounter,
             onFireCounter: postCommentFound.onFireCounter,
@@ -429,24 +411,18 @@ module.exports = {
 
         if (postCommentFound) {
           // If everything is alright, prepare response
-
-          // Convert in timestamp
-          const timePostReponse = postCommentFound.postTime.getTime() / 1000;
-          const timeCommentReponse =
-            postCommentFound.createdAt.getTime() / 1000;
-
           const response = {
             post: {
               posterId: postCommentFound.postUserId,
               postId: postCommentId,
-              time: timePostReponse,
+              time: utils.timestampTranslator(postCommentFound.postTime),
             },
             profile: {
               _id: postCommentFound.userId,
               alias: postCommentFound.userAlias,
               urlPicture: postCommentFound.userUrlPicture,
             },
-            time: timeCommentReponse,
+            time: utils.timestampTranslator(postCommentFound.createdAt),
             text: postCommentFound.commentText,
             coldCounter: postCommentFound.coldCounter,
             onFireCounter: postCommentFound.onFireCounter,

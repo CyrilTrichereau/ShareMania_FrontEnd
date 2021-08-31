@@ -8,14 +8,14 @@ const ITEMS_LIMIT = 50;
 
 // Routes
 module.exports = {
-  createPostComment: (req, res) => {
+  createPostComment: async (req, res) => {
     // Getting auth header
     const headerAuth = req.headers["authorization"];
     const userId = jwtUtils.getUserId(headerAuth);
 
     // Params
     const postUserId = req.body.post.posterId;
-    const feedPostId  = req.body.post.postId;
+    const feedPostId = req.body.post.postId;
     const postTime = req.body.post.time;
     const user_Id = req.body.profile._id;
     const userAlias = req.body.profile.alias;
@@ -40,48 +40,49 @@ module.exports = {
       return res.status(400).json({ error: "invalid parameters" });
     }
 
-    // Search the user
-    models.FeedPost.findOne({
-      where: { id: feedPostId },
-    })
-      .then((feedPostFound) => {
-        if (feedPostFound) {
-          // If usier isfound, create a new post with comments
-          models.PostComment.create({
-            postUserId: postUserId,
-            FeedPostId: feedPostId,
-            postTime: postTime,
-            userId: user_Id,
-            userAlias: userAlias,
-            userUrlPicture: userUrlPicture,
-            commentText: commentText,
-          })
-            .then((newPost) => {
-              // if post is well created, send newPost Object or send an error
-              if (newPost) {
-                return res.status(201).json(newPost);
-              } else {
-                return res.status(500).json({ error: "cannot post message" });
-              }
-            })
-            .catch((err) => {
-              return res
-                .status(500)
-                .json({ error: "unable to verify user" + err });
-            });
-        } else {
-          res.status(404).json({ error: "user not found" });
-        }
-      })
-      .catch((err) => {
-        return res.status(500).json({ error: "unable to verify user" + err });
+    let feedPostFound = null;
+    let newPost = null;
+
+    try {
+      // Search feed post
+      feedPostFound = await models.FeedPost.findOne({
+        where: { id: feedPostId },
       });
+    } catch (err) {
+      return res.status(500).json({ error: "unable to find post" });
+    }
+
+    if (feedPostFound) {
+      // If feed post is found, create a new comment
+
+      try {
+        newPost = await models.PostComment.create({
+          postUserId: postUserId,
+          FeedPostId: feedPostId,
+          postTime: postTime,
+          userId: user_Id,
+          userAlias: userAlias,
+          userUrlPicture: userUrlPicture,
+          commentText: commentText,
+        });
+      } catch (err) {
+        return res.status(500).json({ error: "unable to create comment" });
+      }
+      // if post is well created, send newPost Object or send an error
+      if (newPost) {
+        return res.status(201).json(newPost);
+      } else {
+        return res.status(500).json({ error: "cannot post message" });
+      }
+    } else {
+      res.status(404).json({ error: "user not found" });
+    }
   },
 
-    // ------------------------
   // ------------------------
   // ------------------------
-  listPostComment: (req, res) => {
+  // ------------------------
+  listPostComment: async (req, res) => {
     const fields = req.query.fields;
     const limit = parseInt(req.query.limit);
     const offset = parseInt(req.query.offset);
@@ -92,24 +93,35 @@ module.exports = {
     }
 
     // Search for all comments, with get options (fields, order, limit and offset)
-    models.PostComment.findAll({
-      order: [order != null ? order.split(":") : ["createdAt", "ASC"]],
-      attributes: fields !== "*" && fields != null ? fields.split(",") : null,
-      limit: !isNaN(limit) ? limit : null,
-      offset: !isNaN(offset) ? offset : null,
-    })
-      .then((comments) => {
-        if (comments) {
-          res.status(200).json(comments);
-        } else {
-          res.status(404).json({ error: "no comments found" });
-        }
-      })
-      .catch((err) => {
-        res.status(500).json({ error: "invalid fields =>   " + err });
+
+    let commentsList = null;
+
+    try {
+      // Search feed post
+      commentsList = await models.PostComment.findAll({
+        order: [order != null ? order.split(":") : ["createdAt", "ASC"]],
+        attributes: fields !== "*" && fields != null ? fields.split(",") : null,
+        limit: !isNaN(limit) ? limit : null,
+        offset: !isNaN(offset) ? offset : null,
       });
+    } catch (err) {
+      return res.status(500).json({ error: "unable to get post comments" });
+    }
+
+    // if list of comment is not false
+    if (commentsList) {
+      // Prepare response
+
+
+
+
+        // Return response
+      res.status(200).json(commentsList);
+    } else {
+      res.status(404).json({ error: "no comments found" });
+    }
   },
-  deletePostComment: (req, res) => {
+  deletePostComment: async (req, res) => {
     // control userID == user who created the post or isModerator == true
   },
 };

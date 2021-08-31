@@ -13,22 +13,26 @@ module.exports = (sequelize, DataTypes) => {
       through: models.FeedPostOnFire,
       foreignKey: 'userId',
       otherKey: 'feedPostId',
+      onDelete: 'cascade',
     });
 
     models.FeedPost.belongsToMany(models.User, {
       through: models.FeedPostOnFire,
       foreignKey: 'feedPostId',
       otherKey: 'userId',
+      onDelete: 'cascade',
     });
 
     models.FeedPostOnFire.belongsTo(models.User, {
       foreignKey: 'userId',
       as: 'user',
+      onDelete: 'cascade',
     });
 
     models.FeedPostOnFire.belongsTo(models.FeedPost, {
       foreignKey: 'feedPostId',
       as: 'feedPost',
+      onDelete: 'cascade',
     });
     }
   }
