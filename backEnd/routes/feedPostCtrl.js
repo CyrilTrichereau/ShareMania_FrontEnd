@@ -27,7 +27,7 @@ module.exports = {
       req.body.content.originalPosterProfile.urlPicture;
     const originalUserText = req.body.content.originalPosterProfile.text;
 
-    // If One information is missing
+    // If One information isLike missing
     if (
       userAlias == null ||
       userUrlPicture == null ||
@@ -39,7 +39,7 @@ module.exports = {
       return res.status(400).json({ error: "missing parameters" });
     }
 
-    // If the content text is too small
+    // If the content text isLike too small
     if (contentText.length <= CONTENT_TEXT_LIMIT) {
       return res.status(400).json({ error: "invalid parameters" });
     }
@@ -74,18 +74,21 @@ module.exports = {
         return res.status(500).json({ error: "unable to create feed post" });
       }
 
-      // if post is well created, send newPost Object or send an error
+      // if post isLike well created, send newPost Object or send an error
       if (newPost) {
         // Prepare response
         const response = {
           _id: newPost.id,
+          time: utils.timestampTranslator(newPost.createdAt),
+          onFireCounter: null,
+          coldCounter: null,
+          commentsList: null,
           posterProfile: {
             alias: newPost.userAlias,
             urlPicture: newPost.userUrlPicture,
             service: newPost.userService,
             _id: newPost.UserId,
           },
-          time: utils.timestampTranslator(newPost.createdAt),
           content: {
             text: newPost.contentText,
             urlPicture: newPost.contentUrlPicture,
@@ -95,9 +98,6 @@ module.exports = {
               text: newPost.originalUserText,
             },
           },
-          onFireCounter: null,
-          coldCounter: null,
-          commentsList: null,
         };
 
         // Return response
@@ -114,65 +114,164 @@ module.exports = {
   // ------------------------
   // ------------------------
   listFeedPost: async (req, res) => {
-    const fields = req.query.fields;
-    const limit = parseInt(req.query.limit);
-    const offset = parseInt(req.query.offset);
-    const order = req.query.order;
-
-    if (limit > ITEMS_LIMIT) {
-      limit = ITEMS_LIMIT;
-    }
-
-    let listFeedPosts = null;
-
-    // Search for all posts, with get options (fields, order, limit and offset)
     try {
-      listFeedPosts = await models.FeedPost.findAll({
-        order: [order != null ? order.split(":") : ["createdAt", "DESC"]],
+      // Getting auth header
+      const headerAuth = req.headers["authorization"];
+      const userId = jwtUtils.getUserId(headerAuth);
 
-        attributes: fields !== "*" && fields != null ? fields.split(",") : null,
+      const fields = req.query.fields;
+      const limit = parseInt(req.query.limit);
+      const offset = parseInt(req.query.offset);
+      const order = req.query.order;
 
-        limit: !isNaN(limit) ? limit : null,
-        offset: !isNaN(offset) ? offset : null,
-      });
-    } catch (err) {
-      return res.status(500).json({ error: "invalid fields" });
-    }
-    // If feed posts found
-    if (listFeedPosts) {
-      // Prepare response
-      let response = [];
-      listFeedPosts.forEach((feedPost) => {
-        const feedPostObject = {
-          _id: feedPost.id,
-          posterProfile: {
-            alias: feedPost.userAlias,
-            urlPicture: feedPost.userUrlPicture,
-            service: feedPost.userService,
-            _id: feedPost.UserId,
-          },
-          time: utils.timestampTranslator(feedPost.createdAt),
-          content: {
-            text: feedPost.contentText,
-            urlPicture: feedPost.contentUrlPicture,
-            originalPosterProfile: {
-              alias: feedPost.originalUserAlias,
-              urlPicture: feedPost.originalUserUrlPicture,
-              text: feedPost.originalUserText,
+      if (limit > ITEMS_LIMIT) {
+        limit = ITEMS_LIMIT;
+      }
+
+      let listFeedPosts = null;
+
+      // Search for all posts, with get options (fields, order, limit and offset)
+      try {
+        listFeedPosts = await models.FeedPost.findAll({
+          order: [order != null ? order.split(":") : ["createdAt", "DESC"]],
+
+          attributes:
+            fields !== "*" && fields != null ? fields.split(",") : null,
+
+          limit: !isNaN(limit) ? limit : null,
+          offset: !isNaN(offset) ? offset : null,
+          include: [
+            {
+              model: models.FeedPostOnFire,
+              attributes: ["isLike"],
             },
-          },
-          onFireCounter: feedPost.onFireCounter,
-          coldCounter: feedPost.coldCounter,
-          commentsList: null,
-        };
-        response.push(feedPostObject);
-      });
-      res.status(200).json(response);
-    } else {
-      res.status(404).json({ error: "no feed Post found" });
+          ],
+        });
+      } catch (err) {
+        return res.status(500).json({ error: "invalid fields" });
+      }
+      // If feed posts found
+      if (listFeedPosts) {
+        // Prepare response
+        let response = [];
+        listFeedPosts.forEach((feedPost) => {
+          const feedPostObject = {
+            _id: feedPost.id,
+            posterProfile: {
+              alias: feedPost.userAlias,
+              urlPicture: feedPost.userUrlPicture,
+              service: feedPost.userService,
+              _id: feedPost.UserId,
+            },
+            time: utils.timestampTranslator(feedPost.createdAt),
+            content: {
+              text: feedPost.contentText,
+              urlPicture: feedPost.contentUrlPicture,
+              originalPosterProfile: {
+                alias: feedPost.originalUserAlias,
+                urlPicture: feedPost.originalUserUrlPicture,
+                text: feedPost.originalUserText,
+              },
+            },
+            onFireCounter: feedPost.onFireCounter,
+            coldCounter: feedPost.coldCounter,
+            isLike: feedPost.FeedPostOnFires[0].isLike,
+            commentsList: listComments,
+          };
+          response.push(feedPostObject);
+        });
+        res.status(200).json(response);
+      } else {
+        res.status(404).json({ error: "no feed Post found" });
+      }
+    } catch (err) {
+      return res.status(500).json({ error: "Global error : =>  " + err });
     }
   },
+
   deleteFeedPost: async (req, res) => {
-    // control userID == user who created the post or isModerator == true
+    // Getting auth header
+    const headerAuth = req.headers["authorization"];
+    const userId = jwtUtils.getUserId(headerAuth);
+
+    // Control token
+    if (userId < 0) return res.status(400).json({ error: "wrong token" });
+
+    // Params
+    const feedPostIdFromParams = parseInt(req.params.feedPostId);
+
+    // Control params feed post id
+    if (feedPostIdFromParams <= 0) {
+      return res.status(400).json({ error: "invalid parameters" });
+    }
+
+    let userFound = null;
+    let feedPostFound = null;
+
+    try {
+      // Search user with id and get IsModerator
+      userFound = await models.User.findOne({
+        where: { id: userId },
+      });
+    } catch (err) {
+      return res.status(500).json({ error: "cannot fetch user" });
+    }
+
+    try {
+      // Search feed post with id and get this attributes list
+      feedPostFound = await models.FeedPost.findOne({
+        attributes: [
+          "id",
+          "userAlias",
+          "userService",
+          "userId",
+          "contentText",
+          "originalUserAlias",
+        ],
+        where: { id: feedPostIdFromParams },
+        include: [
+          {
+            model: models.User,
+            attributes: ["id"],
+          },
+        ],
+      });
+    } catch (err) {
+      return res.status(500).json({ error: "cannot fetch feed post" });
+    }
+    if (
+      userFound.isModerator === true ||
+      userFound.id === feedPostFound.User.id
+    ) {
+      try {
+        // Destroy feed post with id
+        await models.FeedPost.destroy({
+          where: { id: feedPostFound.id },
+        });
+      } catch (err) {
+        return res.status(500).json({ error: "cannot destroy feed post" });
+      }
+      // Prepare response
+      let response = {
+        _id: feedPostFound.id,
+        posterProfile: {
+          alias: feedPostFound.userAlias,
+          service: feedPostFound.userService,
+          _id: feedPostFound.UserId,
+        },
+        content: {
+          text: feedPostFound.contentText,
+          originalPosterProfile: {
+            alias: feedPostFound.originalUserAlias,
+          },
+        },
+      };
+      // Return response
+      return res
+        .status(200)
+        .json({ message: "Feed post erased", feedPostErased: response });
+    } else {
+      return res.status(500).json({ error: "access denied" });
+    }
   },
 };

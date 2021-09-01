@@ -14,7 +14,8 @@ module.exports = {
         references: {
           model: 'FeedPosts',
           key: 'id'
-        }
+        },
+        onDelete: 'cascade',
       },
       userId: {
         allowNull: false,
@@ -22,7 +23,8 @@ module.exports = {
         references: {
           model: 'Users',
           key: 'id'
-        }
+        },
+        onDelete: 'cascade',
       },
       isLike : {
         allowNull: false,

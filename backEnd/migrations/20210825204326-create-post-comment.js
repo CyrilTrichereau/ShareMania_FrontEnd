@@ -19,6 +19,7 @@ module.exports = {
           model: "FeedPosts",
           key: "id",
         },
+        onDelete: 'cascade',
       },
       postTime: {
         allowNull: false,

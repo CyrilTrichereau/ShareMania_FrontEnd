@@ -31,7 +31,7 @@ exports.router = (() => {
   // PostComment routes
   apiRouter.route("/postComment/new/").post(auth, postCommentCtrl.createPostComment);
   apiRouter.route("/postComment/").get(auth, postCommentCtrl.listPostComment);
-  apiRouter.route(":postCommentId/postComment/").delete(auth, postCommentCtrl.deletePostComment);
+  apiRouter.route("/:postCommentId/postComment/").delete(auth, postCommentCtrl.deletePostComment);
 
   // Likes
   apiRouter

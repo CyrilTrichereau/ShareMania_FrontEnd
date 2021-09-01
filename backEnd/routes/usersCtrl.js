@@ -320,20 +320,16 @@ module.exports = {
 
       if (userFound.isModerator === true || userId === userIdFromParams) {
         try {
-          // Search user with id and get this attributes list
-          console.log("----------------------------here --------------------");
+          // Search user with id and get this attributes list;
           await models.User.destroy({
             where: { id: userId },
           });
         } catch (err) {
-          return res.status(500).json({ error: "cannot destroy user" + err });
+          return res.status(500).json({ error: "cannot destroy user" });
         }
-        console.log("----------------------------here --------------------");
         return res.status(200).json({ message: "Profile erased", userFound });
       } else {
         return res.status(500).json({ error: "access denied" });
       }
   },
 };
-
-//// cannot use destroy cascade ??? check and modify and apply to the 3 routes of deleteing

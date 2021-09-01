@@ -297,7 +297,7 @@ module.exports = {
         try {
           // Create a new user Already Liked
           await postCommentFound.addUser(userFound, {
-            isLike: DISLIKE,
+            isLike: DISLIKED,
           });
 
           try {

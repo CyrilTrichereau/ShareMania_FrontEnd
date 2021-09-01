@@ -9,31 +9,35 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-    models.User.belongsToMany(models.FeedPost, {
-      through: models.FeedPostOnFire,
-      foreignKey: 'userId',
-      otherKey: 'feedPostId',
-      onDelete: 'cascade',
-    });
+      models.User.belongsToMany(models.FeedPost, {
+        through: models.FeedPostOnFire,
+        foreignKey: "userId",
+        otherKey: "feedPostId",
+        onDelete: "cascade",
+        hooks: true,
+      });
 
-    models.FeedPost.belongsToMany(models.User, {
-      through: models.FeedPostOnFire,
-      foreignKey: 'feedPostId',
-      otherKey: 'userId',
-      onDelete: 'cascade',
-    });
+      models.FeedPost.belongsToMany(models.User, {
+        through: models.FeedPostOnFire,
+        foreignKey: "feedPostId",
+        otherKey: "userId",
+        onDelete: "cascade",
+        hooks: true,
+      });
 
-    models.FeedPostOnFire.belongsTo(models.User, {
-      foreignKey: 'userId',
-      as: 'user',
-      onDelete: 'cascade',
-    });
+      models.FeedPostOnFire.belongsTo(models.User, {
+        foreignKey: "userId",
+        as: "user",
+        onDelete: "cascade",
+        hooks: true,
+      });
 
-    models.FeedPostOnFire.belongsTo(models.FeedPost, {
-      foreignKey: 'feedPostId',
-      as: 'feedPost',
-      onDelete: 'cascade',
-    });
+      models.FeedPostOnFire.belongsTo(models.FeedPost, {
+        foreignKey: "feedPostId",
+        as: "feedPost",
+        onDelete: "cascade",
+        hooks: true,
+      });
     }
   }
   FeedPostOnFire.init(

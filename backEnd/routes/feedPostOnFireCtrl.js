@@ -164,7 +164,6 @@ module.exports = {
             onFireCounter: feedPostFound.onFireCounter,
             coldCounter: feedPostFound.coldCounter,
             isLike: userAlreadyLikedFound.isLike,
-            commentsList: [],
           };
 
           //return response
@@ -216,7 +215,6 @@ module.exports = {
             onFireCounter: feedPostFound.onFireCounter,
             coldCounter: feedPostFound.coldCounter,
             isLike: userAlreadyLikedFound.isLike,
-            commentsList: [],
           };
 
           //return response
@@ -306,7 +304,7 @@ module.exports = {
         try {
           // Create a new user Already Liked
           await feedPostFound.addUser(userFound, {
-            isLike: DISLIKE,
+            isLike: DISLIKED,
           });
 
           try {
@@ -393,7 +391,6 @@ module.exports = {
             onFireCounter: feedPostFound.onFireCounter,
             coldCounter: feedPostFound.coldCounter,
             isLike: userAlreadyLikedFound.isLike,
-            commentsList: [],
           };
 
           //return response
@@ -445,7 +442,6 @@ module.exports = {
             onFireCounter: feedPostFound.onFireCounter,
             coldCounter: feedPostFound.coldCounter,
             isLike: userAlreadyLikedFound.isLike,
-            commentsList: [],
           };
 
           //return response

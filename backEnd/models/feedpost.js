@@ -10,11 +10,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.FeedPost.hasMany(models.PostComment);
+      models.FeedPost.hasMany(models.FeedPostOnFire);
       models.FeedPost.belongsTo(models.User, {
         foreignKey: {
           allowNull: false,
         },
-        onDelete: 'cascade',
+        onDelete: "cascade",
+        hooks: true,
       });
     }
   }
