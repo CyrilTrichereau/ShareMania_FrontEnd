@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
-const path = require('path');
+const path = require("path");
 const apiRouter = require("./apiRouter").router;
 
 // Instantiate server
@@ -36,8 +36,11 @@ server.get("/", (req, res) => {
   res.status(200).send("<h1>Welcome to Sharemania API</h1>");
 });
 
-// 
-server.use("/imagesAndVideos", express.static(path.join(__dirname, "imagesAndVideos")));
+//
+server.use(
+  "/imagesAndVideos",
+  express.static(path.join(__dirname, "imagesAndVideos"))
+);
 
 server.use("/api/", apiRouter);
 

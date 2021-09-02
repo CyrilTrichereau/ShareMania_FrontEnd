@@ -82,7 +82,8 @@ module.exports = {
           time: utils.timestampTranslator(newPost.createdAt),
           onFireCounter: null,
           coldCounter: null,
-          commentsList: null,
+          averageCounter: 0,
+          popularityCounter: 0,
           posterProfile: {
             alias: newPost.userAlias,
             urlPicture: newPost.userUrlPicture,
@@ -114,78 +115,82 @@ module.exports = {
   // ------------------------
   // ------------------------
   listFeedPost: async (req, res) => {
+    // Getting auth header
+    const headerAuth = req.headers["authorization"];
+    const userId = jwtUtils.getUserId(headerAuth);
+
+    // Control token
+    if (userId < 0) return res.status(400).json({ error: "wrong token" });
+
+    // Params
+    const fields = req.query.fields;
+    const limit = parseInt(req.query.limit);
+    const offset = parseInt(req.query.offset);
+    const order = req.query.order;
+
+    if (limit > ITEMS_LIMIT) {
+      limit = ITEMS_LIMIT;
+    }
+
+    let listFeedPosts = null;
+
+    // Search for all posts, with get options (fields, order, limit and offset)
     try {
-      // Getting auth header
-      const headerAuth = req.headers["authorization"];
-      const userId = jwtUtils.getUserId(headerAuth);
+      listFeedPosts = await models.FeedPost.findAll({
+        order: [order != null ? order.split(":") : ["createdAt", "DESC"]],
 
-      const fields = req.query.fields;
-      const limit = parseInt(req.query.limit);
-      const offset = parseInt(req.query.offset);
-      const order = req.query.order;
+        attributes: fields !== "*" && fields != null ? fields.split(",") : null,
 
-      if (limit > ITEMS_LIMIT) {
-        limit = ITEMS_LIMIT;
-      }
-
-      let listFeedPosts = null;
-
-      // Search for all posts, with get options (fields, order, limit and offset)
-      try {
-        listFeedPosts = await models.FeedPost.findAll({
-          order: [order != null ? order.split(":") : ["createdAt", "DESC"]],
-
-          attributes:
-            fields !== "*" && fields != null ? fields.split(",") : null,
-
-          limit: !isNaN(limit) ? limit : null,
-          offset: !isNaN(offset) ? offset : null,
-          include: [
-            {
-              model: models.FeedPostOnFire,
-              attributes: ["isLike"],
-            },
-          ],
-        });
-      } catch (err) {
-        return res.status(500).json({ error: "invalid fields" });
-      }
-      // If feed posts found
-      if (listFeedPosts) {
-        // Prepare response
-        let response = [];
-        listFeedPosts.forEach((feedPost) => {
-          const feedPostObject = {
-            _id: feedPost.id,
-            posterProfile: {
-              alias: feedPost.userAlias,
-              urlPicture: feedPost.userUrlPicture,
-              service: feedPost.userService,
-              _id: feedPost.UserId,
-            },
-            time: utils.timestampTranslator(feedPost.createdAt),
-            content: {
-              text: feedPost.contentText,
-              urlPicture: feedPost.contentUrlPicture,
-              originalPosterProfile: {
-                alias: feedPost.originalUserAlias,
-                urlPicture: feedPost.originalUserUrlPicture,
-                text: feedPost.originalUserText,
-              },
-            },
-            onFireCounter: feedPost.onFireCounter,
-            coldCounter: feedPost.coldCounter,
-            isLike: feedPost.FeedPostOnFires[0].isLike,
-            commentsList: listComments,
-          };
-          response.push(feedPostObject);
-        });
-        res.status(200).json(response);
-      } else {
-        res.status(404).json({ error: "no feed Post found" });
-      }
+        limit: !isNaN(limit) ? limit : null,
+        offset: !isNaN(offset) ? offset : null,
+        include: [
+          {
+            model: models.FeedPostOnFire,
+            attributes: ["isLike"],
+          },
+        ],
+      });
     } catch (err) {
-      return res.status(500).json({ error: "Global error : =>  " + err });
+      return res.status(500).json({ error: "invalid fields" });
+    }
+    // If feed posts found
+    if (listFeedPosts) {
+      // Prepare response
+      let response = [];
+      listFeedPosts.forEach((feedPost) => {
+        let isLike = null;
+        if (feedPost.FeedPostOnFires[0]) {
+          isLike = feedPost.FeedPostOnFires[0].isLike;
+        }
+        const feedPostObject = {
+          _id: feedPost.id,
+          posterProfile: {
+            alias: feedPost.userAlias,
+            urlPicture: feedPost.userUrlPicture,
+            service: feedPost.userService,
+            _id: feedPost.UserId,
+          },
+          time: utils.timestampTranslator(feedPost.createdAt),
+          content: {
+            text: feedPost.contentText,
+            urlPicture: feedPost.contentUrlPicture,
+            originalPosterProfile: {
+              alias: feedPost.originalUserAlias,
+              urlPicture: feedPost.originalUserUrlPicture,
+              text: feedPost.originalUserText,
+            },
+          },
+          onFireCounter: feedPost.onFireCounter,
+          coldCounter: feedPost.coldCounter,
+          averageCounter: feedPost.averageCounter,
+          isLike: isLike,
+          popularityCounter: feedPost.popularityCounter,
+        };
+        response.push(feedPostObject);
+      });
+      res.status(200).json(response);
+    } else {
+      res.status(404).json({ error: "no feed post found" });
     }
   },
 

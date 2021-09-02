@@ -14,6 +14,9 @@ module.exports = {
     const headerAuth = req.headers["authorization"];
     const userId = jwtUtils.getUserId(headerAuth);
 
+    // Control token
+    if (userId < 0) return res.status(400).json({ error: "wrong token" });
+
     // Params
     const postUserId = req.body.post.posterId;
     const feedPostId = req.body.post.postId;
@@ -69,8 +72,26 @@ module.exports = {
       } catch (err) {
         return res.status(500).json({ error: "unable to create comment" });
       }
-      // if post is well created, send newPost Object or send an error
+      // if post is well created
       if (newPost) {
+        // Update  popularity counter
+        let popularityCounter = await utils.popularityCounter(
+          feedPostFound.onFireCounter,
+          feedPostFound.coldCounter,
+          feedPostFound.id
+        );
+        try {
+          // Update counter on fire
+          await feedPostFound.update({
+            popularityCounter: popularityCounter,
+          });
+        } catch (err) {
+          return res
+            .status(500)
+            .json({ error: "cannot update feed post on fire counter" });
+        }
+
+        // Send newPost Object or send an error
         // Prepare response
         const newPostObject = {
           _id: newPost.id,
@@ -78,7 +99,9 @@ module.exports = {
           text: newPost.commentText,
           onFireCounter: null,
           coldCounter: null,
+          averageCounter: 0,
           isLike: null,
+          popularityCounter: 0,
           post: {
             posterId: newPost.postUserId,
             postId: newPost.FeedPostId,
@@ -104,10 +127,19 @@ module.exports = {
   // ------------------------
   // ------------------------
   listPostComment: async (req, res) => {
+    // Getting auth header
+    const headerAuth = req.headers["authorization"];
+    const userId = jwtUtils.getUserId(headerAuth);
+
+    // Control token
+    if (userId < 0) return res.status(400).json({ error: "wrong token" });
+
+    // Params
     const fields = req.query.fields;
     const limit = parseInt(req.query.limit);
     const offset = parseInt(req.query.offset);
     const order = req.query.order;
+    const feedPostId = parseInt(req.params.feedPostId);
 
     if (limit > ITEMS_LIMIT) {
       limit = ITEMS_LIMIT;
@@ -118,6 +150,7 @@ module.exports = {
     try {
       // Search feed post
       commentsList = await models.PostComment.findAll({
+        where: { feedPostId: feedPostId },
         order: [order != null ? order.split(":") : ["createdAt", "DESC"]],
         attributes: fields !== "*" && fields != null ? fields.split(",") : null,
         limit: !isNaN(limit) ? limit : null,
@@ -140,7 +173,7 @@ module.exports = {
 
       commentsList.forEach(async (comment) => {
         let isLike = null;
-        if (!comment.PostCommentOnFires) {
+        if (comment.PostCommentOnFires[0]) {
           isLike = comment.PostCommentOnFires[0].isLike;
         }
         const commentObject = {
@@ -149,7 +182,9 @@ module.exports = {
           text: comment.commentText,
           onFireCounter: comment.onFireCounter,
           coldCounter: comment.coldCounter,
+          averageCounter: comment.averageCounter,
           isLike: isLike,
+          popularityCounter: comment.popularityCounter,
           post: {
             posterId: comment.postUserId,
             postId: comment.FeedPostId,
@@ -212,11 +247,11 @@ module.exports = {
         where: { id: postCommentIdFromParams },
       });
     } catch (err) {
-      return res.status(500).json({ error: "cannot fetch feed post" + err });
+      return res.status(500).json({ error: "cannot fetch feed post" });
     }
-        
+
     if (!postCommentFound) {
-      return res.status(500).json({ error: "cannot fetch post comment"});
+      return res.status(500).json({ error: "cannot fetch post comment" });
     }
     if (
       userFound.isModerator === true ||

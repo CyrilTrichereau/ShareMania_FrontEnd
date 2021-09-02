@@ -47,6 +47,14 @@ module.exports = {
       coldCounter: {
         type: Sequelize.INTEGER
       },
+      averageCounter: {
+        type: Sequelize.INTEGER,
+        defaultValue: null,
+      },
+      popularityCounter: {
+        type: Sequelize.INTEGER,
+        defaultValue: null,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

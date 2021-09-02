@@ -112,10 +112,19 @@ module.exports = {
         if (userAlreadyLikedFound.isLike === DISLIKED) {
           // Decrement cold counter
           coldCounter--;
+          // Update average counter
+          let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+          let popularityCounter = await utils.popularityCounter(
+            onFireCounter,
+            coldCounter,
+            false
+          );
           try {
             // Update cold counter
             await postCommentFound.update({
               coldCounter: coldCounter,
+              averageCounter: averageCounter,
+              popularityCounter: popularityCounter,
             });
           } catch (err) {
             return res
@@ -131,10 +140,19 @@ module.exports = {
         } catch (err) {
           return res.status(500).json({ error: "cannot update user reaction" });
         }
+        // Update average counter & popularity counter
+        let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+        let popularityCounter = await utils.popularityCounter(
+          onFireCounter,
+          coldCounter,
+          false
+        );
         try {
           // Update counter on fire
           await postCommentFound.update({
             onFireCounter: onFireCounter,
+            averageCounter: averageCounter,
+            popularityCounter: popularityCounter,
           });
         } catch (err) {
           return res
@@ -159,7 +177,9 @@ module.exports = {
             text: postCommentFound.commentText,
             coldCounter: postCommentFound.coldCounter,
             onFireCounter: postCommentFound.onFireCounter,
+            averageCounter: postCommentFound.averageCounter,
             isLike: userAlreadyLikedFound.isLike,
+            popularityCounter: postCommentFound.popularityCounter,
           };
 
           //return response
@@ -178,10 +198,19 @@ module.exports = {
         } catch (err) {
           return res.status(500).json({ error: "cannot update user reaction" });
         }
+        // Update average counter & popularity counter & popularity counter
+        let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+        let popularityCounter = await utils.popularityCounter(
+          onFireCounter,
+          coldCounter,
+          false
+        );
         try {
           // Update on fire counter
           await postCommentFound.update({
             onFireCounter: onFireCounter,
+            averageCounter: averageCounter,
+            popularityCounter: popularityCounter,
           });
         } catch (err) {
           return res
@@ -206,7 +235,9 @@ module.exports = {
             text: postCommentFound.commentText,
             coldCounter: postCommentFound.coldCounter,
             onFireCounter: postCommentFound.onFireCounter,
+            averageCounter: postCommentFound.averageCounter,
             isLike: userAlreadyLikedFound.isLike,
+            popularityCounter: postCommentFound.popularityCounter,
           };
 
           //return response
@@ -332,10 +363,19 @@ module.exports = {
         if (userAlreadyLikedFound.isLike === LIKED) {
           // Decrement on fire counter
           onFireCounter--;
+          // Update average counter
+          let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+          let popularityCounter = await utils.popularityCounter(
+            onFireCounter,
+            coldCounter,
+            false
+          );
           try {
             // Update on fire counter
             await postCommentFound.update({
               onFireCounter: onFireCounter,
+              averageCounter: averageCounter,
+              popularityCounter: popularityCounter,
             });
           } catch (err) {
             return res
@@ -351,10 +391,19 @@ module.exports = {
         } catch (err) {
           return res.status(500).json({ error: "cannot update user reaction" });
         }
+        // Update average counter & popularity counter
+        let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+        let popularityCounter = await utils.popularityCounter(
+          onFireCounter,
+          coldCounter,
+          false
+        );
         try {
           // Update counter on fire
           await postCommentFound.update({
             coldCounter: coldCounter,
+            averageCounter: averageCounter,
+            popularityCounter: popularityCounter,
           });
         } catch (err) {
           return res
@@ -379,7 +428,9 @@ module.exports = {
             text: postCommentFound.commentText,
             coldCounter: postCommentFound.coldCounter,
             onFireCounter: postCommentFound.onFireCounter,
+            averageCounter: postCommentFound.averageCounter,
             isLike: userAlreadyLikedFound.isLike,
+            popularityCounter: postCommentFound.popularityCounter,
           };
 
           //return response
@@ -398,15 +449,24 @@ module.exports = {
         } catch (err) {
           return res.status(500).json({ error: "cannot update user reaction" });
         }
+        // Update average counter & popularity counter
+        let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+        let popularityCounter = await utils.popularityCounter(
+          onFireCounter,
+          coldCounter,
+          false
+        );
         try {
           // Update cold counter
           await postCommentFound.update({
             coldCounter: coldCounter,
+            averageCounter: averageCounter,
+            popularityCounter: popularityCounter,
           });
         } catch (err) {
-          return res
-            .status(500)
-            .json({ error: "cannot update post comment on fire counter" });
+          return res.status(500).json({
+            error: "cannot update post comment on fire counter",
+          });
         }
 
         if (postCommentFound) {
@@ -426,7 +486,9 @@ module.exports = {
             text: postCommentFound.commentText,
             coldCounter: postCommentFound.coldCounter,
             onFireCounter: postCommentFound.onFireCounter,
+            averageCounter: postCommentFound.averageCounter,
             isLike: userAlreadyLikedFound.isLike,
+            popularityCounter: postCommentFound.popularityCounter,
           };
 
           //return response

@@ -1,6 +1,7 @@
 // Imports
 const bcrypt = require("bcrypt");
 const jwtUtils = require("../utils/jwt.utils");
+const utils = require("../utils/utils");
 const models = require("../models");
 
 // Constants - REGEX
@@ -83,10 +84,25 @@ module.exports = {
           } catch (err) {
             return res.status(500).json({ error: "Cannot add user" });
           }
-          // If user is well create, return new user object
-          return res.status(201).json({
-            userId: newUser.id,
-          });
+          // if user is well create, send newUser Object or send an error
+          if (newUser) {
+            // Prepare response
+            const newUserObject = {
+              id: newUser.id,
+              token: jwtUtils.generateTokenForUser(newUser),
+              email: newUser.email,
+              alias: newUser.alias,
+              service: newUser.service,
+              urlPicture: newUser.urlPicture,
+              time: utils.timestampTranslator(newUser.createdAt),
+            };
+            // Return new user object
+            return res
+              .status(201)
+              .json({ message: "User well create", newUser: newUserObject });
+          } else {
+            return res.status(500).json({ error: "Cannot add user" });
+          }
         });
       } else {
         return res.status(409).json({ error: "Alias already use" });
@@ -118,31 +134,31 @@ module.exports = {
       return res.status(400).json({ error: "Password is not valid" });
     }
 
+    // Search if user with email adress
+    let userFound = null;
     try {
+      userFound = await models.User.findOne({
+        where: { email: email },
+      });
     } catch (err) {
       return res.status(500).json({ error: "unable to verify user" });
     }
-    // Search if user with email adress
-    models.User.findOne({
-      where: { email: email },
-    }).then((userFound) => {
-      if (userFound) {
-        // If user exist, compare password with userfound password
-        bcrypt.compare(password, userFound.password, (errBcrypt, resBcrypt) => {
-          if (resBcrypt) {
-            //If passwords match, send back a token
-            return res.status(200).json({
-              userId: userFound.id,
-              token: jwtUtils.generateTokenForUser(userFound),
-            });
-          } else {
-            return res.status(400).json({ error: "Invalid password" });
-          }
-        });
-      } else {
-        return res.status(404).json({ error: "User not exist in db" });
-      }
-    });
+    if (userFound) {
+      // If user exist, compare password with userfound password
+      bcrypt.compare(password, userFound.password, (errBcrypt, resBcrypt) => {
+        if (resBcrypt) {
+          //If passwords match, send back a token
+          return res.status(200).json({
+            userId: userFound.id,
+            token: jwtUtils.generateTokenForUser(userFound),
+          });
+        } else {
+          return res.status(400).json({ error: "Invalid password" });
+        }
+      });
+    } else {
+      return res.status(404).json({ error: "User not exist in db" });
+    }
   },
 
   // ------------------------
@@ -208,13 +224,13 @@ module.exports = {
           "password",
           "service",
           "urlPicture",
+          "isModerator",
         ],
         where: { id: userId },
       });
     } catch (err) {
       return res.status(500).json({ error: "unable to verify user" });
     }
-
     if (userFound) {
       // Then if user found, check if there is a password to change
       if (newPassword) {
@@ -249,7 +265,14 @@ module.exports = {
                   }
                   // Then response with the profile data updated
                   if (userFound) {
-                    return res.status(201).json(userFound);
+                    return res.status(201).json({
+                      _id: userFound.id,
+                      email: userFound.email,
+                      alias: userFound.alias,
+                      service: userFound.service,
+                      urlPicture: userFound.urlPicture,
+                      isModerator: userFound.isModerator,
+                    });
                   } else {
                     return res
                       .status(500)
@@ -275,7 +298,14 @@ module.exports = {
         }
         if (userFound) {
           // Then response with the profile data updated
-          return res.status(201).json(userFound);
+          return res.status(201).json({
+            _id: userFound.id,
+            email: userFound.email,
+            alias: userFound.alias,
+            service: userFound.service,
+            urlPicture: userFound.urlPicture,
+            isModerator: userFound.isModerator,
+          });
         } else {
           return res.status(500).json({ error: "cannot update user profile" });
         }
@@ -285,51 +315,61 @@ module.exports = {
     }
   },
   deleteUserProfile: async (req, res) => {
-      // Getting auth header
-      const headerAuth = req.headers["authorization"];
-      const userId = jwtUtils.getUserId(headerAuth);
+    // Getting auth header
+    const headerAuth = req.headers["authorization"];
+    const userId = jwtUtils.getUserId(headerAuth);
 
-      // Control token
-      if (userId < 0) return res.status(400).json({ error: "wrong token" });
+    // Control token
+    if (userId < 0) return res.status(400).json({ error: "wrong token" });
 
-      // Params
-      const userIdFromParams = parseInt(req.params.userId);
+    // Params
+    const userIdFromParams = parseInt(req.params.userId);
 
-      // Control params feed post id
-      if (userIdFromParams <= 0) {
-        return res.status(400).json({ error: "invalid parameters" });
-      }
+    // Control params feed post id
+    if (userIdFromParams <= 0) {
+      return res.status(400).json({ error: "invalid parameters" });
+    }
 
-      let userFound = null;
+    let userFound = null;
+    try {
+      // Search user with id and get this attributes list
+      userFound = await models.User.findOne({
+        attributes: [
+          "id",
+          "email",
+          "alias",
+          "service",
+          "urlPicture",
+          "isModerator",
+        ],
+        where: { id: userId },
+      });
+    } catch (err) {
+      return res.status(500).json({ error: "cannot fetch user" });
+    }
+
+    if (userFound.isModerator === true || userId === userIdFromParams) {
       try {
-        // Search user with id and get this attributes list
-        userFound = await models.User.findOne({
-          attributes: [
-            "id",
-            "email",
-            "alias",
-            "service",
-            "urlPicture",
-            "isModerator",
-          ],
+        // Search user with id and get this attributes list;
+        await models.User.destroy({
           where: { id: userId },
         });
       } catch (err) {
-        return res.status(500).json({ error: "cannot fetch user" });
+        return res.status(500).json({ error: "cannot destroy user" });
       }
-
-      if (userFound.isModerator === true || userId === userIdFromParams) {
-        try {
-          // Search user with id and get this attributes list;
-          await models.User.destroy({
-            where: { id: userId },
-          });
-        } catch (err) {
-          return res.status(500).json({ error: "cannot destroy user" });
-        }
-        return res.status(200).json({ message: "Profile erased", userFound });
-      } else {
-        return res.status(500).json({ error: "access denied" });
-      }
+      return res.status(200).json({
+        message: "Profile erased",
+        userFound: {
+          _id: userFound.id,
+          email: userFound.email,
+          alias: userFound.alias,
+          service: userFound.service,
+          urlPicture: userFound.urlPicture,
+          isModerator: userFound.isModerator,
+        },
+      });
+    } else {
+      return res.status(500).json({ error: "access denied" });
+    }
   },
 };

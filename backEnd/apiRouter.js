@@ -2,8 +2,8 @@
 const express = require("express");
 
 // Imports Middlewares
- const multer = require('./middleware/multer-config');
- const auth = require('./middleware/auth');
+const multer = require("./middleware/multer-config");
+const auth = require("./middleware/auth");
 
 // Import controllers
 const usersCtrl = require("./routes/usersCtrl");
@@ -21,17 +21,29 @@ exports.router = (() => {
   apiRouter.route("/users/login/").post(usersCtrl.login);
   apiRouter.route("/users/myProfile/").get(auth, usersCtrl.getUserProfile);
   apiRouter.route("/users/myProfile/").put(auth, usersCtrl.updateUserProfile);
-  apiRouter.route("/:userId/users/myProfile/").delete(auth, usersCtrl.deleteUserProfile);
+  apiRouter
+    .route("/:userId/users/myProfile/")
+    .delete(auth, usersCtrl.deleteUserProfile);
 
   // FeedPosts routes
-  apiRouter.route("/feedPosts/new/").post(auth, multer,feedPostCtrl.createFeedPost);
+  apiRouter
+    .route("/feedPosts/new/")
+    .post(auth, multer, feedPostCtrl.createFeedPost);
   apiRouter.route("/feedPosts/").get(auth, feedPostCtrl.listFeedPost);
-  apiRouter.route("/:feedPostId/feedPosts/").delete(auth, feedPostCtrl.deleteFeedPost);
+  apiRouter
+    .route("/:feedPostId/feedPosts/")
+    .delete(auth, feedPostCtrl.deleteFeedPost);
 
   // PostComment routes
-  apiRouter.route("/postComment/new/").post(auth, postCommentCtrl.createPostComment);
-  apiRouter.route("/postComment/").get(auth, postCommentCtrl.listPostComment);
-  apiRouter.route("/:postCommentId/postComment/").delete(auth, postCommentCtrl.deletePostComment);
+  apiRouter
+    .route("/postComment/new/")
+    .post(auth, postCommentCtrl.createPostComment);
+  apiRouter
+    .route("/:feedPostId/postComment/")
+    .get(auth, postCommentCtrl.listPostComment);
+  apiRouter
+    .route("/:postCommentId/postComment/")
+    .delete(auth, postCommentCtrl.deletePostComment);
 
   // Likes
   apiRouter

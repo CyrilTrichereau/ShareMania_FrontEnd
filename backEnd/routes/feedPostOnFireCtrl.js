@@ -112,10 +112,19 @@ module.exports = {
         if (userAlreadyLikedFound.isLike === DISLIKED) {
           // Decrement cold counter
           coldCounter--;
+          // Update average counter
+          let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+          let popularityCounter = await utils.popularityCounter(
+            onFireCounter,
+            coldCounter,
+            feedPostId
+          );
           try {
             // Update cold counter
             await feedPostFound.update({
               coldCounter: coldCounter,
+              averageCounter: averageCounter,
+              popularityCounter: popularityCounter,
             });
           } catch (err) {
             return res
@@ -131,10 +140,19 @@ module.exports = {
         } catch (err) {
           return res.status(500).json({ error: "cannot update user reaction" });
         }
+        // Update average counter & popularity counter
+        let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+        let popularityCounter = await utils.popularityCounter(
+          onFireCounter,
+          coldCounter,
+          feedPostId
+        );
         try {
           // Update counter on fire
           await feedPostFound.update({
             onFireCounter: onFireCounter,
+            averageCounter: averageCounter,
+            popularityCounter: popularityCounter,
           });
         } catch (err) {
           return res
@@ -163,7 +181,9 @@ module.exports = {
             },
             onFireCounter: feedPostFound.onFireCounter,
             coldCounter: feedPostFound.coldCounter,
+            averageCounter: feedPostFound.averageCounter,
             isLike: userAlreadyLikedFound.isLike,
+            popularityCounter: feedPostFound.popularityCounter,
           };
 
           //return response
@@ -182,10 +202,19 @@ module.exports = {
         } catch (err) {
           return res.status(500).json({ error: "cannot update user reaction" });
         }
+        // Update average counter & popularity counter
+        let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+        let popularityCounter = await utils.popularityCounter(
+          onFireCounter,
+          coldCounter,
+          feedPostId
+        );
         try {
           // Update on fire counter
           await feedPostFound.update({
             onFireCounter: onFireCounter,
+            averageCounter: averageCounter,
+            popularityCounter: popularityCounter,
           });
         } catch (err) {
           return res
@@ -214,7 +243,9 @@ module.exports = {
             },
             onFireCounter: feedPostFound.onFireCounter,
             coldCounter: feedPostFound.coldCounter,
+            averageCounter: feedPostFound.averageCounter,
             isLike: userAlreadyLikedFound.isLike,
+            popularityCounter: feedPostFound.popularityCounter,
           };
 
           //return response
@@ -339,10 +370,19 @@ module.exports = {
         if (userAlreadyLikedFound.isLike === LIKED) {
           // Decrement on fire counter
           onFireCounter--;
+          // Update average counter
+          let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+          let popularityCounter = await utils.popularityCounter(
+            onFireCounter,
+            coldCounter,
+            feedPostId
+          );
           try {
             // Update on fire counter
             await feedPostFound.update({
               onFireCounter: onFireCounter,
+              averageCounter: averageCounter,
+              popularityCounter: popularityCounter,
             });
           } catch (err) {
             return res
@@ -358,10 +398,19 @@ module.exports = {
         } catch (err) {
           return res.status(500).json({ error: "cannot update user reaction" });
         }
+        // Update average counter & popularity counter
+        let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+        let popularityCounter = await utils.popularityCounter(
+          onFireCounter,
+          coldCounter,
+          feedPostId
+        );
         try {
           // Update counter on fire
           await feedPostFound.update({
             coldCounter: coldCounter,
+            averageCounter: averageCounter,
+            popularityCounter: popularityCounter,
           });
         } catch (err) {
           return res
@@ -390,7 +439,9 @@ module.exports = {
             },
             onFireCounter: feedPostFound.onFireCounter,
             coldCounter: feedPostFound.coldCounter,
+            averageCounter: feedPostFound.averageCounter,
             isLike: userAlreadyLikedFound.isLike,
+            popularityCounter: feedPostFound.popularityCounter,
           };
 
           //return response
@@ -409,10 +460,19 @@ module.exports = {
         } catch (err) {
           return res.status(500).json({ error: "cannot update user reaction" });
         }
+        // Update average counter & popularity counter
+        let averageCounter = utils.averageCounter(onFireCounter, coldCounter);
+        let popularityCounter = await utils.popularityCounter(
+          onFireCounter,
+          coldCounter,
+          feedPostId
+        );
         try {
           // Update cold counter
           await feedPostFound.update({
             coldCounter: coldCounter,
+            averageCounter: averageCounter,
+            popularityCounter: popularityCounter,
           });
         } catch (err) {
           return res
@@ -441,7 +501,9 @@ module.exports = {
             },
             onFireCounter: feedPostFound.onFireCounter,
             coldCounter: feedPostFound.coldCounter,
+            averageCounter: feedPostFound.averageCounter,
             isLike: userAlreadyLikedFound.isLike,
+            popularityCounter: feedPostFound.popularityCounter,
           };
 
           //return response

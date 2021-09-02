@@ -32,6 +32,8 @@ module.exports = (sequelize, DataTypes) => {
       originalUserText: DataTypes.TEXT,
       onFireCounter: DataTypes.INTEGER,
       coldCounter: DataTypes.INTEGER,
+      averageCounter: DataTypes.INTEGER,
+      popularityCounter: DataTypes.INTEGER,
     },
     {
       sequelize,
