@@ -1,113 +1,128 @@
 // Imports
-const { response } = require("express");
 const models = require("../models");
 const jwtUtils = require("../utils/jwt.utils");
 const utils = require("../utils/utils");
 
 // Constants
-const CONTENT_TEXT_LIMIT = 12;
+const CONTENT_TEXT_LIMIT = 4;
 const ITEMS_LIMIT = 50;
+
+// Le modle est bien renvoyé. Il faut manintenat renvoyer la réponse avec l'objet
+
+
 
 // Routes
 module.exports = {
   createFeedPost: async (req, res) => {
-    // Getting auth header
-    const headerAuth = req.headers["authorization"];
-    const userId = jwtUtils.getUserId(headerAuth);
-
-    // Params
-    const userAlias = req.body.posterProfile.alias;
-    const userUrlPicture = req.body.posterProfile.urlPicture;
-    const userService = req.body.posterProfile.service;
-    const user_Id = req.body.posterProfile._id;
-    const contentText = req.body.content.text;
-    const contentUrlPicture = req.body.content.urlPicture;
-    const originalUserAlias = req.body.content.originalPosterProfile.alias;
-    const originalUserUrlPicture =
-      req.body.content.originalPosterProfile.urlPicture;
-    const originalUserText = req.body.content.originalPosterProfile.text;
-
-    // If One information isLike missing
-    if (
-      userAlias == null ||
-      userUrlPicture == null ||
-      userService == null ||
-      user_Id == null ||
-      contentText == null ||
-      userUrlPicture == null
-    ) {
-      return res.status(400).json({ error: "missing parameters" });
-    }
-
-    // If the content text isLike too small
-    if (contentText.length <= CONTENT_TEXT_LIMIT) {
-      return res.status(400).json({ error: "invalid parameters" });
-    }
-
-    let userFound = null;
-    let newPost = null;
-
-    // Search the user
     try {
-      userFound = await models.User.findOne({
-        where: { id: userId },
-      });
-    } catch (err) {
-      return res.status(500).json({ error: "unable to verify user" });
-    }
+      const feedPostObject = req.body;
 
-    if (userFound) {
-      // If usier isfound, create a new post with comments
+      if (req.file) {
+        console.log(" ---------------- I am inside ----------------");
+        feedPostObject.contentUrlPicture = `${req.protocol}://${req.get(
+          "host"
+        )}/mediaPostsStore/${req.file.filename}`;
+        console.log(feedPostObject.contentUrlPicture);
+      }
+      // Getting auth header
+      const headerAuth = req.headers["authorization"];
+      const userId = jwtUtils.getUserId(headerAuth);
+
+      // Params
+      const userAlias = feedPostObject.userAlias;
+      const userUrlPicture = feedPostObject.userUrlPicture;
+      const userService = feedPostObject.userService;
+      const contentText = feedPostObject.contentText;
+      const contentUrlPicture = feedPostObject.contentUrlPicture;
+      const originalUserAlias = feedPostObject.originalUserAlias;
+      const originalUserUrlPicture = feedPostObject.originalUserUrlPicture;
+      const originalUserText = feedPostObject.originalUserText;
+
+      // If One information isLike missing
+      if (
+        userAlias == null ||
+        userUrlPicture == null ||
+        userService == null ||
+        contentText == null ||
+        userUrlPicture == null
+      ) {
+        return res.status(400).json({ error: "missing parameters" });
+      }
+
+      // If the content text isLike too small
+      if (contentText.length <= CONTENT_TEXT_LIMIT) {
+        return res.status(400).json({ error: "invalid parameters" });
+      }
+
+      let userFound = null;
+      let newPost = null;
+
+      // Search the user
       try {
-        newPost = await models.FeedPost.create({
-          userAlias: userAlias,
-          userUrlPicture: userUrlPicture,
-          userService: userService,
-          UserId: userId,
-          contentText: contentText,
-          contentUrlPicture: contentUrlPicture,
-          originalUserAlias: originalUserAlias,
-          originalUserUrlPicture: originalUserUrlPicture,
-          originalUserText: originalUserText,
+        userFound = await models.User.findOne({
+          where: { id: userId },
         });
       } catch (err) {
-        return res.status(500).json({ error: "unable to create feed post" });
+        return res.status(500).json({ error: "unable to verify user" });
       }
 
-      // if post isLike well created, send newPost Object or send an error
-      if (newPost) {
-        // Prepare response
-        const response = {
-          _id: newPost.id,
-          time: utils.timestampTranslator(newPost.createdAt),
-          onFireCounter: null,
-          coldCounter: null,
-          averageCounter: 0,
-          popularityCounter: 0,
-          posterProfile: {
-            alias: newPost.userAlias,
-            urlPicture: newPost.userUrlPicture,
-            service: newPost.userService,
-            _id: newPost.UserId,
-          },
-          content: {
-            text: newPost.contentText,
-            urlPicture: newPost.contentUrlPicture,
-            originalPosterProfile: {
-              alias: newPost.originalUserAlias,
-              urlPicture: newPost.originalUserUrlPicture,
-              text: newPost.originalUserText,
+      if (userFound) {
+        // If usier isfound, create a new post with comments
+        try {
+          newPost = await models.FeedPost.create({
+            userAlias: userAlias,
+            userUrlPicture: userUrlPicture,
+            userService: userService,
+            UserId: userId,
+            contentText: contentText,
+            contentUrlPicture: contentUrlPicture,
+            originalUserAlias: originalUserAlias,
+            originalUserUrlPicture: originalUserUrlPicture,
+            originalUserText: originalUserText,
+          });
+        } catch (err) {
+          return res.status(500).json({ error: "unable to create feed post" });
+        }
+
+        // if post isLike well created, send newPost Object or send an error
+        if (newPost) {
+          console.log({newPost: newPost});
+          // Prepare response
+          const response = {
+            _id: newPost.id,
+            time: utils.timestampTranslator(newPost.createdAt),
+            onFireCounter: null,
+            coldCounter: null,
+            averageCounter: 0,
+            popularityCounter: 0,
+            posterProfile: {
+              alias: newPost.userAlias,
+              urlPicture: newPost.userUrlPicture,
+              service: newPost.userService,
+              _id: newPost.UserId,
             },
-          },
-        };
+            content: {
+              text: newPost.contentText,
+              urlPicture: newPost.contentUrlPicture,
+              originalPosterProfile: {
+                alias: newPost.originalUserAlias,
+                urlPicture: newPost.originalUserUrlPicture,
+                text: newPost.originalUserText,
+              },
+            },
+          };
+          console.log({response: response});
 
-        // Return response
-        return res.status(201).json(response);
+          // Return response
+          return res.status(201).json(response);
+        } else {
+          return res.status(500).json({ error: "cannot post message" });
+        }
       } else {
-        return res.status(500).json({ error: "cannot post message" });
+        res.status(404).json({ error: "user not found" });
       }
-    } else {
-      res.status(404).json({ error: "user not found" });
+    } catch (err) {
+      return res.status(500).json({ error: "global error: " + err });
     }
   },
 

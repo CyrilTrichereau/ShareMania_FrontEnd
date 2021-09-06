@@ -12,10 +12,6 @@ const server = express();
 //Init helmet
 server.use(helmet());
 
-// Body Parser Configuration
-server.use(bodyParser.urlencoded({ extended: true }));
-server.use(bodyParser.json());
-
 // Headers for CORS
 server.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -30,21 +26,33 @@ server.use((req, res, next) => {
   next();
 });
 
-// Configures routes
+// Body Parser Configuration
+server.use(bodyParser.json({ limit: "50mb" }));
+server.use(
+  bodyParser.urlencoded({
+    limit: "50mb",
+    extended: true,
+    parameterLimit: 50000,
+  })
+);
+
+// Test Route ( main entrance )
 server.get("/", (req, res) => {
   res.setHeader("Content-Type", "text/html");
   res.status(200).send("<h1>Welcome to Sharemania API</h1>");
 });
 
-//
+// Folder multer
 server.use(
-  "/imagesAndVideos",
-  express.static(path.join(__dirname, "imagesAndVideos"))
+  "/mediaPostsStore",
+  express.static(path.join(__dirname, "mediaPostsStore"))
 );
 
+// Call api router
 server.use("/api/", apiRouter);
 
 // Launch server
-server.listen(8080, () => {
-  console.log(" ---- Serveur en écoute ---- ");
+server.listen(8080
+  , () => {
+  console.log(" ---- Server listening ---- ");
 });

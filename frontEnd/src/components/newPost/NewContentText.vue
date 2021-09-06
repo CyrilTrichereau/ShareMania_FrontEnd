@@ -49,7 +49,6 @@ export default {
   },
   data() {
     return {
-      test: {},
       postData: {
         posterProfile: {
           alias: "",
@@ -57,19 +56,15 @@ export default {
           service: "",
           _id: "",
         },
-        time: 0,
         content: {
           text: "",
           urlPicture: "",
           originalPosterProfile: {
-            alias: "",
-            urlPicture: "",
-            text: "",
+            alias: null,
+            urlPicture: null,
+            text: null,
           },
         },
-        onFire_id: [],
-        cold_id: [],
-        commentsList: [],
       },
     };
   },
@@ -79,8 +74,11 @@ export default {
     },
     mediaToAttachToPost: function(mediaToAttach) {
       this.eraseGifToDisplay();
-      this.postData.content.mediaAttached = mediaToAttach[0];
-      this.postData.content.urlPicture = mediaToAttach[1];
+      if (mediaToAttach[0].target.files) {
+        console.log({ mediaToAttach: mediaToAttach[0].target.files[0] });
+        this.postData.mediaFile = mediaToAttach[0].target.files[0];
+        this.postData.content.urlPicture = mediaToAttach[1];
+      }
     },
   },
   methods: {
@@ -88,14 +86,24 @@ export default {
       this.postData.content.text = payload;
     },
     updatePostData(objectGiphy) {
-      this.postData.content.originalPosterProfile.alias =
-        objectGiphy.posterProfile.alias;
-      this.postData.content.originalPosterProfile.urlPicture =
-        objectGiphy.posterProfile.urlPicture;
-      this.postData.content.originalPosterProfile.text =
-        objectGiphy.content.text;
-      this.postData.content.urlPicture = objectGiphy.content.urlPicture;
-      this.postData.content.mediaAttached = "";
+      console.log({ objectGiphy: objectGiphy });
+      console.log({
+        this$storestatepostsGiphygifDataSavedTemporary: this.$store.state
+          .postsGiphy.gifDataSavedTemporary,
+      });
+      if (
+        objectGiphy.posterProfile !== undefined &&
+        objectGiphy.content !== undefined
+      ) {
+        this.postData.content.originalPosterProfile.alias =
+          objectGiphy.posterProfile.alias;
+        this.postData.content.originalPosterProfile.urlPicture =
+          objectGiphy.posterProfile.urlPicture;
+        this.postData.content.originalPosterProfile.text =
+          objectGiphy.content.text;
+        this.postData.content.urlPicture = objectGiphy.content.urlPicture;
+        this.postData.mediaFile = "";
+      }
     },
     eraseGifToDisplay() {
       const postGiphyToReplace = {
@@ -110,18 +118,77 @@ export default {
       };
       this.updatePostData(postGiphyToReplace);
     },
-    sendPost() {
-      this.postData.posterProfile.alias = this.$store.state.profile.myProfile.alias;
-      this.postData.posterProfile.urlPicture = this.$store.state.profile.myProfile.urlPicture;
-      this.postData.posterProfile.service = this.$store.state.profile.myProfile.service;
-      this.postData.posterProfile._id = this.$store.state.profile.myProfile._id;
-      this.postData.time = Date.now();
+    async sendPost() {
+      // Init Response FormData
+      let responseFormData = new FormData();
 
-      console.log(this.postData);
-      // this.$store.dispatch('sendPostObject', this.postData, "POST");
-      this.$store.dispatch("openOrCloseMenuHeaderForce", "none")
-      this.$router.push({ name: 'home' })
+      // Params
+      const requestObject = [
+        ["userAlias", this.$store.state.profile.myProfile.alias],
+        ["userUrlPicture", this.$store.state.profile.myProfile.urlPicture],
+        ["userService", this.$store.state.profile.myProfile.service],
+        ["contentText", this.postData.content.text],
+        ["contentUrlPicture", this.postData.content.urlPicture],
+        [
+          "originalUserAlias",
+          this.postData.content.originalPosterProfile.alias,
+        ],
+        [
+          "originalUserUrlPicture",
+          this.postData.content.originalPosterProfile.urlPicture,
+        ],
+        ["originalUserText", this.postData.content.originalPosterProfile.text],
+      ];
 
+      // Add file
+      if (this.postData.mediaFile) {
+        try {
+          responseFormData.append(
+            "mediaFile",
+            this.postData.mediaFile,
+            this.postData.mediaFile.name
+          );
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      // Add data
+      requestObject.forEach((value) => {
+        try {
+          responseFormData.append(value[0], value[1]);
+        } catch (error) {
+          console.log(error);
+        }
+      });
+
+      console.log({ responseFormData: responseFormData });
+      // fetch new post
+      try {
+        console.log(this.$store.state.apiUrl.entryPoint+ "/feedPosts/new/");
+        let response = await fetch(
+          (this.$store.state.apiUrl.entryPoint + "/feedPosts/new/"),
+          {
+            method: "POST",
+            body: responseFormData,
+            headers: {
+              authorization:
+                "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYzMDg3NTQ4NiwiZXhwIjoxNjMxMDQ4Mjg2fQ.HsxKB7qapuGUspzjiliksPz2bkW-gBI-Ejx3CDbrQ3c",
+            },
+          }
+        );
+
+// Passer le token dans le local storage et attaquer les routes users
+
+        response = response.json()
+
+        console.log({ responseBody: response });
+      } catch (error) {
+        console.log(error);
+      }
+
+      this.$store.dispatch("openOrCloseMenuHeaderForce", "none");
+      this.$router.push({ name: "home" });
     },
   },
   mounted() {

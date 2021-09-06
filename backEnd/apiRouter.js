@@ -2,8 +2,8 @@
 const express = require("express");
 
 // Imports Middlewares
-const multer = require("./middleware/multer-config");
 const auth = require("./middleware/auth");
+const multer = require("./middleware/multer-config");
 
 // Import controllers
 const usersCtrl = require("./routes/usersCtrl");

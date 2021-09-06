@@ -6,11 +6,13 @@
 
     <input
       type="file"
-      name="file"
+      name="mediaFile"
       id="file"
       accept="image/png, image/jpeg, video/mp4 video/wbem"
+      enctype='multipart/form-data'
       class="btn btn-primary inputFileInput"
       @change="ascendSendMediaToPostObject"
+      
     />
   </div>
 </template>
