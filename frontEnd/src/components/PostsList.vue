@@ -31,7 +31,7 @@
     <div class="postsListMain" v-if="!postsGiphy">
       <div
         class="postsListMainWrapper"
-        v-for="(post, index) in postsListOrdered"
+        v-for="(post, index) in postsList"
         :key="index"
       >
         <Post :post="post" />
@@ -88,7 +88,7 @@ export default {
 
   data() {
     return {
-      postsListOrdered: "",
+      postsList: "",
     };
   },
   computed: {
@@ -99,20 +99,53 @@ export default {
   methods: {
     changeOrderByPostsList(payload) {
       if (payload == "popular") {
-        this.postsListOrdered = this.$store.getters.byOrderPopular;
-      } else if (payload == "shared") {
-        this.postsListOrdered = this.$store.getters.byOrderShared;
+        this.fetchPosts("popular");
+      } else if (payload == "hotest") {
+        this.fetchPosts("hotest");
       } else {
-        this.postsListOrdered = this.$store.getters.byOrderRecent;
+        this.fetchPosts();
       }
     },
+
+    async fetchPosts(orderType) {
+      // Request params
+      const numberOfPostsLimit = "?limit=10";
+      const startAtPostNumber = "&offset=0";
+      let orderBy = null;
+      if (orderType === "hotest") {
+        orderBy = "&order=averageCounter:DESC";
+      } else if (orderType === "popular") {
+        orderBy = "&order=popularityCounter:DESC";
+      } else {
+        orderBy = "&order=createdAt:DESC";
+      }
+      const params = numberOfPostsLimit + startAtPostNumber + orderBy;
+
+      // Get posts
+      try {
+        const response = await fetch(
+          this.$store.state.apiUrl.entryPoint + "/feedPosts" + params,
+          {
+            headers: {
+              authorization: localStorage.getItem("token"),
+            },
+          }
+        );
+        this.postsList = await response.json();
+        console.log(this.postsList);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     ascendInfoShareAGiphy(gifObject) {
       this.$emit("ascend-share-a-giphy-post", gifObject);
     },
   },
   mounted() {
     if (!this.postsGiphy) {
-      this.postsListOrdered = this.$store.getters.byOrderRecent;
+      console.log("je suis dans le mounted");
+      this.fetchPosts("date");
     } else {
       this.$store.dispatch("fetchPostsGiphyTrending", {
         numberOfPosts: 20,

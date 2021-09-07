@@ -75,7 +75,6 @@ export default {
     mediaToAttachToPost: function(mediaToAttach) {
       this.eraseGifToDisplay();
       if (mediaToAttach[0].target.files) {
-        console.log({ mediaToAttach: mediaToAttach[0].target.files[0] });
         this.postData.mediaFile = mediaToAttach[0].target.files[0];
         this.postData.content.urlPicture = mediaToAttach[1];
       }
@@ -86,11 +85,6 @@ export default {
       this.postData.content.text = payload;
     },
     updatePostData(objectGiphy) {
-      console.log({ objectGiphy: objectGiphy });
-      console.log({
-        this$storestatepostsGiphygifDataSavedTemporary: this.$store.state
-          .postsGiphy.gifDataSavedTemporary,
-      });
       if (
         objectGiphy.posterProfile !== undefined &&
         objectGiphy.content !== undefined
@@ -162,26 +156,19 @@ export default {
         }
       });
 
-      console.log({ responseFormData: responseFormData });
       // fetch new post
       try {
-        console.log(this.$store.state.apiUrl.entryPoint+ "/feedPosts/new/");
         let response = await fetch(
-          (this.$store.state.apiUrl.entryPoint + "/feedPosts/new/"),
+          this.$store.state.apiUrl.entryPoint + "/feedPosts/new/",
           {
             method: "POST",
             body: responseFormData,
             headers: {
-              authorization:
-                "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYzMDg3NTQ4NiwiZXhwIjoxNjMxMDQ4Mjg2fQ.HsxKB7qapuGUspzjiliksPz2bkW-gBI-Ejx3CDbrQ3c",
+              authorization: localStorage.getItem("token"),
             },
           }
         );
-
-// Passer le token dans le local storage et attaquer les routes users
-
-        response = response.json()
-
+        response = await response.json();
         console.log({ responseBody: response });
       } catch (error) {
         console.log(error);

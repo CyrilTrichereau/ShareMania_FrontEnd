@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      pictureProfileToShow: "",
+      pictureProfileToShow: this.$store.state.profile.myProfile.urlPicture,
     };
   },
   computed: {
@@ -35,7 +35,7 @@ export default {
       this.pictureProfileToShow = payload;
     },
   },
-  created() {
+  mounted() {
     this.pictureProfileToShow = this.$store.state.profile.myProfile.urlPicture;
   },
 };

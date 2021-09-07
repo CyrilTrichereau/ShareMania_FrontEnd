@@ -67,9 +67,31 @@ export default {
     savePassword(payload) {
       this.logIn.password = payload[0];
     },
-    logInToAccount() {
-      console.log(this.logIn);
-      // this.sendLogIn(this.logIn);
+    async logInToAccount() {
+      let response = null;
+      let responseLogged = null;
+      // fetch new post
+      try {
+        response = await fetch(
+          this.$store.state.apiUrl.entryPoint + "/users/login/",
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(this.logIn),
+          }
+        );
+        responseLogged = await response.json();
+      } catch (error) {
+        console.log(error);
+      }
+
+      // Store token in local storage
+      localStorage.setItem("token", "Bearer " + responseLogged.token);
+      console.log("login success");
+      this.$router.push({ name: "home" });
     },
   },
 };

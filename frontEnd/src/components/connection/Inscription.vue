@@ -100,7 +100,7 @@ export default {
         alias: "",
         service: "",
         urlPicture: "/images/unknowProfile250pxTinyfied.jpg",
-        mediaPicture: "",
+        mediaFile: "",
       },
     };
   },
@@ -124,12 +124,12 @@ export default {
     },
     saveNewPictureProfile(payload) {
       this.profileToSave.urlPicture = payload[1];
-      this.profileToSave.mediaPicture = payload[0];
+      this.profileToSave.mediaFile = payload[0].target.files[0];
     },
     erasePictureProfile() {
       this.profileToSave.urlPicture = this.urlPictureForEmpty;
     },
-    saveProfileChanges() {
+    async saveProfileChanges() {
       let formCompleted = true;
       this.arrayIsValid.forEach((element) => {
         if (element !== "success") {
@@ -137,8 +137,58 @@ export default {
         }
       });
       if (formCompleted) {
-        console.log(this.profileToSave);
-        // this.sendProfileObject(this.profileToSave, "POST");
+        let responseFormData = new FormData();
+        // Params
+        const requestObject = [
+          ["email", this.profileToSave.email],
+          ["password", this.profileToSave.password],
+          ["alias", this.profileToSave.alias],
+          ["service", this.profileToSave.service],
+          ["urlPicture", this.profileToSave.urlPicture],
+        ];
+
+        // Add file
+        if (this.profileToSave.mediaFile) {
+          try {
+            responseFormData.append(
+              "mediaFile",
+              this.profileToSave.mediaFile,
+              this.profileToSave.mediaFile.name
+            );
+          } catch (error) {
+            console.log(error);
+          }
+        }
+
+        // Add data
+        requestObject.forEach((value) => {
+          try {
+            responseFormData.append(value[0], value[1]);
+          } catch (error) {
+            console.log(error);
+          }
+        });
+
+        let response = null;
+        let responseNewUser = null;
+        // fetch new post
+        try {
+          response = await fetch(
+            this.$store.state.apiUrl.entryPoint + "/users/register/",
+            {
+              method: "POST",
+              body: responseFormData,
+            }
+          );
+          responseNewUser = await response.json();
+        } catch (error) {
+          console.log(error);
+        }
+
+        // Store token in local storage
+        localStorage.setItem("token", "Bearer " + responseNewUser.token);
+
+        // Open confirmation pop in
         this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
       } else {
         this.inscriptionIsNotValid = true;

@@ -77,12 +77,35 @@ export default {
     };
   },
   methods: {
-    eraseProfile() {
-      let profileForErasing = {};
-      profileForErasing._id = this.$store.state.profile.myProfile._id;
-      profileForErasing.alias = this.$store.state.profile.myProfile.alias;
-      profileForErasing.email = this.$store.state.profile.myProfile.email;
+    async eraseProfile() {
+      let profileForErasing = {
+        id: this.$store.state.profile.myProfile.id,
+        alias: this.$store.state.profile.myProfile.alias,
+        email: this.$store.state.profile.myProfile.email,
+      };
       console.log(profileForErasing);
+
+      let response = null;
+      let responseErasing = null;
+      // fetch new post
+      try {
+        response = await fetch(
+          this.$store.state.apiUrl.entryPoint + "/" + profileForErasing.id + "/users/myProfile/",
+          {
+            method: "DELETE",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token"),
+            },
+            body: JSON.stringify(responseErasing),
+          }
+        );
+        responseErasing = await response.json();
+      } catch (error) {
+        console.log(error);
+      }
+      console.log({responseErasing: responseErasing});
       this.$router.push({ name: 'login' })
     },
   },

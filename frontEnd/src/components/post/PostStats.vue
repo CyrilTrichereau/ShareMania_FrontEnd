@@ -4,10 +4,10 @@
       <DoubleFire class="postStatsTemperatureDoubleFire" />
       <div class="postStatsTemperatureStats">
         <p class="postStatsTemperatureStatsPercentage">
-          <span class="stronger"> {{ percentageOfOnFire }} %</span>
+          <span class="stronger"> {{ averageCounterChecked }} %</span>
         </p>
         <p class="postStatsTemperatureStatsNumberPersons">
-          <span class=""> {{ onFireId.length + coldId.length }} </span> votes
+          <span class=""> {{ onFireCounter + coldCounter }} </span> votes
         </p>
       </div>
     </div>
@@ -15,16 +15,12 @@
       <p class="postStatsNumberComments">
         <span class="stronger"> {{ commentsNumber }} </span> commentaires
       </p>
-      <p class="postStatsNumberShare">
-        <span class="stronger"> {{ shareNumber }} </span> partages
-      </p>
     </div>
   </div>
 </template>
 
 <script>
 import DoubleFire from "@/components/icons/DoubleFire.vue";
-import * as utils from "@/assets/utils.js";
 
 export default {
   name: "PostStats",
@@ -32,15 +28,16 @@ export default {
     DoubleFire,
   },
   props: {
-    onFireId: {
-      type: Array,
+    onFireCounter: {
+      type: Number,
       require: true,
     },
-    coldId: {
-      type: Array,
+    coldCounter: {
+      type: Number,
       require: true,
     },
-    shareNumber: {
+    averageCounter: {
+      type: Number,
       require: true,
     },
     commentsNumber: {
@@ -49,9 +46,13 @@ export default {
     },
   },
   computed: {
-    percentageOfOnFire() {
-      return utils.onFirePercentage(this.onFireId, this.coldId);
-    },
+    averageCounterChecked() {
+      if (!this.averageCounter) {
+        return 0
+      } else {
+        return this.averageCounter
+      }
+    }
   },
 };
 </script>

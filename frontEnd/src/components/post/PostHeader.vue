@@ -60,10 +60,34 @@ export default {
     },
   },
   methods: {
-    erasePost() {
+    async erasePost() {
+      // Params
       console.log(this.dataForPostEraser);
-      // send DELETE
-      this.$router.go();
+      let response = null;
+      let responseErasing = null;
+      // Fetch DELETE
+      try {
+        response = await fetch(
+          this.$store.state.apiUrl.entryPoint +
+            "/" +
+            this.dataForPostEraser.postId +
+            "/feedPosts",
+          {
+            method: "DELETE",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token"),
+            },
+            body: JSON.stringify(this.dataForPostEraser),
+          }
+        );
+        responseErasing = await response.json();
+        console.log(responseErasing);
+      } catch (error) {
+        console.log(error);
+      }
+      //this.$router.go();
     },
   },
 };

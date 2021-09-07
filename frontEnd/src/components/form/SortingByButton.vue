@@ -11,8 +11,8 @@
         >Trier par</option
       >
       <option value="recent">Plus récents</option>
+      <option value="hotest">Plus brûlants</option>
       <option value="popular">Plus populaires</option>
-      <option value="shared" v-if="typeSortingBy==='post'">Plus partagés</option>
     </select>
   </div>
 </template>
@@ -20,12 +20,6 @@
 <script>
 export default {
   name: "SortingByButton",
-  props: {
-    typeSortingBy: {
-      type: String,
-      default: "post"
-    }
-  },
   data() {
     return {
       valueSelected: "recent",

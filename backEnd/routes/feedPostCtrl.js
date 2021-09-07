@@ -18,11 +18,9 @@ module.exports = {
       const feedPostObject = req.body;
 
       if (req.file) {
-        console.log(" ---------------- I am inside ----------------");
         feedPostObject.contentUrlPicture = `${req.protocol}://${req.get(
           "host"
         )}/mediaPostsStore/${req.file.filename}`;
-        console.log(feedPostObject.contentUrlPicture);
       }
       // Getting auth header
       const headerAuth = req.headers["authorization"];
@@ -86,7 +84,6 @@ module.exports = {
 
         // if post isLike well created, send newPost Object or send an error
         if (newPost) {
-          console.log({newPost: newPost});
           // Prepare response
           const response = {
             _id: newPost.id,
@@ -111,8 +108,6 @@ module.exports = {
               },
             },
           };
-          console.log({response: response});
-
           // Return response
           return res.status(201).json(response);
         } else {

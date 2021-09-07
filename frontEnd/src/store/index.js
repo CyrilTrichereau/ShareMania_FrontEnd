@@ -3,15 +3,11 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-import posts from "./posts.js";
-import auth from "./auth.js";
 import profile from "./profile.js";
 import postsGiphy from "./postsGiphy.js";
 
 export default new Vuex.Store({
   modules: {
-    posts,
-    auth,
     profile,
     postsGiphy,
   },

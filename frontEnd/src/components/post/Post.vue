@@ -17,18 +17,25 @@
       :text="post.content.originalPosterProfile.text"
     />
     <PostStats
-      :onFireId="post.onFire_id"
-      :coldId="post.cold_id"
-      :shareNumber="post.shareNumber"
-      :commentsNumber="post.commentsList.length"
+      :onFireCounter="post.onFireCounter"
+      :coldCounter="post.coldCounter"
+      :averageCounter="post.averageCounter"
+      :commentsNumber="numberOfComments"
     />
+
+    <!-- transit comments list lenght  to posts stats -->
+
     <PostIntercation
       @open-close-comment-block="commentsIsOpen = !commentsIsOpen"
     />
-    <PostWriteAComment v-show="commentsIsOpen" :commentObject="dataPostForActions" />
+    <PostWriteAComment
+      v-show="commentsIsOpen"
+      :commentObject="dataPostForActions"
+    />
     <PostCommentsList
       v-show="commentsIsOpen"
-      :commentsList="post.commentsList"
+      :postId="post._id"
+      @number-of-comments="updateNumberOfComments"
     />
   </div>
 </template>
@@ -61,17 +68,57 @@ export default {
   },
   computed: {
     dataPostForActions() {
-      let data = {}
-      data.posterId = this.post.posterProfile._id
-      data.postId =this.post._id
-      data.time =this.post.time
-      return data
-    }
+      let data = {};
+      data.posterId = this.post.posterProfile._id;
+      data.postId = this.post._id;
+      data.time = this.post.time;
+      return data;
+    },
   },
   data() {
     return {
       commentsIsOpen: false,
+      commentsList: null,
+      numberOfComments: null,
     };
+  },
+  methods: {
+    async fetchPosts(context, orderType) {
+      // Request params
+      const numberOfPostsLimit = "?limit=10";
+      const startAtPostNumber = "&offset=0";
+      let orderBy = null;
+      if (orderType === "hotest") {
+        orderBy = "&order=averageCounter:DESC";
+      } else if (orderType === "popular") {
+        orderBy = "&order=popularityCounter:DESC";
+      } else {
+        orderBy = "&order=createdAt:ASC";
+      }
+      const params = numberOfPostsLimit + startAtPostNumber + orderBy;
+
+      try {
+        const response = await fetch(
+          this.$store.state.apiUrl.entryPoint + "/feedPosts" + params,
+          {
+            headers: {
+              authorization: localStorage.getItem("token"),
+            },
+          }
+        );
+        const responseJson = await response.json();
+        console.log(responseJson);
+        context.commit("STORE_LIST_POSTS", responseJson.body);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    updateNumberOfComments(payload) {
+      this.numberOfComments = payload;
+    },
+  },
+  created() {
+    this.fetchComments;
   },
 };
 </script>

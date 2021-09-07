@@ -1,43 +1,28 @@
-import * as dataStatic from "@/assets/dataStatic.js";
-
 let state = {
   myProfile: {},
 };
 
 const mutations = {
   STORE_MY_PROFILE(state, profileToSave) {
-   state.myProfile = profileToSave;
+    state.myProfile = profileToSave;
   },
 };
 
 const actions = {
-  fetchMyProfile(context) {
-    const myProfile = dataStatic.profilesList[27];
-    context.commit("STORE_MY_PROFILE", myProfile);
-  },
-
-  async fetchProfile({ commit }) {
+  async fetchMyProfile(context) {
+    // Get posts
     try {
-      const response = await fetch(this.state.apiUrl.profile);
-      commit("STORE_MY_PROFILE", await response.body.dataStatic.items);
-    } catch (error) {
-      console.log(error);
-    }
-  },
-
-  async sendProfileObject(bodyObject, methodToUse) {
-    try {
-      const response = await fetch(this.apiUrl.profile, {
-        method: methodToUse,
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(bodyObject),
-      });
-
-      return await response.json();
+      const response = await fetch(
+        this.state.apiUrl.entryPoint + "/users/myProfile",
+        {
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
+        }
+      );
+      let myProfileResponse = await response.json();
+      context.commit("STORE_MY_PROFILE", myProfileResponse);
+      console.log(myProfileResponse);
     } catch (error) {
       console.log(error);
     }

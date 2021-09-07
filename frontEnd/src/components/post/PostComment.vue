@@ -32,7 +32,7 @@
           <OnFire :small="true" />
         </div>
         <p class="commentContentInteractionsPercentage text-secondary">
-          {{ percentageOfOnFire }}
+          {{ commentObject.averageCounter }}
           %
         </p>
         <div class="commentContentInteractionsSnow">
@@ -63,24 +63,43 @@ export default {
     },
   },
   computed: {
-    percentageOfOnFire() {
-      return utils.onFirePercentage(
-        this.commentObject.onFire_id,
-        this.commentObject.cold_id
-      );
-    },
     timeElapsed() {
       return utils.elapsedTime(this.commentObject.time);
     },
   },
   methods: {
-    eraseComment() {
-      let dataOfComment = {};
-      dataOfComment.posterId = this.commentObject.profile._id;
-      dataOfComment.commentId = this.commentObject._id;
-      dataOfComment.time = this.commentObject.time;
+    async eraseComment() {
+      // Params
+      let response = null;
+      let responseErasing = null;
+      let dataOfComment = {
+        posterId: this.commentObject.profile._id,
+        commentId: this.commentObject._id,
+        time: this.commentObject.time,
+      };
       console.log(dataOfComment);
-      // send DELETE
+      // Fetch DELETE
+      try {
+        response = await fetch(
+          this.$store.state.apiUrl.entryPoint +
+            "/" +
+            dataOfComment.commentId +
+            "/postComment",
+          {
+            method: "DELETE",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token"),
+            },
+            body: JSON.stringify(dataOfComment),
+          }
+        );
+        responseErasing = await response.json();
+        console.log(responseErasing);
+      } catch (error) {
+        console.log(error);
+      }
       this.$router.go();
     },
   },

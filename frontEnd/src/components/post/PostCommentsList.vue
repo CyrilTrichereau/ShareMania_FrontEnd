@@ -1,6 +1,7 @@
 <template>
-  <div class="displayComments">
-    <div class="displayCommentsHeader">
+  <div class="displayComments" >
+
+    <div class="displayCommentsHeader" v-if="commentsList.length >= 1">
       <p class="displayCommentsHeaderTitle text-primary">Commentaires</p>
       <div class="displayCommentsHeaderSorting">
         <SortingByButton 
@@ -9,7 +10,7 @@
       </div>
     </div>
     <div
-      v-for="(comment, index) in commentsListOrdered"
+      v-for="(comment, index) in commentsList"
       :key="index"
       class="displayCommentsList"
     >
@@ -29,35 +30,67 @@ export default {
     Comment,
   },
   props: {
-    commentsList: {
-      type: Array,
+    postId: {
+      type: Number,
       require: true,
     },
   },
   data() {
     return {
-      commentsListOrdered: "",
+      commentsList: false,
     };
   },
   methods: {
+
+    async fetchComments(orderType) {
+      // Request params
+      const numberOfCommentsLimit = "?limit=30";
+      const startAtPostNumber = "&offset=0";
+      let orderBy = null;
+      if (orderType === "hotest") {
+        orderBy = "&order=averageCounter:DESC";
+      } else if (orderType === "popularity") {
+        orderBy = "&order=popularityCounter:DESC";
+      } else {
+        orderBy = "&order=createdAt:DESC";
+      }
+      const params = numberOfCommentsLimit + startAtPostNumber + orderBy;
+
+      try {
+        const response = await fetch(
+          this.$store.state.apiUrl.entryPoint + "/" + this.postId + "/postComment" + params,
+          {
+            headers: {
+              authorization: localStorage.getItem("token"),
+            },
+          }
+        );
+        this.commentsList = await response.json();
+        this.$emit("number-of-comments", this.commentsList.length)
+        console.log(this.commentsList);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     changeOrderByCommentsList(payload) {
       if (payload == "popular") {
-        this.commentsListOrdered = this.commentsList.sort((a, b) =>
-          a.onFire_id.length / a.cold_id.length >
-          b.onFire_id.length / b.cold_id.length
-            ? -1
-            : 1
-        );
+        this.fetchComments("popular");
+      } else if (payload == "hotest") {
+        this.fetchComments("hotest");
       } else {
-        this.commentsListOrdered = this.commentsList.sort((a, b) =>
-          a.time > b.time ? -1 : 1
-        );
+        this.fetchComments();
       }
     },
   },
   mounted() {
-    this.changeOrderByCommentsList("recent");
+    this.fetchComments();
   },
+  watch: {
+    postId: function () {
+    this.fetchComments();
+    }
+  }
 };
 </script>
 

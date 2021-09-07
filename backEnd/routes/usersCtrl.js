@@ -13,12 +13,13 @@ const ALIAS_REGEX = /^[a-zA-ZÀ-ÿ1-9]{5,12}$/;
 // Routes
 module.exports = {
   register: async (req, res) => {
+    let userObject = req.body;
     // Params
-    const email = req.body.email;
-    const alias = req.body.alias;
-    const password = req.body.password;
-    const service = req.body.service;
-    const urlPicture = req.body.urlPicture;
+    const email = userObject.email;
+    const alias = userObject.alias;
+    const password = userObject.password;
+    const service = userObject.service;
+    let urlPicture = userObject.urlPicture;
     const isModerator = false;
 
     // If One information is missing
@@ -31,6 +32,12 @@ module.exports = {
       isModerator == null
     ) {
       return res.status(400).json({ error: "missing parameters" });
+    }
+
+    if (req.file) {
+      urlPicture = `${req.protocol}://${req.get("host")}/mediaPostsStore/${
+        req.file.filename
+      }`;
     }
 
     // Control data sent with REGEX
@@ -88,7 +95,7 @@ module.exports = {
           if (newUser) {
             // Prepare response
             const newUserObject = {
-              id: newUser.id,
+              _id: newUser.id,
               token: jwtUtils.generateTokenForUser(newUser),
               email: newUser.email,
               alias: newUser.alias,
@@ -97,9 +104,7 @@ module.exports = {
               time: utils.timestampTranslator(newUser.createdAt),
             };
             // Return new user object
-            return res
-              .status(201)
-              .json({ message: "User well create", newUser: newUserObject });
+            return res.status(201).json(newUserObject);
           } else {
             return res.status(500).json({ error: "Cannot add user" });
           }
@@ -211,7 +216,7 @@ module.exports = {
     const oldPassword = req.body.oldPassword;
     const newPassword = req.body.newPassword;
     const service = req.body.service;
-    const urlPicture = req.body.urlPicture;
+    let urlPicture = req.body.urlPicture;
     let userFound = null;
 
     try {
@@ -232,6 +237,12 @@ module.exports = {
       return res.status(500).json({ error: "unable to verify user" });
     }
     if (userFound) {
+      if (req.file) {
+        urlPicture = `${req.protocol}://${req.get(
+          "host"
+        )}/mediaPostsStore/${req.file.filename}`;
+      }
+
       // Then if user found, check if there is a password to change
       if (newPassword) {
         // Then if new password is not null, compare old password with password stored
@@ -315,10 +326,20 @@ module.exports = {
     }
   },
   deleteUserProfile: async (req, res) => {
+    console.log(
+      " -------------------------" +
+        " jesuis là : " +
+        " -------------------------"
+    );
     // Getting auth header
     const headerAuth = req.headers["authorization"];
     const userId = jwtUtils.getUserId(headerAuth);
 
+console.log(
+  " -------------------------" +
+    " jesuis là : " +
+    " -------------------------"
+);
     // Control token
     if (userId < 0) return res.status(400).json({ error: "wrong token" });
 

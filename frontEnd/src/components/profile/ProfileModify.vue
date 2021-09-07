@@ -4,7 +4,10 @@
       text="Changer ma photo de profil"
       @ascend-send-media-to-post-object="saveNewPictureProfile"
     />
-    <div class="profileModifyContentStatus" v-if="$store.state.profile.myProfile.moderator">
+    <div
+      class="profileModifyContentStatus"
+      v-if="$store.state.profile.myProfile.moderator"
+    >
       <font-awesome-icon
         icon="shield-alt"
         class="text-success profileModifyContentStatusIcon"
@@ -55,7 +58,7 @@
     </div>
     <div
       class="profileModifyContentValidateWrapper"
-      @click="$store.dispatch('changeProfileModifyOrShow')"
+      @click="closeAndResetPicture"
     >
       <Button text="Quitter sans sauvegarder" :danger="true" />
     </div>
@@ -106,7 +109,7 @@ export default {
         alias: "",
         service: "",
         urlPicture: "",
-        mediaPicture: "",
+        mediaFile: "",
       },
     };
   },
@@ -128,10 +131,10 @@ export default {
     },
     saveNewPictureProfile(payload) {
       this.profileToSave.urlPicture = payload[1];
-      this.profileToSave.mediaPicture = payload[0];
+      this.profileToSave.mediaFile = payload[0].target.files[0];
       this.$emit("new-picture-profile", payload[1]);
     },
-    saveProfileChanges() {
+    async saveProfileChanges() {
       let formCompleted = true;
       this.arrayIsValid.forEach((element) => {
         if (element !== "success") {
@@ -140,19 +143,77 @@ export default {
       });
       if (formCompleted) {
         console.log(this.profileToSave);
-        // this.sendProfileObject(this.profileToSave, "PUT");
+        let responseFormData = new FormData();
+        // Params
+        const requestObject = [
+          ["oldPassword", this.profileToSave.oldPassword],
+          ["newPassword", this.profileToSave.newPassword],
+          ["alias", this.profileToSave.alias],
+          ["service", this.profileToSave.service],
+          ["urlPicture", this.profileToSave.urlPicture],
+        ];
+
+        // Add file
+        console.log(this.profileToSave.mediaFile);
+        if (this.profileToSave.mediaFile) {
+          try {
+            responseFormData.append(
+              "mediaFile",
+              this.profileToSave.mediaFile,
+              this.profileToSave.mediaFile.name
+            );
+          } catch (error) {
+            console.log(error);
+          }
+        }
+
+        // Add data
+        requestObject.forEach((value) => {
+          try {
+            responseFormData.append(value[0], value[1]);
+          } catch (error) {
+            console.log(error);
+          }
+        });
+
+        let response = null;
+        let responseNewUser = null;
+        // fetch new post
+        try {
+          response = await fetch(
+            this.$store.state.apiUrl.entryPoint + "/users/myProfile/",
+            {
+              method: "PUT",
+              body: responseFormData,
+              headers: {
+                authorization: localStorage.getItem("token"),
+              },
+            }
+          );
+          responseNewUser = await response.json();
+          console.log({ responseNewUser: responseNewUser });
+        } catch (error) {
+          console.log(error);
+        }
+
+        // Open confirmation pop in
         this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
       } else {
         this.formIsNotValid = true;
       }
     },
+    closeAndResetPicture() {
+      this.$emit("new-picture-profile", this.$store.state.profile.myProfile.urlPicture);
+      this.$store.dispatch("changeProfileModifyOrShow");
+    },
   },
+
   created() {
     this.profileToSave._id = this.$store.state.profile.myProfile._id;
     this.profileToSave.alias = this.$store.state.profile.myProfile.alias;
     this.profileToSave.service = this.$store.state.profile.myProfile.service;
     this.profileToSave.urlPicture = this.$store.state.profile.myProfile.urlPicture;
-    this.profileToSave.mediaPicture = "";
+    this.profileToSave.mediaFile = "";
   },
 };
 </script>

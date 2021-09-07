@@ -1,10 +1,3 @@
-
-    export const onFirePercentage = (onFireArray, coldArray) => {
-        return Math.round(
-          onFireArray.length / ((onFireArray.length + coldArray.length) / 100)
-        );
-      };
-
       export const elapsedTime = (time) => {
         // calculate time elapsed in minutes
         let calcTime = Math.round((Date.now() / 1000 - time) / 60);
