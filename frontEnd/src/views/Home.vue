@@ -15,6 +15,9 @@ export default {
     PostsList,
     // CreateDataBase
   },
+  async created() {
+   await this.$store.dispatch("fetchMyProfile");
+  },
 };
 </script>
 

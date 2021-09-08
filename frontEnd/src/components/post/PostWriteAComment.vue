@@ -1,5 +1,5 @@
 <template>
-  <div class="myComment">
+  <div class="myComment" :key="keyComponent">
     <p class="myCommentTitle text-light bg-secondary">Ajouter un commentaire</p>
     <div class="myCommentContent bg-info">
       <div class="myCommentContentProfile">
@@ -33,42 +33,57 @@ export default {
       type: Object,
       required: true,
     },
-    data() {
-      return {
-        contentText: "",
-      };
-    },
+  },
+  data() {
+    return {
+      contentText: "",
+      keyComponent: 0,
+    };
   },
   methods: {
     saveContentText(payload) {
       this.contentText = payload;
     },
-    sendNewComment() {
+    async sendNewComment() {
       let dataNewComment = {
         post: {
-          posterId: "",
-          postId: "",
-          time: "",
+          posterId: this.commentObject.posterId,
+          postId: this.commentObject.postId,
+          time: this.commentObject.time,
         },
-        newComment: {
-          profile: { _id: "", alias: "", urlPicture: "" },
+        profile: {
+          _id: this.$store.state.profile.myProfile.id,
+          alias: this.$store.state.profile.myProfile.alias,
+          urlPicture: this.$store.state.profile.myProfile.urlPicture,
         },
-        time: "",
-        text: "",
-        cold_id: [],
-        onFire_id: [],
+        text: this.contentText,
       };
-      dataNewComment.post.posterId = this.commentObject.posterId;
-      dataNewComment.post.postId = this.commentObject.postId;
-      dataNewComment.post.time = this.commentObject.time;
-      dataNewComment.newComment.profile._id = this.$store.state.profile.myProfile._id;
-      dataNewComment.newComment.profile.alias = this.$store.state.profile.myProfile.alias;
-      dataNewComment.newComment.profile.urlPicture = this.$store.state.profile.myProfile.urlPicture;
-      dataNewComment.newComment.time = Date.now();
-      dataNewComment.newComment.text = this.contentText;
       console.log(dataNewComment);
+
       //send new comment POST
-      // this.$router.go();
+      let response = null;
+      let responseNewComment = null;
+      // fetch new post
+      try {
+        response = await fetch(
+          this.$store.state.apiUrl.entryPoint + "/postComment/new/",
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token"),
+            },
+            body: JSON.stringify(dataNewComment),
+          }
+        );
+        responseNewComment = await response.json();
+        console.log({ responseNewComment: responseNewComment });
+      } catch (error) {
+        console.log(error);
+      }
+      this.keyComponent++;
+      this.$emit("update-comments-list");
     },
   },
 };

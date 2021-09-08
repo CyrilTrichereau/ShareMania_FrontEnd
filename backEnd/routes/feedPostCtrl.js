@@ -1,4 +1,5 @@
 // Imports
+const fs = require("fs");
 const models = require("../models");
 const jwtUtils = require("../utils/jwt.utils");
 const utils = require("../utils/utils");
@@ -8,8 +9,6 @@ const CONTENT_TEXT_LIMIT = 4;
 const ITEMS_LIMIT = 50;
 
 // Le modle est bien renvoyé. Il faut manintenat renvoyer la réponse avec l'objet
-
-
 
 // Routes
 module.exports = {
@@ -242,6 +241,7 @@ module.exports = {
           "userId",
           "contentText",
           "originalUserAlias",
+          "contentUrlPicture",
         ],
         where: { id: feedPostIdFromParams },
         include: [
@@ -259,12 +259,19 @@ module.exports = {
       userFound.id === feedPostFound.User.id
     ) {
       try {
-        // Destroy feed post with id
-        await models.FeedPost.destroy({
-          where: { id: feedPostFound.id },
+        // Destroy media attached
+        const filename =
+          feedPostFound.contentUrlPicture.split("/mediaPostsStore/")[1];
+        fs.unlink(`mediaPostsStore/${filename}`, async () => {
+          // Destroy feed post with id
+          await models.FeedPost.destroy({
+            where: { id: feedPostFound.id },
+          });
         });
       } catch (err) {
-        return res.status(500).json({ error: "cannot destroy feed post" });
+        return res
+          .status(500)
+          .json({ error: "cannot destroy feed post" + err });
       }
       // Prepare response
       let response = {

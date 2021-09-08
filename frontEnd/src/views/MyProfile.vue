@@ -35,7 +35,9 @@ export default {
       this.pictureProfileToShow = payload;
     },
   },
-  mounted() {
+  async created() {
+   await this.$store.dispatch("fetchMyProfile");
+
     this.pictureProfileToShow = this.$store.state.profile.myProfile.urlPicture;
   },
 };

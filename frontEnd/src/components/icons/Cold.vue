@@ -1,5 +1,5 @@
 <template>
-  <button :class="styleToApply" @click="changeStateCold">
+  <button :class="styleToApply">
     <font-awesome-icon icon="snowflake" class="backColorIcon" />
   </button>
 </template>
@@ -17,29 +17,24 @@ export default {
     };
   },
   props: {
-      small: {
-          type: Boolean,
-          default: false,
-      }
-  },
-  methods: {
-    changeStateCold() {
-      if (this.cold === false) {
-        this.cold = true;
-      } else {
-        this.cold = false;
-      }
+    small: {
+      type: Boolean,
+      default: false,
+    },
+    isActive: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {
     styleToApply() {
-      if (this.small === true && this.cold === true) {
+      if (this.small === true && this.isActive === true) {
         return this.smallStyle + "" + this.isCold;
       }
-      if (this.small === false && this.cold === true) {
+      if (this.small === false && this.isActive === true) {
         return this.bigStyle + "" + this.isCold;
       }
-      if (this.small === true && this.cold === false) {
+      if (this.small === true && this.isActive === false) {
         return this.smallStyle + "" + this.isNotCold;
       } else {
         return this.bigStyle + this.isNotCold;

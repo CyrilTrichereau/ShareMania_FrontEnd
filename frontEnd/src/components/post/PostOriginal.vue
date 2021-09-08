@@ -1,6 +1,6 @@
 <template>
-  <div class="postOriginal bg-info">
-    <div class="postOriginalProfil">
+  <div class="postOriginal bg-info" v-if="alias">
+    <div class="postOriginalProfil" v-if="urlPicture">
       <img
         :src="urlPicture"
         :alt="'Photo de profil de ' + alias"

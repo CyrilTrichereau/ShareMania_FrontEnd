@@ -13,7 +13,10 @@
         />
         <p class="h5 text-light headerMobileBlockTrademarkText">ShareMania</p>
       </router-link>
-      <div class="headerMobileBlockMenuBar">
+      <div
+        class="headerMobileBlockMenuBar"
+        v-if="$store.state.profile.myProfile.alias"
+      >
         <router-link
           to="/new-post"
           :class="{
@@ -21,9 +24,12 @@
               $store.state.isOpen.headerMenu === 'newPost',
             headerMobileBlockMenuBarWrapperOpenNewPost:
               $store.state.isOpen.headerMenu === 'newPost',
-            headerMobileBlockMenuBarWrapper: $store.state.isOpen.headerMenu === !'newPost',
+            headerMobileBlockMenuBarWrapper:
+              $store.state.isOpen.headerMenu === !'newPost',
           }"
-          @click.native="$store.dispatch('openOrCloseMenuHeaderForce', 'newPost')"
+          @click.native="
+            $store.dispatch('openOrCloseMenuHeaderForce', 'newPost')
+          "
         >
           <font-awesome-icon
             icon="plus-circle"
@@ -43,15 +49,6 @@
         >
           <MenuBurger />
         </div>
-        <router-link
-          to="/login"
-          class="btn btn-primary headerMobileBlockMenuBarWrapper d-none"
-        >
-          <font-awesome-icon
-            icon="user"
-            class="text-light headerMobileBlockMenuBarWrapperIcon headerMobileBlockMenuBarWrapperIconUser"
-          />
-        </router-link>
         <div
           :class="{
             headerMobileBlockMenuBarWrapperOpen:
@@ -65,6 +62,19 @@
           <MenuProfile />
         </div>
       </div>
+
+      <router-link to="/login" class="headerMobileBlockLogIn" v-else>
+        <font-awesome-icon
+          icon="user"
+          class="text-light headerMobileBlockLogInIcon"
+        />
+        <div class="headerMobileBlockLogInContent">
+          <p class="text-light headerMobileBlockLogInContentText">
+            Inscription
+          </p>
+          <p class="text-light headerMobileBlockLogInContentText">Connexion</p>
+        </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -159,6 +169,29 @@ export default {
           justify-content: center;
           align-items: center;
           font-size: 1.8rem;
+        }
+      }
+    }
+
+    &LogIn {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      height: 100%;
+      margin: 0 1rem;
+      &Icon {
+        font-size: 1.7rem;
+      }
+      &Content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+        &Text {
+          margin: 0;
         }
       }
     }

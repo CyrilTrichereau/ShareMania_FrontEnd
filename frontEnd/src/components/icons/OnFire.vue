@@ -1,33 +1,32 @@
 <template>
   <button
     class="fireIcon"
-    :class="{ fireIconIsOn: onFire, smallFireIcon: small }"
-    @click="onFire = !onFire"
+    :class="{ fireIconIsOn: isActive, smallFireIcon: small }"
   >
     <font-awesome-icon
       icon="fire-alt"
       class="fas fa-fire-alt fire fireFirst"
-      :class="{ fireIsOn: onFire, smallFire: small }"
+      :class="{ fireIsOn: isActive, smallFire: small }"
     />
     <font-awesome-icon
       icon="fire-alt"
       class="fas fa-fire-alt fire fireSecond"
-      :class="{ fireIsOn: onFire, smallFire: small }"
+      :class="{ fireIsOn: isActive, smallFire: small }"
     />
     <font-awesome-icon
       icon="fire-alt"
       class="fas fa-fire-alt fire fireThird"
-      :class="{ fireIsOn: onFire, smallFire: small }"
+      :class="{ fireIsOn: isActive, smallFire: small }"
     />
     <font-awesome-icon
       icon="fire-alt"
       class="fas fa-fire-alt fire fireFourth"
-      :class="{ fireIsOn: onFire, smallFire: small }"
+      :class="{ fireIsOn: isActive, smallFire: small }"
     />
     <font-awesome-icon
       icon="fire-alt"
       class="fas fa-fire-alt fire fireFifth"
-      :class="{ fireIsOn: onFire, smallFire: small }"
+      :class="{ fireIsOn: isActive, smallFire: small }"
     />
   </button>
 </template>
@@ -35,13 +34,12 @@
 <script>
 export default {
   name: "OnFire",
-  data() {
-    return {
-      onFire: false,
-    };
-  },
   props: {
     small: {
+      type: Boolean,
+      default: false,
+    },
+    isActive: {
       type: Boolean,
       default: false,
     },

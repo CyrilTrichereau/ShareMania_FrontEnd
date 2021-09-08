@@ -12,22 +12,30 @@
 
     <!-- PROFILE BLOCK -->
     <div class="sideBarProfile">
-      <router-link to="/login">
-        <font-awesome-icon
-          icon="user"
-          class="d-none text-light sideBarProfileUserIcon"
-        />
-      </router-link>
-
-      <router-link to="/my-profile" class="sideBarProfilePictureBackground">
+      <router-link
+        to="/my-profile"
+        class="sideBarProfilePictureBackground"
+        v-if="$store.state.profile.myProfile.alias"
+      >
         <img
           :src="$store.state.profile.myProfile.urlPicture"
           :alt="'Photo de profil de ' + $store.state.profile.myProfile.alias"
           class="sideBarProfilePicture"
         />
       </router-link>
+      <router-link to="/login" class="sideBarProfileUser" v-else>
+        <font-awesome-icon
+          icon="user"
+          class="text-light sideBarProfileUserIcon"
+        />
+        <p class="text-light sideBarProfileContentModify">Connexion</p>
+        <p class="text-light sideBarProfileContentModify">Inscription</p>
+      </router-link>
 
-      <div class="sideBarProfileContent">
+      <div
+        class="sideBarProfileContent"
+        v-if="$store.state.profile.myProfile.alias"
+      >
         <router-link
           to="/my-profile"
           class="text-light h4 sideBarProfileContentName"
@@ -41,7 +49,11 @@
         >
           Modifier mon profil
         </router-link>
-        <router-link to="/login" class="text-light sideBarProfileContentLogOut">
+        <router-link
+          to="/login"
+          @click.native="logOutProfile"
+          class="text-light sideBarProfileContentLogOut"
+        >
           Déconnexion
         </router-link>
       </div>
@@ -91,6 +103,11 @@
 <script>
 export default {
   name: "SideBarDesktop",
+  methods: {
+    logOutProfile() {
+      localStorage.removeItem("token");
+    },
+  },
 };
 </script>
 
@@ -132,6 +149,18 @@ export default {
     padding: 0.5rem 0;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.185);
+    &User {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &Icon {
+        width: 40px;
+        height: 40px;
+        margin: 0.7rem 0;
+      }
+    }
+
     &Picture {
       width: 160px;
       height: 160px;

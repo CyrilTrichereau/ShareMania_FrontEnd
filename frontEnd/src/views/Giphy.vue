@@ -11,6 +11,9 @@ export default {
   components: {
     PostsList,
   },
+  async created() {
+   await this.$store.dispatch("fetchMyProfile");
+  },
 };
 </script>
 

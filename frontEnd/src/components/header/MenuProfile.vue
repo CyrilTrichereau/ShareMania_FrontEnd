@@ -35,7 +35,9 @@
           >
             <img
               :src="$store.state.profile.myProfile.urlPicture"
-              :alt="'Photo de profil de ' + $store.state.profile.myProfile.alias"
+              :alt="
+                'Photo de profil de ' + $store.state.profile.myProfile.alias
+              "
               class="menuProfileListProfileBlockLinkPicture"
             />
             <p class="h2 text-dark menuProfileListProfileBlockLinkName">
@@ -83,10 +85,7 @@
         </ul>
 
         <!-- log Out link -->
-        <ul
-          class="btn btn-light menuProfileListItem"
-          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
-        >
+        <ul class="btn btn-light menuProfileListItem" @click="logOutProfile">
           <router-link to="/login" class="menuProfileListItemLinks">
             <font-awesome-icon
               icon="sign-out-alt"
@@ -112,9 +111,13 @@ export default {
   },
   methods: {
     openOrCloseMenusAndModifyProfile(boolean) {
-      this.$store.dispatch('openOrCloseMenuHeader', 'none')
-      this.$store.dispatch("changeProfileModifyOrShowForce", boolean)
-    }
+      this.$store.dispatch("openOrCloseMenuHeader", "none");
+      this.$store.dispatch("changeProfileModifyOrShowForce", boolean);
+    },
+    logOutProfile() {
+      this.$store.dispatch("openOrCloseMenuHeader", "none");
+      localStorage.removeItem("token");
+    },
   },
 };
 </script>

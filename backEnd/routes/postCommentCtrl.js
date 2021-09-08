@@ -10,116 +10,120 @@ const ITEMS_LIMIT = 50;
 // Routes
 module.exports = {
   createPostComment: async (req, res) => {
-    // Getting auth header
-    const headerAuth = req.headers["authorization"];
-    const userId = jwtUtils.getUserId(headerAuth);
-
-    // Control token
-    if (userId < 0) return res.status(400).json({ error: "wrong token" });
-
-    // Params
-    const postUserId = req.body.post.posterId;
-    const feedPostId = req.body.post.postId;
-    const postTime = req.body.post.time;
-    const user_Id = req.body.profile._id;
-    const userAlias = req.body.profile.alias;
-    const userUrlPicture = req.body.profile.urlPicture;
-    const commentText = req.body.text;
-
-    // If One information is missing
-    if (
-      !postUserId ||
-      !feedPostId ||
-      !postTime ||
-      !user_Id ||
-      !userAlias ||
-      !userUrlPicture ||
-      !commentText
-    ) {
-      return res.status(400).json({ error: "missing parameters" });
-    }
-
-    // If the content text is too small
-    if (commentText.length <= CONTENT_TEXT_LIMIT) {
-      return res.status(400).json({ error: "invalid parameters" });
-    }
-
-    let feedPostFound = null;
-    let newPost = null;
-
     try {
-      // Search feed post
-      feedPostFound = await models.FeedPost.findOne({
-        where: { id: feedPostId },
-      });
-    } catch (err) {
-      return res.status(500).json({ error: "unable to find post" });
-    }
+      // Getting auth header
+      const headerAuth = req.headers["authorization"];
+      const userId = jwtUtils.getUserId(headerAuth);
 
-    if (feedPostFound) {
-      // If feed post is found, create a new comment
+      // Control token
+      if (userId < 0) return res.status(400).json({ error: "wrong token" });
+
+      // Params
+      const postUserId = req.body.post.posterId;
+      const feedPostId = req.body.post.postId;
+      const postTime = req.body.post.time;
+      const user_Id = req.body.profile._id;
+      const userAlias = req.body.profile.alias;
+      const userUrlPicture = req.body.profile.urlPicture;
+      const commentText = req.body.text;
+
+      // If One information is missing
+      if (
+        !postUserId ||
+        !feedPostId ||
+        !postTime ||
+        !user_Id ||
+        !userAlias ||
+        !userUrlPicture ||
+        !commentText
+      ) {
+        return res.status(400).json({ error: "missing parameters" });
+      }
+
+      // If the content text is too small
+      if (commentText.length <= CONTENT_TEXT_LIMIT) {
+        return res.status(400).json({ error: "invalid parameters" });
+      }
+
+      let feedPostFound = null;
+      let newPost = null;
 
       try {
-        newPost = await models.PostComment.create({
-          postUserId: postUserId,
-          FeedPostId: feedPostId,
-          postTime: postTime,
-          userId: user_Id,
-          userAlias: userAlias,
-          userUrlPicture: userUrlPicture,
-          commentText: commentText,
+        // Search feed post
+        feedPostFound = await models.FeedPost.findOne({
+          where: { id: feedPostId },
         });
       } catch (err) {
-        return res.status(500).json({ error: "unable to create comment" });
+        return res.status(500).json({ error: "unable to find post" });
       }
-      // if post is well created
-      if (newPost) {
-        // Update  popularity counter
-        let popularityCounter = await utils.popularityCounter(
-          feedPostFound.onFireCounter,
-          feedPostFound.coldCounter,
-          feedPostFound.id
-        );
+
+      if (feedPostFound) {
+        // If feed post is found, create a new comment
+
         try {
-          // Update counter on fire
-          await feedPostFound.update({
-            popularityCounter: popularityCounter,
+          newPost = await models.PostComment.create({
+            postUserId: postUserId,
+            FeedPostId: feedPostId,
+            postTime: postTime,
+            userId: user_Id,
+            userAlias: userAlias,
+            userUrlPicture: userUrlPicture,
+            commentText: commentText,
           });
         } catch (err) {
-          return res
-            .status(500)
-            .json({ error: "cannot update feed post on fire counter" });
+          return res.status(500).json({ error: "unable to create comment" });
         }
+        // if post is well created
+        if (newPost) {
+          // Update  popularity counter
+          let popularityCounter = await utils.popularityCounter(
+            feedPostFound.onFireCounter,
+            feedPostFound.coldCounter,
+            feedPostFound.id
+          );
+          try {
+            // Update counter on fire
+            await feedPostFound.update({
+              popularityCounter: popularityCounter,
+            });
+          } catch (err) {
+            return res
+              .status(500)
+              .json({ error: "cannot update feed post on fire counter" });
+          }
 
-        // Send newPost Object or send an error
-        // Prepare response
-        const newPostObject = {
-          _id: newPost.id,
-          time: utils.timestampTranslator(newPost.createdAt),
-          text: newPost.commentText,
-          onFireCounter: null,
-          coldCounter: null,
-          averageCounter: 0,
-          isLike: null,
-          popularityCounter: 0,
-          post: {
-            posterId: newPost.postUserId,
-            postId: newPost.FeedPostId,
-            time: utils.timestampTranslator(newPost.postTime),
-          },
-          profile: {
-            _id: newPost.userId,
-            alias: newPost.userAlias,
-            urlPicture: newPost.userUrlPicture,
-          },
-        };
-        // Return response
-        return res.status(201).json(newPostObject);
+          // Send newPost Object or send an error
+          // Prepare response
+          const newPostObject = {
+            _id: newPost.id,
+            time: utils.timestampTranslator(newPost.createdAt),
+            text: newPost.commentText,
+            onFireCounter: null,
+            coldCounter: null,
+            averageCounter: 0,
+            isLike: null,
+            popularityCounter: 0,
+            post: {
+              posterId: newPost.postUserId,
+              postId: newPost.FeedPostId,
+              time: utils.timestampTranslator(newPost.postTime),
+            },
+            profile: {
+              _id: newPost.userId,
+              alias: newPost.userAlias,
+              urlPicture: newPost.userUrlPicture,
+            },
+          };
+          // Return response
+          return res.status(201).json(newPostObject);
+        } else {
+          return res.status(500).json({ error: "cannot post message" });
+        }
       } else {
-        return res.status(500).json({ error: "cannot post message" });
+        res.status(404).json({ error: "user not found" });
       }
-    } else {
-      res.status(404).json({ error: "user not found" });
+    } catch (err) {
+      return res.status(500).json({ error: err });
     }
   },
 

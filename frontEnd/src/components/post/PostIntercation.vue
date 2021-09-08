@@ -1,9 +1,9 @@
 <template>
   <div class="postInteraction bg-info">
     <div class="postInteractionBar">
-      <OnFire />
+      <OnFire @click.native="transmitMakeItOnFire" :isActive="isActiveOnFire" />
       <Comment @open-close-comment-block="openCloseComments" />
-      <Cold />
+      <Cold @click.native="transmitMakeItCold" :isActive="isActiveCold" />
     </div>
   </div>
 </template>
@@ -20,9 +20,37 @@ export default {
     Cold,
     Comment,
   },
+  props: {
+    isLike: {
+      type: Number,
+      require: true,
+    },
+  },
+  computed: {
+    isActiveOnFire() {
+      if (this.isLike === 1) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    isActiveCold() {
+      if (this.isLike === -1) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
   methods: {
     openCloseComments() {
       this.$emit("open-close-comment-block");
+    },
+    transmitMakeItOnFire() {
+      this.$emit("make-it-on-fire");
+    },
+    transmitMakeItCold() {
+      this.$emit("make-it-cold");
     },
   },
 };

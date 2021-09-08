@@ -98,7 +98,7 @@ export default {
               "Content-Type": "application/json",
               authorization: localStorage.getItem("token"),
             },
-            body: JSON.stringify(responseErasing),
+            body: JSON.stringify(profileForErasing),
           }
         );
         responseErasing = await response.json();
@@ -106,7 +106,7 @@ export default {
         console.log(error);
       }
       console.log({responseErasing: responseErasing});
-      this.$router.push({ name: 'login' })
+      //this.$router.push({ name: 'login' })
     },
   },
 };

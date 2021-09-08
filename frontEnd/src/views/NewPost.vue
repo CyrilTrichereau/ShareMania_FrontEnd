@@ -43,6 +43,9 @@ export default {
       startAtNumber: 0,
     });
   },
+  async created() {
+   await this.$store.dispatch("fetchMyProfile");
+  },
 };
 </script>
 

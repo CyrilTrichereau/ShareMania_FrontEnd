@@ -28,15 +28,15 @@
       </p>
       <div class="commentContentWhiteLine bg-light"></div>
       <div class="commentContentInteractions">
-        <div class="commentContentInteractionsFire">
-          <OnFire :small="true" />
+        <div class="commentContentInteractionsFire" @click="makeItOnFire">
+          <OnFire :small="true" :isActive="isActiveOnFire" />
         </div>
         <p class="commentContentInteractionsPercentage text-secondary">
-          {{ commentObject.averageCounter }}
+          {{ averageCounterChecked }}
           %
         </p>
-        <div class="commentContentInteractionsSnow">
-          <Cold :small="true" />
+        <div class="commentContentInteractionsSnow" @click="makeItCold">
+          <Cold :small="true" :isActive="isActiveCold" />
         </div>
       </div>
     </div>
@@ -62,9 +62,44 @@ export default {
       require: true,
     },
   },
+  data() {
+    return {
+      isLikeComment: 0,
+      averageCounterUpdated: "none",
+    };
+  },
   computed: {
     timeElapsed() {
       return utils.elapsedTime(this.commentObject.time);
+    },
+    isActiveOnFire() {
+      if (this.isLikeComment === 1) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    isActiveCold() {
+      if (this.isLikeComment === -1) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    averageCounterChecked() {
+      if (this.averageCounterUpdated === "none") {
+        if (this.commentObject.averageCounter) {
+          return this.commentObject.averageCounter;
+        } else {
+          return 0;
+        }
+      } else {
+        if (this.averageCounterUpdated) {
+          return this.averageCounterUpdated;
+        } else {
+          return 0;
+        }
+      }
     },
   },
   methods: {
@@ -77,7 +112,6 @@ export default {
         commentId: this.commentObject._id,
         time: this.commentObject.time,
       };
-      console.log(dataOfComment);
       // Fetch DELETE
       try {
         response = await fetch(
@@ -102,6 +136,67 @@ export default {
       }
       this.$router.go();
     },
+    async makeItOnFire() {
+      let response = null;
+      let responseOnFire = null;
+      // fetch new post
+      try {
+        response = await fetch(
+          this.$store.state.apiUrl.entryPoint +
+            "/postComment/" +
+            this.commentObject._id +
+            "/vote/like/",
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token"),
+            },
+          }
+        );
+        responseOnFire = await response.json();
+        console.log({ responseOnFire: responseOnFire });
+      } catch (error) {
+        console.log(error);
+      }
+      // Update counters : onFire, Cold and average counter
+      this.averageCounterUpdated = responseOnFire.averageCounter;
+      this.isLikeComment = responseOnFire.isLike;
+    },
+    async makeItCold() {
+      let response = null;
+      let responseCold = null;
+      // fetch new post
+      try {
+        response = await fetch(
+          this.$store.state.apiUrl.entryPoint +
+            "/postComment/" +
+            this.commentObject._id +
+            "/vote/dislike/",
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token"),
+            },
+          }
+        );
+        responseCold = await response.json();
+        console.log({ responseCold: responseCold });
+      } catch (error) {
+        console.log(error);
+      }
+      // Update counters : onFire, Cold and average counter
+      this.averageCounterUpdated = responseCold.averageCounter;
+      this.isLikeComment = responseCold.isLike;
+    },
+  },
+  created() {
+    if (this.commentObject.isLike === -1 || this.commentObject.isLike === 1) {
+      this.isLikeComment = this.commentObject.isLike;
+    }
   },
 };
 </script>

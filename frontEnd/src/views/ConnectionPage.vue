@@ -22,6 +22,9 @@ export default {
     Inscription,
     FooterConnectionBlock,
   },
+  async created() {
+   await this.$store.dispatch("fetchMyProfile");
+  },
 };
 </script>
 

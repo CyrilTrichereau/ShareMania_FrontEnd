@@ -21,7 +21,7 @@ exports.router = (() => {
   apiRouter.route("/users/login/").post(usersCtrl.login);
   apiRouter.route("/users/myProfile/").get(auth, usersCtrl.getUserProfile);
   apiRouter.route("/users/myProfile/").put(auth, multer, usersCtrl.updateUserProfile);
-  apiRouter.route("/:userId/users/myProfile/").delete(auth, usersCtrl.deleteUserProfile);
+  apiRouter.route("/:userId/users/myProfile/").delete(usersCtrl.deleteUserProfile);
 
   // FeedPosts routes
   apiRouter

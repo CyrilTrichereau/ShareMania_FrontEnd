@@ -17,9 +17,9 @@
       :text="post.content.originalPosterProfile.text"
     />
     <PostStats
-      :onFireCounter="post.onFireCounter"
-      :coldCounter="post.coldCounter"
-      :averageCounter="post.averageCounter"
+      :onFireCounter="onFireCounterChecked"
+      :coldCounter="coldCounterChecked"
+      :averageCounter="averageCounterChecked"
       :commentsNumber="numberOfComments"
     />
 
@@ -27,12 +27,17 @@
 
     <PostIntercation
       @open-close-comment-block="commentsIsOpen = !commentsIsOpen"
+      @make-it-on-fire="makeItOnFire"
+      @make-it-cold="makeItCold"
+      :isLike="isLikeChecked"
     />
     <PostWriteAComment
       v-show="commentsIsOpen"
+      @update-comments-list="keyComponent++"
       :commentObject="dataPostForActions"
     />
     <PostCommentsList
+      :key="keyComponent"
       v-show="commentsIsOpen"
       :postId="post._id"
       @number-of-comments="updateNumberOfComments"
@@ -66,59 +71,157 @@ export default {
       require: true,
     },
   },
-  computed: {
-    dataPostForActions() {
-      let data = {};
-      data.posterId = this.post.posterProfile._id;
-      data.postId = this.post._id;
-      data.time = this.post.time;
-      return data;
-    },
-  },
   data() {
     return {
+      keyComponent: 0,
       commentsIsOpen: false,
       commentsList: null,
       numberOfComments: null,
+      averageCounterUpdated: "none",
+      onFireCounterUpdated: "none",
+      coldCounterUpdated: "none",
+      isLikeUpdated: 0,
     };
   },
-  methods: {
-    async fetchPosts(context, orderType) {
-      // Request params
-      const numberOfPostsLimit = "?limit=10";
-      const startAtPostNumber = "&offset=0";
-      let orderBy = null;
-      if (orderType === "hotest") {
-        orderBy = "&order=averageCounter:DESC";
-      } else if (orderType === "popular") {
-        orderBy = "&order=popularityCounter:DESC";
+  computed: {
+    dataPostForActions() {
+      let data = {
+        posterId: this.post.posterProfile._id,
+        postId: this.post._id,
+        time: this.post.time,
+      };
+      return data;
+    },
+    averageCounterChecked() {
+      if (this.averageCounterUpdated === "none") {
+        if (this.post.averageCounter) {
+          return this.post.averageCounter;
+        } else {
+          return 0;
+        }
       } else {
-        orderBy = "&order=createdAt:ASC";
+        if (this.averageCounterUpdated) {
+          return this.averageCounterUpdated;
+        } else {
+          return 0;
+        }
       }
-      const params = numberOfPostsLimit + startAtPostNumber + orderBy;
-
+    },
+    onFireCounterChecked() {
+      if (this.onFireCounterUpdated === "none") {
+        if (this.post.onFireCounter) {
+          return this.post.onFireCounter;
+        } else {
+          return 0;
+        }
+      } else {
+        if (this.onFireCounterUpdated) {
+          return this.onFireCounterUpdated;
+        } else {
+          return 0;
+        }
+      }
+    },
+    coldCounterChecked() {
+      if (this.coldCounterUpdated === "none") {
+        if (this.post.coldCounter) {
+          return this.post.coldCounter;
+        } else {
+          return 0;
+        }
+      } else {
+        if (this.coldCounterUpdated) {
+          return this.coldCounterUpdated;
+        } else {
+          return 0;
+        }
+      }
+    },
+    isLikeChecked() {
+      if (this.isLikeUpdated === "none") {
+        if (this.post.isLike) {
+          return this.post.isLike;
+        } else {
+          return 0;
+        }
+      } else {
+        if (this.isLikeUpdated) {
+          return this.isLikeUpdated;
+        } else {
+          return 0;
+        }
+      }
+    },
+  },
+  methods: {
+    updateNumberOfComments(payload) {
+      this.numberOfComments = payload;
+    },
+    async makeItOnFire() {
+      let response = null;
+      let responseOnFire = null;
+      // fetch new post
       try {
-        const response = await fetch(
-          this.$store.state.apiUrl.entryPoint + "/feedPosts" + params,
+        response = await fetch(
+          this.$store.state.apiUrl.entryPoint +
+            "/feedPost/" +
+            this.post._id +
+            "/vote/like/",
           {
+            method: "POST",
             headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
               authorization: localStorage.getItem("token"),
             },
           }
         );
-        const responseJson = await response.json();
-        console.log(responseJson);
-        context.commit("STORE_LIST_POSTS", responseJson.body);
+        responseOnFire = await response.json();
+        console.log({ responseOnFire: responseOnFire });
       } catch (error) {
         console.log(error);
       }
+      // Update counters : onFire, Cold and average counter
+      this.averageCounterUpdated = responseOnFire.averageCounter;
+      this.isLikeUpdated = responseOnFire.isLike;
+      this.onFireCounterUpdated = responseOnFire.onFireCounter;
+      this.coldCounterUpdated = responseOnFire.coldCounter;
     },
-    updateNumberOfComments(payload) {
-      this.numberOfComments = payload;
+    async makeItCold() {
+      let response = null;
+      let responseCold = null;
+      // fetch new post
+      try {
+        response = await fetch(
+          this.$store.state.apiUrl.entryPoint +
+            "/feedPost/" +
+            this.post._id +
+            "/vote/dislike/",
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: localStorage.getItem("token"),
+            },
+          }
+        );
+        responseCold = await response.json();
+        console.log({ responseCold: responseCold });
+      } catch (error) {
+        console.log(error);
+      }
+      // Update counters : onFire, Cold and average counter
+      this.averageCounterUpdated = responseCold.averageCounter;
+      this.isLikeUpdated = responseCold.isLike;
+      this.onFireCounterUpdated = responseCold.onFireCounter;
+      this.coldCounterUpdated = responseCold.coldCounter;
     },
   },
   created() {
-    this.fetchComments;
+    if (this.post.isLike === -1 || this.post.isLike === 1) {
+      this.isLikeUpdated = this.post.isLike;
+    }
   },
 };
 </script>

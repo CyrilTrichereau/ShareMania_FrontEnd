@@ -1,5 +1,6 @@
 // Imports
 const bcrypt = require("bcrypt");
+const fs = require("fs");
 const jwtUtils = require("../utils/jwt.utils");
 const utils = require("../utils/utils");
 const models = require("../models");
@@ -238,9 +239,9 @@ module.exports = {
     }
     if (userFound) {
       if (req.file) {
-        urlPicture = `${req.protocol}://${req.get(
-          "host"
-        )}/mediaPostsStore/${req.file.filename}`;
+        urlPicture = `${req.protocol}://${req.get("host")}/mediaPostsStore/${
+          req.file.filename
+        }`;
       }
 
       // Then if user found, check if there is a password to change
@@ -258,21 +259,27 @@ module.exports = {
                 // If new password and old password are differents, crypt it
                 bcrypt.hash(newPassword, 5, async (error, bcryptedPassword) => {
                   try {
-                    // Update profile with informations
-                    userFound = await userFound.update({
-                      alias: alias ? alias : userFound.alias,
-                      password: bcryptedPassword
-                        ? bcryptedPassword
-                        : userFound.password,
-                      service: service ? service : userFound.service,
-                      urlPicture: urlPicture
-                        ? urlPicture
-                        : userFound.urlPicture,
+                    // Destroy media attached
+                    const filename =
+                      userFound.urlPicture.split("/mediaPostsStore/")[1];
+                    console.log({ filename: filename });
+                    fs.unlink(`mediaPostsStore/${filename}`, async () => {
+                      // Update profile with informations
+                      userFound = await userFound.update({
+                        alias: alias ? alias : userFound.alias,
+                        password: bcryptedPassword
+                          ? bcryptedPassword
+                          : userFound.password,
+                        service: service ? service : userFound.service,
+                        urlPicture: urlPicture
+                          ? urlPicture
+                          : userFound.urlPicture,
+                      });
                     });
                   } catch (err) {
                     return res
                       .status(500)
-                      .json({ error: "cannot update user" });
+                      .json({ error: "cannot update user" + err });
                   }
                   // Then response with the profile data updated
                   if (userFound) {
@@ -335,11 +342,11 @@ module.exports = {
     const headerAuth = req.headers["authorization"];
     const userId = jwtUtils.getUserId(headerAuth);
 
-console.log(
-  " -------------------------" +
-    " jesuis là : " +
-    " -------------------------"
-);
+    console.log(
+      " -------------------------" +
+        " jesuis là : " +
+        " -------------------------"
+    );
     // Control token
     if (userId < 0) return res.status(400).json({ error: "wrong token" });
 
@@ -371,9 +378,27 @@ console.log(
 
     if (userFound.isModerator === true || userId === userIdFromParams) {
       try {
-        // Search user with id and get this attributes list;
-        await models.User.destroy({
-          where: { id: userId },
+        // Destroy media attached
+        
+    console.log(
+      " -------------------------" +
+        " userFound : " +
+        userFound +
+        " -------------------------"
+    ); 
+    console.log(
+      " -------------------------" +
+        " userFoundurlPicture : " +
+        userFound.urlPicture +
+        " -------------------------"
+    );
+        const filename = userFound.urlPicture.split("/mediaPostsStore/")[1];
+        console.log({ filename: filename });
+        fs.unlink(`mediaPostsStore/${filename}`, async () => {
+          // Search user with id and get this attributes list;
+          await models.User.destroy({
+            where: { id: userId },
+          });
         });
       } catch (err) {
         return res.status(500).json({ error: "cannot destroy user" });
