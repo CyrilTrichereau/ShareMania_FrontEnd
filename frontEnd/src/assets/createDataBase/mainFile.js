@@ -6,6 +6,53 @@ import * as dataProfiles from "./dataToImport/dataForProfiles.js";
 
 // --------------------------------
 // --------------------------------
+// ------ RANDOM DATE ---------
+// --------------------------------
+const randomDate = () => {
+  let dateToInject = new Date();
+  // Set Year
+  dateToInject.setFullYear(2021);
+  // Set Month
+  dateToInject.setMonth(getRandomInt(5, 9));
+  // Set Day
+  let dateToSave = null;
+  if (dateToInject.getMonth() === 8) {
+    dateToSave = getRandomInt(1, 13);
+  } else if (dateToInject.getMonth() === 5) {
+    dateToSave = getRandomInt(1, 30);
+  } else {
+    dateToSave = getRandomInt(1, 31);
+  }
+  dateToInject.setDate(dateToSave);
+  // Set Hours
+  let hoursToSave = null;
+  if (dateToInject.getMonth() === 8 && dateToInject.getDay() === 13) {
+    hoursToSave = getRandomInt(0, 11);
+  } else {
+    hoursToSave = getRandomInt(0, 23);
+  }
+  dateToInject.setHours(hoursToSave);
+  // Set Minutes
+  let minutesToSave = null;
+  if (
+    dateToInject.getMonth() === 8 &&
+    dateToInject.getDay() === 13 &&
+    dateToInject.getHours() === 11
+  ) {
+    minutesToSave = 3;
+  } else {
+    minutesToSave = getRandomInt(0, 59);
+  }
+  dateToInject.setMinutes(minutesToSave);
+  // Set Seconds
+  dateToInject.setSeconds(getRandomInt(0, 59));
+
+  //Return date
+  return dateToInject;
+};
+
+// --------------------------------
+// --------------------------------
 // ------ SHOW ME OBJECTS ---------
 // --------------------------------
 export const showMeObject = () => {
@@ -25,23 +72,22 @@ export const fillItUpProfiles = () => {
   // Init ----- List, Counters and ID array ---------- VALID
   let list = importProfilesList.listProfile;
   let counter = 0;
-  const arrayOfId = getArrayOfUniqueRandomInt(40, "IDProf", 0, 9999999999);
 
   list.forEach((profile) => {
     // Update ----- Alias and url ---------- VALID
+    profile._id = counter + 1;
     profile.alias = dataProfiles.profileAlias[counter];
     profile.urlPicture = dataProfiles.profilelUrl[counter];
     profile.email = dataProfiles.profileAlias[counter] + "@gmail.com";
     profile.service = dataProfiles.profileService[counter];
+    profile.password = "Azerty123+";
+    profile.createdAt = randomDate();
 
     if (profile.service === "Ressources Humaines") {
-      profile.moderator = true;
+      profile.isModerator = true;
     } else {
-      profile.moderator = false;
+      profile.isModerator = false;
     }
-
-    profile._id = arrayOfId[counter];
-
     //  --- Iterate ------------
     counter++;
   });
@@ -58,28 +104,17 @@ export const fillItUpComments = () => {
   let list = importCommentsList.listComments;
   let counter = 0;
   const listProfiles = fillItUpProfiles();
-  const arrayIdOnFireAndCold = arrayOfOnFireAndCold(listProfiles);
   const arrayOfNumber = getArrayOfUniqueRandomInt(40, 0, 0, 40);
-  const arrayOfCommentsId = getArrayOfUniqueRandomInt(
-    40,
-    "IDPosts",
-    0,
-    9999999999
-  );
 
   list.forEach((comment) => {
     // Update ----- Profile ---------- VALID
+    comment.profile._id = listProfiles[counter]._id;
     comment.profile.alias = listProfiles[counter].alias;
     comment.profile.urlPicture = listProfiles[counter].urlPicture;
 
-    // Update ----- cold and onFire ---------- VALID
-    comment.onFire_id = arrayIdOnFireAndCold[counter][0];
-    comment.cold_id = arrayIdOnFireAndCold[counter][1];
-
-    // Update ----- Time, Text and id ---------- VALID
-    comment.time = getRandomInt(1589430648, 1628430609);
-    comment.text = dataPosts.originalText[arrayOfNumber[counter]];
-    comment._id = arrayOfCommentsId[counter];
+    // Update ----- createdAt, Text and id ---------- VALID
+   comment.text = dataPosts.originalText[arrayOfNumber[counter]];
+    comment.createdAt = randomDate();
 
     //  --- Iterate ------------
     counter++;
@@ -96,13 +131,6 @@ export const updatePosts = () => {
   // Init ----- List and Counters ---------- VALID
   let list = importPostsList.listPosts;
   let counter = 0;
-  const arrayOfTime = getArrayOfUniqueRandomInt(40, 0, 1589430648, 1628430609);
-  const arrayOfPostsId = getArrayOfUniqueRandomInt(
-    40,
-    "IDPosts",
-    0,
-    9999999999
-  );
   const arrayOfOrderRandom = getArrayOfUniqueRandomInt(40, 0, 0, 40);
   const arrayOfSecondOrderRandom = getArrayOfUniqueRandomInt(40, 0, 0, 40);
 
@@ -111,18 +139,10 @@ export const updatePosts = () => {
   // Init ----- Create Comment list to Use ---------- VALID
   const commentList = fillItUpComments();
 
-  // Init ----- Create Array of id for onFire and Cold ---------- VALID
-  const arrayIdOnFireAndCold = arrayOfOnFireAndCold(profilesList);
-
   // Update ----- Loop for updating
   list.forEach((post) => {
     // Update ----- update firsts infos ---------- VALID
-    post.time = arrayOfTime[counter];
-    // post.commentNumber = 0;
-    // post.numberInteraction = 0;
-    // post.percentageOnFire = 0;
-    post.shareNumber = getRandomInt(0, 20);
-    post._id = arrayOfPostsId[counter];
+    post.createdAt = randomDate();
 
     // Update ----- post content ---------- VALID
     post.content.text =
@@ -149,10 +169,6 @@ export const updatePosts = () => {
     post.content.originalPosterProfile.text =
       dataPosts.originalText[arrayOfOrderRandom[counter]];
 
-    // Update ----- cold and onFire ----------  VALID
-    post.onFire_id = arrayIdOnFireAndCold[counter][0];
-    post.cold_id = arrayIdOnFireAndCold[counter][1];
-
     // Update ----- commentsList ---------- VALID
     post.commentsList = [];
     let numberOfComments = getRandomInt(1, 10); // Random number of comments by post
@@ -172,15 +188,23 @@ export const updatePosts = () => {
     //  --- Iterate ------------
     counter++;
   });
-  console.log ("--------------- POSTS LIST ---------------")
-  console.log ("This is the posts list object generated.")
-  console.log ("If you want, you can copy and paste it, for injecting to database.")
+  console.log("---------------------------------------");
+  console.log("---------------------------------------");
+  console.log("---------------------------------------");
+  console.log("---------------------------------------");
+  console.log("---------------------------------------");
+  console.log("---------------------------------------");
+  console.log("--------------- POSTS LIST ---------------");
+  console.log("This is the posts list object generated.");
+  console.log(
+    "If you want, you can copy and paste it, for injecting to database."
+  );
   console.log(list);
-  console.log ("--------------- PROFILES LIST ---------------")
-  console.log ("This is the profiles list object generated.")
+  console.log("--------------- PROFILES LIST ---------------");
+  console.log("This is the profiles list object generated.");
   console.log(profilesList);
-  console.log ("--------------- COMMENTS LIST ---------------")
-  console.log ("This is the comments list object generated.")
+  console.log("--------------- COMMENTS LIST ---------------");
+  console.log("This is the comments list object generated.");
   console.log(commentList);
   return list;
 };
@@ -212,10 +236,6 @@ export const getArrayOfUniqueRandomInt = (
     if (!searchNumber(arrayOfRandomNumbers, randomNumber)) {
       arrayOfRandomNumbers.push(addBeforeNumber + randomNumber);
       counter++;
-    } else {
-      console.log(
-        "BINGOOOOOOOOOOOOOOOOOOOO !!!!!!  SAME NUMBER !!!!!!!!!!!!!!!!"
-      );
     }
   }
   return arrayOfRandomNumbers;
@@ -256,10 +276,6 @@ export const arrayOfOnFireAndCold = (profilesList) => {
         arrayOfRandomNumbers.push(randomNumber);
         temporaryArray[0].push(profilesList[randomNumber]._id);
         counterSecond++;
-      } else {
-        console.log(
-          "BINGOOOOOOOOOOOOOOOOOOOO !!!!!!  SAME NUMBER !!!!!!!!!!!!!!!!"
-        );
       }
     }
     // array of cold
@@ -270,10 +286,6 @@ export const arrayOfOnFireAndCold = (profilesList) => {
         arrayOfRandomNumbers.push(randomNumber);
         temporaryArray[1].push(profilesList[randomNumber]._id);
         counterSecond++;
-      } else {
-        console.log(
-          "BINGOOOOOOOOOOOOOOOOOOOO !!!!!!  SAME NUMBER !!!!!!!!!!!!!!!!"
-        );
       }
     }
     arrayOfOnFireAndCold.push(temporaryArray);

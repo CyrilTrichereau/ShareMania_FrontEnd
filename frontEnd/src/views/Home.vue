@@ -8,6 +8,7 @@
 <script>
 // import CreateDataBase from "@/store/createDataBase/CreateDataBase.vue";
 import PostsList from "@/components/PostsList.vue";
+import * as utils from "@/assets/utils.js";
 
 export default {
   name: "Home",
@@ -16,7 +17,11 @@ export default {
     // CreateDataBase
   },
   async created() {
-   await this.$store.dispatch("fetchMyProfile");
+    const isValidToken = await utils.controlAuth();
+    if (!isValidToken) {
+      this.$router.push("login")
+    }
+    await this.$store.dispatch("fetchMyProfile");
   },
 };
 </script>

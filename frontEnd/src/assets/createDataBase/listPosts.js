@@ -6,8 +6,7 @@ export const listPosts = [
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -17,29 +16,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -49,29 +35,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -81,29 +54,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -113,29 +73,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -145,29 +92,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -177,29 +111,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -209,29 +130,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -241,29 +149,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -273,29 +168,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -305,29 +187,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -337,29 +206,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -369,29 +225,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -401,29 +244,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -433,29 +263,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -465,29 +282,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -497,29 +301,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -529,29 +320,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -561,29 +339,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -593,29 +358,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -625,29 +377,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -657,29 +396,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -689,29 +415,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -721,29 +434,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -753,29 +453,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -785,29 +472,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -817,29 +491,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -849,29 +510,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -881,29 +529,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -913,29 +548,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -945,29 +567,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -977,29 +586,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -1009,29 +605,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -1041,29 +624,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -1073,29 +643,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -1105,29 +662,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -1137,29 +681,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -1169,29 +700,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -1201,29 +719,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -1233,29 +738,16 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
-  {
+   {
     posterProfile: {
       alias: "",
       urlPicture: "",
       service: "",
       _id: "",
     },
-    _id: 0,
-    time: 0,
+    createdAt: 0,
     content: {
       text: "",
       urlPicture: "",
@@ -1265,18 +757,6 @@ export const listPosts = [
         text: "",
       },
     },
-    onFire_id: [],
-    cold_id: [],
-    shareNumber: 3,
-    commentsList: [
-      {
-        profile: {
-          alias: "",
-          urlPicture: "",
-        },
-        time: "",
-        text: "",
-      },
-    ],
+    commentsList: [],
   },
 ];

@@ -4,3 +4,4 @@ initDataBase.cmd
 todo.md
 createDB.sql
 mediaPostsStore/*
+/config/config.json

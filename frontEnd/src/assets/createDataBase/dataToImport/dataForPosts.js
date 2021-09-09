@@ -1,27 +1,27 @@
 export const textAndUrlContent = [
   {
     text: "Trop mignon le chat !",
-    urlPicture: "/images/testStatic/fun01.jpg",
+    urlPicture: "http://localhost:8081/mediaPostsStore/fun01.jpg",
   },
   {
     text: "Encore une victime de la canicule !...",
-    urlPicture: "/images/testStatic/fun02.jpg",
+    urlPicture: "http://localhost:8081/mediaPostsStore/fun02.jpg",
   },
   {
     text: "C'est élastique jusqu'à quel point ?",
-    urlPicture: "/images/testStatic/fun03.jpg",
+    urlPicture: "http://localhost:8081/mediaPostsStore/fun03.jpg",
   },
   {
     text: "Trop rigolo la patate qui meurt !",
-    urlPicture: "/images/testStatic/fun04.jpg",
+    urlPicture: "http://localhost:8081/mediaPostsStore/fun04.jpg",
   },
   {
     text: "Touche pas à ma carotte !",
-    urlPicture: "/images/testStatic/fun05.jpg",
+    urlPicture: "http://localhost:8081/mediaPostsStore/fun05.jpg",
   },
   {
     text: "Est ce qu'il y a un plombier dans l'immeuble ?",
-    urlPicture: "/images/testStatic/fun06.jpg",
+    urlPicture: "http://localhost:8081/mediaPostsStore/fun06.jpg",
   },
   {
     text: "Pilote de l'armée de l'air en vacances",

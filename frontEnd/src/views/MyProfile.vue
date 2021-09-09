@@ -16,6 +16,7 @@
 <script>
 import ProfileShowed from "@/components/profile/ProfileShowed.vue";
 import ProfileModify from "@/components/profile/ProfileModify.vue";
+import * as utils from "@/assets/utils.js";
 
 export default {
   name: "MyProfile",
@@ -28,15 +29,18 @@ export default {
       pictureProfileToShow: this.$store.state.profile.myProfile.urlPicture,
     };
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     displayNewPictureProfile(payload) {
       this.pictureProfileToShow = payload;
     },
   },
   async created() {
-   await this.$store.dispatch("fetchMyProfile");
+    const isValidToken = await utils.controlAuth();
+    if (!isValidToken) {
+      this.$router.push("login")
+    }
+    await this.$store.dispatch("fetchMyProfile");
 
     this.pictureProfileToShow = this.$store.state.profile.myProfile.urlPicture;
   },

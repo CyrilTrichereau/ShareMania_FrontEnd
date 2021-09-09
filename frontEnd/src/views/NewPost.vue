@@ -16,6 +16,7 @@
 <script>
 import NewContentText from "@/components/newPost/NewContentText.vue";
 import AddAttached from "@/components/newPost/AddAttached.vue";
+import * as utils from "@/assets/utils.js";
 
 export default {
   name: "NewPost",
@@ -44,7 +45,11 @@ export default {
     });
   },
   async created() {
-   await this.$store.dispatch("fetchMyProfile");
+    const isValidToken = await utils.controlAuth();
+    if (!isValidToken) {
+      this.$router.push("login")
+    }
+    await this.$store.dispatch("fetchMyProfile");
   },
 };
 </script>

@@ -88,10 +88,24 @@ export default {
         console.log(error);
       }
 
+    console.log(
+      " -------------------------" +
+        " response : " +
+        response +
+        " -------------------------"
+    );
+    console.log(
+      " -------------------------" +
+        " responseLogged : " +
+        responseLogged +
+        " -------------------------"
+    );
       // Store token in local storage
       localStorage.setItem("token", "Bearer " + responseLogged.token);
       console.log("login success");
-      this.$router.push({ name: "home" });
+      setTimeout(() => {
+      this.$router.push({ name: "home" });        
+      }, 10000);
     },
   },
 };

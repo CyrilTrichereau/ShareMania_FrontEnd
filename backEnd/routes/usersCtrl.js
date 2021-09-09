@@ -379,19 +379,19 @@ module.exports = {
     if (userFound.isModerator === true || userId === userIdFromParams) {
       try {
         // Destroy media attached
-        
-    console.log(
-      " -------------------------" +
-        " userFound : " +
-        userFound +
-        " -------------------------"
-    ); 
-    console.log(
-      " -------------------------" +
-        " userFoundurlPicture : " +
-        userFound.urlPicture +
-        " -------------------------"
-    );
+
+        console.log(
+          " -------------------------" +
+            " userFound : " +
+            userFound +
+            " -------------------------"
+        );
+        console.log(
+          " -------------------------" +
+            " userFoundurlPicture : " +
+            userFound.urlPicture +
+            " -------------------------"
+        );
         const filename = userFound.urlPicture.split("/mediaPostsStore/")[1];
         console.log({ filename: filename });
         fs.unlink(`mediaPostsStore/${filename}`, async () => {
@@ -416,6 +416,31 @@ module.exports = {
       });
     } else {
       return res.status(500).json({ error: "access denied" });
+    }
+  },
+  controlAuth: async (req, res) => {
+    // Getting auth header
+    const headerAuth = req.headers["authorization"];
+    const userId = jwtUtils.getUserId(headerAuth);
+
+    // Control token
+    if (userId < 0) {
+      return res.status(400).json({ error: "wrong token" });
+    }
+    let userFound = null;
+    try {
+      // Search user with id and get this attributes list
+      userFound = await models.User.findOne({
+        attributes: ["id"],
+        where: { id: userId },
+      });
+    } catch (err) {
+      return res.status(500).json({ error: "cannot find user" });
+    }
+    if (userFound) {
+      return res.status(200).json({ success: "valid token" });
+    } else {
+      return res.status(500).json({ error: "user doesn't exist" });
     }
   },
 };

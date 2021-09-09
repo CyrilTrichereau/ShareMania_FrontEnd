@@ -5,6 +5,7 @@ const helmet = require("helmet");
 const bodyParser = require("body-parser");
 const path = require("path");
 const apiRouter = require("./apiRouter").router;
+const utils = require("./utils/utils");
 
 // Instantiate server
 const server = express();
@@ -47,12 +48,27 @@ server.use(
   "/mediaPostsStore",
   express.static(path.join(__dirname, "mediaPostsStore"))
 );
+server.use(
+  "/mediaPostsStore",
+  express.static(path.join(__dirname, "imagesStatic"))
+);
 
 // Call api router
 server.use("/api/", apiRouter);
 
 // Launch server
-server.listen(8080
-  , () => {
+server.listen(8080, async () => {
   console.log(" ---- Server listening ---- ");
+  if (!await utils.isDataBase()) {
+    try {
+      console.log(" ---- No Data base ---- ");
+      utils.injectFakeUsers();
+      setTimeout(() => {
+        utils.injectFakeFeedPostsAndComments();;
+      }, 3000);
+      console.log(" ---- Data base created ---- ");
+    } catch (err) {
+      console.log("Cannot inject users " + err);
+    }
+  }
 });

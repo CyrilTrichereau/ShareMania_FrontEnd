@@ -93,13 +93,13 @@ export default {
       confirmationPopInIsOpen: false,
       arrayIsValid: [false, false, false, false],
       inscriptionIsNotValid: false,
-      urlPictureForEmpty: "/images/unknowProfile250pxTinyfied.jpg",
+      urlPictureForEmpty: "http://localhost:8081/imagesStatic/unknowProfile250pxTinyfied.jpg",
       profileToSave: {
         email: "",
         password: "",
         alias: "",
         service: "",
-        urlPicture: "/images/unknowProfile250pxTinyfied.jpg",
+        urlPicture: "http://localhost:8081/imagesStatic/unknowProfile250pxTinyfied.jpg",
         mediaFile: "",
       },
     };
