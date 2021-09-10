@@ -1,24 +1,24 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('FeedPosts', {
+    await queryInterface.createTable("FeedPosts", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userAlias: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       userUrlPicture: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       userService: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       userId: {
         allowNull: false,
@@ -27,30 +27,30 @@ module.exports = {
           model: "Users",
           key: "id",
         },
-        onDelete: 'cascade',
+        onDelete: "cascade",
       },
       contentText: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       contentUrlPicture: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       originalUserAlias: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       originalUserUrlPicture: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       originalUserText: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       onFireCounter: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       coldCounter: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       averageCounter: {
         type: Sequelize.INTEGER,
@@ -62,15 +62,15 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('FeedPosts');
-  }
+    await queryInterface.dropTable("FeedPosts");
+  },
 };

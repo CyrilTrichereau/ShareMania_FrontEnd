@@ -113,7 +113,7 @@ export const fillItUpComments = () => {
     comment.profile.urlPicture = listProfiles[counter].urlPicture;
 
     // Update ----- createdAt, Text and id ---------- VALID
-   comment.text = dataPosts.originalText[arrayOfNumber[counter]];
+    comment.text = dataPosts.originalText[arrayOfNumber[counter]];
     comment.createdAt = randomDate();
 
     //  --- Iterate ------------

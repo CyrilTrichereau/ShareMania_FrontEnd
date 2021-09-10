@@ -6,7 +6,10 @@
     >
       <MenuBurgerIcon />
     </div>
-    <div class="menuBackground" v-show="$store.state.isOpen.headerMenu === 'menuBurger'">
+    <div
+      class="menuBackground"
+      v-show="$store.state.isOpen.headerMenu === 'menuBurger'"
+    >
       <nav class="card container bg-light menuList">
         <!-- SHAREMANIA LOGO -->
         <div

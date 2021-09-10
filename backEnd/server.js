@@ -59,16 +59,17 @@ server.use("/api/", apiRouter);
 // Launch server
 server.listen(8080, async () => {
   console.log(" ---- Server listening ---- ");
-  if (!await utils.isDataBase()) {
+  if (!(await utils.isDataBase())) {
     try {
-      console.log(" ---- No Data base ---- ");
+      console.log(
+        " ---- No Data base detected - Preparing injection of fake database ---- "
+      );
       utils.injectFakeUsers();
       setTimeout(() => {
-        utils.injectFakeFeedPostsAndComments();;
+        utils.injectFakeFeedPostsAndComments();
       }, 3000);
-      console.log(" ---- Data base created ---- ");
     } catch (err) {
-      console.log("Cannot inject users " + err);
+      console.log("Cannot inject users ");
     }
   }
 });

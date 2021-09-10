@@ -24,8 +24,5 @@ pnpm-debug.log*
 
 # Else
 toDo.md
-models.xlsx
-~$models.xlsx
 src/components/NavBarDev.vue
 public/images/testStatic/
-objectsFetched.js

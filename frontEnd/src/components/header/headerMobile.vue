@@ -185,11 +185,11 @@ export default {
         font-size: 1.7rem;
       }
       &Content {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
         &Text {
           margin: 0;
         }

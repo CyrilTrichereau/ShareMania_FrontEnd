@@ -1,10 +1,6 @@
-// ADD TO VUE // 
-
-// <CreateDataBase />
-// import CreateDataBase from "@/components/CreateDataBase.vue"; 
-// components: { 
-  // CreateDataBase 
-  // },
+// ADD TO VUE // // <CreateDataBase />
+// import CreateDataBase from "@/components/CreateDataBase.vue"; // components:
+{ // CreateDataBase // },
 
 <template>
   <div class="w-100 container card">
@@ -54,13 +50,13 @@ export default {
       mainFile.fillItUpProfiles();
     },
     getArrayOfUniqueRandomInt() {
-      mainFile.getArrayOfUniqueRandomInt(2, 0, 0, 2)
+      mainFile.getArrayOfUniqueRandomInt(2, 0, 0, 2);
     },
     arrayOfOnFireAndCold() {
-      mainFile.arrayOfOnFireAndCold(this.fillItUpProfiles())
+      mainFile.arrayOfOnFireAndCold(this.fillItUpProfiles());
     },
     searchNumber() {
-      mainFile.searchNumber()
+      mainFile.searchNumber();
     },
   },
 };

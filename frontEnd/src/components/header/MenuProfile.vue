@@ -32,6 +32,9 @@
           <router-link
             to="/my-profile"
             class="text-primary btn btn-light menuProfileListProfileBlockLink"
+            @click.native="
+              $store.dispatch('changeProfileModifyOrShowForce', false)
+            "
           >
             <img
               :src="$store.state.profile.myProfile.urlPicture"
@@ -54,6 +57,9 @@
           <router-link
             to="/my-profile"
             class="text-primary menuProfileListItemLinks"
+            @click.native="
+              $store.dispatch('changeProfileModifyOrShowForce', false)
+            "
           >
             <font-awesome-icon
               icon="user"
@@ -73,6 +79,9 @@
           <router-link
             to="/my-profile"
             class="text-primary menuProfileListItemLinks"
+            @click.native="
+              $store.dispatch('changeProfileModifyOrShowForce', true)
+            "
           >
             <font-awesome-icon
               icon="address-card"
@@ -117,6 +126,7 @@ export default {
     logOutProfile() {
       this.$store.dispatch("openOrCloseMenuHeader", "none");
       localStorage.removeItem("token");
+      this.$router.go();
     },
   },
 };

@@ -2,6 +2,7 @@
 const bcrypt = require("bcrypt");
 const fs = require("fs");
 const jwtUtils = require("../utils/jwt.utils");
+const CryptoJS = require("crypto-js");
 const utils = require("../utils/utils");
 const models = require("../models");
 
@@ -57,64 +58,89 @@ module.exports = {
     let emailFound = null;
     let aliasFound = null;
     let newUser = null;
+    let emailFoundDecrypted = null;
 
+    // If alias does not exist, search all users email
     try {
-      // Search if user already exist with email adress
-      emailFound = await models.User.findOne({
+      emailFound = await models.User.findAll({
         attributes: ["email"],
-        where: { email: email },
       });
     } catch (err) {
       return res.status(500).json({ error: "unable to verify user" });
     }
-    if (!emailFound) {
+
+    // Loop in array for decrypt and compare email
+    try {
+      emailFound.forEach((emailFound) => {
+        const emailFoundDecryptedRaw = CryptoJS.AES.decrypt(
+          emailFound,
+          process.env.CRYPTO_JS_KEY
+        );
+        emailFoundDecrypted = emailFoundDecryptedRaw.toString(
+          CryptoJS.enc.Utf8
+        );
+        if (emailFoundDecrypted === email) {
+          return res.status(409).json({ error: "Email already use" });
+        }
+      });
+    } catch (err) {
+      return res.status(500).json({ error: "Cannot crypt email" });
+    }
+
+    try {
+      // If email not exist, search if alias already exist
+      aliasFound = await models.User.findOne({
+        attributes: ["alias"],
+        where: { alias: alias },
+      });
+    } catch (err) {
+      return res.status(500).json({ error: "unable to verify alias" });
+    }
+    if (!aliasFound) {
+      // If alias does not exist, encrypt email,
+      let emailEncrypted = null;
       try {
-        // If not exist with email adress, search if alias already exist
-        aliasFound = await models.User.findOne({
-          attributes: ["alias"],
-          where: { alias: alias },
-        });
+        emailEncrypted = CryptoJS.AES.encrypt(
+          email,
+          process.env.CRYPTO_JS_KEY
+        ).toString();
       } catch (err) {
-        return res.status(500).json({ error: "unable to verify alias" });
+        return res.status(500).json({ error: "Cannot crypt email" });
       }
-      if (!aliasFound) {
-        // If alias does not exist, crypt password and create user
-        bcrypt.hash(password, 5, async (error, bcryptedPassword) => {
-          try {
-            newUser = await models.User.create({
-              email: email,
-              alias: alias,
-              password: bcryptedPassword,
-              service: service,
-              urlPicture: urlPicture,
-              isModerator: isModerator,
-            });
-          } catch (err) {
-            return res.status(500).json({ error: "Cannot add user" });
-          }
-          // if user is well create, send newUser Object or send an error
-          if (newUser) {
-            // Prepare response
-            const newUserObject = {
-              _id: newUser.id,
-              token: jwtUtils.generateTokenForUser(newUser),
-              email: newUser.email,
-              alias: newUser.alias,
-              service: newUser.service,
-              urlPicture: newUser.urlPicture,
-              time: utils.timestampTranslator(newUser.createdAt),
-            };
-            // Return new user object
-            return res.status(201).json(newUserObject);
-          } else {
-            return res.status(500).json({ error: "Cannot add user" });
-          }
-        });
-      } else {
-        return res.status(409).json({ error: "Alias already use" });
-      }
+      // crypt password and create user
+      bcrypt.hash(password, 5, async (error, bcryptedPassword) => {
+        try {
+          newUser = await models.User.create({
+            email: emailEncrypted,
+            alias: alias,
+            password: bcryptedPassword,
+            service: service,
+            urlPicture: urlPicture,
+            isModerator: isModerator,
+          });
+        } catch (err) {
+          return res.status(500).json({ error: "Cannot add user" });
+        }
+        // if user is well create, send newUser Object or send an error
+        if (newUser) {
+          // Prepare response
+          const newUserObject = {
+            _id: newUser.id,
+            token: jwtUtils.generateTokenForUser(newUser),
+            email: newUser.email,
+            alias: newUser.alias,
+            service: newUser.service,
+            urlPicture: newUser.urlPicture,
+            time: utils.timestampTranslator(newUser.createdAt),
+          };
+          // Return new user object
+          return res.status(201).json(newUserObject);
+        } else {
+          return res.status(500).json({ error: "Cannot add user" });
+        }
+      });
     } else {
-      return res.status(409).json({ error: "Email already use" });
+      return res.status(409).json({ error: "Alias already use" });
     }
   },
 
@@ -140,15 +166,46 @@ module.exports = {
       return res.status(400).json({ error: "Password is not valid" });
     }
 
-    // Search if user with email adress
-    let userFound = null;
+    // Search all users email
+    let emailFound = null;
     try {
-      userFound = await models.User.findOne({
-        where: { email: email },
+      emailFound = await models.User.findAll({
+        attributes: ["email", "id"],
       });
     } catch (err) {
       return res.status(500).json({ error: "unable to verify user" });
     }
+
+    // Loop in array for decrypt and compare email
+    let emailFoundDecrypted = null;
+    let idFound = null;
+    try {
+      emailFound.forEach((eachEmailFound) => {
+        const emailFoundDecryptedRaw = CryptoJS.AES.decrypt(
+          eachEmailFound.email,
+          process.env.CRYPTO_JS_KEY
+        );
+        emailFoundDecrypted = emailFoundDecryptedRaw.toString(
+          CryptoJS.enc.Utf8
+        );
+        if (emailFoundDecrypted === email) {
+          idFound = eachEmailFound.id;
+        }
+      });
+    } catch (err) {
+      return res.status(500).json({ error: "Cannot crypt email" });
+    }
+
+    // Search if user with email adress
+    let userFound = null;
+    try {
+      userFound = await models.User.findOne({
+        where: { id: idFound },
+      });
+    } catch (err) {
+      return res.status(500).json({ error: "unable to verify user" });
+    }
+
     if (userFound) {
       // If user exist, compare password with userfound password
       bcrypt.compare(password, userFound.password, (errBcrypt, resBcrypt) => {
@@ -197,7 +254,18 @@ module.exports = {
     }
 
     if (userFound) {
-      // if user found, send back all attributes
+      // if user found, decrypt email
+      try {
+        const emailFoundDecryptedRaw = CryptoJS.AES.decrypt(
+          userFound.email,
+          process.env.CRYPTO_JS_KEY
+        );
+        userFound.email = emailFoundDecryptedRaw.toString(CryptoJS.enc.Utf8);
+      } catch (err) {
+        return res.status(500).json({ error: "Cannot crypt email" });
+      }
+
+      // Then, send back all attributes
       res.status(201).json(userFound);
     } else {
       res.status(404).json({ error: "user not found" });
@@ -259,11 +327,24 @@ module.exports = {
                 // If new password and old password are differents, crypt it
                 bcrypt.hash(newPassword, 5, async (error, bcryptedPassword) => {
                   try {
-                    // Destroy media attached
-                    const filename =
-                      userFound.urlPicture.split("/mediaPostsStore/")[1];
-                    console.log({ filename: filename });
-                    fs.unlink(`mediaPostsStore/${filename}`, async () => {
+                    if (req.file) {
+                      // Destroy media attached
+                      const filename =
+                        userFound.urlPicture.split("/mediaPostsStore/")[1];
+                      fs.unlink(`mediaPostsStore/${filename}`, async () => {
+                        // Update profile with informations
+                        userFound = await userFound.update({
+                          alias: alias ? alias : userFound.alias,
+                          password: bcryptedPassword
+                            ? bcryptedPassword
+                            : userFound.password,
+                          service: service ? service : userFound.service,
+                          urlPicture: urlPicture
+                            ? urlPicture
+                            : userFound.urlPicture,
+                        });
+                      });
+                    } else {
                       // Update profile with informations
                       userFound = await userFound.update({
                         alias: alias ? alias : userFound.alias,
@@ -275,11 +356,11 @@ module.exports = {
                           ? urlPicture
                           : userFound.urlPicture,
                       });
-                    });
+                    }
                   } catch (err) {
                     return res
                       .status(500)
-                      .json({ error: "cannot update user" + err });
+                      .json({ error: "cannot update user" });
                   }
                   // Then response with the profile data updated
                   if (userFound) {
@@ -318,7 +399,6 @@ module.exports = {
           // Then response with the profile data updated
           return res.status(201).json({
             _id: userFound.id,
-            email: userFound.email,
             alias: userFound.alias,
             service: userFound.service,
             urlPicture: userFound.urlPicture,
@@ -333,20 +413,10 @@ module.exports = {
     }
   },
   deleteUserProfile: async (req, res) => {
-    console.log(
-      " -------------------------" +
-        " jesuis là : " +
-        " -------------------------"
-    );
     // Getting auth header
     const headerAuth = req.headers["authorization"];
     const userId = jwtUtils.getUserId(headerAuth);
 
-    console.log(
-      " -------------------------" +
-        " jesuis là : " +
-        " -------------------------"
-    );
     // Control token
     if (userId < 0) return res.status(400).json({ error: "wrong token" });
 
@@ -376,24 +446,21 @@ module.exports = {
       return res.status(500).json({ error: "cannot fetch user" });
     }
 
+    // decrypt email
+    try {
+      const emailFoundDecryptedRaw = CryptoJS.AES.decrypt(
+        userFound.email,
+        process.env.CRYPTO_JS_KEY
+      );
+      userFound.email = emailFoundDecryptedRaw.toString(CryptoJS.enc.Utf8);
+    } catch (err) {
+      return res.status(500).json({ error: "Cannot crypt email" });
+    }
+
     if (userFound.isModerator === true || userId === userIdFromParams) {
       try {
         // Destroy media attached
-
-        console.log(
-          " -------------------------" +
-            " userFound : " +
-            userFound +
-            " -------------------------"
-        );
-        console.log(
-          " -------------------------" +
-            " userFoundurlPicture : " +
-            userFound.urlPicture +
-            " -------------------------"
-        );
         const filename = userFound.urlPicture.split("/mediaPostsStore/")[1];
-        console.log({ filename: filename });
         fs.unlink(`mediaPostsStore/${filename}`, async () => {
           // Search user with id and get this attributes list;
           await models.User.destroy({
@@ -403,6 +470,7 @@ module.exports = {
       } catch (err) {
         return res.status(500).json({ error: "cannot destroy user" });
       }
+
       return res.status(200).json({
         message: "Profile erased",
         userFound: {

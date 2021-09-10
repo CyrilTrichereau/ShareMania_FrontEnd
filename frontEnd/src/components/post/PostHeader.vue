@@ -62,7 +62,6 @@ export default {
   methods: {
     async erasePost() {
       // Params
-      console.log(this.dataForPostEraser);
       let response = null;
       let responseErasing = null;
       // Fetch DELETE

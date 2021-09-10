@@ -48,11 +48,11 @@ export default {
   computed: {
     averageCounterChecked() {
       if (!this.averageCounter) {
-        return 0
+        return 0;
       } else {
-        return this.averageCounter
+        return this.averageCounter;
       }
-    }
+    },
   },
 };
 </script>

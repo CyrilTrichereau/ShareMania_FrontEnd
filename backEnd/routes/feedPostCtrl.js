@@ -116,7 +116,7 @@ module.exports = {
         res.status(404).json({ error: "user not found" });
       }
     } catch (err) {
-      return res.status(500).json({ error: "global error: " + err });
+      return res.status(500).json({ error: "global error: " });
     }
   },
 
@@ -269,9 +269,7 @@ module.exports = {
           });
         });
       } catch (err) {
-        return res
-          .status(500)
-          .json({ error: "cannot destroy feed post" + err });
+        return res.status(500).json({ error: "cannot destroy feed post" });
       }
       // Prepare response
       let response = {

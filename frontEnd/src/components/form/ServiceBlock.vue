@@ -52,7 +52,6 @@ export default {
       type: String,
       default: "none",
     },
-
   },
   data() {
     return {

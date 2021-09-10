@@ -20,8 +20,12 @@ exports.router = (() => {
   apiRouter.route("/users/register/").post(multer, usersCtrl.register);
   apiRouter.route("/users/login/").post(usersCtrl.login);
   apiRouter.route("/users/myProfile/").get(auth, usersCtrl.getUserProfile);
-  apiRouter.route("/users/myProfile/").put(auth, multer, usersCtrl.updateUserProfile);
-  apiRouter.route("/:userId/users/myProfile/").delete(usersCtrl.deleteUserProfile);
+  apiRouter
+    .route("/users/myProfile/")
+    .put(auth, multer, usersCtrl.updateUserProfile);
+  apiRouter
+    .route("/:userId/users/myProfile/")
+    .delete(usersCtrl.deleteUserProfile);
   apiRouter.route("/users/auth/").get(usersCtrl.controlAuth);
 
   // FeedPosts routes

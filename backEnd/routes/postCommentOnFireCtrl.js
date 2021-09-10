@@ -117,6 +117,7 @@ module.exports = {
           let popularityCounter = await utils.popularityCounter(
             onFireCounter,
             coldCounter,
+            postCommentId,
             false
           );
           try {
@@ -145,6 +146,7 @@ module.exports = {
         let popularityCounter = await utils.popularityCounter(
           onFireCounter,
           coldCounter,
+          postCommentId,
           false
         );
         try {
@@ -203,6 +205,7 @@ module.exports = {
         let popularityCounter = await utils.popularityCounter(
           onFireCounter,
           coldCounter,
+          postCommentId,
           false
         );
         try {
@@ -368,6 +371,7 @@ module.exports = {
           let popularityCounter = await utils.popularityCounter(
             onFireCounter,
             coldCounter,
+            postCommentId,
             false
           );
           try {
@@ -396,6 +400,7 @@ module.exports = {
         let popularityCounter = await utils.popularityCounter(
           onFireCounter,
           coldCounter,
+          postCommentId,
           false
         );
         try {
@@ -454,6 +459,7 @@ module.exports = {
         let popularityCounter = await utils.popularityCounter(
           onFireCounter,
           coldCounter,
+          postCommentId,
           false
         );
         try {

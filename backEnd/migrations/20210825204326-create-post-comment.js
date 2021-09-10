@@ -1,16 +1,16 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('PostComments', {
+    await queryInterface.createTable("PostComments", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       postUserId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       feedPostId: {
         allowNull: false,
@@ -19,33 +19,33 @@ module.exports = {
           model: "FeedPosts",
           key: "id",
         },
-        onDelete: 'cascade',
+        onDelete: "cascade",
       },
       postTime: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       userId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userAlias: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       userUrlPicture: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       commentText: {
         allowNull: false,
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       onFireCounter: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       coldCounter: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       averageCounter: {
         type: Sequelize.INTEGER,
@@ -57,15 +57,15 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('PostComments');
-  }
+    await queryInterface.dropTable("PostComments");
+  },
 };

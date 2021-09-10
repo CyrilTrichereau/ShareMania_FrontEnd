@@ -4,7 +4,10 @@
       <h2 class="eraseConfirmCardTitle">
         Voulez vous vraiment supprimer {{ loopForType }} ?
       </h2>
-      <h6 class="text-dark eraseConfirmCardSubtitle">Cette opération est irréversible. <br> Merci de confirmer.</h6>
+      <h6 class="text-dark eraseConfirmCardSubtitle">
+        Cette opération est irréversible. <br />
+        Merci de confirmer.
+      </h6>
       <div class="eraseConfirmCardButtons">
         <div class="eraseConfirmCardButtonsWrapper" @click="confirmToErase">
           <Button text="Supprimer" :danger="true" />
@@ -43,8 +46,8 @@ export default {
     },
     urlToRedirect: {
       type: String,
-      default: "/"
-    }
+      default: "/",
+    },
   },
   computed: {
     loopForType() {
@@ -68,7 +71,7 @@ export default {
     confirmToErase() {
       this.$emit("confirmation-erase");
       this.$emit("close-erase-confirmation-window");
-    }
+    },
   },
 };
 </script>

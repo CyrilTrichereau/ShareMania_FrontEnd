@@ -1,15 +1,18 @@
 <template>
-<div class="wrapper">
-    <button class="btn btn-primary bg-primary crossIcon" v-if="colorThemePrimary">
+  <div class="wrapper">
+    <button
+      class="btn btn-primary bg-primary crossIcon"
+      v-if="colorThemePrimary"
+    >
       <span class="bg-light bar barTop"></span>
       <span class="bg-light bar barBottom"></span>
     </button>
-    
+
     <button class="btn btn-white bg-light crossIcon" v-else>
       <span class="bg-primary bar barTop"></span>
       <span class="bg-primary bar barBottom"></span>
     </button>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -51,8 +54,8 @@ $lightColor: #fdfeff;
   cursor: pointer;
   border-radius: 5px;
   &:hover {
-      transform: scale($barScaling);
-      box-shadow: 0px 0px 10px $primaryColor;;
+    transform: scale($barScaling);
+    box-shadow: 0px 0px 10px $primaryColor;
   }
 }
 
@@ -68,5 +71,4 @@ $lightColor: #fdfeff;
     transform: rotate(-$barRotation);
   }
 }
-
 </style>

@@ -8,7 +8,7 @@
         inputName="Pseudo"
         inputPlaceHolder="Ecrivez ici votre pseudo"
         @input-value="saveNewAlias"
-        textInvalid="Le pseudo ne peut contenir que des majuscules, minuscules et chiffres"
+        textInvalid="Le pseudo ne peut contenir que des majuscules, minuscules et chiffres. Minimum 5	caractères et maximum 12 caractères."
         patternType="alias"
       />
       <InputBlock
@@ -93,13 +93,15 @@ export default {
       confirmationPopInIsOpen: false,
       arrayIsValid: [false, false, false, false],
       inscriptionIsNotValid: false,
-      urlPictureForEmpty: "http://localhost:8081/imagesStatic/unknowProfile250pxTinyfied.jpg",
+      urlPictureForEmpty:
+        "http://localhost:8080/mediaPostsStore/unknowProfile250pxTinyfied.jpg",
       profileToSave: {
         email: "",
         password: "",
         alias: "",
         service: "",
-        urlPicture: "http://localhost:8081/imagesStatic/unknowProfile250pxTinyfied.jpg",
+        urlPicture:
+          "http://localhost:8080/mediaPostsStore/unknowProfile250pxTinyfied.jpg",
         mediaFile: "",
       },
     };

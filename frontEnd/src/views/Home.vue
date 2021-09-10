@@ -19,7 +19,7 @@ export default {
   async created() {
     const isValidToken = await utils.controlAuth();
     if (!isValidToken) {
-      this.$router.push("login")
+      this.$router.push("login");
     }
     await this.$store.dispatch("fetchMyProfile");
   },

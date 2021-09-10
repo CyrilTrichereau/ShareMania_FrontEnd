@@ -23,7 +23,7 @@ export default {
     FooterConnectionBlock,
   },
   async created() {
-   await this.$store.dispatch("fetchMyProfile");
+    await this.$store.dispatch("fetchMyProfile");
   },
 };
 </script>

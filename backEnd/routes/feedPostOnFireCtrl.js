@@ -117,7 +117,8 @@ module.exports = {
           let popularityCounter = await utils.popularityCounter(
             onFireCounter,
             coldCounter,
-            feedPostId
+            feedPostId,
+            true
           );
           try {
             // Update cold counter
@@ -145,7 +146,8 @@ module.exports = {
         let popularityCounter = await utils.popularityCounter(
           onFireCounter,
           coldCounter,
-          feedPostId
+          feedPostId,
+          true
         );
         try {
           // Update counter on fire
@@ -207,7 +209,8 @@ module.exports = {
         let popularityCounter = await utils.popularityCounter(
           onFireCounter,
           coldCounter,
-          feedPostId
+          feedPostId,
+          true
         );
         try {
           // Update on fire counter
@@ -375,7 +378,8 @@ module.exports = {
           let popularityCounter = await utils.popularityCounter(
             onFireCounter,
             coldCounter,
-            feedPostId
+            feedPostId,
+            true
           );
           try {
             // Update on fire counter
@@ -403,7 +407,8 @@ module.exports = {
         let popularityCounter = await utils.popularityCounter(
           onFireCounter,
           coldCounter,
-          feedPostId
+          feedPostId,
+          true
         );
         try {
           // Update counter on fire
@@ -465,7 +470,8 @@ module.exports = {
         let popularityCounter = await utils.popularityCounter(
           onFireCounter,
           coldCounter,
-          feedPostId
+          feedPostId,
+          true
         );
         try {
           // Update cold counter

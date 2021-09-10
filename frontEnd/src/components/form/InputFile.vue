@@ -1,5 +1,5 @@
 <template>
-  <div class="inputFile"> 
+  <div class="inputFile">
     <label for="file" class="btn btn-primary inputFileLabel">
       {{ text }}
     </label>
@@ -9,10 +9,9 @@
       name="mediaFile"
       id="file"
       accept="image/png, image/jpeg, video/mp4 video/wbem"
-      enctype='multipart/form-data'
+      enctype="multipart/form-data"
       class="btn btn-primary inputFileInput"
       @change="ascendSendMediaToPostObject"
-      
     />
   </div>
 </template>
@@ -29,7 +28,7 @@ export default {
   data() {
     return {
       url: null,
-    }
+    };
   },
   methods: {
     ascendSendMediaToPostObject(payload) {

@@ -1,5 +1,12 @@
 <template>
-  <button class="backColor" :class="{ 'text-light bg-secondary': commentsAreOpen, 'text-primary': !commentsAreOpen }" @click="openCloseCommentBlock">
+  <button
+    class="backColor"
+    :class="{
+      'text-light bg-secondary': commentsAreOpen,
+      'text-primary': !commentsAreOpen,
+    }"
+    @click="openCloseCommentBlock"
+  >
     <font-awesome-icon icon="comment-alt" class="backColorIcon" />
   </button>
 </template>

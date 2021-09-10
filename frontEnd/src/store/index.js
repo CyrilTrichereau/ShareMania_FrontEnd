@@ -54,8 +54,7 @@ export default new Vuex.Store({
     },
   },
 
-  getters: {
-  },
+  getters: {},
 
   actions: {
     openOrCloseMenuHeader(context, menu) {
@@ -68,7 +67,7 @@ export default new Vuex.Store({
       context.commit("CHANGE_IS_OPEN_MODIFY_PROFILE");
     },
     changeProfileModifyOrShowForce(context, boolean) {
-      context.commit("CHANGE_IS_OPEN_MODIFY_PROFILE", boolean);
+      context.commit("CHANGE_IS_OPEN_MODIFY_PROFILE_FORCE", boolean);
     },
   },
 });

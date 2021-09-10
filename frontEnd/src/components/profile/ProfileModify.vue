@@ -39,7 +39,7 @@
         inputName="Pseudo"
         :inputPlaceHolder="$store.state.profile.myProfile.alias"
         @input-value="saveNewAlias"
-        textInvalid="Le pseudo ne peut contenir que des majuscules, minuscules et chiffres"
+        textInvalid="Le pseudo ne peut contenir que des majuscules, minuscules et chiffres. Minimum 5	caractères et maximum 12 caractères."
         patternType="alias"
       />
     </div>
@@ -50,6 +50,18 @@
         textInvalid="Veuillez sélectionner un service"
       />
     </div>
+    <p
+      class="text-danger profileModifyContentInvalidText"
+      v-show="formIsNotValid"
+    >
+      Pour pouvoir valider les modifications, corrigez les champs indiqués
+    </p>
+    <p
+      class="text-danger profileModifyContentInvalidText"
+      v-show="requestInvalid"
+    >
+      {{ messageRequestInvalid }}
+    </p>
     <div
       class="profileModifyContentValidateWrapper"
       @click="saveProfileChanges"
@@ -62,12 +74,6 @@
     >
       <Button text="Quitter sans sauvegarder" :danger="true" />
     </div>
-    <p
-      class="text-danger profileModifyContentInvalidText"
-      v-show="formIsNotValid"
-    >
-      Pour pouvoir valider les modifications, corrigez les champs indiqués
-    </p>
     <div class="profileModifyContentValidateConfirmationWrapper">
       <ConfirmationPopIn
         v-if="confirmationPopInIsOpen"
@@ -102,6 +108,8 @@ export default {
       confirmationPopInIsOpen: false,
       arrayIsValid: [true, true, true],
       formIsNotValid: false,
+      requestInvalid: false,
+      messageRequestInvalid: "Mot de passe invalide",
       profileToSave: {
         _id: "",
         oldPassword: "",
@@ -135,6 +143,11 @@ export default {
       this.$emit("new-picture-profile", payload[1]);
     },
     async saveProfileChanges() {
+      // First close alerts
+      this.formIsNotValid = false;
+      this.requestInvalid = false;
+
+      // Then check form
       let formCompleted = true;
       this.arrayIsValid.forEach((element) => {
         if (element !== "success") {
@@ -142,7 +155,6 @@ export default {
         }
       });
       if (formCompleted) {
-        console.log(this.profileToSave);
         let responseFormData = new FormData();
         // Params
         const requestObject = [
@@ -154,7 +166,6 @@ export default {
         ];
 
         // Add file
-        console.log(this.profileToSave.mediaFile);
         if (this.profileToSave.mediaFile) {
           try {
             responseFormData.append(
@@ -191,19 +202,36 @@ export default {
             }
           );
           responseNewUser = await response.json();
-          console.log({ responseNewUser: responseNewUser });
         } catch (error) {
           console.log(error);
         }
-
-        // Open confirmation pop in
-        this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
+        if (responseNewUser._id) {
+          // If user is well updated, open confirmation pop in
+          this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
+        } else {
+          // Else, return error corresponding
+          if (responseNewUser.error === "Invalid password") {
+            this.messageRequestInvalid = "Mot de passe invalide.";
+            this.requestInvalid = true;
+            this.formIsNotValid = true;
+          } else if (responseNewUser.error === "Same password") {
+            this.messageRequestInvalid =
+              "Le nouveau mot de passe est le même que l'ancien.";
+            this.requestInvalid = true;
+            this.formIsNotValid = true;
+          } else {
+            this.formIsNotValid = true;
+          }
+        }
       } else {
         this.formIsNotValid = true;
       }
     },
     closeAndResetPicture() {
-      this.$emit("new-picture-profile", this.$store.state.profile.myProfile.urlPicture);
+      this.$emit(
+        "new-picture-profile",
+        this.$store.state.profile.myProfile.urlPicture
+      );
       this.$store.dispatch("changeProfileModifyOrShow");
     },
   },

@@ -87,25 +87,12 @@ export default {
       } catch (error) {
         console.log(error);
       }
-
-    console.log(
-      " -------------------------" +
-        " response : " +
-        response +
-        " -------------------------"
-    );
-    console.log(
-      " -------------------------" +
-        " responseLogged : " +
-        responseLogged +
-        " -------------------------"
-    );
       // Store token in local storage
       localStorage.setItem("token", "Bearer " + responseLogged.token);
       console.log("login success");
       setTimeout(() => {
-      this.$router.push({ name: "home" });        
-      }, 10000);
+        this.$router.push({ name: "home" });
+      }, 100);
     },
   },
 };

@@ -65,6 +65,11 @@ export default {
       this.$store.dispatch("changeProfileModifyOrShow");
     },
   },
+  mounted() {
+    setTimeout(() => {
+      this.$router.push({ name: "home" });
+    }, 2000);
+  },
 };
 </script>
 

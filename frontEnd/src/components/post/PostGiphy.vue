@@ -65,11 +65,14 @@ export default {
           this.postGiphyToShare.posterProfile.alias = "Unknown";
         }
         this.postGiphyToShare.posterProfile.urlPicture =
-          "http://localhost:8081/mediaPostsStore/basketball01Tinyfied1631215345699.jpg";
+          "http://localhost:8080/mediaPostsStore/unknow250pxTinyfied.jpg";
       }
       this.postGiphyToShare.content.text = this.post.title;
       this.postGiphyToShare.content.urlPicture = this.post.images.original.webp;
-      this.$store.dispatch('saveTemporaryGifDataForShare', this.postGiphyToShare);
+      this.$store.dispatch(
+        "saveTemporaryGifDataForShare",
+        this.postGiphyToShare
+      );
       if (this.descendNewPostSeasonning) {
         this.$emit("share-a-giphy-post", this.postGiphyToShare);
       } else {

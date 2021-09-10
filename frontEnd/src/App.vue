@@ -20,7 +20,7 @@ export default {
     HeaderMobile,
     SideBarDesktop,
   },
-   beforeCreate() {
+  beforeCreate() {
     this.$store.dispatch("fetchMyProfile");
   },
 };

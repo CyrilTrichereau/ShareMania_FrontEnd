@@ -1,6 +1,9 @@
 <template>
   <div class="profileContent">
-    <div class="profileContentStatus" v-if="$store.state.profile.myProfile.moderator">
+    <div
+      class="profileContentStatus"
+      v-if="$store.state.profile.myProfile.isModerator"
+    >
       <font-awesome-icon
         icon="shield-alt"
         class="text-success profileContentStatusIcon"
@@ -41,7 +44,10 @@
         {{ $store.state.profile.myProfile.service }}
       </p>
     </div>
-    <Button text="Modifier" @click.native="$store.dispatch('changeProfileModifyOrShow')" />
+    <Button
+      text="Modifier"
+      @click.native="$store.dispatch('changeProfileModifyOrShow')"
+    />
     <Button
       text="Supprimer mon compte"
       :danger="true"
@@ -83,14 +89,16 @@ export default {
         alias: this.$store.state.profile.myProfile.alias,
         email: this.$store.state.profile.myProfile.email,
       };
-      console.log(profileForErasing);
 
       let response = null;
       let responseErasing = null;
       // fetch new post
       try {
         response = await fetch(
-          this.$store.state.apiUrl.entryPoint + "/" + profileForErasing.id + "/users/myProfile/",
+          this.$store.state.apiUrl.entryPoint +
+            "/" +
+            profileForErasing.id +
+            "/users/myProfile/",
           {
             method: "DELETE",
             headers: {
@@ -105,8 +113,8 @@ export default {
       } catch (error) {
         console.log(error);
       }
-      console.log({responseErasing: responseErasing});
-      //this.$router.push({ name: 'login' })
+      console.log({ responseErasing: responseErasing });
+      this.$router.go();
     },
   },
 };

@@ -1,6 +1,13 @@
 <template>
   <div>
-    <button class="btn my-2 validateButton" :class="{'btn-danger': danger, 'btn-primary': !danger & !secondary, 'btn-secondary': secondary}">
+    <button
+      class="btn my-2 validateButton"
+      :class="{
+        'btn-danger': danger,
+        'btn-primary': !danger & !secondary,
+        'btn-secondary': secondary,
+      }"
+    >
       {{ text }}
     </button>
   </div>

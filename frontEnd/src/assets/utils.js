@@ -57,15 +57,12 @@ export const controlAuth = async () => {
       },
     });
     response = await response.json();
-    console.log({ responseBody: response });
   } catch (error) {
     console.log(error);
   }
   if (response.success !== "valid token") {
-    console.log("pas valide");
     return false;
   } else {
-    console.log("validééééé!!!!");
     return true;
   }
 };

@@ -58,7 +58,6 @@ export default {
         },
         text: this.contentText,
       };
-      console.log(dataNewComment);
 
       //send new comment POST
       let response = null;

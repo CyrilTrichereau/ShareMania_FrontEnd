@@ -16,6 +16,7 @@
         to="/my-profile"
         class="sideBarProfilePictureBackground"
         v-if="$store.state.profile.myProfile.alias"
+        @click.native="$store.dispatch('changeProfileModifyOrShowForce', false)"
       >
         <img
           :src="$store.state.profile.myProfile.urlPicture"
@@ -39,13 +40,18 @@
         <router-link
           to="/my-profile"
           class="text-light h4 sideBarProfileContentName"
+          @click.native="
+            $store.dispatch('changeProfileModifyOrShowForce', false)
+          "
         >
           {{ $store.state.profile.myProfile.alias }}
         </router-link>
         <router-link
-          to="/my-profile/modify"
+          to="/my-profile"
           class="text-light sideBarProfileContentModify"
-          @click.native="$store.dispatch('changeProfileModifyOrShow')"
+          @click.native="
+            $store.dispatch('changeProfileModifyOrShowForce', true)
+          "
         >
           Modifier mon profil
         </router-link>
@@ -106,6 +112,7 @@ export default {
   methods: {
     logOutProfile() {
       localStorage.removeItem("token");
+      this.$router.go();
     },
   },
 };

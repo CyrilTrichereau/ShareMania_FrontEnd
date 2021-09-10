@@ -77,9 +77,8 @@ module.exports = {
         if (newPost) {
           // Update  popularity counter
           let popularityCounter = await utils.popularityCounter(
-            feedPostFound.onFireCounter,
-            feedPostFound.coldCounter,
-            feedPostFound.id
+            feedPostFound.id,
+            true
           );
           try {
             // Update counter on fire

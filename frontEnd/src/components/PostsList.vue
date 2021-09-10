@@ -109,7 +109,7 @@ export default {
 
     async fetchPosts(orderType) {
       // Request params
-      const numberOfPostsLimit = "?limit=10";
+      const numberOfPostsLimit = "?limit=40";
       const startAtPostNumber = "&offset=0";
       let orderBy = null;
       if (orderType === "hotest") {
@@ -144,11 +144,10 @@ export default {
   },
   mounted() {
     if (!this.postsGiphy) {
-      console.log("je suis dans le mounted");
       this.fetchPosts("date");
     } else {
       this.$store.dispatch("fetchPostsGiphyTrending", {
-        numberOfPosts: 20,
+        numberOfPosts: 40,
         startAtNumber: 0,
       });
     }

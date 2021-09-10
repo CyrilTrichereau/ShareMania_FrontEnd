@@ -1,12 +1,12 @@
 <template>
-  <div class="displayComments" >
-
+  <div class="displayComments">
     <div class="displayCommentsHeader" v-if="commentsList.length >= 1">
       <p class="displayCommentsHeaderTitle text-primary">Commentaires</p>
       <div class="displayCommentsHeaderSorting">
-        <SortingByButton 
-        typeSortingBy="comment"
-        @select-value="changeOrderByCommentsList" />
+        <SortingByButton
+          typeSortingBy="comment"
+          @select-value="changeOrderByCommentsList"
+        />
       </div>
     </div>
     <div
@@ -41,7 +41,6 @@ export default {
     };
   },
   methods: {
-
     async fetchComments(orderType) {
       // Request params
       const numberOfCommentsLimit = "?limit=30";
@@ -58,7 +57,11 @@ export default {
 
       try {
         const response = await fetch(
-          this.$store.state.apiUrl.entryPoint + "/" + this.postId + "/postComment" + params,
+          this.$store.state.apiUrl.entryPoint +
+            "/" +
+            this.postId +
+            "/postComment" +
+            params,
           {
             headers: {
               authorization: localStorage.getItem("token"),
@@ -66,8 +69,7 @@ export default {
           }
         );
         this.commentsList = await response.json();
-        this.$emit("number-of-comments", this.commentsList.length)
-        console.log(this.commentsList);
+        this.$emit("number-of-comments", this.commentsList.length);
       } catch (error) {
         console.log(error);
       }
@@ -87,10 +89,10 @@ export default {
     this.fetchComments();
   },
   watch: {
-    postId: function () {
-    this.fetchComments();
-    }
-  }
+    postId: function() {
+      this.fetchComments();
+    },
+  },
 };
 </script>
 
