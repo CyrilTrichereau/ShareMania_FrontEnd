@@ -18,6 +18,7 @@
         secondLineText="Supprimer la publication"
         typeToErase="post"
         @confirm-erase="erasePost"
+        :displayEraseLine="canIEraseIt"
       />
     </div>
   </div>
@@ -53,8 +54,23 @@ export default {
       type: Object,
       require: true,
     },
+    posterId: {
+      type: Number,
+      require: true,
+    },
   },
   computed: {
+    canIEraseIt() {
+      if (
+        this.$store.state.profile.myProfile.isModerator ||
+        this.posterId ===
+          this.$store.state.profile.myProfile.id
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
     timeElapsed() {
       return utils.elapsedTime(this.time);
     },

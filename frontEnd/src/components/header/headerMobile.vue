@@ -45,7 +45,6 @@
             headerMobileBlockMenuBarWrapper:
               $store.state.isOpen.headerMenu !== 'menuBurger',
           }"
-          @click="$store.dispatch('openOrCloseMenuHeader', 'menuBurger')"
         >
           <MenuBurger />
         </div>

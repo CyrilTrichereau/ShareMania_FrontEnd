@@ -2,9 +2,13 @@ export const elapsedTime = (time) => {
   // calculate time elapsed in minutes
   let calcTime = Math.round((Date.now() / 1000 - time) / 60);
   let timeValue = "min";
+  let introductionSentence = "Il y a "
   // if inferior at 60 min
+  if (calcTime <= 1) {
+    return "A l'instant";
+  } else 
   if (calcTime <= 60) {
-    return calcTime.toString() + " " + timeValue;
+    return introductionSentence + calcTime.toString()  + " " + timeValue;
   } else {
     // if inferior at 24 hours
     calcTime = Math.round(calcTime / 60);
@@ -14,7 +18,7 @@ export const elapsedTime = (time) => {
       } else {
         timeValue = "heures";
       }
-      return calcTime.toString() + " " + timeValue;
+      return introductionSentence + calcTime.toString()  + " " + timeValue;
     } else {
       // if inferior at 30 days
       calcTime = Math.round(calcTime / 24);
@@ -24,14 +28,14 @@ export const elapsedTime = (time) => {
         } else {
           timeValue = "jours";
         }
-        return calcTime.toString() + " " + timeValue;
+        return introductionSentence + calcTime.toString()  + " " + timeValue;
       } else {
         // if inferior at 12 months
         calcTime = Math.round(calcTime / 30);
         if (calcTime <= 12) {
           timeValue = "mois";
 
-          return calcTime.toString() + " " + timeValue;
+          return introductionSentence + calcTime.toString()  + " " + timeValue;
         } else {
           // else in years
           calcTime = Math.round(calcTime / 12);
@@ -40,7 +44,7 @@ export const elapsedTime = (time) => {
           } else {
             timeValue = "ans";
           }
-          return calcTime.toString() + " " + timeValue;
+          return introductionSentence + calcTime.toString()  + " " + timeValue;
         }
       }
     }

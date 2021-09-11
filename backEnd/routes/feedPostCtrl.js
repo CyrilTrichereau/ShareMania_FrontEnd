@@ -5,7 +5,7 @@ const jwtUtils = require("../utils/jwt.utils");
 const utils = require("../utils/utils");
 
 // Constants
-const CONTENT_TEXT_LIMIT = 4;
+const CONTENT_TEXT_LIMIT = 6;
 const ITEMS_LIMIT = 50;
 
 // Le modle est bien renvoyé. Il faut manintenat renvoyer la réponse avec l'objet

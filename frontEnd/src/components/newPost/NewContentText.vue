@@ -15,6 +15,12 @@
       <div class="newContentTextMain">
         <div class="newContentTextMainBlock">
           <TextBlock @input-value="saveContentText" />
+          <p
+            class="text-danger newContentTextMainBlockInvalidText"
+            v-show="displayInvalidText"
+          >
+            Le texte de votre publication doit contenir au minimum 6 caractères.
+          </p>
         </div>
         <ContentCardShared
           :giphyToDisplay="postData"
@@ -49,6 +55,7 @@ export default {
   },
   data() {
     return {
+      displayInvalidText: false,
       postData: {
         posterProfile: {
           alias: "",
@@ -113,69 +120,81 @@ export default {
       this.updatePostData(postGiphyToReplace);
     },
     async sendPost() {
-      // Init Response FormData
-      let responseFormData = new FormData();
+      // Re init invalid text displaying
+      this.displayInvalidText = false;
+      // Control if regex text is respected (6 caracteres minimum)
+      const regex = new RegExp(this.$store.state.pattern.text);
+      if (regex.test(this.postData.content.text)) {
+        
+        // Init Response FormData
+        let responseFormData = new FormData();
 
-      // Params
-      const requestObject = [
-        ["userAlias", this.$store.state.profile.myProfile.alias],
-        ["userUrlPicture", this.$store.state.profile.myProfile.urlPicture],
-        ["userService", this.$store.state.profile.myProfile.service],
-        ["contentText", this.postData.content.text],
-        ["contentUrlPicture", this.postData.content.urlPicture],
-        [
-          "originalUserAlias",
-          this.postData.content.originalPosterProfile.alias,
-        ],
-        [
-          "originalUserUrlPicture",
-          this.postData.content.originalPosterProfile.urlPicture,
-        ],
-        ["originalUserText", this.postData.content.originalPosterProfile.text],
-      ];
+        // Params
+        const requestObject = [
+          ["userAlias", this.$store.state.profile.myProfile.alias],
+          ["userUrlPicture", this.$store.state.profile.myProfile.urlPicture],
+          ["userService", this.$store.state.profile.myProfile.service],
+          ["contentText", this.postData.content.text],
+          ["contentUrlPicture", this.postData.content.urlPicture],
+          [
+            "originalUserAlias",
+            this.postData.content.originalPosterProfile.alias,
+          ],
+          [
+            "originalUserUrlPicture",
+            this.postData.content.originalPosterProfile.urlPicture,
+          ],
+          [
+            "originalUserText",
+            this.postData.content.originalPosterProfile.text,
+          ],
+        ];
 
-      // Add file
-      if (this.postData.mediaFile) {
-        try {
-          responseFormData.append(
-            "mediaFile",
-            this.postData.mediaFile,
-            this.postData.mediaFile.name
-          );
-        } catch (error) {
-          console.log(error);
-        }
-      }
-
-      // Add data
-      requestObject.forEach((value) => {
-        try {
-          responseFormData.append(value[0], value[1]);
-        } catch (error) {
-          console.log(error);
-        }
-      });
-
-      // fetch new post
-      try {
-        let response = await fetch(
-          this.$store.state.apiUrl.entryPoint + "/feedPosts/new/",
-          {
-            method: "POST",
-            body: responseFormData,
-            headers: {
-              authorization: localStorage.getItem("token"),
-            },
+        // Add file
+        if (this.postData.mediaFile) {
+          try {
+            responseFormData.append(
+              "mediaFile",
+              this.postData.mediaFile,
+              this.postData.mediaFile.name
+            );
+          } catch (error) {
+            console.log(error);
           }
-        );
-        response = await response.json();
-        console.log({ responseBody: response });
-      } catch (error) {
-        console.log(error);
-      }
+        }
 
-      this.$store.dispatch("openOrCloseMenuHeaderForce", "none");
-      this.$router.push({ name: "home" });
+        // Add data
+        requestObject.forEach((value) => {
+          try {
+            responseFormData.append(value[0], value[1]);
+          } catch (error) {
+            console.log(error);
+          }
+        });
+
+        // fetch new post
+        try {
+          let response = await fetch(
+            this.$store.state.apiUrl.entryPoint + "/feedPosts/new/",
+            {
+              method: "POST",
+              body: responseFormData,
+              headers: {
+                authorization: localStorage.getItem("token"),
+              },
+            }
+          );
+          response = await response.json();
+          console.log({ responseBody: response });
+        } catch (error) {
+          console.log(error);
+        }
+
+        this.$store.dispatch("openOrCloseMenuHeaderForce", "none");
+        this.$router.push({ name: "home" });
+      } else {
+        this.displayInvalidText = true;
+      }
     },
   },
   mounted() {
@@ -235,6 +254,12 @@ export default {
         width: 92%;
         max-width: 800px;
         margin-top: 0.5rem;
+        &InvalidText {
+          width: 100%;
+          padding: 0.2rem 1rem;
+          margin: 0.5rem 0;
+          border-radius: 5px;
+        }
       }
     }
   }

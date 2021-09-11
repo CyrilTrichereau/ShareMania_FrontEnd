@@ -161,6 +161,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  max-width: 900px;
   width: 92%;
   &Header {
     display: flex;
@@ -169,7 +170,6 @@ export default {
     align-items: center;
     flex-wrap: wrap;
     width: 90%;
-    max-width: 600px;
     margin: 0.5rem 0;
     &Wrapper {
       width: 100%;

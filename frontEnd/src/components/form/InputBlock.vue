@@ -119,8 +119,8 @@ export default {
     testRegex(value) {
       const patternToApply = this.whichPattern;
       if (patternToApply !== "") {
-        const regex2 = new RegExp(patternToApply);
-        if (regex2.test(value)) {
+        const regex = new RegExp(patternToApply);
+        if (regex.test(value)) {
           return true;
         } else {
           return false;

@@ -1,9 +1,6 @@
 <template>
   <div class="menu">
-    <div
-      class="menuBurgerIconWrapper"
-      @click="$store.dispatch('openOrCloseMenuHeader', 'menuBurger')"
-    >
+    <div class="menuBurgerIconWrapper" @click="openCloseAndCheckIsNewPost">
       <MenuBurgerIcon />
     </div>
     <div
@@ -45,7 +42,7 @@
         <!-- NEW POST LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="$store.dispatch('openOrCloseMenuHeader', 'newPost')"
+          @click="$store.dispatch('openOrCloseMenuHeaderForce', 'newPost')"
         >
           <router-link to="/new-post" class="text-primary menuListItemLinks">
             <font-awesome-icon
@@ -112,6 +109,26 @@ export default {
   name: "MenuBurger",
   components: {
     MenuBurgerIcon,
+  },
+  methods: {
+    openCloseAndCheckIsNewPost() {
+      if (this.$route.name === "newPost") {
+        console.log("you are in newpost");
+        if (this.$store.state.isOpen.headerMenu === "menuBurger") {
+          console.log("it is egal at menuBurger");
+          this.$store.dispatch("openOrCloseMenuHeaderForce", "newPost");
+        } else {
+          console.log("it is not egal at menuBurger");
+          console.log("before : " + this.$store.state.isOpen.headerMenu);
+
+          this.$store.dispatch("openOrCloseMenuHeaderForce", "menuBurger");
+          console.log("after : " + this.$store.state.isOpen.headerMenu);
+        }
+      } else {
+        console.log("not this one please");
+        this.$store.dispatch("openOrCloseMenuHeader", "menuBurger");
+      }
+    },
   },
 };
 </script>

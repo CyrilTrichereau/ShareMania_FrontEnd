@@ -11,7 +11,7 @@
           {{ commentObject.profile.alias }}
         </p>
         <p class="commentContentHeaderTimePost text-secondary">
-          Il y a {{ timeElapsed }}
+          {{ timeElapsed }}
         </p>
         <div class="commentContentHeaderEllipsisMenu">
           <EllipsisMenu
@@ -20,6 +20,7 @@
             secondLineText="Supprimer le commentaire"
             typeToErase="comment"
             @confirm-erase="eraseComment"
+            :displayEraseLine="canIEraseIt"
           />
         </div>
       </div>
@@ -69,6 +70,16 @@ export default {
     };
   },
   computed: {
+    canIEraseIt() {
+      if (
+        this.$store.state.profile.myProfile.isModerator ||
+        this.commentObject.profile._id === this.$store.state.profile.myProfile.id
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
     timeElapsed() {
       return utils.elapsedTime(this.commentObject.time);
     },

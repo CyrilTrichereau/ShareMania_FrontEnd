@@ -4,7 +4,6 @@
     :class="{
       burgerIconIsOpen: $store.state.isOpen.headerMenu === 'menuBurger',
     }"
-    @click="$store.dispatch('openOrCloseMenuHeader', 'menuBurger')"
   >
     <span class="bar barTop"></span>
     <span class="bar barMiddle"></span>

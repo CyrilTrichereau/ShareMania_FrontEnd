@@ -43,6 +43,7 @@ export default {
       numberOfPosts: 20,
       startAtNumber: 0,
     });
+    this.$store.dispatch('openOrCloseMenuHeaderForce', 'newPost')
   },
   async created() {
     const isValidToken = await utils.controlAuth();

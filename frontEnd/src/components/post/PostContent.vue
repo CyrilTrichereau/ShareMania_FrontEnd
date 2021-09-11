@@ -7,7 +7,7 @@
       :src="urlPicture"
       :alt="text"
       class="postContentPicture"
-      v-if="!isVideo"
+      v-if="!isVideo && urlPicture"
     />
     <video
       :src="urlPicture"
@@ -17,7 +17,7 @@
       preload="metadata"
       loop
       muted
-      v-else
+      v-else-if="isVideo && urlPicture"
     />
   </div>
 </template>
@@ -65,7 +65,7 @@ export default {
 .postContent {
   border-radius: 15px;
   &Comment {
-    margin: 1rem 1rem 0 1rem;
+    margin: 1rem 1rem 1rem 1rem;
     padding: 1rem 1rem 0.5rem 1rem;
     font-weight: 700;
     text-align: center;
@@ -74,7 +74,7 @@ export default {
   &Picture {
     width: 100%;
     max-height: 550px;
-    margin: 0.5rem 0;
+    margin: 0.5rem 0 0 0;
     object-fit: contain;
     object-position: center;
   }

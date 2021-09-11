@@ -13,6 +13,7 @@
       <button
         class="btn btn-white ellipsisMenuButton"
         @click="eraseConfirmationIsOpen = !eraseConfirmationIsOpen"
+        v-if="displayEraseLine"
       >
         <li class="h6 text-danger ellipsisMenuButtonText">
           {{ secondLineText }}
@@ -65,6 +66,10 @@ export default {
       type: String,
       required: true,
     },
+    displayEraseLine: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     confirmToErase() {
@@ -96,7 +101,7 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 4rem 2rem 2rem 1rem;
+    padding: 4rem 1rem 2rem 2rem;
     gap: 0.5rem;
     &Button {
       margin: 0;

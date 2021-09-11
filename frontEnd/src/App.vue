@@ -1,9 +1,11 @@
 <template>
-  <div id="app">
+  <div class="app">
     <!-- HEADER MOBILE AND SIDE BAR MENU FOR DESKTOP -->
     <HeaderMobile />
-    <SideBarDesktop />
-    <main class="main">
+    <div class="appSideBar">
+      <SideBarDesktop />
+    </div>
+    <main class="appMain">
       <!-- ADDING VIEWS PAGES -->
       <router-view />
     </main>
@@ -27,18 +29,27 @@ export default {
 </script>
 
 <style lang="scss">
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+.app {
+  height: 100%;
   width: 100%;
-  text-align: center;
+  display: flex;
+  &Main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
 }
-
 @media (min-width: 992px) {
-  .main {
-    margin-left: 300px;
+  .app {
+    &SideBar {
+      flex: 0 0 300px;
+    }
+    &Main {
+      flex: 1 1 auto;
+    }
   }
 }
 </style>

@@ -12,7 +12,15 @@
           {{ $store.state.profile.myProfile.alias }}
         </p>
       </div>
-      <TextBlock class="myCommentContentText" @input-value="saveContentText" />
+      <div class="myCommentContentTextBlock">
+        <TextBlock @input-value="saveContentText" />
+        <p
+          class="text-danger myCommentContentTextBlockInvalidText"
+          v-show="displayInvalidText"
+        >
+          Le texte de votre publication doit contenir au minimum 6 caractères.
+        </p>
+      </div>
       <Button text="Valider" @click.native="sendNewComment" />
     </div>
   </div>
@@ -37,6 +45,7 @@ export default {
   data() {
     return {
       contentText: "",
+      displayInvalidText: false,
       keyComponent: 0,
     };
   },
@@ -45,44 +54,53 @@ export default {
       this.contentText = payload;
     },
     async sendNewComment() {
-      let dataNewComment = {
-        post: {
-          posterId: this.commentObject.posterId,
-          postId: this.commentObject.postId,
-          time: this.commentObject.time,
-        },
-        profile: {
-          _id: this.$store.state.profile.myProfile.id,
-          alias: this.$store.state.profile.myProfile.alias,
-          urlPicture: this.$store.state.profile.myProfile.urlPicture,
-        },
-        text: this.contentText,
-      };
+      // Re init invalid text displaying
+      this.displayInvalidText = false;
+      // Control if regex text is respected (6 caracteres minimum)
+      const regex = new RegExp(this.$store.state.pattern.text);
+      if (regex.test(this.contentText)) {
+        // Init new comment to save
+        let dataNewComment = {
+          post: {
+            posterId: this.commentObject.posterId,
+            postId: this.commentObject.postId,
+            time: this.commentObject.time,
+          },
+          profile: {
+            _id: this.$store.state.profile.myProfile.id,
+            alias: this.$store.state.profile.myProfile.alias,
+            urlPicture: this.$store.state.profile.myProfile.urlPicture,
+          },
+          text: this.contentText,
+        };
 
-      //send new comment POST
-      let response = null;
-      let responseNewComment = null;
-      // fetch new post
-      try {
-        response = await fetch(
-          this.$store.state.apiUrl.entryPoint + "/postComment/new/",
-          {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              authorization: localStorage.getItem("token"),
-            },
-            body: JSON.stringify(dataNewComment),
-          }
-        );
-        responseNewComment = await response.json();
-        console.log({ responseNewComment: responseNewComment });
-      } catch (error) {
-        console.log(error);
+        //send new comment POST
+        let response = null;
+        let responseNewComment = null;
+        // fetch new post
+        try {
+          response = await fetch(
+            this.$store.state.apiUrl.entryPoint + "/postComment/new/",
+            {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                authorization: localStorage.getItem("token"),
+              },
+              body: JSON.stringify(dataNewComment),
+            }
+          );
+          responseNewComment = await response.json();
+          console.log({ responseNewComment: responseNewComment });
+        } catch (error) {
+          console.log(error);
+        }
+        this.keyComponent++;
+        this.$emit("update-comments-list");
+      } else {
+        this.displayInvalidText = true;
       }
-      this.keyComponent++;
-      this.$emit("update-comments-list");
     },
   },
 };
@@ -130,9 +148,15 @@ export default {
         margin: 0;
       }
     }
-    &Text {
+    &TextBlock {
       width: 90%;
       margin: 0.5rem 0;
+      &InvalidText {
+          width: 100%;
+          padding: 0.2rem 1rem;
+          margin: 0.5rem 0;
+          border-radius: 5px;
+      }
     }
   }
 }

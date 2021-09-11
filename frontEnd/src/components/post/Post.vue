@@ -3,6 +3,7 @@
     <PostHeader
       :alias="post.posterProfile.alias"
       :urlPicture="post.posterProfile.urlPicture"
+      :posterId="post.posterProfile._id"
       :time="post.time"
       :service="post.posterProfile.service"
       :dataForPostEraser="dataPostForActions"
@@ -15,6 +16,7 @@
       :alias="post.content.originalPosterProfile.alias"
       :urlPicture="post.content.originalPosterProfile.urlPicture"
       :text="post.content.originalPosterProfile.text"
+      v-if="post.content.originalPosterProfile.alias && post.content.originalPosterProfile.alias !== 'null'"
     />
     <PostStats
       :onFireCounter="onFireCounterChecked"
