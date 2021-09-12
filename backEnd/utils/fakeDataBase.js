@@ -1,7 +1,7 @@
 module.exports = {
   users: [
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile10.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile10.jpg",
       alias: "AiméeFerreira96",
       isModerator: false,
       service: "Commercial",
@@ -11,7 +11,7 @@ module.exports = {
       createdAt: "2021-09-12T15:23:45.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile05.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile05.jpg",
       alias: "AlexandriaGuillot75",
       isModerator: false,
       service: "Achats",
@@ -21,7 +21,7 @@ module.exports = {
       createdAt: "2021-07-14T00:23:30.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile07.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile07.jpg",
       alias: "AlphonseLabbe42",
       isModerator: false,
       service: "Achats",
@@ -31,7 +31,7 @@ module.exports = {
       createdAt: "2021-08-26T09:41:30.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile04.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile04.jpg",
       alias: "AnaïsBodin79",
       isModerator: false,
       service: "Informatique",
@@ -41,7 +41,7 @@ module.exports = {
       createdAt: "2021-06-19T14:48:12.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile01.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile01.jpg",
       alias: "AnoukWeiss51",
       isModerator: false,
       service: "Comptabilité",
@@ -51,7 +51,7 @@ module.exports = {
       createdAt: "2021-07-08T06:03:27.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile20.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile20.jpg",
       alias: "AugustinLefevre76",
       isModerator: false,
       service: "Informatique",
@@ -61,7 +61,7 @@ module.exports = {
       createdAt: "2021-08-12T08:57:27.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile20.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile20.jpg",
       alias: "YolandeJardine12",
       isModerator: false,
       service: "Commercial",
@@ -71,7 +71,7 @@ module.exports = {
       createdAt: "2021-08-30T07:33:54.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile18.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile18.jpg",
       alias: "BrigitteBoucher76",
       isModerator: false,
       service: "Comptabilité",
@@ -81,7 +81,7 @@ module.exports = {
       createdAt: "2021-09-01T13:54:41.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile03.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile03.jpg",
       alias: "CélinaPoirier46",
       isModerator: false,
       service: "Achats",
@@ -91,7 +91,7 @@ module.exports = {
       createdAt: "2021-06-11T05:16:31.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile11.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile11.jpg",
       alias: "ColetteDuhamel78",
       isModerator: false,
       service: "Commercial",
@@ -101,7 +101,7 @@ module.exports = {
       createdAt: "2021-07-24T19:06:38.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile09.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile09.jpg",
       alias: "ÉliseParis79",
       isModerator: false,
       service: "Achats",
@@ -111,7 +111,7 @@ module.exports = {
       createdAt: "2021-08-17T00:37:30.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile16.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile16.jpg",
       alias: "ÉmilieValentin75",
       isModerator: false,
       service: "Comptabilité",
@@ -121,7 +121,7 @@ module.exports = {
       createdAt: "2021-06-13T07:43:37.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile17.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile17.jpg",
       alias: "ÉtienneChartier75",
       isModerator: false,
       service: "Commercial",
@@ -131,7 +131,7 @@ module.exports = {
       createdAt: "2021-09-04T22:51:17.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile04.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile04.jpg",
       alias: "EugèneDenis12",
       isModerator: false,
       service: "Achats",
@@ -141,7 +141,7 @@ module.exports = {
       createdAt: "2021-08-03T06:21:58.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile17.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile17.jpg",
       alias: "GenevièveNormand75",
       isModerator: false,
       service: "Achats",
@@ -151,7 +151,7 @@ module.exports = {
       createdAt: "2021-09-07T02:47:39.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile08.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile08.jpg",
       alias: "HenriFoucher96",
       isModerator: false,
       service: "Commercial",
@@ -161,7 +161,7 @@ module.exports = {
       createdAt: "2021-07-01T09:51:34.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile02.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile02.jpg",
       alias: "InèsDavid13",
       isModerator: false,
       service: "Informatique",
@@ -171,7 +171,7 @@ module.exports = {
       createdAt: "2021-07-09T18:22:33.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile12.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile12.jpg",
       alias: "JeanneColin96",
       isModerator: false,
       service: "Comptabilité",
@@ -181,7 +181,7 @@ module.exports = {
       createdAt: "2021-07-28T15:16:46.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile02.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile02.jpg",
       alias: "JosephDuhamel46",
       isModerator: false,
       service: "Commercial",
@@ -191,7 +191,7 @@ module.exports = {
       createdAt: "2021-07-12T03:41:54.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile06.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile06.jpg",
       alias: "JoséphinePerrin96",
       isModerator: false,
       service: "Comptabilité",
@@ -201,7 +201,7 @@ module.exports = {
       createdAt: "2021-09-04T10:51:21.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile10.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile10.jpg",
       alias: "LaetitiaDumont75",
       isModerator: false,
       service: "Commercial",
@@ -211,7 +211,7 @@ module.exports = {
       createdAt: "2021-07-23T08:41:47.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile01.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile01.jpg",
       alias: "LaurentRoche89",
       isModerator: true,
       service: "Ressources Humaines",
@@ -221,7 +221,7 @@ module.exports = {
       createdAt: "2021-09-02T10:55:15.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile08.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile08.jpg",
       alias: "LouiseLeclerc45",
       isModerator: false,
       service: "Achats",
@@ -231,7 +231,7 @@ module.exports = {
       createdAt: "2021-07-23T11:27:27.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile11.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile11.jpg",
       alias: "LouisLeconte94",
       isModerator: false,
       service: "Achats",
@@ -241,7 +241,7 @@ module.exports = {
       createdAt: "2021-07-02T12:12:48.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile16.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile16.jpg",
       alias: "LouisRey96",
       isModerator: false,
       service: "Informatique",
@@ -251,7 +251,7 @@ module.exports = {
       createdAt: "2021-07-04T05:56:49.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile19.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile19.jpg",
       alias: "LucDiaz74",
       isModerator: false,
       service: "Comptabilité",
@@ -261,7 +261,7 @@ module.exports = {
       createdAt: "2021-07-18T01:30:23.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile03.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile03.jpg",
       alias: "LucHardy58",
       isModerator: true,
       service: "Ressources Humaines",
@@ -271,7 +271,7 @@ module.exports = {
       createdAt: "2021-08-25T18:56:40.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile06.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile06.jpg",
       alias: "MarcelKlein63",
       isModerator: false,
       service: "Informatique",
@@ -281,7 +281,7 @@ module.exports = {
       createdAt: "2021-07-28T10:50:14.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile19.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile19.jpg",
       alias: "NathalieChartier76",
       isModerator: false,
       service: "Commercial",
@@ -291,7 +291,7 @@ module.exports = {
       createdAt: "2021-06-09T01:22:41.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile13.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile13.jpg",
       alias: "OcéaneRoux74",
       isModerator: false,
       service: "Informatique",
@@ -301,7 +301,7 @@ module.exports = {
       createdAt: "2021-08-05T10:07:36.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile15.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile15.jpg",
       alias: "PaulineChauveau75",
       isModerator: false,
       service: "Commercial",
@@ -311,7 +311,7 @@ module.exports = {
       createdAt: "2021-06-24T02:30:29.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile14.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile14.jpg",
       alias: "PierreRaymond76",
       isModerator: false,
       service: "Comptabilité",
@@ -321,7 +321,7 @@ module.exports = {
       createdAt: "2021-08-05T12:57:16.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile09.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile09.jpg",
       alias: "RichardRaymond75",
       isModerator: true,
       service: "Ressources Humaines",
@@ -331,7 +331,7 @@ module.exports = {
       createdAt: "2021-07-16T23:16:55.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile15.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile15.jpg",
       alias: "SébastienGauthier75",
       isModerator: false,
       service: "Informatique",
@@ -341,7 +341,7 @@ module.exports = {
       createdAt: "2021-08-15T14:21:01.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile14.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile14.jpg",
       alias: "SuzanneGuichard74",
       isModerator: false,
       service: "Comptabilité",
@@ -351,7 +351,7 @@ module.exports = {
       createdAt: "2021-09-06T02:33:54.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile07.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/femaleProfile07.jpg",
       alias: "ValentineDelmas75",
       isModerator: true,
       service: "Ressources Humaines",
@@ -361,7 +361,7 @@ module.exports = {
       createdAt: "2021-08-28T10:36:55.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile13.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile13.jpg",
       alias: "VictorFabre76",
       isModerator: false,
       service: "Achats",
@@ -371,7 +371,7 @@ module.exports = {
       createdAt: "2021-09-05T06:23:56.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
       alias: "VictorFerreira76",
       isModerator: false,
       service: "Commercial",
@@ -381,7 +381,7 @@ module.exports = {
       createdAt: "2021-08-13T05:25:52.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile05.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile05.jpg",
       alias: "VincentDeOliveira96",
       isModerator: false,
       service: "Achats",
@@ -391,7 +391,7 @@ module.exports = {
       createdAt: "2021-07-23T16:40:29.641Z",
     },
     {
-      urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile12.jpg",
+      urlPicture: "http://localhost:8080/mediaStatic/maleProfile12.jpg",
       alias: "YvesAllard85",
       isModerator: false,
       service: "Informatique",
@@ -412,7 +412,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "BrigitteBoucher76",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile18.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile18.jpg",
         service: "Comptabilité",
         _id: 8,
       },
@@ -422,7 +422,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/apN7LKM_700bwp.webp",
         originalPosterProfile: {
           alias: "VictorFabre76",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile13.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile13.jpg",
           text: "Nunc a nulla sed libero commodo vestibulum.",
           _id: 37,
         },
@@ -432,8 +432,7 @@ module.exports = {
           profile: {
             _id: 15,
             alias: "GenevièveNormand75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile17.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile17.jpg",
           },
           createdAt: "2021-08-15T12:40:10.644Z",
           text: "Praesent varius ligula ut interdum placerat.",
@@ -442,8 +441,7 @@ module.exports = {
           profile: {
             _id: 16,
             alias: "HenriFoucher96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile08.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile08.jpg",
           },
           createdAt: "2021-07-22T14:57:28.644Z",
           text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -452,8 +450,7 @@ module.exports = {
           profile: {
             _id: 17,
             alias: "InèsDavid13",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile02.jpg",
           },
           createdAt: "2021-06-09T03:05:29.644Z",
           text: "Aenean porta lorem sit amet luctus ultrices.",
@@ -462,8 +459,7 @@ module.exports = {
           profile: {
             _id: 18,
             alias: "JeanneColin96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile12.jpg",
           },
           createdAt: "2021-07-07T02:14:05.644Z",
           text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -472,8 +468,7 @@ module.exports = {
           profile: {
             _id: 19,
             alias: "JosephDuhamel46",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile02.jpg",
           },
           createdAt: "2021-09-08T19:56:06.644Z",
           text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -483,7 +478,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "ColetteDuhamel78",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile11.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile11.jpg",
         service: "Commercial",
         _id: 10,
       },
@@ -494,8 +489,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/aNpMnGG_460svav1.mp4",
         originalPosterProfile: {
           alias: "AlexandriaGuillot75",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile05.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile05.jpg",
           text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
           _id: 2,
         },
@@ -505,8 +499,7 @@ module.exports = {
           profile: {
             _id: 1,
             alias: "AiméeFerreira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile10.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile10.jpg",
           },
           createdAt: "2021-06-10T06:25:48.643Z",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -515,8 +508,7 @@ module.exports = {
           profile: {
             _id: 2,
             alias: "AlexandriaGuillot75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile05.jpg",
           },
           createdAt: "2021-06-08T15:04:12.644Z",
           text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -525,8 +517,7 @@ module.exports = {
           profile: {
             _id: 3,
             alias: "AlphonseLabbe42",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile07.jpg",
           },
           createdAt: "2021-06-04T02:47:16.644Z",
           text: "Vestibulum sed eros tempus, porttitor nulla facilisis, tempus massa.",
@@ -536,7 +527,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "YvesAllard85",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile12.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile12.jpg",
         service: "Informatique",
         _id: 40,
       },
@@ -547,7 +538,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/aNpM1zv_460svav1.mp4",
         originalPosterProfile: {
           alias: "LaurentRoche89",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile01.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile01.jpg",
           text: "Praesent at nisi nec dui luctus scelerisque.",
           _id: 22,
         },
@@ -557,8 +548,7 @@ module.exports = {
           profile: {
             _id: 4,
             alias: "AnaïsBodin79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile04.jpg",
           },
           createdAt: "2021-08-13T19:49:14.644Z",
           text: "Donec bibendum ligula et dolor vestibulum, eu eleifend tellus aliquam.",
@@ -567,8 +557,7 @@ module.exports = {
           profile: {
             _id: 5,
             alias: "AnoukWeiss51",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile01.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile01.jpg",
           },
           createdAt: "2021-07-14T04:40:13.644Z",
           text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -577,8 +566,7 @@ module.exports = {
           profile: {
             _id: 6,
             alias: "AugustinLefevre76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile20.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile20.jpg",
           },
           createdAt: "2021-09-06T03:57:10.644Z",
           text: "Quisque et ante sit amet metus sagittis sollicitudin sed vitae sem.",
@@ -587,8 +575,7 @@ module.exports = {
           profile: {
             _id: 7,
             alias: "YolandeJardine12",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile20.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile20.jpg",
           },
           createdAt: "2021-07-26T20:22:44.644Z",
           text: "In facilisis libero a tortor convallis ornare.",
@@ -598,7 +585,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "PierreRaymond76",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile14.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile14.jpg",
         service: "Comptabilité",
         _id: 32,
       },
@@ -609,8 +596,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/aB2zxgQ_460svav1.mp4",
         originalPosterProfile: {
           alias: "AnoukWeiss51",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile01.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile01.jpg",
           text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
           _id: 5,
         },
@@ -620,8 +606,7 @@ module.exports = {
           profile: {
             _id: 32,
             alias: "PierreRaymond76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile14.jpg",
           },
           createdAt: "2021-09-08T08:39:26.644Z",
           text: "Nunc a nulla sed libero commodo vestibulum.",
@@ -630,8 +615,7 @@ module.exports = {
           profile: {
             _id: 33,
             alias: "RichardRaymond75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile09.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile09.jpg",
           },
           createdAt: "2021-08-18T22:39:19.644Z",
           text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
@@ -640,8 +624,7 @@ module.exports = {
           profile: {
             _id: 34,
             alias: "SébastienGauthier75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile15.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile15.jpg",
           },
           createdAt: "2021-09-12T08:04:06.644Z",
           text: "Morbi placerat eros fermentum tellus elementum eleifend.",
@@ -650,8 +633,7 @@ module.exports = {
           profile: {
             _id: 35,
             alias: "SuzanneGuichard74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile14.jpg",
           },
           createdAt: "2021-08-05T00:36:56.644Z",
           text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -660,8 +642,7 @@ module.exports = {
           profile: {
             _id: 36,
             alias: "ValentineDelmas75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile07.jpg",
           },
           createdAt: "2021-06-03T08:17:58.644Z",
           text: "Praesent consectetur risus at ultrices lobortis.",
@@ -670,8 +651,7 @@ module.exports = {
           profile: {
             _id: 37,
             alias: "VictorFabre76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile13.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile13.jpg",
           },
           createdAt: "2021-08-08T06:20:41.644Z",
           text: "Maecenas a eros eu urna mollis aliquet.",
@@ -680,8 +660,7 @@ module.exports = {
           profile: {
             _id: 38,
             alias: "VictorFerreira76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
           },
           createdAt: "2021-07-04T08:19:56.644Z",
           text: "Sed accumsan massa nec congue aliquet.",
@@ -690,8 +669,7 @@ module.exports = {
           profile: {
             _id: 39,
             alias: "VincentDeOliveira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile05.jpg",
           },
           createdAt: "2021-09-10T11:38:26.644Z",
           text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -701,7 +679,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "VictorFabre76",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile13.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile13.jpg",
         service: "Achats",
         _id: 37,
       },
@@ -711,7 +689,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/anQZMbV_460sv.mp4",
         originalPosterProfile: {
           alias: "JosephDuhamel46",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile02.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile02.jpg",
           text: "Integer lacinia urna at sapien rhoncus dignissim.",
           _id: 19,
         },
@@ -721,8 +699,7 @@ module.exports = {
           profile: {
             _id: 11,
             alias: "ÉliseParis79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile09.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile09.jpg",
           },
           createdAt: "2021-09-09T06:23:00.644Z",
           text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -731,8 +708,7 @@ module.exports = {
           profile: {
             _id: 12,
             alias: "ÉmilieValentin75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile16.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile16.jpg",
           },
           createdAt: "2021-08-17T06:19:09.644Z",
           text: "Curabitur aliquam libero vel ante interdum, in euismod ipsum condimentum.",
@@ -741,8 +717,7 @@ module.exports = {
           profile: {
             _id: 13,
             alias: "ÉtienneChartier75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile17.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile17.jpg",
           },
           createdAt: "2021-09-10T01:22:01.644Z",
           text: "Curabitur sit amet mauris non turpis varius aliquet et quis est.",
@@ -751,8 +726,7 @@ module.exports = {
           profile: {
             _id: 14,
             alias: "EugèneDenis12",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile04.jpg",
           },
           createdAt: "2021-06-12T17:01:25.644Z",
           text: "Phasellus et justo ultricies eros dapibus dapibus imperdiet ultricies diam.",
@@ -761,8 +735,7 @@ module.exports = {
           profile: {
             _id: 15,
             alias: "GenevièveNormand75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile17.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile17.jpg",
           },
           createdAt: "2021-08-15T12:40:10.644Z",
           text: "Praesent varius ligula ut interdum placerat.",
@@ -771,8 +744,7 @@ module.exports = {
           profile: {
             _id: 16,
             alias: "HenriFoucher96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile08.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile08.jpg",
           },
           createdAt: "2021-07-22T14:57:28.644Z",
           text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -781,8 +753,7 @@ module.exports = {
           profile: {
             _id: 17,
             alias: "InèsDavid13",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile02.jpg",
           },
           createdAt: "2021-06-09T03:05:29.644Z",
           text: "Aenean porta lorem sit amet luctus ultrices.",
@@ -791,8 +762,7 @@ module.exports = {
           profile: {
             _id: 18,
             alias: "JeanneColin96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile12.jpg",
           },
           createdAt: "2021-07-07T02:14:05.644Z",
           text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -801,8 +771,7 @@ module.exports = {
           profile: {
             _id: 19,
             alias: "JosephDuhamel46",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile02.jpg",
           },
           createdAt: "2021-09-08T19:56:06.644Z",
           text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -812,7 +781,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "LouisRey96",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile16.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile16.jpg",
         service: "Informatique",
         _id: 25,
       },
@@ -822,7 +791,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/aQob3o7_700bwp.webp",
         originalPosterProfile: {
           alias: "RichardRaymond75",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile09.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile09.jpg",
           text: "Cras porttitor ex eu vehicula cursus.",
           _id: 33,
         },
@@ -832,8 +801,7 @@ module.exports = {
           profile: {
             _id: 17,
             alias: "InèsDavid13",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile02.jpg",
           },
           createdAt: "2021-06-09T03:05:29.644Z",
           text: "Aenean porta lorem sit amet luctus ultrices.",
@@ -842,8 +810,7 @@ module.exports = {
           profile: {
             _id: 18,
             alias: "JeanneColin96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile12.jpg",
           },
           createdAt: "2021-07-07T02:14:05.644Z",
           text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -853,17 +820,17 @@ module.exports = {
     {
       posterProfile: {
         alias: "AlphonseLabbe42",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile07.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile07.jpg",
         service: "Achats",
         _id: 3,
       },
       createdAt: "2021-09-11T09:04:11.645Z",
       content: {
         text: "C'est élastique jusqu'à quel point ?",
-        urlPicture: "http://localhost:8080/mediaPostsStore/fun03.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/fun03.jpg",
         originalPosterProfile: {
           alias: "HenriFoucher96",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile08.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile08.jpg",
           text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
           _id: 16,
         },
@@ -873,8 +840,7 @@ module.exports = {
           profile: {
             _id: 14,
             alias: "EugèneDenis12",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile04.jpg",
           },
           createdAt: "2021-06-12T17:01:25.644Z",
           text: "Phasellus et justo ultricies eros dapibus dapibus imperdiet ultricies diam.",
@@ -883,8 +849,7 @@ module.exports = {
           profile: {
             _id: 15,
             alias: "GenevièveNormand75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile17.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile17.jpg",
           },
           createdAt: "2021-08-15T12:40:10.644Z",
           text: "Praesent varius ligula ut interdum placerat.",
@@ -893,8 +858,7 @@ module.exports = {
           profile: {
             _id: 16,
             alias: "HenriFoucher96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile08.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile08.jpg",
           },
           createdAt: "2021-07-22T14:57:28.644Z",
           text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -903,8 +867,7 @@ module.exports = {
           profile: {
             _id: 17,
             alias: "InèsDavid13",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile02.jpg",
           },
           createdAt: "2021-06-09T03:05:29.644Z",
           text: "Aenean porta lorem sit amet luctus ultrices.",
@@ -913,8 +876,7 @@ module.exports = {
           profile: {
             _id: 18,
             alias: "JeanneColin96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile12.jpg",
           },
           createdAt: "2021-07-07T02:14:05.644Z",
           text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -924,7 +886,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "PaulineChauveau75",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile15.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile15.jpg",
         service: "Commercial",
         _id: 31,
       },
@@ -935,7 +897,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/aoMoNMx_460svvp9.webm",
         originalPosterProfile: {
           alias: "AiméeFerreira96",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile10.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile10.jpg",
           text: "Vestibulum nec eros sed tellus tincidunt imperdiet vel ac ligula.",
           _id: 1,
         },
@@ -945,8 +907,7 @@ module.exports = {
           profile: {
             _id: 9,
             alias: "CélinaPoirier46",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile03.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile03.jpg",
           },
           createdAt: "2021-07-08T09:58:55.644Z",
           text: "Sed in ipsum feugiat, convallis nisl a, mollis lectus.",
@@ -955,8 +916,7 @@ module.exports = {
           profile: {
             _id: 10,
             alias: "ColetteDuhamel78",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile11.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile11.jpg",
           },
           createdAt: "2021-07-27T00:40:12.644Z",
           text: "Integer lacinia urna at sapien rhoncus dignissim.",
@@ -965,8 +925,7 @@ module.exports = {
           profile: {
             _id: 11,
             alias: "ÉliseParis79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile09.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile09.jpg",
           },
           createdAt: "2021-09-09T06:23:00.644Z",
           text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -975,8 +934,7 @@ module.exports = {
           profile: {
             _id: 12,
             alias: "ÉmilieValentin75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile16.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile16.jpg",
           },
           createdAt: "2021-08-17T06:19:09.644Z",
           text: "Curabitur aliquam libero vel ante interdum, in euismod ipsum condimentum.",
@@ -985,8 +943,7 @@ module.exports = {
           profile: {
             _id: 13,
             alias: "ÉtienneChartier75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile17.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile17.jpg",
           },
           createdAt: "2021-09-10T01:22:01.644Z",
           text: "Curabitur sit amet mauris non turpis varius aliquet et quis est.",
@@ -995,8 +952,7 @@ module.exports = {
           profile: {
             _id: 14,
             alias: "EugèneDenis12",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile04.jpg",
           },
           createdAt: "2021-06-12T17:01:25.644Z",
           text: "Phasellus et justo ultricies eros dapibus dapibus imperdiet ultricies diam.",
@@ -1006,17 +962,17 @@ module.exports = {
     {
       posterProfile: {
         alias: "AnoukWeiss51",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile01.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile01.jpg",
         service: "Comptabilité",
         _id: 5,
       },
       createdAt: "2021-06-17T08:27:34.645Z",
       content: {
         text: "Touche pas à ma carotte !",
-        urlPicture: "http://localhost:8080/mediaPostsStore/fun05.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/fun05.jpg",
         originalPosterProfile: {
           alias: "AugustinLefevre76",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile20.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile20.jpg",
           text: "Praesent varius ligula ut interdum placerat.",
           _id: 6,
         },
@@ -1026,8 +982,7 @@ module.exports = {
           profile: {
             _id: 18,
             alias: "JeanneColin96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile12.jpg",
           },
           createdAt: "2021-07-07T02:14:05.644Z",
           text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -1036,8 +991,7 @@ module.exports = {
           profile: {
             _id: 19,
             alias: "JosephDuhamel46",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile02.jpg",
           },
           createdAt: "2021-09-08T19:56:06.644Z",
           text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -1046,8 +1000,7 @@ module.exports = {
           profile: {
             _id: 20,
             alias: "JoséphinePerrin96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile06.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile06.jpg",
           },
           createdAt: "2021-06-15T18:45:41.644Z",
           text: "Quisque a nisi ac est tempus facilisis sed a nibh.",
@@ -1056,8 +1009,7 @@ module.exports = {
           profile: {
             _id: 21,
             alias: "LaetitiaDumont75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile10.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile10.jpg",
           },
           createdAt: "2021-08-04T17:57:57.644Z",
           text: "Sed dapibus nulla eget sapien euismod bibendum.",
@@ -1066,8 +1018,7 @@ module.exports = {
           profile: {
             _id: 22,
             alias: "LaurentRoche89",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile01.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile01.jpg",
           },
           createdAt: "2021-09-07T07:21:20.644Z",
           text: "Sed sollicitudin nibh sed odio luctus, vel iaculis erat tristique.",
@@ -1077,7 +1028,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "ValentineDelmas75",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile07.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile07.jpg",
         service: "Ressources Humaines",
         _id: 36,
       },
@@ -1087,7 +1038,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/ayMrXLy_700bwp.webp",
         originalPosterProfile: {
           alias: "YvesAllard85",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile12.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile12.jpg",
           text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
           _id: 40,
         },
@@ -1097,8 +1048,7 @@ module.exports = {
           profile: {
             _id: 40,
             alias: "YvesAllard85",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile12.jpg",
           },
           createdAt: "2021-08-24T20:37:10.644Z",
           text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -1107,8 +1057,7 @@ module.exports = {
           profile: {
             _id: 1,
             alias: "AiméeFerreira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile10.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile10.jpg",
           },
           createdAt: "2021-06-10T06:25:48.643Z",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -1117,8 +1066,7 @@ module.exports = {
           profile: {
             _id: 2,
             alias: "AlexandriaGuillot75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile05.jpg",
           },
           createdAt: "2021-06-08T15:04:12.644Z",
           text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -1127,8 +1075,7 @@ module.exports = {
           profile: {
             _id: 3,
             alias: "AlphonseLabbe42",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile07.jpg",
           },
           createdAt: "2021-06-04T02:47:16.644Z",
           text: "Vestibulum sed eros tempus, porttitor nulla facilisis, tempus massa.",
@@ -1137,8 +1084,7 @@ module.exports = {
           profile: {
             _id: 4,
             alias: "AnaïsBodin79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile04.jpg",
           },
           createdAt: "2021-08-13T19:49:14.644Z",
           text: "Donec bibendum ligula et dolor vestibulum, eu eleifend tellus aliquam.",
@@ -1148,18 +1094,17 @@ module.exports = {
     {
       posterProfile: {
         alias: "AugustinLefevre76",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile20.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile20.jpg",
         service: "Informatique",
         _id: 6,
       },
       createdAt: "2021-08-15T02:49:15.645Z",
       content: {
         text: "Est ce qu'il y a un plombier dans l'immeuble ?",
-        urlPicture: "http://localhost:8080/mediaPostsStore/fun06.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/fun06.jpg",
         originalPosterProfile: {
           alias: "NathalieChartier76",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile19.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile19.jpg",
           text: "Integer elementum lacus eget condimentum vestibulum.",
           _id: 29,
         },
@@ -1169,8 +1114,7 @@ module.exports = {
           profile: {
             _id: 24,
             alias: "LouisLeconte94",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile11.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile11.jpg",
           },
           createdAt: "2021-07-18T01:25:20.644Z",
           text: "Morbi porttitor nunc in ligula feugiat iaculis.",
@@ -1179,8 +1123,7 @@ module.exports = {
           profile: {
             _id: 25,
             alias: "LouisRey96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile16.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile16.jpg",
           },
           createdAt: "2021-08-17T05:14:48.644Z",
           text: "Donec at urna non lacus interdum dictum.",
@@ -1190,7 +1133,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "InèsDavid13",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile02.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile02.jpg",
         service: "Informatique",
         _id: 17,
       },
@@ -1201,7 +1144,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/av5qOL5_460svav1.mp4",
         originalPosterProfile: {
           alias: "ÉtienneChartier75",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile17.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile17.jpg",
           text: "Mauris sed est ac justo iaculis volutpat.",
           _id: 13,
         },
@@ -1211,8 +1154,7 @@ module.exports = {
           profile: {
             _id: 37,
             alias: "VictorFabre76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile13.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile13.jpg",
           },
           createdAt: "2021-08-08T06:20:41.644Z",
           text: "Maecenas a eros eu urna mollis aliquet.",
@@ -1221,8 +1163,7 @@ module.exports = {
           profile: {
             _id: 38,
             alias: "VictorFerreira76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
           },
           createdAt: "2021-07-04T08:19:56.644Z",
           text: "Sed accumsan massa nec congue aliquet.",
@@ -1231,8 +1172,7 @@ module.exports = {
           profile: {
             _id: 39,
             alias: "VincentDeOliveira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile05.jpg",
           },
           createdAt: "2021-09-10T11:38:26.644Z",
           text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -1242,17 +1182,17 @@ module.exports = {
     {
       posterProfile: {
         alias: "AnaïsBodin79",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile04.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile04.jpg",
         service: "Informatique",
         _id: 4,
       },
       createdAt: "2021-07-08T00:33:39.645Z",
       content: {
         text: "Trop rigolo la patate qui meurt !",
-        urlPicture: "http://localhost:8080/mediaPostsStore/fun04.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/fun04.jpg",
         originalPosterProfile: {
           alias: "LouisRey96",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile16.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile16.jpg",
           text: "Sed sollicitudin nibh sed odio luctus, vel iaculis erat tristique.",
           _id: 25,
         },
@@ -1262,8 +1202,7 @@ module.exports = {
           profile: {
             _id: 37,
             alias: "VictorFabre76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile13.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile13.jpg",
           },
           createdAt: "2021-08-08T06:20:41.644Z",
           text: "Maecenas a eros eu urna mollis aliquet.",
@@ -1272,8 +1211,7 @@ module.exports = {
           profile: {
             _id: 38,
             alias: "VictorFerreira76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
           },
           createdAt: "2021-07-04T08:19:56.644Z",
           text: "Sed accumsan massa nec congue aliquet.",
@@ -1282,8 +1220,7 @@ module.exports = {
           profile: {
             _id: 39,
             alias: "VincentDeOliveira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile05.jpg",
           },
           createdAt: "2021-09-10T11:38:26.644Z",
           text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -1292,8 +1229,7 @@ module.exports = {
           profile: {
             _id: 40,
             alias: "YvesAllard85",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile12.jpg",
           },
           createdAt: "2021-08-24T20:37:10.644Z",
           text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -1302,8 +1238,7 @@ module.exports = {
           profile: {
             _id: 1,
             alias: "AiméeFerreira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile10.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile10.jpg",
           },
           createdAt: "2021-06-10T06:25:48.643Z",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -1312,8 +1247,7 @@ module.exports = {
           profile: {
             _id: 2,
             alias: "AlexandriaGuillot75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile05.jpg",
           },
           createdAt: "2021-06-08T15:04:12.644Z",
           text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -1322,8 +1256,7 @@ module.exports = {
           profile: {
             _id: 3,
             alias: "AlphonseLabbe42",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile07.jpg",
           },
           createdAt: "2021-06-04T02:47:16.644Z",
           text: "Vestibulum sed eros tempus, porttitor nulla facilisis, tempus massa.",
@@ -1332,8 +1265,7 @@ module.exports = {
           profile: {
             _id: 4,
             alias: "AnaïsBodin79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile04.jpg",
           },
           createdAt: "2021-08-13T19:49:14.644Z",
           text: "Donec bibendum ligula et dolor vestibulum, eu eleifend tellus aliquam.",
@@ -1342,8 +1274,7 @@ module.exports = {
           profile: {
             _id: 5,
             alias: "AnoukWeiss51",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile01.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile01.jpg",
           },
           createdAt: "2021-07-14T04:40:13.644Z",
           text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -1353,7 +1284,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "LaurentRoche89",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile01.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile01.jpg",
         service: "Ressources Humaines",
         _id: 22,
       },
@@ -1363,7 +1294,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/aGpv1p5_700bwp.webp",
         originalPosterProfile: {
           alias: "PierreRaymond76",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile14.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile14.jpg",
           text: "In facilisis libero a tortor convallis ornare.",
           _id: 32,
         },
@@ -1373,8 +1304,7 @@ module.exports = {
           profile: {
             _id: 34,
             alias: "SébastienGauthier75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile15.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile15.jpg",
           },
           createdAt: "2021-09-12T08:04:06.644Z",
           text: "Morbi placerat eros fermentum tellus elementum eleifend.",
@@ -1383,8 +1313,7 @@ module.exports = {
           profile: {
             _id: 35,
             alias: "SuzanneGuichard74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile14.jpg",
           },
           createdAt: "2021-08-05T00:36:56.644Z",
           text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -1393,8 +1322,7 @@ module.exports = {
           profile: {
             _id: 36,
             alias: "ValentineDelmas75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile07.jpg",
           },
           createdAt: "2021-06-03T08:17:58.644Z",
           text: "Praesent consectetur risus at ultrices lobortis.",
@@ -1403,8 +1331,7 @@ module.exports = {
           profile: {
             _id: 37,
             alias: "VictorFabre76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile13.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile13.jpg",
           },
           createdAt: "2021-08-08T06:20:41.644Z",
           text: "Maecenas a eros eu urna mollis aliquet.",
@@ -1413,8 +1340,7 @@ module.exports = {
           profile: {
             _id: 38,
             alias: "VictorFerreira76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
           },
           createdAt: "2021-07-04T08:19:56.644Z",
           text: "Sed accumsan massa nec congue aliquet.",
@@ -1423,8 +1349,7 @@ module.exports = {
           profile: {
             _id: 39,
             alias: "VincentDeOliveira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile05.jpg",
           },
           createdAt: "2021-09-10T11:38:26.644Z",
           text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -1433,8 +1358,7 @@ module.exports = {
           profile: {
             _id: 40,
             alias: "YvesAllard85",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile12.jpg",
           },
           createdAt: "2021-08-24T20:37:10.644Z",
           text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -1444,7 +1368,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "JosephDuhamel46",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile02.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile02.jpg",
         service: "Commercial",
         _id: 19,
       },
@@ -1454,8 +1378,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/a1rgoK2_460swp.webp",
         originalPosterProfile: {
           alias: "CélinaPoirier46",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile03.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile03.jpg",
           text: "Vestibulum sed eros tempus, porttitor nulla facilisis, tempus massa.",
           _id: 9,
         },
@@ -1465,8 +1388,7 @@ module.exports = {
           profile: {
             _id: 18,
             alias: "JeanneColin96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile12.jpg",
           },
           createdAt: "2021-07-07T02:14:05.644Z",
           text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -1475,8 +1397,7 @@ module.exports = {
           profile: {
             _id: 19,
             alias: "JosephDuhamel46",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile02.jpg",
           },
           createdAt: "2021-09-08T19:56:06.644Z",
           text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -1486,7 +1407,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "NathalieChartier76",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile19.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile19.jpg",
         service: "Commercial",
         _id: 29,
       },
@@ -1496,7 +1417,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/aeAzeOq_700bwp.webp",
         originalPosterProfile: {
           alias: "MarcelKlein63",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile06.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile06.jpg",
           text: "Donec ac odio maximus, venenatis est ac, eleifend ex.",
           _id: 28,
         },
@@ -1506,8 +1427,7 @@ module.exports = {
           profile: {
             _id: 8,
             alias: "BrigitteBoucher76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile18.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile18.jpg",
           },
           createdAt: "2021-07-25T10:10:41.644Z",
           text: "Nunc varius justo molestie quam rhoncus, sed dignissim ex fringilla.",
@@ -1516,8 +1436,7 @@ module.exports = {
           profile: {
             _id: 9,
             alias: "CélinaPoirier46",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile03.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile03.jpg",
           },
           createdAt: "2021-07-08T09:58:55.644Z",
           text: "Sed in ipsum feugiat, convallis nisl a, mollis lectus.",
@@ -1526,8 +1445,7 @@ module.exports = {
           profile: {
             _id: 10,
             alias: "ColetteDuhamel78",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile11.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile11.jpg",
           },
           createdAt: "2021-07-27T00:40:12.644Z",
           text: "Integer lacinia urna at sapien rhoncus dignissim.",
@@ -1536,8 +1454,7 @@ module.exports = {
           profile: {
             _id: 11,
             alias: "ÉliseParis79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile09.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile09.jpg",
           },
           createdAt: "2021-09-09T06:23:00.644Z",
           text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -1546,8 +1463,7 @@ module.exports = {
           profile: {
             _id: 12,
             alias: "ÉmilieValentin75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile16.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile16.jpg",
           },
           createdAt: "2021-08-17T06:19:09.644Z",
           text: "Curabitur aliquam libero vel ante interdum, in euismod ipsum condimentum.",
@@ -1556,8 +1472,7 @@ module.exports = {
           profile: {
             _id: 13,
             alias: "ÉtienneChartier75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile17.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile17.jpg",
           },
           createdAt: "2021-09-10T01:22:01.644Z",
           text: "Curabitur sit amet mauris non turpis varius aliquet et quis est.",
@@ -1566,8 +1481,7 @@ module.exports = {
           profile: {
             _id: 14,
             alias: "EugèneDenis12",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile04.jpg",
           },
           createdAt: "2021-06-12T17:01:25.644Z",
           text: "Phasellus et justo ultricies eros dapibus dapibus imperdiet ultricies diam.",
@@ -1577,7 +1491,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "YolandeJardine12",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile20.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile20.jpg",
         service: "Commercial",
         _id: 7,
       },
@@ -1588,7 +1502,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/a07gpBX_460svvp9.webm",
         originalPosterProfile: {
           alias: "EugèneDenis12",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile04.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile04.jpg",
           text: "Curabitur sit amet mauris non turpis varius aliquet et quis est.",
           _id: 14,
         },
@@ -1598,8 +1512,7 @@ module.exports = {
           profile: {
             _id: 35,
             alias: "SuzanneGuichard74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile14.jpg",
           },
           createdAt: "2021-08-05T00:36:56.644Z",
           text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -1608,8 +1521,7 @@ module.exports = {
           profile: {
             _id: 36,
             alias: "ValentineDelmas75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile07.jpg",
           },
           createdAt: "2021-06-03T08:17:58.644Z",
           text: "Praesent consectetur risus at ultrices lobortis.",
@@ -1618,8 +1530,7 @@ module.exports = {
           profile: {
             _id: 37,
             alias: "VictorFabre76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile13.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile13.jpg",
           },
           createdAt: "2021-08-08T06:20:41.644Z",
           text: "Maecenas a eros eu urna mollis aliquet.",
@@ -1628,8 +1539,7 @@ module.exports = {
           profile: {
             _id: 38,
             alias: "VictorFerreira76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
           },
           createdAt: "2021-07-04T08:19:56.644Z",
           text: "Sed accumsan massa nec congue aliquet.",
@@ -1638,8 +1548,7 @@ module.exports = {
           profile: {
             _id: 39,
             alias: "VincentDeOliveira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile05.jpg",
           },
           createdAt: "2021-09-10T11:38:26.644Z",
           text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -1649,7 +1558,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "LaetitiaDumont75",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile10.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile10.jpg",
         service: "Commercial",
         _id: 21,
       },
@@ -1660,7 +1569,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/av5qG5q_460svav1.mp4",
         originalPosterProfile: {
           alias: "VincentDeOliveira96",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile05.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile05.jpg",
           text: "Aenean porta lorem sit amet luctus ultrices.",
           _id: 39,
         },
@@ -1670,8 +1579,7 @@ module.exports = {
           profile: {
             _id: 40,
             alias: "YvesAllard85",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile12.jpg",
           },
           createdAt: "2021-08-24T20:37:10.644Z",
           text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -1680,8 +1588,7 @@ module.exports = {
           profile: {
             _id: 1,
             alias: "AiméeFerreira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile10.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile10.jpg",
           },
           createdAt: "2021-06-10T06:25:48.643Z",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -1691,7 +1598,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "GenevièveNormand75",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile17.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile17.jpg",
         service: "Achats",
         _id: 15,
       },
@@ -1701,8 +1608,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/aeAzMKO_460swp.webp",
         originalPosterProfile: {
           alias: "OcéaneRoux74",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile13.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile13.jpg",
           text: "Donec vehicula nulla ac feugiat pulvinar.",
           _id: 30,
         },
@@ -1712,8 +1618,7 @@ module.exports = {
           profile: {
             _id: 1,
             alias: "AiméeFerreira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile10.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile10.jpg",
           },
           createdAt: "2021-06-10T06:25:48.643Z",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -1722,8 +1627,7 @@ module.exports = {
           profile: {
             _id: 2,
             alias: "AlexandriaGuillot75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile05.jpg",
           },
           createdAt: "2021-06-08T15:04:12.644Z",
           text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -1732,8 +1636,7 @@ module.exports = {
           profile: {
             _id: 3,
             alias: "AlphonseLabbe42",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile07.jpg",
           },
           createdAt: "2021-06-04T02:47:16.644Z",
           text: "Vestibulum sed eros tempus, porttitor nulla facilisis, tempus massa.",
@@ -1742,8 +1645,7 @@ module.exports = {
           profile: {
             _id: 4,
             alias: "AnaïsBodin79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile04.jpg",
           },
           createdAt: "2021-08-13T19:49:14.644Z",
           text: "Donec bibendum ligula et dolor vestibulum, eu eleifend tellus aliquam.",
@@ -1752,8 +1654,7 @@ module.exports = {
           profile: {
             _id: 5,
             alias: "AnoukWeiss51",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile01.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile01.jpg",
           },
           createdAt: "2021-07-14T04:40:13.644Z",
           text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -1763,7 +1664,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "CélinaPoirier46",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile03.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile03.jpg",
         service: "Achats",
         _id: 9,
       },
@@ -1773,8 +1674,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/aqjML5Y_460swp.webp",
         originalPosterProfile: {
           alias: "ValentineDelmas75",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile07.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile07.jpg",
           text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
           _id: 36,
         },
@@ -1784,8 +1684,7 @@ module.exports = {
           profile: {
             _id: 9,
             alias: "CélinaPoirier46",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile03.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile03.jpg",
           },
           createdAt: "2021-07-08T09:58:55.644Z",
           text: "Sed in ipsum feugiat, convallis nisl a, mollis lectus.",
@@ -1794,8 +1693,7 @@ module.exports = {
           profile: {
             _id: 10,
             alias: "ColetteDuhamel78",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile11.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile11.jpg",
           },
           createdAt: "2021-07-27T00:40:12.644Z",
           text: "Integer lacinia urna at sapien rhoncus dignissim.",
@@ -1804,8 +1702,7 @@ module.exports = {
           profile: {
             _id: 11,
             alias: "ÉliseParis79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile09.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile09.jpg",
           },
           createdAt: "2021-09-09T06:23:00.644Z",
           text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -1814,8 +1711,7 @@ module.exports = {
           profile: {
             _id: 12,
             alias: "ÉmilieValentin75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile16.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile16.jpg",
           },
           createdAt: "2021-08-17T06:19:09.644Z",
           text: "Curabitur aliquam libero vel ante interdum, in euismod ipsum condimentum.",
@@ -1824,8 +1720,7 @@ module.exports = {
           profile: {
             _id: 13,
             alias: "ÉtienneChartier75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile17.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile17.jpg",
           },
           createdAt: "2021-09-10T01:22:01.644Z",
           text: "Curabitur sit amet mauris non turpis varius aliquet et quis est.",
@@ -1835,7 +1730,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "SébastienGauthier75",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile15.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile15.jpg",
         service: "Informatique",
         _id: 34,
       },
@@ -1845,8 +1740,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/azMyXxZ_460sv.mp4",
         originalPosterProfile: {
           alias: "PaulineChauveau75",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile15.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile15.jpg",
           text: "Donec bibendum ligula et dolor vestibulum, eu eleifend tellus aliquam.",
           _id: 31,
         },
@@ -1856,8 +1750,7 @@ module.exports = {
           profile: {
             _id: 10,
             alias: "ColetteDuhamel78",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile11.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile11.jpg",
           },
           createdAt: "2021-07-27T00:40:12.644Z",
           text: "Integer lacinia urna at sapien rhoncus dignissim.",
@@ -1866,8 +1759,7 @@ module.exports = {
           profile: {
             _id: 11,
             alias: "ÉliseParis79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile09.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile09.jpg",
           },
           createdAt: "2021-09-09T06:23:00.644Z",
           text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -1877,7 +1769,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "RichardRaymond75",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile09.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile09.jpg",
         service: "Ressources Humaines",
         _id: 33,
       },
@@ -1888,7 +1780,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/a4Eg7bv_460svav1.mp4",
         originalPosterProfile: {
           alias: "LucHardy58",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile03.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile03.jpg",
           text: "Donec at urna non lacus interdum dictum.",
           _id: 27,
         },
@@ -1898,8 +1790,7 @@ module.exports = {
           profile: {
             _id: 27,
             alias: "LucHardy58",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile03.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile03.jpg",
           },
           createdAt: "2021-07-26T09:33:53.644Z",
           text: "Donec ac odio maximus, venenatis est ac, eleifend ex.",
@@ -1908,8 +1799,7 @@ module.exports = {
           profile: {
             _id: 28,
             alias: "MarcelKlein63",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile06.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile06.jpg",
           },
           createdAt: "2021-07-07T11:29:31.644Z",
           text: "Integer elementum lacus eget condimentum vestibulum.",
@@ -1918,8 +1808,7 @@ module.exports = {
           profile: {
             _id: 29,
             alias: "NathalieChartier76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile19.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile19.jpg",
           },
           createdAt: "2021-06-13T09:32:20.644Z",
           text: "Cras porttitor ex eu vehicula cursus.",
@@ -1928,8 +1817,7 @@ module.exports = {
           profile: {
             _id: 30,
             alias: "OcéaneRoux74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile13.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile13.jpg",
           },
           createdAt: "2021-06-01T16:13:37.644Z",
           text: "Mauris sed est ac justo iaculis volutpat.",
@@ -1938,8 +1826,7 @@ module.exports = {
           profile: {
             _id: 31,
             alias: "PaulineChauveau75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile15.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile15.jpg",
           },
           createdAt: "2021-09-07T04:11:41.644Z",
           text: "Etiam at purus eget diam vehicula sollicitudin non in diam.",
@@ -1948,8 +1835,7 @@ module.exports = {
           profile: {
             _id: 32,
             alias: "PierreRaymond76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile14.jpg",
           },
           createdAt: "2021-09-08T08:39:26.644Z",
           text: "Nunc a nulla sed libero commodo vestibulum.",
@@ -1959,7 +1845,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "LouiseLeclerc45",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile08.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile08.jpg",
         service: "Achats",
         _id: 23,
       },
@@ -1969,7 +1855,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/aB2zWdD_700bwp.webp",
         originalPosterProfile: {
           alias: "LouisLeconte94",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile11.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile11.jpg",
           text: "Sed in ipsum feugiat, convallis nisl a, mollis lectus.",
           _id: 24,
         },
@@ -1979,8 +1865,7 @@ module.exports = {
           profile: {
             _id: 19,
             alias: "JosephDuhamel46",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile02.jpg",
           },
           createdAt: "2021-09-08T19:56:06.644Z",
           text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -1989,8 +1874,7 @@ module.exports = {
           profile: {
             _id: 20,
             alias: "JoséphinePerrin96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile06.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile06.jpg",
           },
           createdAt: "2021-06-15T18:45:41.644Z",
           text: "Quisque a nisi ac est tempus facilisis sed a nibh.",
@@ -1999,8 +1883,7 @@ module.exports = {
           profile: {
             _id: 21,
             alias: "LaetitiaDumont75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile10.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile10.jpg",
           },
           createdAt: "2021-08-04T17:57:57.644Z",
           text: "Sed dapibus nulla eget sapien euismod bibendum.",
@@ -2009,8 +1892,7 @@ module.exports = {
           profile: {
             _id: 22,
             alias: "LaurentRoche89",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile01.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile01.jpg",
           },
           createdAt: "2021-09-07T07:21:20.644Z",
           text: "Sed sollicitudin nibh sed odio luctus, vel iaculis erat tristique.",
@@ -2019,8 +1901,7 @@ module.exports = {
           profile: {
             _id: 23,
             alias: "LouiseLeclerc45",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile08.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile08.jpg",
           },
           createdAt: "2021-07-15T19:27:18.644Z",
           text: "Vestibulum nec eros sed tellus tincidunt imperdiet vel ac ligula.",
@@ -2030,7 +1911,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "LucDiaz74",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile19.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile19.jpg",
         service: "Comptabilité",
         _id: 26,
       },
@@ -2040,8 +1921,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/agB9Xqq_700bwp.webp",
         originalPosterProfile: {
           alias: "YolandeJardine12",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile20.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile20.jpg",
           text: "Morbi porttitor nunc in ligula feugiat iaculis.",
           _id: 7,
         },
@@ -2051,8 +1931,7 @@ module.exports = {
           profile: {
             _id: 33,
             alias: "RichardRaymond75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile09.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile09.jpg",
           },
           createdAt: "2021-08-18T22:39:19.644Z",
           text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
@@ -2061,8 +1940,7 @@ module.exports = {
           profile: {
             _id: 34,
             alias: "SébastienGauthier75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile15.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile15.jpg",
           },
           createdAt: "2021-09-12T08:04:06.644Z",
           text: "Morbi placerat eros fermentum tellus elementum eleifend.",
@@ -2071,8 +1949,7 @@ module.exports = {
           profile: {
             _id: 35,
             alias: "SuzanneGuichard74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile14.jpg",
           },
           createdAt: "2021-08-05T00:36:56.644Z",
           text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -2081,8 +1958,7 @@ module.exports = {
           profile: {
             _id: 36,
             alias: "ValentineDelmas75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile07.jpg",
           },
           createdAt: "2021-06-03T08:17:58.644Z",
           text: "Praesent consectetur risus at ultrices lobortis.",
@@ -2092,7 +1968,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "LouisLeconte94",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile11.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile11.jpg",
         service: "Achats",
         _id: 24,
       },
@@ -2102,8 +1978,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/av5qGgX_700bwp.webp",
         originalPosterProfile: {
           alias: "BrigitteBoucher76",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile18.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile18.jpg",
           text: "Maecenas a eros eu urna mollis aliquet.",
           _id: 8,
         },
@@ -2113,8 +1988,7 @@ module.exports = {
           profile: {
             _id: 26,
             alias: "LucDiaz74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile19.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile19.jpg",
           },
           createdAt: "2021-07-01T19:08:44.644Z",
           text: "Donec vehicula nulla ac feugiat pulvinar.",
@@ -2123,8 +1997,7 @@ module.exports = {
           profile: {
             _id: 27,
             alias: "LucHardy58",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile03.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile03.jpg",
           },
           createdAt: "2021-07-26T09:33:53.644Z",
           text: "Donec ac odio maximus, venenatis est ac, eleifend ex.",
@@ -2133,8 +2006,7 @@ module.exports = {
           profile: {
             _id: 28,
             alias: "MarcelKlein63",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile06.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile06.jpg",
           },
           createdAt: "2021-07-07T11:29:31.644Z",
           text: "Integer elementum lacus eget condimentum vestibulum.",
@@ -2143,8 +2015,7 @@ module.exports = {
           profile: {
             _id: 29,
             alias: "NathalieChartier76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile19.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile19.jpg",
           },
           createdAt: "2021-06-13T09:32:20.644Z",
           text: "Cras porttitor ex eu vehicula cursus.",
@@ -2153,8 +2024,7 @@ module.exports = {
           profile: {
             _id: 30,
             alias: "OcéaneRoux74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile13.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile13.jpg",
           },
           createdAt: "2021-06-01T16:13:37.644Z",
           text: "Mauris sed est ac justo iaculis volutpat.",
@@ -2164,7 +2034,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "ÉliseParis79",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile09.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile09.jpg",
         service: "Achats",
         _id: 11,
       },
@@ -2175,8 +2045,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/a4EgY86_460svav1.mp4",
         originalPosterProfile: {
           alias: "ÉmilieValentin75",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile16.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile16.jpg",
           text: "Quisque a nisi ac est tempus facilisis sed a nibh.",
           _id: 12,
         },
@@ -2186,8 +2055,7 @@ module.exports = {
           profile: {
             _id: 7,
             alias: "YolandeJardine12",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile20.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile20.jpg",
           },
           createdAt: "2021-07-26T20:22:44.644Z",
           text: "In facilisis libero a tortor convallis ornare.",
@@ -2197,7 +2065,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "MarcelKlein63",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile06.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile06.jpg",
         service: "Informatique",
         _id: 28,
       },
@@ -2208,8 +2076,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/aB2z8eA_460svav1.mp4",
         originalPosterProfile: {
           alias: "AnaïsBodin79",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile04.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile04.jpg",
           text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
           _id: 4,
         },
@@ -2219,8 +2086,7 @@ module.exports = {
           profile: {
             _id: 31,
             alias: "PaulineChauveau75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile15.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile15.jpg",
           },
           createdAt: "2021-09-07T04:11:41.644Z",
           text: "Etiam at purus eget diam vehicula sollicitudin non in diam.",
@@ -2229,8 +2095,7 @@ module.exports = {
           profile: {
             _id: 32,
             alias: "PierreRaymond76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile14.jpg",
           },
           createdAt: "2021-09-08T08:39:26.644Z",
           text: "Nunc a nulla sed libero commodo vestibulum.",
@@ -2239,8 +2104,7 @@ module.exports = {
           profile: {
             _id: 33,
             alias: "RichardRaymond75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile09.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile09.jpg",
           },
           createdAt: "2021-08-18T22:39:19.644Z",
           text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
@@ -2250,18 +2114,17 @@ module.exports = {
     {
       posterProfile: {
         alias: "AiméeFerreira96",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile10.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile10.jpg",
         service: "Commercial",
         _id: 1,
       },
       createdAt: "2021-06-21T19:01:38.645Z",
       content: {
         text: "Trop mignon le chat !",
-        urlPicture: "http://localhost:8080/mediaPostsStore/fun01.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/fun01.jpg",
         originalPosterProfile: {
           alias: "ÉliseParis79",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile09.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile09.jpg",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           _id: 11,
         },
@@ -2271,8 +2134,7 @@ module.exports = {
           profile: {
             _id: 15,
             alias: "GenevièveNormand75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile17.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile17.jpg",
           },
           createdAt: "2021-08-15T12:40:10.644Z",
           text: "Praesent varius ligula ut interdum placerat.",
@@ -2281,8 +2143,7 @@ module.exports = {
           profile: {
             _id: 16,
             alias: "HenriFoucher96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile08.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile08.jpg",
           },
           createdAt: "2021-07-22T14:57:28.644Z",
           text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -2291,8 +2152,7 @@ module.exports = {
           profile: {
             _id: 17,
             alias: "InèsDavid13",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile02.jpg",
           },
           createdAt: "2021-06-09T03:05:29.644Z",
           text: "Aenean porta lorem sit amet luctus ultrices.",
@@ -2301,8 +2161,7 @@ module.exports = {
           profile: {
             _id: 18,
             alias: "JeanneColin96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile12.jpg",
           },
           createdAt: "2021-07-07T02:14:05.644Z",
           text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -2311,8 +2170,7 @@ module.exports = {
           profile: {
             _id: 19,
             alias: "JosephDuhamel46",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile02.jpg",
           },
           createdAt: "2021-09-08T19:56:06.644Z",
           text: "Sed fringilla sapien bibendum, pretium sem a, viverra quam.",
@@ -2322,7 +2180,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "ÉtienneChartier75",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile17.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile17.jpg",
         service: "Commercial",
         _id: 13,
       },
@@ -2332,8 +2190,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/aLpo8wM_700bwp.webp",
         originalPosterProfile: {
           alias: "InèsDavid13",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile02.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile02.jpg",
           text: "Phasellus et justo ultricies eros dapibus dapibus imperdiet ultricies diam.",
           _id: 17,
         },
@@ -2343,8 +2200,7 @@ module.exports = {
           profile: {
             _id: 35,
             alias: "SuzanneGuichard74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile14.jpg",
           },
           createdAt: "2021-08-05T00:36:56.644Z",
           text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -2353,8 +2209,7 @@ module.exports = {
           profile: {
             _id: 36,
             alias: "ValentineDelmas75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile07.jpg",
           },
           createdAt: "2021-06-03T08:17:58.644Z",
           text: "Praesent consectetur risus at ultrices lobortis.",
@@ -2363,8 +2218,7 @@ module.exports = {
           profile: {
             _id: 37,
             alias: "VictorFabre76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile13.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile13.jpg",
           },
           createdAt: "2021-08-08T06:20:41.644Z",
           text: "Maecenas a eros eu urna mollis aliquet.",
@@ -2373,8 +2227,7 @@ module.exports = {
           profile: {
             _id: 38,
             alias: "VictorFerreira76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
           },
           createdAt: "2021-07-04T08:19:56.644Z",
           text: "Sed accumsan massa nec congue aliquet.",
@@ -2383,8 +2236,7 @@ module.exports = {
           profile: {
             _id: 39,
             alias: "VincentDeOliveira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile05.jpg",
           },
           createdAt: "2021-09-10T11:38:26.644Z",
           text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -2393,8 +2245,7 @@ module.exports = {
           profile: {
             _id: 40,
             alias: "YvesAllard85",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile12.jpg",
           },
           createdAt: "2021-08-24T20:37:10.644Z",
           text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -2403,8 +2254,7 @@ module.exports = {
           profile: {
             _id: 1,
             alias: "AiméeFerreira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile10.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile10.jpg",
           },
           createdAt: "2021-06-10T06:25:48.643Z",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -2413,8 +2263,7 @@ module.exports = {
           profile: {
             _id: 2,
             alias: "AlexandriaGuillot75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile05.jpg",
           },
           createdAt: "2021-06-08T15:04:12.644Z",
           text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -2424,7 +2273,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "VictorFerreira76",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
         service: "Commercial",
         _id: 38,
       },
@@ -2435,7 +2284,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/aLpo87M_460svav1.mp4",
         originalPosterProfile: {
           alias: "LucDiaz74",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile19.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile19.jpg",
           text: "Etiam at purus eget diam vehicula sollicitudin non in diam.",
           _id: 26,
         },
@@ -2445,8 +2294,7 @@ module.exports = {
           profile: {
             _id: 28,
             alias: "MarcelKlein63",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile06.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile06.jpg",
           },
           createdAt: "2021-07-07T11:29:31.644Z",
           text: "Integer elementum lacus eget condimentum vestibulum.",
@@ -2455,8 +2303,7 @@ module.exports = {
           profile: {
             _id: 29,
             alias: "NathalieChartier76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile19.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile19.jpg",
           },
           createdAt: "2021-06-13T09:32:20.644Z",
           text: "Cras porttitor ex eu vehicula cursus.",
@@ -2466,7 +2313,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "OcéaneRoux74",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile13.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile13.jpg",
         service: "Informatique",
         _id: 30,
       },
@@ -2477,8 +2324,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/aRXWmO5_460svav1.mp4",
         originalPosterProfile: {
           alias: "JoséphinePerrin96",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile06.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile06.jpg",
           text: "Quisque et ante sit amet metus sagittis sollicitudin sed vitae sem.",
           _id: 20,
         },
@@ -2488,8 +2334,7 @@ module.exports = {
           profile: {
             _id: 10,
             alias: "ColetteDuhamel78",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile11.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile11.jpg",
           },
           createdAt: "2021-07-27T00:40:12.644Z",
           text: "Integer lacinia urna at sapien rhoncus dignissim.",
@@ -2498,8 +2343,7 @@ module.exports = {
           profile: {
             _id: 11,
             alias: "ÉliseParis79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile09.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile09.jpg",
           },
           createdAt: "2021-09-09T06:23:00.644Z",
           text: "Praesent at nisi nec dui luctus scelerisque.",
@@ -2508,8 +2352,7 @@ module.exports = {
           profile: {
             _id: 12,
             alias: "ÉmilieValentin75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile16.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile16.jpg",
           },
           createdAt: "2021-08-17T06:19:09.644Z",
           text: "Curabitur aliquam libero vel ante interdum, in euismod ipsum condimentum.",
@@ -2518,8 +2361,7 @@ module.exports = {
           profile: {
             _id: 13,
             alias: "ÉtienneChartier75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile17.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile17.jpg",
           },
           createdAt: "2021-09-10T01:22:01.644Z",
           text: "Curabitur sit amet mauris non turpis varius aliquet et quis est.",
@@ -2528,8 +2370,7 @@ module.exports = {
           profile: {
             _id: 14,
             alias: "EugèneDenis12",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile04.jpg",
           },
           createdAt: "2021-06-12T17:01:25.644Z",
           text: "Phasellus et justo ultricies eros dapibus dapibus imperdiet ultricies diam.",
@@ -2538,8 +2379,7 @@ module.exports = {
           profile: {
             _id: 15,
             alias: "GenevièveNormand75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile17.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile17.jpg",
           },
           createdAt: "2021-08-15T12:40:10.644Z",
           text: "Praesent varius ligula ut interdum placerat.",
@@ -2548,8 +2388,7 @@ module.exports = {
           profile: {
             _id: 16,
             alias: "HenriFoucher96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile08.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile08.jpg",
           },
           createdAt: "2021-07-22T14:57:28.644Z",
           text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
@@ -2558,8 +2397,7 @@ module.exports = {
           profile: {
             _id: 17,
             alias: "InèsDavid13",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile02.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile02.jpg",
           },
           createdAt: "2021-06-09T03:05:29.644Z",
           text: "Aenean porta lorem sit amet luctus ultrices.",
@@ -2568,8 +2406,7 @@ module.exports = {
           profile: {
             _id: 18,
             alias: "JeanneColin96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile12.jpg",
           },
           createdAt: "2021-07-07T02:14:05.644Z",
           text: "Etiam commodo lectus ut odio luctus, eu tempor enim cursus.",
@@ -2579,7 +2416,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "SuzanneGuichard74",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile14.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile14.jpg",
         service: "Comptabilité",
         _id: 35,
       },
@@ -2590,8 +2427,7 @@ module.exports = {
           "https://img-9gag-fun.9cache.com/photo/ayMrDgq_460svav1.mp4",
         originalPosterProfile: {
           alias: "LouiseLeclerc45",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile08.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile08.jpg",
           text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
           _id: 23,
         },
@@ -2601,8 +2437,7 @@ module.exports = {
           profile: {
             _id: 24,
             alias: "LouisLeconte94",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile11.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile11.jpg",
           },
           createdAt: "2021-07-18T01:25:20.644Z",
           text: "Morbi porttitor nunc in ligula feugiat iaculis.",
@@ -2611,8 +2446,7 @@ module.exports = {
           profile: {
             _id: 25,
             alias: "LouisRey96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile16.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile16.jpg",
           },
           createdAt: "2021-08-17T05:14:48.644Z",
           text: "Donec at urna non lacus interdum dictum.",
@@ -2621,8 +2455,7 @@ module.exports = {
           profile: {
             _id: 26,
             alias: "LucDiaz74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile19.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile19.jpg",
           },
           createdAt: "2021-07-01T19:08:44.644Z",
           text: "Donec vehicula nulla ac feugiat pulvinar.",
@@ -2631,8 +2464,7 @@ module.exports = {
           profile: {
             _id: 27,
             alias: "LucHardy58",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile03.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile03.jpg",
           },
           createdAt: "2021-07-26T09:33:53.644Z",
           text: "Donec ac odio maximus, venenatis est ac, eleifend ex.",
@@ -2641,8 +2473,7 @@ module.exports = {
           profile: {
             _id: 28,
             alias: "MarcelKlein63",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile06.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile06.jpg",
           },
           createdAt: "2021-07-07T11:29:31.644Z",
           text: "Integer elementum lacus eget condimentum vestibulum.",
@@ -2651,8 +2482,7 @@ module.exports = {
           profile: {
             _id: 29,
             alias: "NathalieChartier76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile19.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile19.jpg",
           },
           createdAt: "2021-06-13T09:32:20.644Z",
           text: "Cras porttitor ex eu vehicula cursus.",
@@ -2662,17 +2492,17 @@ module.exports = {
     {
       posterProfile: {
         alias: "AlexandriaGuillot75",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile05.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile05.jpg",
         service: "Achats",
         _id: 2,
       },
       createdAt: "2021-09-13T11:04:44.645Z",
       content: {
         text: "Encore une victime de la canicule !...",
-        urlPicture: "http://localhost:8080/mediaPostsStore/fun02.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/fun02.jpg",
         originalPosterProfile: {
           alias: "SébastienGauthier75",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile15.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile15.jpg",
           text: "Curabitur aliquam libero vel ante interdum, in euismod ipsum condimentum.",
           _id: 34,
         },
@@ -2682,8 +2512,7 @@ module.exports = {
           profile: {
             _id: 35,
             alias: "SuzanneGuichard74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile14.jpg",
           },
           createdAt: "2021-08-05T00:36:56.644Z",
           text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -2692,8 +2521,7 @@ module.exports = {
           profile: {
             _id: 36,
             alias: "ValentineDelmas75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile07.jpg",
           },
           createdAt: "2021-06-03T08:17:58.644Z",
           text: "Praesent consectetur risus at ultrices lobortis.",
@@ -2702,8 +2530,7 @@ module.exports = {
           profile: {
             _id: 37,
             alias: "VictorFabre76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile13.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile13.jpg",
           },
           createdAt: "2021-08-08T06:20:41.644Z",
           text: "Maecenas a eros eu urna mollis aliquet.",
@@ -2712,8 +2539,7 @@ module.exports = {
           profile: {
             _id: 38,
             alias: "VictorFerreira76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
           },
           createdAt: "2021-07-04T08:19:56.644Z",
           text: "Sed accumsan massa nec congue aliquet.",
@@ -2722,8 +2548,7 @@ module.exports = {
           profile: {
             _id: 39,
             alias: "VincentDeOliveira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile05.jpg",
           },
           createdAt: "2021-09-10T11:38:26.644Z",
           text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -2732,8 +2557,7 @@ module.exports = {
           profile: {
             _id: 40,
             alias: "YvesAllard85",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile12.jpg",
           },
           createdAt: "2021-08-24T20:37:10.644Z",
           text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -2743,7 +2567,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "VincentDeOliveira96",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile05.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile05.jpg",
         service: "Achats",
         _id: 39,
       },
@@ -2753,7 +2577,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/aB2zxwP_700bwp.webp",
         originalPosterProfile: {
           alias: "VictorFerreira76",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
           text: "Sed dapibus nulla eget sapien euismod bibendum.",
           _id: 38,
         },
@@ -2763,8 +2587,7 @@ module.exports = {
           profile: {
             _id: 40,
             alias: "YvesAllard85",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile12.jpg",
           },
           createdAt: "2021-08-24T20:37:10.644Z",
           text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -2773,8 +2596,7 @@ module.exports = {
           profile: {
             _id: 1,
             alias: "AiméeFerreira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile10.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile10.jpg",
           },
           createdAt: "2021-06-10T06:25:48.643Z",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -2784,7 +2606,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "HenriFoucher96",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile08.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile08.jpg",
         service: "Commercial",
         _id: 16,
       },
@@ -2794,8 +2616,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/ad8AK92_700bwp.webp",
         originalPosterProfile: {
           alias: "LaetitiaDumont75",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile10.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile10.jpg",
           text: "Nullam laoreet dolor vel consectetur accumsan.",
           _id: 21,
         },
@@ -2805,8 +2626,7 @@ module.exports = {
           profile: {
             _id: 32,
             alias: "PierreRaymond76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile14.jpg",
           },
           createdAt: "2021-09-08T08:39:26.644Z",
           text: "Nunc a nulla sed libero commodo vestibulum.",
@@ -2815,8 +2635,7 @@ module.exports = {
           profile: {
             _id: 33,
             alias: "RichardRaymond75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile09.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile09.jpg",
           },
           createdAt: "2021-08-18T22:39:19.644Z",
           text: "Duis ac augue iaculis quam efficitur scelerisque nec ut nibh.",
@@ -2825,8 +2644,7 @@ module.exports = {
           profile: {
             _id: 34,
             alias: "SébastienGauthier75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile15.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile15.jpg",
           },
           createdAt: "2021-09-12T08:04:06.644Z",
           text: "Morbi placerat eros fermentum tellus elementum eleifend.",
@@ -2835,8 +2653,7 @@ module.exports = {
           profile: {
             _id: 35,
             alias: "SuzanneGuichard74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile14.jpg",
           },
           createdAt: "2021-08-05T00:36:56.644Z",
           text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -2846,7 +2663,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "JeanneColin96",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile12.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile12.jpg",
         service: "Comptabilité",
         _id: 18,
       },
@@ -2856,8 +2673,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/ad8AKYM_700bwp.webp",
         originalPosterProfile: {
           alias: "ColetteDuhamel78",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile11.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile11.jpg",
           text: "Nunc ut metus cursus, commodo est sed, consectetur ligula.",
           _id: 10,
         },
@@ -2867,8 +2683,7 @@ module.exports = {
           profile: {
             _id: 4,
             alias: "AnaïsBodin79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile04.jpg",
           },
           createdAt: "2021-08-13T19:49:14.644Z",
           text: "Donec bibendum ligula et dolor vestibulum, eu eleifend tellus aliquam.",
@@ -2877,8 +2692,7 @@ module.exports = {
           profile: {
             _id: 5,
             alias: "AnoukWeiss51",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile01.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile01.jpg",
           },
           createdAt: "2021-07-14T04:40:13.644Z",
           text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -2887,8 +2701,7 @@ module.exports = {
           profile: {
             _id: 6,
             alias: "AugustinLefevre76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile20.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile20.jpg",
           },
           createdAt: "2021-09-06T03:57:10.644Z",
           text: "Quisque et ante sit amet metus sagittis sollicitudin sed vitae sem.",
@@ -2897,8 +2710,7 @@ module.exports = {
           profile: {
             _id: 7,
             alias: "YolandeJardine12",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile20.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile20.jpg",
           },
           createdAt: "2021-07-26T20:22:44.644Z",
           text: "In facilisis libero a tortor convallis ornare.",
@@ -2907,8 +2719,7 @@ module.exports = {
           profile: {
             _id: 8,
             alias: "BrigitteBoucher76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile18.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile18.jpg",
           },
           createdAt: "2021-07-25T10:10:41.644Z",
           text: "Nunc varius justo molestie quam rhoncus, sed dignissim ex fringilla.",
@@ -2918,7 +2729,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "EugèneDenis12",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile04.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile04.jpg",
         service: "Achats",
         _id: 14,
       },
@@ -2928,8 +2739,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/aZ0Xg3X_700bwp.webp",
         originalPosterProfile: {
           alias: "SuzanneGuichard74",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile14.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile14.jpg",
           text: "Praesent consectetur risus at ultrices lobortis.",
           _id: 35,
         },
@@ -2939,8 +2749,7 @@ module.exports = {
           profile: {
             _id: 31,
             alias: "PaulineChauveau75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile15.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile15.jpg",
           },
           createdAt: "2021-09-07T04:11:41.644Z",
           text: "Etiam at purus eget diam vehicula sollicitudin non in diam.",
@@ -2949,8 +2758,7 @@ module.exports = {
           profile: {
             _id: 32,
             alias: "PierreRaymond76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile14.jpg",
           },
           createdAt: "2021-09-08T08:39:26.644Z",
           text: "Nunc a nulla sed libero commodo vestibulum.",
@@ -2960,7 +2768,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "JoséphinePerrin96",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile06.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile06.jpg",
         service: "Comptabilité",
         _id: 20,
       },
@@ -2970,8 +2778,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/aLpo8z6_700bwp.webp",
         originalPosterProfile: {
           alias: "GenevièveNormand75",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile17.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile17.jpg",
           text: "Morbi placerat eros fermentum tellus elementum eleifend.",
           _id: 15,
         },
@@ -2981,8 +2788,7 @@ module.exports = {
           profile: {
             _id: 38,
             alias: "VictorFerreira76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
           },
           createdAt: "2021-07-04T08:19:56.644Z",
           text: "Sed accumsan massa nec congue aliquet.",
@@ -2991,8 +2797,7 @@ module.exports = {
           profile: {
             _id: 39,
             alias: "VincentDeOliveira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile05.jpg",
           },
           createdAt: "2021-09-10T11:38:26.644Z",
           text: "Nullam a nunc interdum, consequat leo eget, rutrum tellus.",
@@ -3001,8 +2806,7 @@ module.exports = {
           profile: {
             _id: 40,
             alias: "YvesAllard85",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile12.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile12.jpg",
           },
           createdAt: "2021-08-24T20:37:10.644Z",
           text: "Proin aliquam augue pretium neque imperdiet rhoncus.",
@@ -3011,8 +2815,7 @@ module.exports = {
           profile: {
             _id: 1,
             alias: "AiméeFerreira96",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile10.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile10.jpg",
           },
           createdAt: "2021-06-10T06:25:48.643Z",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -3021,8 +2824,7 @@ module.exports = {
           profile: {
             _id: 2,
             alias: "AlexandriaGuillot75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile05.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile05.jpg",
           },
           createdAt: "2021-06-08T15:04:12.644Z",
           text: "Pellentesque a turpis id elit bibendum euismod at eget mi.",
@@ -3031,8 +2833,7 @@ module.exports = {
           profile: {
             _id: 3,
             alias: "AlphonseLabbe42",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile07.jpg",
           },
           createdAt: "2021-06-04T02:47:16.644Z",
           text: "Vestibulum sed eros tempus, porttitor nulla facilisis, tempus massa.",
@@ -3041,8 +2842,7 @@ module.exports = {
           profile: {
             _id: 4,
             alias: "AnaïsBodin79",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile04.jpg",
           },
           createdAt: "2021-08-13T19:49:14.644Z",
           text: "Donec bibendum ligula et dolor vestibulum, eu eleifend tellus aliquam.",
@@ -3051,8 +2851,7 @@ module.exports = {
           profile: {
             _id: 5,
             alias: "AnoukWeiss51",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile01.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile01.jpg",
           },
           createdAt: "2021-07-14T04:40:13.644Z",
           text: "Nullam laoreet dolor vel consectetur accumsan.",
@@ -3062,7 +2861,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "LucHardy58",
-        urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile03.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/maleProfile03.jpg",
         service: "Ressources Humaines",
         _id: 27,
       },
@@ -3072,8 +2871,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/aXo3vPD_700bwp.webp",
         originalPosterProfile: {
           alias: "JeanneColin96",
-          urlPicture:
-            "http://localhost:8080/mediaPostsStore/femaleProfile12.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/femaleProfile12.jpg",
           text: "Nunc varius justo molestie quam rhoncus, sed dignissim ex fringilla.",
           _id: 18,
         },
@@ -3083,8 +2881,7 @@ module.exports = {
           profile: {
             _id: 35,
             alias: "SuzanneGuichard74",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile14.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile14.jpg",
           },
           createdAt: "2021-08-05T00:36:56.644Z",
           text: "Quisque in risus pretium, lacinia nulla at, egestas est.",
@@ -3093,8 +2890,7 @@ module.exports = {
           profile: {
             _id: 36,
             alias: "ValentineDelmas75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile07.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile07.jpg",
           },
           createdAt: "2021-06-03T08:17:58.644Z",
           text: "Praesent consectetur risus at ultrices lobortis.",
@@ -3103,8 +2899,7 @@ module.exports = {
           profile: {
             _id: 37,
             alias: "VictorFabre76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile13.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile13.jpg",
           },
           createdAt: "2021-08-08T06:20:41.644Z",
           text: "Maecenas a eros eu urna mollis aliquet.",
@@ -3113,8 +2908,7 @@ module.exports = {
           profile: {
             _id: 38,
             alias: "VictorFerreira76",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile18.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile18.jpg",
           },
           createdAt: "2021-07-04T08:19:56.644Z",
           text: "Sed accumsan massa nec congue aliquet.",
@@ -3124,7 +2918,7 @@ module.exports = {
     {
       posterProfile: {
         alias: "ÉmilieValentin75",
-        urlPicture: "http://localhost:8080/mediaPostsStore/femaleProfile16.jpg",
+        urlPicture: "http://localhost:8080/mediaStatic/femaleProfile16.jpg",
         service: "Comptabilité",
         _id: 12,
       },
@@ -3134,7 +2928,7 @@ module.exports = {
         urlPicture: "https://img-9gag-fun.9cache.com/photo/a8ENMeZ_460swp.webp",
         originalPosterProfile: {
           alias: "AlphonseLabbe42",
-          urlPicture: "http://localhost:8080/mediaPostsStore/maleProfile07.jpg",
+          urlPicture: "http://localhost:8080/mediaStatic/maleProfile07.jpg",
           text: "Sed accumsan massa nec congue aliquet.",
           _id: 3,
         },
@@ -3144,8 +2938,7 @@ module.exports = {
           profile: {
             _id: 12,
             alias: "ÉmilieValentin75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/femaleProfile16.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/femaleProfile16.jpg",
           },
           createdAt: "2021-08-17T06:19:09.644Z",
           text: "Curabitur aliquam libero vel ante interdum, in euismod ipsum condimentum.",
@@ -3154,8 +2947,7 @@ module.exports = {
           profile: {
             _id: 13,
             alias: "ÉtienneChartier75",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile17.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile17.jpg",
           },
           createdAt: "2021-09-10T01:22:01.644Z",
           text: "Curabitur sit amet mauris non turpis varius aliquet et quis est.",
@@ -3164,8 +2956,7 @@ module.exports = {
           profile: {
             _id: 14,
             alias: "EugèneDenis12",
-            urlPicture:
-              "http://localhost:8080/mediaPostsStore/maleProfile04.jpg",
+            urlPicture: "http://localhost:8080/mediaStatic/maleProfile04.jpg",
           },
           createdAt: "2021-06-12T17:01:25.644Z",
           text: "Phasellus et justo ultricies eros dapibus dapibus imperdiet ultricies diam.",

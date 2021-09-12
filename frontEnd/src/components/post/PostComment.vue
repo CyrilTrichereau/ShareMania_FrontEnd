@@ -73,7 +73,8 @@ export default {
     canIEraseIt() {
       if (
         this.$store.state.profile.myProfile.isModerator ||
-        this.commentObject.profile._id === this.$store.state.profile.myProfile.id
+        this.commentObject.profile._id ===
+          this.$store.state.profile.myProfile.id
       ) {
         return true;
       } else {
@@ -98,7 +99,10 @@ export default {
       }
     },
     averageCounterChecked() {
-      if (this.averageCounterUpdated === "none") {
+      if (
+        this.averageCounterUpdated === "none" ||
+        !this.averageCounterUpdated
+      ) {
         if (this.commentObject.averageCounter) {
           return this.commentObject.averageCounter;
         } else {
@@ -204,10 +208,17 @@ export default {
       this.isLikeComment = responseCold.isLike;
     },
   },
+  watch: {
+    commentObject: function(newCommentObject) {
+      this.isLikeComment = newCommentObject.isLike;
+      this.averageCounterUpdated = newCommentObject.averageCounter;
+    },
+  },
   created() {
     if (this.commentObject.isLike === -1 || this.commentObject.isLike === 1) {
       this.isLikeComment = this.commentObject.isLike;
     }
+    this.averageCounterUpdated = this.commentObject.averageCounter;
   },
 };
 </script>

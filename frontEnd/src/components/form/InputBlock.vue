@@ -102,6 +102,8 @@ export default {
       if (this.whichPattern !== "") {
         if (this.testRegex(value)) {
           this.isValidLive = "success";
+        } else if (value === "") {
+          this.isValidLive = "success";
         } else {
           this.isValidLive = "invalid";
         }
@@ -130,10 +132,14 @@ export default {
       }
     },
     testIsValidValue(value) {
-      if (this.testRegex(value)) {
+      if (value === "") {
         this.isValidAtChange = "success";
-      } else if (!this.testRegex(value)) {
-        this.isValidAtChange = "invalid";
+      } else {
+        if (this.testRegex(value)) {
+          this.isValidAtChange = "success";
+        } else if (!this.testRegex(value)) {
+          this.isValidAtChange = "invalid";
+        }
       }
     },
     controlAndSendInput() {

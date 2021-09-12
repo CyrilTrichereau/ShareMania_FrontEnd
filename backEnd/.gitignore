@@ -3,5 +3,5 @@ node_modules
 initDataBase.cmd
 todo.md
 createDB.sql
-# mediaPostsStore/*
+mediaPostsStore/*
 /config/config.json

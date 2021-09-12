@@ -155,7 +155,7 @@ module.exports = {
         include: [
           {
             model: models.FeedPostOnFire,
-            attributes: ["isLike"],
+            attributes: ["isLike", "userId"],
           },
         ],
       });
@@ -166,11 +166,18 @@ module.exports = {
     if (listFeedPosts) {
       // Prepare response
       let response = [];
+      // Loop for organise data for response
       listFeedPosts.forEach((feedPost) => {
-        let isLike = null;
-        if (feedPost.FeedPostOnFires[0]) {
-          isLike = feedPost.FeedPostOnFires[0].isLike;
-        }
+        // Find if user isLike this feed post
+        let isLike = 0;
+        feedPost.FeedPostOnFires.forEach((userLikeRow) => {
+          if (userLikeRow.userId === userId) {
+            if (userLikeRow.isLike === 1 || userLikeRow.isLike === -1) {
+              isLike = userLikeRow.isLike;
+              return;
+            }
+          }
+        });
         const feedPostObject = {
           _id: feedPost.id,
           posterProfile: {
@@ -197,9 +204,13 @@ module.exports = {
         };
         response.push(feedPostObject);
       });
-      res.status(200).json(response);
+      if (response) {
+        return res.status(200).json(response);
+      } else {
+        return res.status(404).json({ error: "Cannot prepare response" });
+      }
     } else {
-      res.status(404).json({ error: "no feed post found" });
+      return res.status(404).json({ error: "no feed post found" });
     }
   },
 

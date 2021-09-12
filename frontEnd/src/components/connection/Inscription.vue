@@ -94,14 +94,14 @@ export default {
       arrayIsValid: [false, false, false, false],
       inscriptionIsNotValid: false,
       urlPictureForEmpty:
-        "http://localhost:8080/mediaPostsStore/unknowProfile250pxTinyfied.jpg",
+        "http://localhost:8080/mediaStatic/unknowProfile250pxTinyfied.jpg",
       profileToSave: {
         email: "",
         password: "",
         alias: "",
         service: "",
         urlPicture:
-          "http://localhost:8080/mediaPostsStore/unknowProfile250pxTinyfied.jpg",
+          "http://localhost:8080/mediaStatic/unknowProfile250pxTinyfied.jpg",
         mediaFile: "",
       },
     };

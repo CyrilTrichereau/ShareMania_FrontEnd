@@ -5,7 +5,7 @@ const helmet = require("helmet");
 const bodyParser = require("body-parser");
 const path = require("path");
 const apiRouter = require("./apiRouter").router;
-const utils = require("./utils/utils");
+const utils = require("./utils/dataBase.utils");
 
 // Instantiate server
 const server = express();
@@ -48,10 +48,7 @@ server.use(
   "/mediaPostsStore",
   express.static(path.join(__dirname, "mediaPostsStore"))
 );
-server.use(
-  "/mediaPostsStore",
-  express.static(path.join(__dirname, "imagesStatic"))
-);
+server.use("/mediaStatic", express.static(path.join(__dirname, "mediaStatic")));
 
 // Call api router
 server.use("/api/", apiRouter);
@@ -68,6 +65,10 @@ server.listen(8080, async () => {
       setTimeout(() => {
         utils.injectFakeFeedPostsAndComments();
       }, 3000);
+      setTimeout(() => {
+        utils.injectOnFireAndColdForPostComments();
+        utils.injectOnFireAndColdForFeedPosts();
+      }, 6000);
     } catch (err) {
       console.log("Cannot inject users ");
     }

@@ -16,7 +16,10 @@
       :alias="post.content.originalPosterProfile.alias"
       :urlPicture="post.content.originalPosterProfile.urlPicture"
       :text="post.content.originalPosterProfile.text"
-      v-if="post.content.originalPosterProfile.alias && post.content.originalPosterProfile.alias !== 'null'"
+      v-if="
+        post.content.originalPosterProfile.alias &&
+          post.content.originalPosterProfile.alias !== 'null'
+      "
     />
     <PostStats
       :onFireCounter="onFireCounterChecked"
@@ -24,14 +27,11 @@
       :averageCounter="averageCounterChecked"
       :commentsNumber="numberOfComments"
     />
-
-    <!-- transit comments list lenght  to posts stats -->
-
     <PostIntercation
       @open-close-comment-block="commentsIsOpen = !commentsIsOpen"
       @make-it-on-fire="makeItOnFire"
       @make-it-cold="makeItCold"
-      :isLike="isLikeChecked"
+      :isLike="isLikeUpdated"
     />
     <PostWriteAComment
       v-show="commentsIsOpen"
@@ -139,21 +139,6 @@ export default {
         }
       }
     },
-    isLikeChecked() {
-      if (this.isLikeUpdated === "none") {
-        if (this.post.isLike) {
-          return this.post.isLike;
-        } else {
-          return 0;
-        }
-      } else {
-        if (this.isLikeUpdated) {
-          return this.isLikeUpdated;
-        } else {
-          return 0;
-        }
-      }
-    },
   },
   methods: {
     updateNumberOfComments(payload) {
@@ -218,6 +203,11 @@ export default {
       this.isLikeUpdated = responseCold.isLike;
       this.onFireCounterUpdated = responseCold.onFireCounter;
       this.coldCounterUpdated = responseCold.coldCounter;
+    },
+  },
+  watch: {
+    post: function(newPost) {
+      this.isLikeUpdated = newPost.isLike;
     },
   },
   created() {

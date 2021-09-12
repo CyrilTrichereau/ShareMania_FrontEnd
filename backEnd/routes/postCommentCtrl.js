@@ -77,6 +77,8 @@ module.exports = {
         if (newPost) {
           // Update  popularity counter
           let popularityCounter = await utils.popularityCounter(
+            feedPostFound.onFireCounter,
+            feedPostFound.coldCounter,
             feedPostFound.id,
             true
           );
@@ -161,7 +163,7 @@ module.exports = {
         include: [
           {
             model: models.PostCommentOnFire,
-            attributes: ["isLike"],
+            attributes: ["isLike", "userId"],
           },
         ],
       });
@@ -173,12 +175,17 @@ module.exports = {
     if (commentsList) {
       // Prepare response
       let listComments = [];
-
+      // Loop for organise data for response
       commentsList.forEach(async (comment) => {
-        let isLike = null;
-        if (comment.PostCommentOnFires[0]) {
-          isLike = comment.PostCommentOnFires[0].isLike;
-        }
+        let isLike = 0;
+        comment.PostCommentOnFires.forEach((userLikeRow) => {
+          if (userLikeRow.userId === userId) {
+            if (userLikeRow.isLike === 1 || userLikeRow.isLike === -1) {
+              isLike = userLikeRow.isLike;
+              return;
+            }
+          }
+        });
         const commentObject = {
           _id: comment.id,
           time: utils.timestampTranslator(comment.createdAt),

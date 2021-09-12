@@ -23,7 +23,7 @@ npm install
 **3rd:** Then, store the .env file to the root repository of the project or create it with settings this attributes :
 
 ```env
-NODE_ENV=developemnt
+NODE_ENV=development
 CRYPTO_JS_KEY= 
 JWT_KEY=
 DEV_DATA_BASE_NAME=
@@ -35,14 +35,19 @@ DEV_DATA_BASE_DIALECT=mysql
 
 **4th:** Verify that mySQL is installed on your computer and create a database with informations from .env file
 
-**5th:** Now you can :
+**5th:** After creating the database and checking the information in the .env file, you can initiate the data models with sequelize-CLI using :
+```
+sequelize db:migrate
+``` 
+
+**6th:** Now you can :
 
 *Run the API with nodemon:*
 ```
 nodemon server
 ```
 
-**6th:** If database is empty, when the server will start, it will inject a fake database. It will take few seconds.
+**7th:** If database is empty, when the server will start, it will inject a fake database. It will take few minutes (around five for my old computer).
 
 
 ***------------------***

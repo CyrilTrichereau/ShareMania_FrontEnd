@@ -13,6 +13,7 @@ import HeaderConnectionBlock from "@/components/connection/HeaderConnectionBlock
 import Login from "@/components/connection/Login.vue";
 import Inscription from "@/components/connection/Inscription.vue";
 import FooterConnectionBlock from "@/components/connection/FooterConnectionBlock.vue";
+import * as utils from "@/assets/utils.js";
 
 export default {
   name: "ConnectionPage",
@@ -23,7 +24,10 @@ export default {
     FooterConnectionBlock,
   },
   async created() {
-    await this.$store.dispatch("fetchMyProfile");
+    const isValidToken = await utils.controlAuth();
+    if (isValidToken) {
+      this.$router.push({ name: "home" });
+    }
   },
 };
 </script>

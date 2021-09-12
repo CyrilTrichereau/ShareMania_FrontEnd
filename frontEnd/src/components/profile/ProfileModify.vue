@@ -147,81 +147,126 @@ export default {
       this.formIsNotValid = false;
       this.requestInvalid = false;
 
-      // Then check form
-      let formCompleted = true;
+      // Then check values (oldPassword, newPassword and alias) from input with regex (informations from component)
+      let isValidInput = true;
       this.arrayIsValid.forEach((element) => {
-        if (element !== "success") {
-          formCompleted = false;
+        if (element === "invalid") {
+          isValidInput = false;
         }
       });
-      if (formCompleted) {
-        let responseFormData = new FormData();
-        // Params
-        const requestObject = [
-          ["oldPassword", this.profileToSave.oldPassword],
-          ["newPassword", this.profileToSave.newPassword],
-          ["alias", this.profileToSave.alias],
-          ["service", this.profileToSave.service],
-          ["urlPicture", this.profileToSave.urlPicture],
-        ];
 
-        // Add file
-        if (this.profileToSave.mediaFile) {
-          try {
-            responseFormData.append(
-              "mediaFile",
-              this.profileToSave.mediaFile,
-              this.profileToSave.mediaFile.name
-            );
-          } catch (error) {
-            console.log(error);
-          }
-        }
-
-        // Add data
-        requestObject.forEach((value) => {
-          try {
-            responseFormData.append(value[0], value[1]);
-          } catch (error) {
-            console.log(error);
-          }
-        });
-
-        let response = null;
-        let responseNewUser = null;
-        // fetch new post
-        try {
-          response = await fetch(
-            this.$store.state.apiUrl.entryPoint + "/users/myProfile/",
-            {
-              method: "PUT",
-              body: responseFormData,
-              headers: {
-                authorization: localStorage.getItem("token"),
-              },
-            }
-          );
-          responseNewUser = await response.json();
-        } catch (error) {
-          console.log(error);
-        }
-        if (responseNewUser._id) {
-          // If user is well updated, open confirmation pop in
-          this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
-        } else {
-          // Else, return error corresponding
-          if (responseNewUser.error === "Invalid password") {
-            this.messageRequestInvalid = "Mot de passe invalide.";
-            this.requestInvalid = true;
-            this.formIsNotValid = true;
-          } else if (responseNewUser.error === "Same password") {
+      if (isValidInput) {
+        // Then, if values from input are valid, check if oldPassword or newPassword have entry and check if they are same
+        let isPasswordValid = true;
+        if (this.profileToSave.oldPassword && this.profileToSave.newPassword) {
+          if (
+            this.profileToSave.oldPassword == this.profileToSave.newPassword
+          ) {
             this.messageRequestInvalid =
               "Le nouveau mot de passe est le même que l'ancien.";
-            this.requestInvalid = true;
-            this.formIsNotValid = true;
-          } else {
-            this.formIsNotValid = true;
+            isPasswordValid = false;
           }
+        } else if (
+          this.profileToSave.oldPassword ||
+          this.profileToSave.newPassword
+        ) {
+          this.messageRequestInvalid =
+            "Merci de remplir les cases 'Ancien mot de passe' ET 'Nouveau mot de passe' afin de pouvoir valider le changement de mot de passe.";
+          isPasswordValid = false;
+        }
+
+        if (isPasswordValid) {
+          // Then, check if service is the same erase it from the data to send
+          if (
+            this.profileToSave.service ===
+            this.$store.state.profile.myProfile.service
+          ) {
+            this.profileToSave.service = null;
+          }
+
+          // Then check if at least one input is filled
+          if (
+            this.profileToSave.newPassword ||
+            this.profileToSave.alias ||
+            this.profileToSave.service ||
+            this.profileToSave.mediaFile
+          ) {
+            let responseFormData = new FormData();
+            // Params
+            const requestObject = [
+              ["oldPassword", this.profileToSave.oldPassword],
+              ["newPassword", this.profileToSave.newPassword],
+              ["alias", this.profileToSave.alias],
+              ["service", this.profileToSave.service],
+              ["urlPicture", this.profileToSave.urlPicture],
+            ];
+
+            // Add file
+            if (this.profileToSave.mediaFile) {
+              try {
+                responseFormData.append(
+                  "mediaFile",
+                  this.profileToSave.mediaFile,
+                  this.profileToSave.mediaFile.name
+                );
+              } catch (error) {
+                console.log(error);
+              }
+            }
+
+            // Add data
+            requestObject.forEach((value) => {
+              try {
+                responseFormData.append(value[0], value[1]);
+              } catch (error) {
+                console.log(error);
+              }
+            });
+
+            let response = null;
+            let responseNewUser = null;
+            // fetch new post
+            try {
+              response = await fetch(
+                this.$store.state.apiUrl.entryPoint + "/users/myProfile/",
+                {
+                  method: "PUT",
+                  body: responseFormData,
+                  headers: {
+                    authorization: localStorage.getItem("token"),
+                  },
+                }
+              );
+              responseNewUser = await response.json();
+            } catch (error) {
+              console.log(error);
+            }
+            if (responseNewUser._id) {
+              // If user is well updated, open confirmation pop in
+              this.confirmationPopInIsOpen = !this.confirmationPopInIsOpen;
+            } else {
+              // Else, return error corresponding
+              if (responseNewUser.error === "Invalid password") {
+                this.messageRequestInvalid = "Mot de passe invalide.";
+                this.requestInvalid = true;
+                this.formIsNotValid = true;
+              } else if (responseNewUser.error === "Same password") {
+                this.messageRequestInvalid =
+                  "Le nouveau mot de passe est le même que l'ancien.";
+                this.requestInvalid = true;
+                this.formIsNotValid = true;
+              } else {
+                this.formIsNotValid = true;
+              }
+            }
+          } else {
+            this.messageRequestInvalid = "Aucune donnée saisie.";
+            this.formIsNotValid = true;
+            this.requestInvalid = true;
+          }
+        } else {
+          this.formIsNotValid = true;
+          this.requestInvalid = true;
         }
       } else {
         this.formIsNotValid = true;
@@ -237,11 +282,7 @@ export default {
   },
 
   created() {
-    this.profileToSave._id = this.$store.state.profile.myProfile._id;
-    this.profileToSave.alias = this.$store.state.profile.myProfile.alias;
-    this.profileToSave.service = this.$store.state.profile.myProfile.service;
-    this.profileToSave.urlPicture = this.$store.state.profile.myProfile.urlPicture;
-    this.profileToSave.mediaFile = "";
+    this.profileToSave._id = this.$store.state.profile.myProfile.id;
   },
 };
 </script>

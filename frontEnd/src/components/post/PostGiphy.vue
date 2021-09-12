@@ -65,7 +65,7 @@ export default {
           this.postGiphyToShare.posterProfile.alias = "Unknown";
         }
         this.postGiphyToShare.posterProfile.urlPicture =
-          "http://localhost:8080/mediaPostsStore/unknow250pxTinyfied.jpg";
+          "http://localhost:8080/mediaStatic/unknow250pxTinyfied.jpg";
       }
       this.postGiphyToShare.content.text = this.post.title;
       this.postGiphyToShare.content.urlPicture = this.post.images.original.webp;

@@ -63,8 +63,7 @@ export default {
     canIEraseIt() {
       if (
         this.$store.state.profile.myProfile.isModerator ||
-        this.posterId ===
-          this.$store.state.profile.myProfile.id
+        this.posterId === this.$store.state.profile.myProfile.id
       ) {
         return true;
       } else {
@@ -98,7 +97,7 @@ export default {
           }
         );
         responseErasing = await response.json();
-        console.log(responseErasing);
+        console.log({ responseErasing: responseErasing });
       } catch (error) {
         console.log(error);
       }
