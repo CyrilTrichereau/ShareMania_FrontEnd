@@ -21,6 +21,9 @@ import {
   faSignOutAlt,
   faEye,
   faEyeSlash,
+  faUserAstronaut,
+  faSearch,
+  faThumbtack,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
@@ -49,7 +52,10 @@ library.add(
   faAddressCard,
   faSignOutAlt,
   faEye,
-  faEyeSlash
+  faEyeSlash,
+  faUserAstronaut,
+  faSearch,
+  faThumbtack,
 );
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 

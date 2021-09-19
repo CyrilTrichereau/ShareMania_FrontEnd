@@ -1,18 +1,35 @@
 <template>
   <div class="home">
     <!-- <CreateDataBase /> -->
-    <PostsList title="Fil d'actualités" :postsGiphy="false" />
+
+    <!-- HOMPE PAGE MESSAGE -->
+    <Welcome />
+
+    <!-- FEED POSTS -->
+    <PostsList
+      title="Fil d'actualités"
+      :postsGiphy="false"
+      @update-posts-list="keyComponent++"
+      :key="keyComponent"
+    />
   </div>
 </template>
 
 <script>
 // import CreateDataBase from "@/store/createDataBase/CreateDataBase.vue";
+import Welcome from "@/components/homePageInfos/Welcome.vue";
 import PostsList from "@/components/PostsList.vue";
 import * as utils from "@/assets/utils.js";
 
 export default {
   name: "Home",
+  data() {
+    return {
+      keyComponent: 0,
+    };
+  },
   components: {
+    Welcome,
     PostsList,
     // CreateDataBase
   },

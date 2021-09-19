@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <PostsList title="Tendance !" :postsGiphy="true" />
+    <PostsList title="Petite sélection de gifs tendance !" :postsGiphy="true" />
   </div>
 </template>
 

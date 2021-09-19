@@ -149,7 +149,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
-      this.$router.go();
+        this.$emit("update-comments-list");
     },
     async makeItOnFire() {
       let response = null;

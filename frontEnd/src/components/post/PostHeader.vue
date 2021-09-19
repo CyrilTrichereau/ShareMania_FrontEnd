@@ -101,7 +101,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
-      this.$router.go();
+      this.$emit("update-posts-list");
     },
   },
 };

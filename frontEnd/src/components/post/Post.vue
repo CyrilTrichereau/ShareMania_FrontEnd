@@ -7,6 +7,7 @@
       :time="post.time"
       :service="post.posterProfile.service"
       :dataForPostEraser="dataPostForActions"
+      @update-posts-list="updatePostsList"
     />
     <PostContent
       :text="post.content.text"
@@ -43,6 +44,7 @@
       v-show="commentsIsOpen"
       :postId="post._id"
       @number-of-comments="updateNumberOfComments"
+      @update-comments-list="keyComponent++"
     />
   </div>
 </template>
@@ -141,6 +143,9 @@ export default {
     },
   },
   methods: {
+    updatePostsList() {
+      this.$emit("update-posts-list");
+    },
     updateNumberOfComments(payload) {
       this.numberOfComments = payload;
     },

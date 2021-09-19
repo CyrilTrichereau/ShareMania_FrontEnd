@@ -1,5 +1,5 @@
 let state = {
-  myProfile: {},
+  myProfile: "none"
 };
 
 const mutations = {
@@ -22,7 +22,6 @@ const actions = {
       );
       let myProfileResponse = await response.json();
       context.commit("STORE_MY_PROFILE", myProfileResponse);
-      console.log(myProfileResponse);
     } catch (error) {
       console.log(error);
     }

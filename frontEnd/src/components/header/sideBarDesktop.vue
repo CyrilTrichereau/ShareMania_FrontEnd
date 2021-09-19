@@ -18,7 +18,13 @@
         v-if="$store.state.profile.myProfile.alias"
         @click.native="$store.dispatch('changeProfileModifyOrShowForce', false)"
       >
+        <font-awesome-icon
+          v-if="$store.state.profile.myProfile == 'none'"
+          icon="user-astronaut"
+          class="menuProfileWrapperIcon"
+        />
         <img
+          v-else
           :src="$store.state.profile.myProfile.urlPicture"
           :alt="'Photo de profil de ' + $store.state.profile.myProfile.alias"
           class="sideBarProfilePicture"

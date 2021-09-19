@@ -18,14 +18,12 @@ export default new Vuex.Store({
     },
     apiUrl: {
       entryPoint: "http://localhost:8080/api",
-      profile: "dataStatic.profilesList[0]",
-      posts: "dataStatic.postsList",
       giphyTrending: "https://api.giphy.com/v1/gifs/trending",
+      giphySearch: "https://api.giphy.com/v1/gifs/search",
       apiKey: {
         forFeed: "Ysa02CTSrAfmSpJoUWeEgEWflZVItJEJ",
         forSeasonning: "SKYHGhbHI1X29v64M6UMK2XM0oe5xHso",
       },
-      giphySearch: "https://api.giphy.com/v1/gifs/search",
     },
     pattern: {
       alias: "^[a-zA-ZÀ-ÿ1-9]{5,12}$",

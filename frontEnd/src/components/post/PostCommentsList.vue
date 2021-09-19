@@ -14,7 +14,10 @@
       :key="index"
       class="displayCommentsList"
     >
-      <Comment :commentObject="comment" />
+      <Comment
+        :commentObject="comment"
+        @update-comments-list="updateCommentList"
+      />
     </div>
   </div>
 </template>
@@ -41,6 +44,9 @@ export default {
     };
   },
   methods: {
+    updateCommentList() {
+      this.$emit("update-comments-list");
+    },
     async fetchComments(orderType) {
       // Request params
       const numberOfCommentsLimit = "?limit=30";

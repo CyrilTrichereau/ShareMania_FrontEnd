@@ -4,7 +4,14 @@
       class="menuProfileWrapper"
       @click="$store.dispatch('openOrCloseMenuHeader', 'menuProfile')"
     >
+      <font-awesome-icon
+        v-if="$store.state.profile.myProfile == 'none'"
+        icon="user-astronaut"
+        class="menuProfileWrapperIcon"
+      />
+
       <img
+        v-else
         :src="$store.state.profile.myProfile.urlPicture"
         :alt="'Photo de profil de ' + $store.state.profile.myProfile.alias"
         class="menuProfileWrapperPicture"
@@ -153,6 +160,10 @@ export default {
     background: rgba(255, 255, 255, 0.9);
   }
   &Wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     padding: 0;
     margin: 0;
     width: 40px;
@@ -160,6 +171,14 @@ export default {
     border: none;
     background: none;
     cursor: pointer;
+
+    &Icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.8rem;
+    }
 
     &Picture {
       width: 100%;

@@ -1,7 +1,11 @@
 <template>
   <button
     class="fireIcon"
-    :class="{ fireIconIsOn: isActive, smallFireIcon: small }"
+    :class="{
+      fireIconIsOn: isActive && !infinite,
+      fireIconIsOnInfinite: isActive && infinite,
+      smallFireIcon: small,
+    }"
   >
     <font-awesome-icon
       icon="fire-alt"
@@ -42,6 +46,10 @@ export default {
     isActive: {
       type: Boolean,
       default: false,
+    },
+    infinite: {
+      type: Boolean,
+      defaut: false,
     },
   },
 };
@@ -134,6 +142,31 @@ $colorDanger: #c02200;
     }
   }
 }
+.fireIconIsOnInfinite {
+  background: $colorDanger;
+  & > .fire {
+    &First {
+      animation: $animationTime fireAnimationFirst ease-in-out infinite;
+    }
+    &Second {
+      animation: $animationTime fireAnimationSecond $animationDelay ease-in-out
+        infinite;
+    }
+    &Third {
+      animation: $animationTime fireAnimationThird $animationDelayThird
+        ease-in-out infinite;
+    }
+    &Fourth {
+      animation: $animationTime fireAnimationFourth $animationDelayFourth
+        ease-in-out infinite;
+    }
+    &Fifth {
+      animation: $animationTime fireAnimationFifth $animationDelayFifth
+        ease-in-out infinite;
+    }
+  }
+}
+
 .fire {
   font-size: 2rem;
   position: absolute;
