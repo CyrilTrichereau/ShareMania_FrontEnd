@@ -5,5 +5,3 @@ todo.md
 createDB.sql
 mediaPostsStore/*
 /config/config.json
-/emailGenerator
-/pressSass

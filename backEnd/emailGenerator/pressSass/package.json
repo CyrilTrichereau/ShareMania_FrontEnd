@@ -1,0 +1,16 @@
+{
+  "name": "presssass",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Press Sass for creating email body with vue components",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./main.scss:./styleReady.css",
+    "compress": "sass --watch ./main.scss:./styleReady.css --style compressed",
+    "prefix": "postcss ./styleReady.css --use autoprefixer -d ./styleReadyPrefixed/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cyril Trichereau",
+  "license": "ISC",
+  "browserslist": "> 0.001%"
+}
