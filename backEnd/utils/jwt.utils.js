@@ -5,8 +5,7 @@ module.exports = {
   generateTokenForUser: (userData) => {
     return jwt.sign(
       {
-        userId: userData.id,
-        isAdmin: userData.isAdmin,
+        userId: userData.id
       },
       "(process.env.JWT_KEY)",
       {
@@ -25,6 +24,28 @@ module.exports = {
         const jwtToken = jwt.verify(token, "(process.env.JWT_KEY)");
         if (jwtToken != null) userId = jwtToken.userId;
       } catch (err) {}
+    }
+    return userId;
+  },
+  
+  generateTokenForForgottenPassword: (userId) => {
+    return jwt.sign(
+      {
+        userId: userId,
+      },
+      "(process.env.JWT_KEY_FORGOTTEN_PASSWORD)",
+      {
+        expiresIn: "1h",
+      }
+    );
+  },
+  getUserIdForForgottenPassword: (token) => {
+    let userId = -1;
+    if (token != null) {
+      try {
+        const jwtToken = jwt.verify(token, "(process.env.JWT_KEY_FORGOTTEN_PASSWORD)");
+        if (jwtToken != null) userId = jwtToken.userId;
+      } catch (err) {console.log({error: err}); }
     }
     return userId;
   },

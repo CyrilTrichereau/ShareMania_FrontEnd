@@ -37,6 +37,8 @@ export default {
     const isValidToken = await utils.controlAuth();
     if (!isValidToken) {
       this.$router.push("login");
+    } else {
+      this.$store.dispatch("fetchMyProfile");
     }
     await this.$store.dispatch("fetchMyProfile");
   },

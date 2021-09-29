@@ -6,12 +6,13 @@
     <div
       class="menuBackground"
       v-show="$store.state.isOpen.headerMenu === 'menuBurger'"
+      @click="openCloseAndCheckIsNewPost"
     >
       <nav class="card container bg-light menuList">
         <!-- SHAREMANIA LOGO -->
         <div
           class="menuListSharemaniaBackground"
-          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
+          @click.stop="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link
             to="/"
@@ -29,7 +30,7 @@
         <!-- HOME LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
+          @click.stop="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link to="/" class="text-primary menuListItemLinks">
             <font-awesome-icon icon="home" class="menuListItemLinksIcon" />
@@ -40,11 +41,14 @@
         </ul>
 
         <!-- NEW POST LINK -->
-        <ul
-          class="text-dark btn btn-light menuListItem"
-          @click="$store.dispatch('openOrCloseMenuHeaderForce', 'newPost')"
-        >
-          <router-link to="/new-post" class="text-primary menuListItemLinks">
+        <ul class="text-dark btn btn-light menuListItem">
+          <router-link
+            to="/new-post"
+            class="text-primary menuListItemLinks"
+            @click.native.stop="
+              $store.dispatch('openOrCloseMenuHeaderForce', 'newPost')
+            "
+          >
             <font-awesome-icon
               icon="plus-circle"
               class="menuListItemLinksIcon"
@@ -58,7 +62,7 @@
         <!-- HOME-FEED LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
+          @click.stop="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link to="/" class="text-primary menuListItemLinks">
             <font-awesome-icon icon="newspaper" class="menuListItemLinksIcon" />
@@ -71,7 +75,7 @@
         <!-- Giphy LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
+          @click.stop="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link to="/giphy" class="text-primary menuListItemLinks">
             <img
@@ -88,7 +92,7 @@
         <!-- My PROFILE LINK -->
         <ul
           class="text-dark btn btn-light menuListItem"
-          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
+          @click.stop="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link to="/my-profile" class="text-primary menuListItemLinks">
             <font-awesome-icon icon="user" class="menuListItemLinksIcon" />

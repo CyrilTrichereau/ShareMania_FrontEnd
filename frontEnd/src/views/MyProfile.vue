@@ -39,9 +39,10 @@ export default {
     const isValidToken = await utils.controlAuth();
     if (!isValidToken) {
       this.$router.push("login");
+    } else {
+      await this.$store.dispatch("fetchMyProfile");
+      this.pictureProfileToShow = this.$store.state.profile.myProfile.urlPicture;
     }
-    await this.$store.dispatch("fetchMyProfile");
-    this.pictureProfileToShow = this.$store.state.profile.myProfile.urlPicture;
   },
 };
 </script>

@@ -12,21 +12,23 @@
       />
     </div>
     <div class="welcomeMain">
-      <div class="welcomeMainOnFire">
-        <p class="text-light text-right h5 welcomeMainOnFireText">
-          Ici, on fait chauffer les publications !...
-        </p>
-        <div class="welcomeMainOnFireIcon">
-          <OnFire :isActive="true" :infinite="true" />
+      <div class="welcomeMainInteractions">
+        <div class="welcomeMainInteractionsOnFire">
+          <p class="text-light text-right h5 welcomeMainInteractionsOnFireText">
+            Ici, on fait chauffer les publications !...
+          </p>
+          <div class="welcomeMainInteractionsOnFireIcon">
+            <OnFire :isActive="true" :infinite="true" />
+          </div>
         </div>
-      </div>
-      <div class="welcomeMainCold">
-        <div class="welcomeMainColdIcon">
-          <Cold :isActive="true" :infinite="true" />
+        <div class="welcomeMainInteractionsCold">
+          <div class="welcomeMainInteractionsColdIcon">
+            <Cold :isActive="true" :infinite="true" />
+          </div>
+          <p class="text-light text-left h5 welcomeMainInteractionsColdText">
+            ou on les refroidit !...
+          </p>
         </div>
-        <p class="text-light text-left h5 welcomeMainColdText">
-          ou on les refroidit !...
-        </p>
       </div>
       <p class="text-primary h2 welcomeMainText">A vous de jouer !</p>
     </div>
@@ -70,16 +72,15 @@ $light: #fdfeff;
     position: relative;
     width: 100%;
     &Title {
-      margin: 1rem;
+      margin: 1rem 2rem;
     }
     &SubTitle {
       margin: 1rem 2rem 2rem 2rem;
     }
     &Thumbtack {
       position: absolute;
-      top: 5%;
-      left: 5%;
-      rotate: -45deg;
+      top: 1rem;
+      left: 1rem;
       font-size: 1.2rem;
     }
   }
@@ -91,50 +92,59 @@ $light: #fdfeff;
     gap: 1rem;
     margin-bottom: 1rem;
     width: 100%;
-    &OnFire {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      width: 92%;
-      max-width: 320px;
-      padding: 0.5rem 1rem;
-      background: $dangerBox;
-      border-radius: 15px;
-      box-shadow: 0 0 1px $dangerBox;
-      &Text {
-        margin: 0 1rem 0 1rem;
-        padding: 0;
-      }
-      &Icon {
+    &Interactions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+      &OnFire {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
-        width: 100px;
+        width: 92%;
+        max-width: 320px;
+        padding: 0.5rem 1rem;
+        background: $dangerBox;
+        border-radius: 15px;
+        box-shadow: 0 0 1px $dangerBox;
+        &Text {
+          margin: 0 1rem 0 0.5rem;
+          padding: 0;
+        }
+        &Icon {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          width: 70px;
+        }
       }
-    }
-    &Cold {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      width: 92%;
-      max-width: 320px;
-      padding: 0.5rem 1rem;
-      background: $warningBox;
-      border-radius: 15px;
-      box-shadow: 0 0 1px $warningBox;
-      &Text {
-        margin: 0 1rem 0 1rem;
-        padding: 0;
-      }
-      &Icon {
+      &Cold {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        width: 100px;
+        width: 92%;
+        max-width: 320px;
+        padding: 0.5rem 1rem;
+        background: $warningBox;
+        border-radius: 15px;
+        box-shadow: 0 0 1px $warningBox;
+        &Text {
+          margin: 0 0.5rem 0 1rem;
+          padding: 0;
+        }
+        &Icon {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          width: 70px;
+        }
       }
     }
     &Text {

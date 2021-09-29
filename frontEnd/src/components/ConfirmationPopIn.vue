@@ -7,12 +7,12 @@
           {{ loopForType }}
         </h3>
         <h6 class="text-primary confirmationPopInWrapperCardSubtitle">
-          Cliquez sur le bouton ci-dessous pour être redirigé.
+          Veuillez accrocher votre ceinture et vous préparer à être redirigé !
         </h6>
         <router-link
           :to="redirectUrl"
           class="confirmationPopInWrapperCardRedirect"
-          v-if="confirmationType === 'create'"
+          v-if="confirmationType === 'create' || confirmationType === 'modifyPassword'"
         >
           <Button text="Redirection" />
         </router-link>
@@ -50,6 +50,7 @@ export default {
     return {
       createProfile: "Bravo, votre compte a été créé avec succés !",
       modifyProfile: "Bravo, votre compte a été modifié avec succés !",
+      modifyPassword: "Mot de passe modifié avec succés !",
       default: "",
     };
   },
@@ -59,6 +60,8 @@ export default {
         return this.createProfile;
       } else if (this.confirmationType === "modify") {
         return this.modifyProfile;
+      }  else if (this.confirmationType === "modifyPassword") {
+        return this.modifyPassword;
       } else {
         return this.default;
       }
@@ -73,7 +76,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.$router.push({ name: "home" });
-    }, 2000);
+    }, 3000);
   },
 };
 </script>
@@ -83,7 +86,6 @@ export default {
   z-index: 20;
   width: 100%;
   height: 2000px;
-  z-index: 20;
   position: fixed;
   display: flex;
   top: 62px;
@@ -97,12 +99,12 @@ export default {
     width: 100%;
     height: 100%;
     &Card {
-      width: 92%;
-      max-width: 450px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      width: 92%;
+      max-width: 450px;
       margin-top: 2rem;
       padding: 0 0 2rem 0;
       &Title {

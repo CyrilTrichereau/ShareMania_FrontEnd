@@ -27,6 +27,9 @@ exports.router = (() => {
     .route("/:userId/users/myProfile/")
     .delete(usersCtrl.deleteUserProfile);
   apiRouter.route("/users/auth/").get(usersCtrl.controlAuth);
+  apiRouter.route("/users/forgottenPassword/").post(usersCtrl.sendForgottenPasswordEmail);
+  apiRouter.route("/users/changePassword/").post(usersCtrl.changePassword);
+
 
   // FeedPosts routes
   apiRouter

@@ -20,6 +20,7 @@
       @input-value="savePassword"
       textInvalid="Adresse email ou mot de passe invalide"
       patternType=""
+      @validate-input-with-enter="logInToAccount"
     />
     <Button text="Valider" @click.native="logInToAccount" />
     <a
@@ -58,41 +59,55 @@ export default {
         email: "",
         password: "",
       },
+      emailIsValid: false,
+      passwordIsValid: false,
     };
   },
   methods: {
     saveEmail(payload) {
       this.logIn.email = payload[0];
+      if (payload[1] === "success") {
+        this.emailIsValid = true;
+      } else {
+        this.emailIsValid = false;
+      }
     },
     savePassword(payload) {
       this.logIn.password = payload[0];
+      if (payload[1] === "success") {
+        this.passwordIsValid = true;
+      } else {
+        this.passwordIsValid = false;
+      }
     },
     async logInToAccount() {
-      let response = null;
-      let responseLogged = null;
-      // fetch new post
-      try {
-        response = await fetch(
-          this.$store.state.apiUrl.entryPoint + "/users/login/",
-          {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(this.logIn),
-          }
-        );
-        responseLogged = await response.json();
-      } catch (error) {
-        console.log(error);
+      if (this.emailIsValid && this.passwordIsValid) {
+        let response = null;
+        let responseLogged = null;
+        // Send login request
+        try {
+          response = await fetch(
+            this.$store.state.apiUrl.entryPoint + "/users/login/",
+            {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(this.logIn),
+            }
+          );
+          responseLogged = await response.json();
+        } catch (error) {
+          console.log(error);
+        }
+        // Store token in local storage
+        localStorage.setItem("token", "Bearer " + responseLogged.token);
+        console.log("login success");
+        setTimeout(() => {
+          this.$router.push({ name: "home" });
+        }, 100);
       }
-      // Store token in local storage
-      localStorage.setItem("token", "Bearer " + responseLogged.token);
-      console.log("login success");
-      setTimeout(() => {
-        this.$router.push({ name: "home" });
-      }, 100);
     },
   },
 };

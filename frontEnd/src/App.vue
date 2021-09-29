@@ -22,9 +22,6 @@ export default {
     HeaderMobile,
     SideBarDesktop,
   },
-  beforeCreate() {
-    this.$store.dispatch("fetchMyProfile");
-  },
 };
 </script>
 

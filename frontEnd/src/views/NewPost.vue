@@ -39,18 +39,15 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("fetchPostsGiphyTrending", {
-      numberOfPosts: 20,
-      startAtNumber: 0,
-    });
-    this.$store.dispatch('openOrCloseMenuHeaderForce', 'newPost')
+    this.$store.dispatch("openOrCloseMenuHeaderForce", "newPost");
   },
   async created() {
     const isValidToken = await utils.controlAuth();
     if (!isValidToken) {
       this.$router.push("login");
+    } else {
+      await this.$store.dispatch("fetchMyProfile");
     }
-    await this.$store.dispatch("fetchMyProfile");
   },
 };
 </script>

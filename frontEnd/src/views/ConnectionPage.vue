@@ -8,7 +8,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import HeaderConnectionBlock from "@/components/connection/HeaderConnectionBlock.vue";
 import Login from "@/components/connection/Login.vue";
 import Inscription from "@/components/connection/Inscription.vue";
@@ -26,6 +25,7 @@ export default {
   async created() {
     const isValidToken = await utils.controlAuth();
     if (isValidToken) {
+      this.$store.dispatch("fetchMyProfile");
       this.$router.push({ name: "home" });
     }
   },

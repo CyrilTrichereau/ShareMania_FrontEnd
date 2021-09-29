@@ -15,6 +15,7 @@
         :placeholder="inputPlaceHolder"
         v-model="inputValue"
         @change="controlAndSendInput"
+        @keyup.enter="validateInputWithEnter"
       />
       <font-awesome-icon
         icon="eye"
@@ -152,6 +153,9 @@ export default {
       }
       this.$emit("input-value", arrayOutput);
     },
+  validateInputWithEnter() {
+    this.$emit("validate-input-with-enter");
+  },
   },
 };
 </script>

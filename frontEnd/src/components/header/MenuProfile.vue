@@ -1,9 +1,6 @@
 <template>
   <div class="menuProfile">
-    <div
-      class="menuProfileWrapper"
-      @click="$store.dispatch('openOrCloseMenuHeader', 'menuProfile')"
-    >
+    <div class="menuProfileWrapper" @click="openCloseAndCheckIsNewPost">
       <font-awesome-icon
         v-if="$store.state.profile.myProfile == 'none'"
         icon="user-astronaut"
@@ -20,21 +17,19 @@
     <div
       class="menuProfileBackground"
       v-show="$store.state.isOpen.headerMenu === 'menuProfile'"
+      @click="openCloseAndCheckIsNewPost"
     >
       <nav class="card container bg-light menuProfileList">
         <div
           class="menuProfileListCrossIcon"
-          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
+          @click.stop="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
-          <CrossIcon
-            :colorThemePrimary="false"
-            @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
-          />
+          <CrossIcon :colorThemePrimary="false" />
         </div>
         <!-- Profile Block -->
         <div
           class="menuProfileListProfileBlock"
-          @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
+          @click.stop="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link
             to="/my-profile"
@@ -59,7 +54,7 @@
         <!-- Profile link -->
         <ul
           class="text-dark btn btn-light menuProfileListItem"
-          @click="openOrCloseMenusAndModifyProfile(false)"
+          @click.stop="openOrCloseMenusAndModifyProfile(false)"
         >
           <router-link
             to="/my-profile"
@@ -81,7 +76,7 @@
         <!-- Modify profile link -->
         <ul
           class="text-dark btn btn-light menuProfileListItem"
-          @click="openOrCloseMenusAndModifyProfile(true)"
+          @click.stop="openOrCloseMenusAndModifyProfile(true)"
         >
           <router-link
             to="/my-profile"
@@ -134,6 +129,17 @@ export default {
       this.$store.dispatch("openOrCloseMenuHeader", "none");
       localStorage.removeItem("token");
       this.$router.go();
+    },
+    openCloseAndCheckIsNewPost() {
+      if (this.$route.name === "newPost") {
+        if (this.$store.state.isOpen.headerMenu === "menuProfile") {
+          this.$store.dispatch("openOrCloseMenuHeaderForce", "newPost");
+        } else {
+          this.$store.dispatch("openOrCloseMenuHeaderForce", "menuProfile");
+        }
+      } else {
+        this.$store.dispatch("openOrCloseMenuHeader", "menuProfile");
+      }
     },
   },
 };

@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.User.hasMany(models.FeedPost);
+      models.User.hasOne(models.ForgottenPassword);
     }
   }
   User.init(
