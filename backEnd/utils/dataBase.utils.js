@@ -2,7 +2,8 @@
 const models = require("../models");
 const bcrypt = require("bcrypt");
 const CryptoJS = require("crypto-js");
-const fakeDataBase = require("./fakeDataBase");
+const fakeFeedPosts = require("./feedPosts.fakeDataBase.js");
+const fakeUsers = require("./users.fakeDataBase.js");
 const utils = require("../utils/utils");
 
 // Functions
@@ -71,7 +72,7 @@ module.exports = {
   // ------------------------
   // ------------------------
   injectFakeUsers: async () => {
-    fakeDataBase.users.forEach(async (user) => {
+    fakeUsers.users.forEach(async (user) => {
       let newUser = null;
       // Crypt email
       let emailEncrypted = null;
@@ -124,7 +125,7 @@ module.exports = {
   // ------------------------
   injectFakeFeedPostsAndComments: () => {
     try {
-      fakeDataBase.feedPosts.forEach(async (feedPostObject) => {
+      fakeFeedPosts.feedPosts.forEach(async (feedPostObject) => {
         // Params
         const userId = feedPostObject.posterProfile._id;
         const userAlias = feedPostObject.posterProfile.alias;
@@ -231,7 +232,7 @@ module.exports = {
             } catch (err) {
               console.log({ error: err });
             }
-          }, 50);
+          }, 150);
 
           return;
         } else {

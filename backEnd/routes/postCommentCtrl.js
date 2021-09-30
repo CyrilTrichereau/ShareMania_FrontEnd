@@ -1,4 +1,6 @@
 // Imports
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 const models = require("../models");
 const jwtUtils = require("../utils/jwt.utils");
 const utils = require("../utils/utils");
@@ -155,7 +157,12 @@ module.exports = {
     try {
       // Search feed post
       commentsList = await models.PostComment.findAll({
-        where: { feedPostId: feedPostId },
+        where: {
+          feedPostId: feedPostId,
+          createdAt: {
+            [Op.lte]: new Date(),
+          },
+        },
         order: [order != null ? order.split(":") : ["createdAt", "DESC"]],
         attributes: fields !== "*" && fields != null ? fields.split(",") : null,
         limit: !isNaN(limit) ? limit : null,

@@ -68,9 +68,9 @@ server.listen(8080, async () => {
       setTimeout(() => {
         utils.injectOnFireAndColdForPostComments();
         utils.injectOnFireAndColdForFeedPosts();
-      }, 6000);
+      }, 12000);
     } catch (err) {
-      console.log("Cannot inject users ");
+      console.log("Cannot inject fake database");
     }
   }
 });

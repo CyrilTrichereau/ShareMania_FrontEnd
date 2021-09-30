@@ -13,6 +13,9 @@
     <button class="btn btn-secondary m-2" @click="updatePosts">
       Mettre à jour les posts
     </button>
+    <button class="btn btn-secondary m-2" @click="getThousandPosts">
+      Récupérer 1000 posts
+    </button>
     <button class="btn btn-primary m-2" @click="fillItUpComments">
       Mettre à jour la list de commentaire
     </button>
@@ -47,7 +50,7 @@ export default {
       mainFile.fillItUpComments();
     },
     fillItUpProfiles() {
-      mainFile.fillItUpProfiles();
+      mainFile.createProfile();
     },
     getArrayOfUniqueRandomInt() {
       mainFile.getArrayOfUniqueRandomInt(2, 0, 0, 2);
@@ -57,6 +60,9 @@ export default {
     },
     searchNumber() {
       mainFile.searchNumber();
+    },
+    getThousandPosts() {
+      mainFile.getThousandPosts();
     },
   },
 };

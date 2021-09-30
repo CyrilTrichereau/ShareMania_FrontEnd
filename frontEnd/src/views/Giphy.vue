@@ -19,7 +19,6 @@ export default {
     } else {
       this.$store.dispatch("fetchMyProfile");
     }
-    await this.$store.dispatch("fetchMyProfile");
   },
 };
 </script>

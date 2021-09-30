@@ -1,5 +1,7 @@
 // Imports
 const fs = require("fs");
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 const models = require("../models");
 const jwtUtils = require("../utils/jwt.utils");
 const utils = require("../utils/utils");
@@ -7,8 +9,6 @@ const utils = require("../utils/utils");
 // Constants
 const CONTENT_TEXT_LIMIT = 6;
 const ITEMS_LIMIT = 50;
-
-// Le modle est bien renvoyé. Il faut manintenat renvoyer la réponse avec l'objet
 
 // Routes
 module.exports = {
@@ -152,6 +152,11 @@ module.exports = {
 
         limit: !isNaN(limit) ? limit : null,
         offset: !isNaN(offset) ? offset : null,
+        where: {
+          createdAt: {
+            [Op.lte]: new Date()
+          },
+        },
         include: [
           {
             model: models.FeedPostOnFire,

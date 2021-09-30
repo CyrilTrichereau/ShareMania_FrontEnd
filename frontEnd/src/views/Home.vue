@@ -16,7 +16,7 @@
 </template>
 
 <script>
-// import CreateDataBase from "@/store/createDataBase/CreateDataBase.vue";
+// import CreateDataBase from "@/components/CreateDataBase.vue";
 import Welcome from "@/components/homePageInfos/Welcome.vue";
 import PostsList from "@/components/PostsList.vue";
 import * as utils from "@/assets/utils.js";
