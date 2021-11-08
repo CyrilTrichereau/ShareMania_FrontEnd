@@ -131,7 +131,7 @@ module.exports = {
         }
         // if user is well create
         if (newUser) {
-          // Send an email to invite to ShareMania
+          // Send an email to confirm inscription to ShareMania
           try {
             // Prepare email
             let emailToSend = confirmInscription.email({
