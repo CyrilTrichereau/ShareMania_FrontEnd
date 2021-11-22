@@ -14,7 +14,8 @@ export default createStore({
       modifyMyProfile: false,
     },
     apiUrl: {
-      entryPoint: "http://localhost:8080/api",
+      entryPoint: "https://sharemania-backend.herokuapp.com/api",
+      urlStaticImages: "https://sharemania-backend.herokuapp.com",
       urlLocal: "http://localhost:8080/api",
       urlHeroku: "https://sharemania-backend.herokuapp.com/api",
       urlMediaStatic: "https://sharemania.fr/store/mediastatic",

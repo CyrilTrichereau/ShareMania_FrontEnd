@@ -92,7 +92,7 @@ export default {
       arrayIsValid: [false, false, false, false],
       inscriptionIsNotValid: false,
       urlPictureForEmpty:
-        this.$store.state.apiUrl.entryPoint +
+        this.$store.state.apiUrl.urlStaticImages +
         "/mediaStatic/unknowProfile250pxTinyfied.jpg",
       profileToSave: {
         email: "",
@@ -100,7 +100,7 @@ export default {
         alias: "",
         service: "",
         urlPicture:
-          this.$store.state.apiUrl.entryPoint +
+          this.$store.state.apiUrl.urlStaticImages +
           "/mediaStatic/unknowProfile250pxTinyfied.jpg",
         mediaFile: "",
       },

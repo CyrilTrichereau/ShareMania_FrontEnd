@@ -306,13 +306,16 @@ export default {
   width: 100%;
   &Header {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
     margin: 0.5rem 0;
     &Title {
+      margin: 0 2rem;
+    }
+    &SortingBy {
       margin: 0 2rem;
     }
     &Wrapper {

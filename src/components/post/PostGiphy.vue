@@ -67,7 +67,7 @@ export default {
           this.postGiphyToShare.posterProfile.alias = "Unknown";
         }
         this.postGiphyToShare.posterProfile.urlPicture =
-          this.$store.state.apiUrl.entryPoint +
+          this.$store.state.apiUrl.urlStaticImages +
           "/mediaStatic/unknow250pxTinyfied.jpg";
       }
       this.postGiphyToShare.content.text = this.post.title;
