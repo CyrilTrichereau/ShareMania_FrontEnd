@@ -2,7 +2,7 @@
   <div class="bg-primary text-light fixed-top d-lg-none headerMobile">
     <div class="headerMobileBlock">
       <router-link
-        to="/"
+        to="/home"
         class="btn btn-primary headerMobileBlockTrademark"
         @click="$store.dispatch('openOrCloseMenuHeader', 'none')"
       >

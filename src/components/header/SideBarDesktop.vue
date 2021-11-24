@@ -1,7 +1,7 @@
 <template>
   <div class="bg-primary text-light d-none d-lg-flex sideBar">
     <!-- SHAREMANIA -->
-    <router-link to="/" class="btn btn-primary sideBarTrademark">
+    <router-link to="/home" class="btn btn-primary sideBarTrademark">
       <img
         src="/images/groupomaniaLogoWhite100pxTinyfied.png"
         alt="ShareMania Logo"
@@ -68,7 +68,7 @@
     </div>
 
     <!-- HOME LINK -->
-    <router-link to="/" class="btn btn-primary sideBarMenu">
+    <router-link to="/home" class="btn btn-primary sideBarMenu">
       <font-awesome-icon icon="home" class="sideBarMenuIcon text-light" />
       <p class="text-light h4 sideBarMenuText">Accueil</p>
     </router-link>
@@ -83,7 +83,7 @@
     </router-link>
 
     <!-- FEED -->
-    <router-link to="/" class="btn btn-primary sideBarMenu">
+    <router-link to="/home" class="btn btn-primary sideBarMenu">
       <font-awesome-icon icon="newspaper" class="sideBarMenuIcon text-light" />
       <p class="text-light h4 sideBarMenuText">Fil d'actualités</p>
     </router-link>

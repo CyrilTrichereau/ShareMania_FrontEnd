@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="bg-white giphy">
     <PostsList title="Petite sélection de gifs tendance !" :postsGiphy="true" />
   </div>
 </template>
@@ -8,7 +8,7 @@
 import PostsList from "@/components/PostsList.vue";
 import * as utils from "@/assets/utils.js";
 export default {
-  name: "Home",
+  name: "Giphy",
   components: {
     PostsList,
   },
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.home {
+.giphy {
   display: flex;
   flex-direction: column;
   justify-content: center;

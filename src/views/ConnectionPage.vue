@@ -1,5 +1,5 @@
 <template>
-  <div class="container card connectionPage">
+  <div class="container card bg-white connectionPage">
     <HeaderConnectionBlock />
     <Login />
     <Inscription />

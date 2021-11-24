@@ -99,7 +99,7 @@ export default {
     },
   },
   watch: {
-    inputValue: function(value) {
+    inputValue: function (value) {
       if (this.whichPattern !== "") {
         if (this.testRegex(value)) {
           this.isValidLive = "success";
@@ -153,9 +153,9 @@ export default {
       }
       this.$emit("input-value", arrayOutput);
     },
-  validateInputWithEnter() {
-    this.$emit("validate-input-with-enter");
-  },
+    validateInputWithEnter() {
+      this.$emit("validate-input-with-enter");
+    },
   },
 };
 </script>

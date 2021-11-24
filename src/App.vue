@@ -7,7 +7,11 @@
     </div>
     <main class="appMain">
       <!-- ADDING VIEWS PAGES -->
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition name="slide">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </main>
   </div>
 </template>
@@ -48,5 +52,36 @@ export default {
       flex: 1 1 auto;
     }
   }
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+
+.slide-enter-to {
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+}
+
+.slide-enter-from {
+  opacity: 0;
+  position: absolute;
+  right: -40%;
+  z-index: 10;
+}
+
+.slide-leave-to {
+  opacity: 0;
+  position: absolute;
+  left: -40%;
+}
+
+.slide-leave-from {
+  opacity: 1;
+  position: absolute;
+  left: 0;
 }
 </style>

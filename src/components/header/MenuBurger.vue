@@ -15,7 +15,7 @@
           @click.stop="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
           <router-link
-            to="/"
+            to="/home"
             class="text-primary btn btn-light menuListSharemania"
           >
             <img
@@ -32,7 +32,7 @@
           class="text-dark btn btn-light menuListItem"
           @click.stop="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
-          <router-link to="/" class="text-primary menuListItemLinks">
+          <router-link to="/home" class="text-primary menuListItemLinks">
             <font-awesome-icon icon="home" class="menuListItemLinksIcon" />
             <p class="menuListItemLinksText">Accueil</p>
           </router-link>
@@ -60,7 +60,7 @@
           class="text-dark btn btn-light menuListItem"
           @click.stop="$store.dispatch('openOrCloseMenuHeader', 'none')"
         >
-          <router-link to="/" class="text-primary menuListItemLinks">
+          <router-link to="/home" class="text-primary menuListItemLinks">
             <font-awesome-icon icon="newspaper" class="menuListItemLinksIcon" />
             <p class="menuListItemLinksText">Fil d'actualités</p>
           </router-link>

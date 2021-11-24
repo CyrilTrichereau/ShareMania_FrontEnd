@@ -1,5 +1,5 @@
 <template>
-  <div class="myProfile">
+  <div class="bg-white myProfile">
     <h1 class="text-primary myProfileTitle">Mon profil</h1>
     <div class="myProfileBlock card container">
       <img
@@ -41,7 +41,8 @@ export default {
       this.$router.push("login");
     } else {
       await this.$store.dispatch("fetchMyProfile");
-      this.pictureProfileToShow = this.$store.state.profile.myProfile.urlPicture;
+      this.pictureProfileToShow =
+        this.$store.state.profile.myProfile.urlPicture;
     }
   },
 };

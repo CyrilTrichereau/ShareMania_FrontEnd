@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto my-lg-4 newPost">
+  <div class="mx-auto my-lg-4 bg-white newPost">
     <NewContentText
       class="newPostNewContentText"
       :descendGifForSeasonningPost="gifForSeasonningPost"

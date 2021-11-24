@@ -20,6 +20,9 @@
       patternType=""
       @validate-input-with-enter="logInToAccount"
     />
+    <p v-show="loginFailed" class="loginInvalidText">
+      Adresse email ou mot de passe invalide
+    </p>
     <Button text="Valider" @click="logInToAccount" />
     <a
       class="loginForgottenPassword text-light"
@@ -59,6 +62,7 @@ export default {
       },
       emailIsValid: false,
       passwordIsValid: false,
+      loginFailed: false,
     };
   },
   methods: {
@@ -79,6 +83,7 @@ export default {
       }
     },
     async logInToAccount() {
+      this.loginFailed = false;
       if (this.emailIsValid && this.passwordIsValid) {
         let response = null;
         let responseLogged = null;
@@ -99,12 +104,16 @@ export default {
         } catch (error) {
           console.log(error);
         }
-        // Store token in local storage
-        localStorage.setItem("token", "Bearer " + responseLogged.token);
-        console.log("login success");
-        setTimeout(() => {
-          this.$router.push({ name: "home" });
-        }, 100);
+        if (responseLogged.token) {
+          // Store token in local storage
+          localStorage.setItem("token", "Bearer " + responseLogged.token);
+          console.log("login success");
+          setTimeout(() => {
+            this.$router.push({ name: "home" });
+          }, 100);
+        } else {
+          this.loginFailed = true;
+        }
       }
     },
   },
@@ -112,6 +121,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$danger: #c02200;
 .login {
   display: flex;
   flex-direction: column;
@@ -122,6 +132,10 @@ export default {
   &Title {
     margin: 1rem 0;
   }
+  &InvalidText {
+    color: white;
+    text-shadow: 1px 1px 1px $danger;
+  }
   &Block {
     color: white;
     width: 80%;
@@ -129,6 +143,18 @@ export default {
   &ForgottenPassword {
     padding: 1rem 0;
     cursor: pointer;
+  }
+}
+
+/* INVALID INPUT */
+@keyframes headshake {
+  25% {
+    /* droite */
+    transform: translateX(1%);
+  }
+  75% {
+    /* gauche */
+    transform: translateX(-1%);
   }
 }
 </style>

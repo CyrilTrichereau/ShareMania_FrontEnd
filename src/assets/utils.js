@@ -54,12 +54,15 @@ export const controlAuth = async () => {
   if (localStorage.getItem("token")) {
     let response = null;
     try {
-      response = await fetch("http://localhost:8080/api/users/auth/", {
-        method: "GET",
-        headers: {
-          authorization: localStorage.getItem("token"),
-        },
-      });
+      response = await fetch(
+        "https://sharemania-backend.herokuapp.com/api/users/auth/",
+        {
+          method: "GET",
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
+        }
+      );
       response = await response.json();
     } catch (error) {
       console.log(error);

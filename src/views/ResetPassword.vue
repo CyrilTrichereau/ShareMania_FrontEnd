@@ -1,5 +1,5 @@
 <template>
-  <div class="container card resetPassword">
+  <div class="container card bg-white resetPassword">
     <div class="resetPasswordHeader">
       <div class="resetPasswordHeaderShareMania bg-primary">
         <img
@@ -48,7 +48,7 @@
       </div>
       <ConfirmationPopIn
         v-if="confirmationPopInIsOpen"
-        redirectUrl="/"
+        redirectUrl="/home"
         confirmationType="modifyPassword"
       />
 

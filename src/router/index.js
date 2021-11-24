@@ -3,7 +3,7 @@ import Home from "../views/Home.vue";
 
 const routes = [
   {
-    path: "/",
+    path: "/home",
     name: "home",
     component: Home,
   },
@@ -35,6 +35,11 @@ const routes = [
     path: "/ResetPassword/:token",
     name: "ResetPassword",
     component: () => import("../views/ResetPassword.vue"),
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () => import("../views/ConnectionPage.vue"),
   },
 ];
 

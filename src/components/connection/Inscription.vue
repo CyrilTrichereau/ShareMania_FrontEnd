@@ -63,7 +63,7 @@
     </p>
     <ConfirmationPopIn
       v-if="confirmationPopInIsOpen"
-      redirectUrl="/"
+      redirectUrl="/home"
       confirmationType="create"
     />
   </div>

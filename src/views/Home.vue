@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
+  <div class="home bg-white">
     <!-- <CreateDataBase /> -->
 
-    <!-- HOMPE PAGE MESSAGE -->
+    <!-- HOME PAGE MESSAGE -->
     <Welcome />
 
     <!-- FEED POSTS -->

@@ -52,7 +52,7 @@ export default {
     },
     urlToRedirect: {
       type: String,
-      default: "/",
+      default: "/home",
     },
   },
   computed: {
