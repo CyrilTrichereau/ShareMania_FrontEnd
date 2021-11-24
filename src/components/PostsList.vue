@@ -134,6 +134,13 @@ export default {
     returnPostsGiphyList() {
       return this.postsGiphyList;
     },
+    giphyApiKey() {
+      if (this.smallTitle) {
+        return this.$store.state.apiUrl.apiKey.forSeasonning;
+      } else {
+        return this.$store.state.apiUrl.apiKey.forFeed;
+      }
+    },
   },
   methods: {
     updatePostsList() {
@@ -215,7 +222,7 @@ export default {
           urlBuilded =
             this.$store.state.apiUrl.giphySearch +
             "?api_key=" +
-            this.$store.state.apiUrl.apiKey.forFeed +
+            this.giphyApiKey +
             "&q=" +
             this.giphyKeyWordToSearch +
             "&limit=" +
@@ -228,7 +235,7 @@ export default {
           urlBuilded =
             this.$store.state.apiUrl.giphyTrending +
             "?api_key=" +
-            this.$store.state.apiUrl.apiKey.forFeed +
+            this.giphyApiKey +
             "&limit=" +
             this.numberOfPostsGiphyToFetch +
             "&offset=" +

@@ -1,15 +1,21 @@
 <template>
   <div class="form-group my-2 sortingByButton">
     <select
-      class="form-select btn btn-secondary text-light p-1 sortingByButtonSelect"
+      class="
+        form-select
+        btn btn-secondary
+        text-light
+        sortingByButtonSelect
+        bg-secondary
+      "
       aria-label="Trier par"
       required
       v-model="valueSelected"
       @change="sendSelected"
     >
-      <option disabled class="sortingByButtonSelectTextDisabled"
-        >Trier par</option
-      >
+      <option disabled class="sortingByButtonSelectTextDisabled">
+        Trier par
+      </option>
       <option value="recent">Plus récents</option>
       <option value="hotest">Plus brûlants</option>
       <option value="popular">Plus populaires</option>
@@ -37,6 +43,7 @@ export default {
 .sortingByButton {
   &Select {
     border-radius: 25px;
+    padding: 0.4rem 2rem 0.4rem 1rem;
     &TextDisabled {
       color: white;
       background: rgba(0, 0, 0, 0.384);
