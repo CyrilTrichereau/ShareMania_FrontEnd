@@ -35,7 +35,7 @@
 
 <script>
 import Ellipsis from "@/components/icons/Ellipsis.vue";
-import EraseConfirm from "@/components/EraseConfirm.vue";
+import EraseConfirm from "@/components/popIn/EraseConfirm.vue";
 
 export default {
   name: "EllipsisMenu",

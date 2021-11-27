@@ -26,6 +26,7 @@ import {
   faUserAstronaut,
   faSearch,
   faThumbtack,
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -55,7 +56,8 @@ library.add(
   faEyeSlash,
   faUserAstronaut,
   faSearch,
-  faThumbtack
+  faThumbtack,
+  faEnvelope
 );
 
 createApp(App)

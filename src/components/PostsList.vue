@@ -76,6 +76,12 @@
         />
       </div>
     </div>
+
+    <Button
+      text="Afficher plus de contenu"
+      @click="fetchMorePosts()"
+      class="postsListMainButton"
+    />
   </div>
 </template>
 
@@ -86,6 +92,7 @@ import PostEmpty from "@/components/post/PostEmpty.vue";
 import PostEmptyGiphy from "@/components/post/PostEmptyGiphy.vue";
 import Post from "@/components/post/Post.vue";
 import PostGiphy from "@/components/post/PostGiphy.vue";
+import Button from "@/components/form/Button.vue";
 
 export default {
   name: "PostsList",
@@ -96,6 +103,7 @@ export default {
     PostEmptyGiphy,
     Post,
     PostGiphy,
+    Button,
   },
 
   props: {
@@ -260,24 +268,27 @@ export default {
         console.log(error);
       }
     },
-    async fetchMorePosts(isGiphy) {
+    async fetchMorePosts() {
+      if (!this.postsGiphy) {
+        this.postsList.push(
+          this.fetchPosts(
+            this.orderBySaved,
+            this.numberOfPostsToFetch,
+            this.displayToPostNumber
+          )
+        );
+      } else {
+        this.fetchPostsGiphyTrending(this.lastTypeUsed);
+      }
+    },
+    async infinityFeed() {
       window.onscroll = async () => {
         let bottomOfWindow =
           document.documentElement.scrollTop + window.innerHeight ===
           document.documentElement.offsetHeight;
 
         if (bottomOfWindow) {
-          if (!isGiphy) {
-            this.postsList.push(
-              this.fetchPosts(
-                this.orderBySaved,
-                this.numberOfPostsToFetch,
-                this.displayToPostNumber
-              )
-            );
-          } else {
-            this.fetchPostsGiphyTrending(this.lastTypeUsed);
-          }
+          this.fetchMorePosts();
         }
       };
     },
@@ -294,11 +305,10 @@ export default {
     if (!this.postsGiphy) {
       this.fetchPosts("date", this.numberOfPostsToFetch, 0);
       this.displayToPostNumber = this.numberOfPostsToFetch;
-      this.fetchMorePosts(false);
     } else {
       this.fetchPostsGiphyTrending("trending");
-      this.fetchMorePosts(true);
     }
+    this.infinityFeed();
   },
 };
 </script>
@@ -349,6 +359,9 @@ export default {
     width: 92%;
     &Wrapper {
       width: 100%;
+    }
+    &Button {
+      margin: 1rem 2rem;
     }
   }
 }

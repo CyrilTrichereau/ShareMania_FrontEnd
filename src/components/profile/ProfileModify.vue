@@ -12,9 +12,7 @@
         icon="shield-alt"
         class="text-success profileModifyContentStatusIcon"
       />
-      <p class="text-success h4 profileModifyContentStatusText">
-        Modérateur
-      </p>
+      <p class="text-success h4 profileModifyContentStatusText">Modérateur</p>
     </div>
     <div class="bg-info profileModifyContentInputBlock">
       <InputBlock
@@ -92,7 +90,7 @@ import InputFile from "@/components/form/InputFile.vue";
 import Button from "@/components/form/Button.vue";
 import InputBlock from "@/components/form/InputBlock.vue";
 import ServiceBlock from "@/components/form/ServiceBlock.vue";
-import ConfirmationPopIn from "@/components/ConfirmationPopIn.vue";
+import ConfirmationPopIn from "@/components/popIn/ConfirmationPopIn.vue";
 
 export default {
   name: "ProfileModify",

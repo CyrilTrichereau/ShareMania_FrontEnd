@@ -1,7 +1,7 @@
 <template>
   <div>
     <button
-      class="btn my-2 validateButton"
+      class="btn my-2 text-white validateButton"
       :class="{
         'btn-danger': danger,
         'btn-primary': !danger & !secondary,

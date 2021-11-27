@@ -76,7 +76,7 @@
 import * as utils from "@/assets/utils.js";
 import InputBlock from "@/components/form/InputBlock.vue";
 import Button from "@/components/form/Button.vue";
-import ConfirmationPopIn from "@/components/ConfirmationPopIn.vue";
+import ConfirmationPopIn from "@/components/popIn/ConfirmationPopIn.vue";
 
 export default {
   name: "ConnectionPage",

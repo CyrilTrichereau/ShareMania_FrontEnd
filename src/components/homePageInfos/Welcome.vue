@@ -1,7 +1,12 @@
 <template>
   <div class="container card bg-light welcome">
     <div class="bg-primary welcomeHeader">
-      <h2 class="h1 text-light welcomeHeaderTitle">Bienvenu sur ShareMania</h2>
+      <img
+        src="/images/groupomaniaLogoWhite100pxTinyfied.png"
+        alt="ShareMania Logo"
+        class="welcomeHeaderIcon"
+      />
+      <h2 class="h1 text-light welcomeHeaderTitle">Bienvenue sur ShareMania</h2>
       <p class="h6 text-light welcomeHeaderSubTitle">
         Le plus brûlant des réseaux sociaux
       </p>
@@ -31,6 +36,12 @@
         </div>
       </div>
       <p class="text-primary h2 welcomeMainText">A vous de jouer !</p>
+      <Button
+        text="Afficher de nouveau le message de bienvenue"
+        :secondary="true"
+        @click="showWelcomeMessage"
+        class="welcomeMainButton"
+      />
     </div>
   </div>
 </template>
@@ -38,12 +49,20 @@
 <script>
 import OnFire from "@/components/icons/OnFire.vue";
 import Cold from "@/components/icons/Cold.vue";
+import Button from "@/components/form/Button.vue";
 
 export default {
   name: "Welcome",
   components: {
     OnFire,
     Cold,
+    Button,
+  },
+  methods: {
+    showWelcomeMessage() {
+      localStorage.setItem("displayWelcomeMessage", true);
+      this.$emit("open-welcome-message");
+    },
   },
 };
 </script>
@@ -69,10 +88,19 @@ $light: #fdfeff;
   margin: 1rem 0 3rem 0;
   padding: 0;
   &Header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
     position: relative;
     width: 100%;
+    &Icon {
+      width: 60px;
+      margin: 1rem 0 0 0;
+    }
     &Title {
-      margin: 1rem 2rem;
+      margin: 0 2rem 1rem 2rem;
     }
     &SubTitle {
       margin: 1rem 2rem 2rem 2rem;
@@ -93,13 +121,13 @@ $light: #fdfeff;
     margin-bottom: 1rem;
     width: 100%;
     &Interactions {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 1rem;
       &OnFire {
         display: flex;
         flex-direction: row;
@@ -148,7 +176,10 @@ $light: #fdfeff;
       }
     }
     &Text {
-      margin: 1rem 0;
+      margin: 1rem 0 0 0;
+    }
+    &Button {
+      margin: 0 2rem;
     }
   }
 }

@@ -1,9 +1,13 @@
 <template>
-  <div class="home bg-white">
+  <WelcomeMessage
+    v-if="displayWelcomeMessage"
+    @close-pop-in="displayWelcomeMessage = false"
+  />
+  <div class="home bg-white" v-else>
     <!-- <CreateDataBase /> -->
 
     <!-- HOME PAGE MESSAGE -->
-    <Welcome />
+    <Welcome @open-welcome-message="displayWelcomeMessage = true" />
 
     <!-- FEED POSTS -->
     <PostsList
@@ -17,6 +21,7 @@
 
 <script>
 // import CreateDataBase from "@/components/CreateDataBase.vue";
+import WelcomeMessage from "@/components/popIn/WelcomeMessage.vue";
 import Welcome from "@/components/homePageInfos/Welcome.vue";
 import PostsList from "@/components/PostsList.vue";
 import * as utils from "@/assets/utils.js";
@@ -26,9 +31,11 @@ export default {
   data() {
     return {
       keyComponent: 0,
+      displayWelcomeMessage: true,
     };
   },
   components: {
+    WelcomeMessage,
     Welcome,
     PostsList,
     // CreateDataBase
@@ -41,6 +48,17 @@ export default {
       this.$store.dispatch("fetchMyProfile");
     }
     await this.$store.dispatch("fetchMyProfile");
+  },
+  mounted() {
+    // Watch local storage to know if display or not welcome message
+    const displayMessage = localStorage.getItem("displayWelcomeMessage");
+    if (displayMessage === null) {
+      this.displayWelcomeMessage = true;
+    } else if (displayMessage === "false") {
+      this.displayWelcomeMessage = false;
+    } else {
+      this.displayWelcomeMessage = true;
+    }
   },
 };
 </script>

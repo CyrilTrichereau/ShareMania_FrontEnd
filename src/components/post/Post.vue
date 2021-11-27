@@ -19,7 +19,7 @@
       :text="post.content.originalPosterProfile.text"
       v-if="
         post.content.originalPosterProfile.alias &&
-          post.content.originalPosterProfile.alias !== 'null'
+        post.content.originalPosterProfile.alias !== 'null'
       "
     />
     <PostStats
@@ -211,7 +211,7 @@ export default {
     },
   },
   watch: {
-    post: function(newPost) {
+    post: function (newPost) {
       this.isLikeUpdated = newPost.isLike;
     },
   },

@@ -44,6 +44,9 @@ export default {
   &Select {
     border-radius: 25px;
     padding: 0.4rem 2rem 0.4rem 1rem;
+    &:hover {
+      box-shadow: 0 0 4px 0 #302e20;
+    }
     &TextDisabled {
       color: white;
       background: rgba(0, 0, 0, 0.384);

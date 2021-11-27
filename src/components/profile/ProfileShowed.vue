@@ -57,7 +57,7 @@
 
 <script>
 import Button from "@/components/form/Button.vue";
-import EraseConfirm from "@/components/EraseConfirm.vue";
+import EraseConfirm from "@/components/popIn/EraseConfirm.vue";
 
 export default {
   name: "ProfileShowed",
