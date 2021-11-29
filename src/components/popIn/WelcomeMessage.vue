@@ -1,47 +1,35 @@
 <template>
   <div class="welcomeMessage">
-    <div class="welcomeMessageSideBar"></div>
-    <div class="welcomeMessageWrapper">
-      <div class="card container bg-light welcomeMessageWrapperCard">
-        <div class="bg-primary welcomeMessageWrapperCardHeader">
-          <h1 class="text-light welcomeMessageWrapperCardHeaderTitle">
-            ShareMania
-          </h1>
-          <div class="welcomeMessageWrapperCardHeaderSubTitle">
-            <div class="welcomeMessageWrapperCardHeaderSubTitleOnFireIcon">
+    <div class="welcomeMessage">
+      <div class="card container bg-light welcomeMessageCard">
+        <div class="bg-primary welcomeMessageCardHeader">
+          <h1 class="text-light welcomeMessageCardHeaderTitle">ShareMania</h1>
+          <div class="welcomeMessageCardHeaderSubTitle">
+            <div class="welcomeMessageCardHeaderSubTitleOnFireIcon">
               <OnFire :isActive="true" :infinite="true" :small="true" />
             </div>
-            <p
-              class="h6 text-light welcomeMessageWrapperCardHeaderSubTitleText"
-            >
+            <p class="h6 text-light welcomeMessageCardHeaderSubTitleText">
               Le plus brûlant des réseaux sociaux
             </p>
-            <div class="welcomeMessageWrapperCardHeaderSubTitleColdIcon">
+            <div class="welcomeMessageCardHeaderSubTitleColdIcon">
               <Cold :isActive="true" :infinite="true" :small="true" />
             </div>
           </div>
         </div>
-        <div class="welcomeMessageWrapperCardMain">
-          <h2 class="text-primary welcomeMessageWrapperCardMainSubTitle">
+        <div class="welcomeMessageCardMain">
+          <h2 class="text-primary welcomeMessageCardMainSubTitle">
             Premiere visite ?
           </h2>
-          <p class="text-dark welcomeMessageWrapperCardMainText">
+          <p class="text-dark welcomeMessageCardMainText">
             ShareMania est une création qui a pour but de tester des
             technologies. Elle n'est pas destinée à être pleinement
             opérationnelle, même si elle s'en rapproche.
           </p>
-          <div class="bg-primary welcomeMessageWrapperCardMainBlockPrimary">
-            <h3
-              class="
-                text-primary text-light
-                welcomeMessageWrapperCardMainSubTitle
-              "
-            >
+          <div class="bg-primary welcomeMessageCardMainBlockPrimary">
+            <h3 class="text-primary text-light welcomeMessageCardMainSubTitle">
               Besoin de plus d'informations ?
             </h3>
-            <p
-              class="text-primary text-white welcomeMessageWrapperCardMainText"
-            >
+            <p class="text-primary text-white welcomeMessageCardMainText">
               Allez faire un tour sur
               <a href="https://ctch.dev/projects/sharemania" class="text-white">
                 cette page de présentation du projet.</a
@@ -50,80 +38,71 @@
               utilisées.
             </p>
           </div>
-          <h3 class="text-primary welcomeMessageWrapperCardMainSubTitle">
-            Contact
-          </h3>
+          <h3 class="text-primary welcomeMessageCardMainSubTitle">Contact</h3>
           <a
             href="mailto:contact@sharemania.fr"
-            class="text-dark welcomeMessageWrapperCardMainText"
+            class="text-dark welcomeMessageCardMainText"
           >
             contact@sharemania.fr
           </a>
-          <h3 class="text-secondary welcomeMessageWrapperCardMainSubTitle">
-            Auteur
-          </h3>
-          <p class="text-dark welcomeMessageWrapperCardMainText">
+          <h3 class="text-secondary welcomeMessageCardMainSubTitle">Auteur</h3>
+          <p class="text-dark welcomeMessageCardMainText">
             Cyril Trichereau <br />
             <a
               href="mailto:contact@ctch.dev"
-              class="text-dark welcomeMessageWrapperCardMainTextMail"
+              class="text-dark welcomeMessageCardMainTextMail"
             >
               contact@ctch.dev
             </a>
           </p>
-          <div class="welcomeMessageWrapperCardMainTextContact">
+          <div class="welcomeMessageCardMainTextContact">
             <a
               href="https://github.com/CyrilTrichereau"
-              class="bg-info welcomeMessageWrapperCardMainTextContactBlock"
+              class="bg-info welcomeMessageCardMainTextContactBlock"
             >
               GitHub :
               <img
                 src="../../../public/images/gitHubIconTinyfied.png"
                 alt="GitHub Logo"
-                class="welcomeMessageWrapperCardMainTextContactBlockIcon"
+                class="welcomeMessageCardMainTextContactBlockIcon"
               />
             </a>
             <a
               href="https://ctch.dev"
-              class="bg-info welcomeMessageWrapperCardMainTextContactBlock"
+              class="bg-info welcomeMessageCardMainTextContactBlock"
             >
               Portfolio :
               <img
-                src="../../../public/images/ctchIconTinyfied.jpg"
+                src="@/../public/images/ctchIconTinyfied.jpg"
                 alt="LinkedIn Logo"
-                class="welcomeMessageWrapperCardMainTextContactBlockIcon"
+                class="welcomeMessageCardMainTextContactBlockIcon"
               />
             </a>
             <a
               href="https://www.linkedin.com/in/cyril-trichereau-4b36a1b5/"
-              class="bg-info welcomeMessageWrapperCardMainTextContactBlock"
+              class="bg-info welcomeMessageCardMainTextContactBlock"
             >
               LinkedIn :
               <img
-                src="../../../public/images/linkedinIconTinyfied.png"
+                src="@/../public/images/linkedinIconTinyfied.png"
                 alt="LinkedIn Logo"
-                class="
-                  welcomeMessageWrapperCardMainTextContactBlockIconLinkedIn
-                "
+                class="welcomeMessageCardMainTextContactBlockIconLinkedIn"
               />
             </a>
             <a
               href="mailto:contact@ctch.dev"
-              class="bg-info welcomeMessageWrapperCardMainTextContactBlock"
+              class="bg-info welcomeMessageCardMainTextContactBlock"
             >
               Mail :
 
               <font-awesome-icon
                 icon="envelope"
-                class="
-                  text-primary
-                  welcomeMessageWrapperCardMainTextContactBlockLogo
-                "
+                class="text-primary welcomeMessageCardMainTextContactBlockLogo"
               />
             </a>
           </div>
         </div>
-        <div class="welcomeMessageWrapperCardFooter">
+        <div class="welcomeMessageCardFooter">
           <Button
             text="Ne plus afficher"
             :secondary="true"
@@ -177,118 +156,31 @@ export default {
   background: rgba(255, 255, 255, 0.9);
   overflow-x: scroll;
   scrollbar-width: thin;
-  &SideBar {
-    display: none;
-  }
 
-  &Wrapper {
-    width: 100%;
-    height: 100%;
-    &Card {
+  &Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 92%;
+    max-width: 800px;
+    margin-top: 2rem;
+    padding: 0 0 2rem 0;
+
+    &Header {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      width: 92%;
-      max-width: 800px;
-      margin-top: 2rem;
-      padding: 0 0 2rem 0;
-
-      &Header {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        &FirstTitle {
-          margin: 1rem 0 0 0;
-        }
-        &Title {
-          margin: 0;
-          font-size: 3rem;
-        }
-        &SubTitle {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          align-items: center;
-          width: 100%;
-          max-width: 450px;
-        }
+      width: 100%;
+      &FirstTitle {
+        margin: 1rem 0 0 0;
       }
-      &Main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem 0.8rem;
-        width: 100%;
-        &BlockPrimary {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          padding: 0 1rem;
-        }
-        &SubTitle {
-          max-width: 480px;
-          margin: 0;
-          padding: 0.8rem 0 0 0;
-          font-weight: 700;
-          font-size: 1.2rem;
-        }
-        &Text {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          height: 100%;
-          max-width: 480px;
-          margin: 0;
-          padding: 0rem 0 0.8rem 0;
-          &Contact {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            width: 100%;
-            height: 100%;
-            &Block {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              gap: 1rem;
-              width: 110px;
-              height: 140px;
-              padding: 1rem;
-              margin: 1rem;
-              border-radius: 15px;
-              box-shadow: 0 0 4px 0px rgb(210, 209, 218);
-              color: black;
-              &:hover {
-                box-shadow: 0 0 10px 0px rgb(156, 153, 177);
-              }
-              &Icon {
-                max-width: 80px;
-                max-height: 80px;
-                &LinkedIn {
-                  max-width: 65px;
-                  max-height: 65px;
-                }
-              }
-              &Logo {
-                width: 80px;
-                font-size: 3rem;
-              }
-            }
-          }
-        }
+      &Title {
+        margin: 0;
+        font-size: 3rem;
       }
-      &Footer {
+      &SubTitle {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -297,23 +189,97 @@ export default {
         max-width: 450px;
       }
     }
+    &Main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 0.8rem;
+      width: 100%;
+      &BlockPrimary {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0 1rem;
+      }
+      &SubTitle {
+        max-width: 480px;
+        margin: 0;
+        padding: 0.8rem 0 0 0;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+      &Text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        max-width: 480px;
+        margin: 0;
+        padding: 0rem 0 0.8rem 0;
+        &Contact {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          width: 100%;
+          height: 100%;
+          &Block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            width: 110px;
+            height: 140px;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 0 4px 0px rgb(210, 209, 218);
+            color: black;
+            &:hover {
+              box-shadow: 0 0 10px 0px rgb(156, 153, 177);
+            }
+            &Icon {
+              max-width: 80px;
+              max-height: 80px;
+              &LinkedIn {
+                max-width: 65px;
+                max-height: 65px;
+              }
+            }
+            &Logo {
+              width: 80px;
+              font-size: 3rem;
+            }
+          }
+        }
+      }
+    }
+    &Footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      max-width: 450px;
+    }
   }
 }
 @media (min-width: 992px) {
   .welcomeMessage {
     top: 0px;
-    &SideBar {
-      display: unset;
-      flex: 0 0 300px;
-    }
-    &Wrapper {
-      &Card {
-        flex: 1 1 auto;
-        margin-top: 10rem;
-        &Header {
-          &Title {
-            font-size: 4rem;
-          }
+    &Card {
+      flex: 1 1 auto;
+      margin-top: 10rem;
+      &Header {
+        &Title {
+          font-size: 4rem;
         }
       }
     }

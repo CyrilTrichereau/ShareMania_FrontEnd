@@ -56,7 +56,7 @@
           </p>
         </div>
         <div
-          class="forgottenPasswordWrapperCardValidateButton "
+          class="forgottenPasswordWrapperCardValidateButton"
           @click="sendForgottenPasswordInfos"
         >
           <Button text="Valider" />
@@ -219,7 +219,7 @@ export default {
   .forgottenPassword {
     top: 0px;
     &SideBar {
-      display: unset;
+      display: none;
       flex: 0 0 300px;
     }
     &Wrapper {

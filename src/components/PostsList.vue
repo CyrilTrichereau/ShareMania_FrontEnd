@@ -270,12 +270,10 @@ export default {
     },
     async fetchMorePosts() {
       if (!this.postsGiphy) {
-        this.postsList.push(
-          this.fetchPosts(
-            this.orderBySaved,
-            this.numberOfPostsToFetch,
-            this.displayToPostNumber
-          )
+        this.fetchPosts(
+          this.orderBySaved,
+          this.numberOfPostsToFetch,
+          this.displayToPostNumber
         );
       } else {
         this.fetchPostsGiphyTrending(this.lastTypeUsed);
